@@ -2,7 +2,7 @@ import torch.nn as nn
 
 
 class CNN(nn.Module):
-    def __init__(self, num_classes=100):  # Changed num_classes to 100
+    def __init__(self, num_classes=100):
         super(CNN, self).__init__()
         self.conv1 = nn.Conv2d(3, 32, kernel_size=3, padding=1)
         self.relu = nn.ReLU()
