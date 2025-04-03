@@ -1,2 +1,6 @@
-# distributed_learning
-Distributed Learning project
+# Distributed Learning
+
+### Run training
+
+`python -m torch.distributed.launch --nproc_per_node=2 train.py`
+
