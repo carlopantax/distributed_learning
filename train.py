@@ -5,12 +5,14 @@ from torch.nn.parallel import DistributedDataParallel
 from torch.utils.data import DistributedSampler
 import torch.distributed as dist
 from utils.data_utils import load_cifar100
-from models.cnn import CNN
+from models.lenet import LeNet5
 import time
 from config import learning_rate, batch_size, epochs
 import os
 from utils.plot_train import plot_data
 from utils.distributed import setup_distributed, cleanup_distributed, is_main_process, setup_logger, get_rank, get_world_size
+os.environ["OMP_NUM_THREADS"] = "4"  # Valore ottimale dipende dalla tua CPU
+os.environ["MKL_NUM_THREADS"] = "4"  # Per Intel MKL
 
 def train():
     """
@@ -46,7 +48,7 @@ def train():
 
     trainloader, _ = load_cifar100(batch_size=batch_size, distributed=True,
                                    rank=global_rank, world_size=world_size)
-    model = CNN(num_classes=100).to(device)
+    model = LeNet5(num_classes=100).to(device)
 
     if torch.cuda.is_available():
         model = DistributedDataParallel(model, device_ids=[local_rank])
