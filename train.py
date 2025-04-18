@@ -7,12 +7,14 @@ from torch.utils.data import DistributedSampler
 import torch.distributed as dist
 from utils.distributed import setup_distributed, cleanup_distributed, is_main_process, get_rank, get_world_size, setup_logger
 from utils.data_utils import load_cifar100
-from models.cnn import CNN
+from models.lenet import LeNet5
 import time
 from config import learning_rate, batch_size, epochs
 import os
 from utils.plot_train import plot_data
-
+import os
+os.environ["OMP_NUM_THREADS"] = "4"  # Valore ottimale dipende dalla tua CPU
+os.environ["MKL_NUM_THREADS"] = "4"  # Per Intel MKL
 
 def train():
     """
@@ -72,7 +74,7 @@ def train():
         return
 
     try:
-        model = CNN(num_classes=100).to(device)
+        model = LeNet5(num_classes=100).to(device)
         model = DistributedDataParallel(model)
         criterion = nn.CrossEntropyLoss().to(device)
         optimizer = optim.Adam(model.parameters(), lr=learning_rate)
@@ -164,5 +166,5 @@ def train():
 
 
 if __name__ == '__main__':
-    # train()
-    plot_data()
+    train()
+    #plot_data()
