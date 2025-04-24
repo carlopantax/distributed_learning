@@ -25,6 +25,12 @@ def train():
 
     Examples:
         torchrun --nproc_per_node=4 train.py      # for 4-GPU or 4-CPU parallel training on one machine
+
+    In order to excute centalized training, you can run the script as follows:
+        python train_centralized.py
+
+    To compare the results of centralized and distributed training, you can run the following command:
+        python compare_runs.py
     """
     # Reading torchrun variables
     local_rank = int(os.environ.get('LOCAL_RANK', 0))
@@ -92,8 +98,17 @@ def train():
         dist.barrier()
 
     if is_main_process(global_rank):
-        torch.save(model.module.state_dict(), f'cifar100_model_ep{epochs}.pth')
-        logger.info("Model checkpoint saved.")
+      torch.save(model.module.state_dict(), f'cifar100_model_ep{epochs}.pth')
+      logger.info("Model checkpoint saved.")
+
+      total_time = time.time() - start_time
+      total_images = epochs * len(trainloader.dataset) * world_size  
+      throughput = total_images / total_time
+
+
+      logger.info(f"Training completed in {total_time:.2f} seconds.")
+      logger.info(f"Average throughput: {throughput:.2f} Images/sec")
+
 
     cleanup_distributed()
 
