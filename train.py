@@ -24,13 +24,14 @@ def train():
     This script is designed for single-machine multi-process training with torchrun.
 
     Examples:
-        torchrun --nproc_per_node=4 train.py      # for 4-GPU or 4-CPU parallel training on one machine
+        !torchrun --nproc_per_node=4 train.py      # for 4-GPU or 4-CPU parallel training on one machine
 
     In order to excute centalized training, you can run the script as follows:
-        python train_centralized.py
+        !python train_centralized.py --optimizer sgdm --lr 0.05
+        or !python train_centralized.py --optimizer adamw --lr 0.001
 
     To compare the results of centralized and distributed training, you can run the following command:
-        python compare_runs.py
+        !python compare_runs.py
     """
     # Reading torchrun variables
     local_rank = int(os.environ.get('LOCAL_RANK', 0))

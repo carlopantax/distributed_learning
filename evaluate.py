@@ -1,48 +1,43 @@
+import argparse
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
-from models.cnn import CNN  # Make sure this matches your training model
+from models.lenet import LeNet5
 
-def evaluate():
-    # --- Config ---
-    model_path = 'cifar100_distributed_cpu_model.pth'
-    batch_size = 128
-    device = torch.device("cpu")  # or "cuda" if you're testing on GPU
-
-    # --- Load CIFAR-100 test dataset ---
+def evaluate(model_path, device='cpu'):
+    print(f"Evaluating model from: {model_path}")
     transform_test = transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761))
     ])
 
     testset = datasets.CIFAR100(root='./data', train=False, download=True, transform=transform_test)
-    testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=4)
+    testloader = DataLoader(testset, batch_size=128, shuffle=False, num_workers=4)
 
-    # --- Load model ---
-    model = CNN(num_classes=100)
+    model = LeNet5(num_classes=100)
     model.load_state_dict(torch.load(model_path, map_location=device))
     model.to(device)
     model.eval()
 
-    # --- Evaluation loop ---
     correct = 0
     total = 0
 
     with torch.no_grad():
         for i, (inputs, labels) in enumerate(testloader):
-            try:
-                inputs, labels = inputs.to(device), labels.to(device)
-                outputs = model(inputs)
-                _, predicted = torch.max(outputs, 1)
-                total += labels.size(0)
-                correct += (predicted == labels).sum().item()
-            except Exception as e:
-                print(f"Error in batch {i}: {e}")
+            inputs, labels = inputs.to(device), labels.to(device)
+            outputs = model(inputs)
+            _, predicted = torch.max(outputs, 1)
+            correct += (predicted == labels).sum().item()
+            total += labels.size(0)
 
     accuracy = 100 * correct / total
     print(f'Test Accuracy: {accuracy:.2f}%')
 
-
 if __name__ == '__main__':
-    evaluate()
+    parser = argparse.ArgumentParser(description='Evaluate a trained model on CIFAR-100')
+    parser.add_argument('--model', type=str, required=True, help='Path to model .pth file')
+    parser.add_argument('--device', type=str, default='cuda' if torch.cuda.is_available() else 'cpu')
+    args = parser.parse_args()
+
+    evaluate(model_path=args.model, device=args.device)
