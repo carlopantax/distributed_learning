@@ -4,12 +4,14 @@ import torch.optim as optim
 from torch.nn.parallel import DistributedDataParallel
 from torch.utils.data import DistributedSampler
 import torch.distributed as dist
+
+from utils.TrainingLogger import TrainingLogger
+from utils.TrainingPlotter import TrainingPlotter
 from utils.data_utils import load_cifar100
 from models.lenet import LeNet5
 import time
 from config import learning_rate, batch_size, epochs
 import os
-from utils.plot_train import plot_data
 from utils.distributed import setup_distributed, cleanup_distributed, is_main_process, setup_logger, get_rank, get_world_size
 os.environ["OMP_NUM_THREADS"] = "4"  # Valore ottimale dipende dalla tua CPU
 os.environ["MKL_NUM_THREADS"] = "4"  # Per Intel MKL
@@ -44,12 +46,19 @@ def train():
 
     setup_distributed(global_rank, world_size, backend=backend)
 
-    logger = setup_logger(global_rank)
+    # logger = setup_logger(global_rank)
+    train_name = f"lenet5_cifar100_w{world_size}_{time.strftime('%Y%m%d_%H%M%S')}"
+    logger = TrainingLogger(
+        log_dir='logs',
+        train_name=train_name,
+        rank=global_rank,
+        is_main_process=is_main_process(global_rank)
+    )
 
     if is_main_process(global_rank):
-        logger.info(f"Starting training on single machine with {world_size} processes")
-        logger.info(f"Device: {device} | Backend: {backend}")
-        logger.info(f"Config: batch_size={batch_size}, lr={learning_rate}, epochs={epochs}")
+        logger.log(f"Starting training on single machine with {world_size} processes")
+        logger.log(f"Device: {device} | Backend: {backend}")
+        logger.log(f"Config: batch_size={batch_size}, lr={learning_rate}, epochs={epochs}")
 
     dist.barrier()
 
@@ -66,10 +75,13 @@ def train():
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
     start_time = time.time()
+    total_train_size = len(trainloader.dataset) * world_size
 
     for epoch in range(epochs):
         epoch_start = time.time()
         running_loss = 0.0
+        epoch_loss = 0.0
+        batch_count = 0
 
         if isinstance(trainloader.sampler, DistributedSampler):
             trainloader.sampler.set_epoch(epoch)
@@ -83,40 +95,59 @@ def train():
             optimizer.step()
 
             running_loss += loss.item()
+            epoch_loss += loss.item()
+            batch_count += 1
+
 
             if i % log_interval == log_interval - 1:
                 avg_loss = running_loss / log_interval
-                elapsed = time.time() - start_time
-                imgs_per_sec = (i + 1) * batch_size / elapsed
-                logger.info(f"Epoch: {epoch+1}/{epochs} | Batch: {i+1}/{len(trainloader)} | "
-                            f"Loss: {avg_loss:.4f} | Images/sec: {imgs_per_sec:.2f}")
+                logger.log_metrics(
+                    epoch=epoch,
+                    batch_idx=i,
+                    loss=avg_loss,
+                    batch_size=batch_size,
+                    train_size=total_train_size,
+                    extras={'lr': optimizer.param_groups[0]['lr']}
+                )
                 running_loss = 0.0
 
+
         epoch_time = time.time() - epoch_start
-        if is_main_process(global_rank):
-            logger.info(f"Epoch {epoch+1} completed in {epoch_time:.2f}s")
+        avg_epoch_loss = epoch_loss / batch_count
+
+        # Log epoch stats with our new logger
+        logger.log_epoch(
+            epoch=epoch,
+            epoch_loss=avg_epoch_loss,
+            epoch_time=epoch_time,
+            world_size=world_size
+        )
 
         dist.barrier()
 
     if is_main_process(global_rank):
-      torch.save(model.module.state_dict(), f'cifar100_model_ep{epochs}.pth')
-      logger.info("Model checkpoint saved.")
+        os.makedirs('checkpoints', exist_ok=True)
+        checkpoint_path = f'checkpoints/cifar100_model_ep{epochs}.pth'
+        torch.save(model.module.state_dict(), checkpoint_path)
+        logger.log(f"Model checkpoint saved to {checkpoint_path}")
 
-      total_time = time.time() - start_time
-      total_images = epochs * len(trainloader.dataset) * world_size  
-      throughput = total_images / total_time
+        total_time = time.time() - start_time
+        total_images = epochs * total_train_size
 
-
-      logger.info(f"Training completed in {total_time:.2f} seconds.")
-      logger.info(f"Average throughput: {throughput:.2f} Images/sec")
-
+        logger.log_training_complete(total_time, total_images, world_size)
 
     cleanup_distributed()
 
     if is_main_process(global_rank):
-        logger.info("Training complete.")
+        logger.log("Generating training plots...")
+        plotter = TrainingPlotter(
+            log_dir='logs',
+            train_name=train_name,
+            is_main_process=True
+        )
+        plotter.plot_all()
+        logger.log("Training complete. Plots generated.")
 
 
 if __name__ == '__main__':
     train()
-    plot_data() 
