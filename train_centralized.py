@@ -182,7 +182,6 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, resume=True, c
     logger.log("Generating training plots...")
     plotter = TrainingPlotter(
         log_dir='logs_centralized',
-        train_name=train_name,
         is_main_process=True
     )
     plotter.plot_all()
