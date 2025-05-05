@@ -1,204 +1,23 @@
 import os
 import json
 import time
-import logging
 import matplotlib.pyplot as plt
 import numpy as np
-from collections import defaultdict
-
-
-class TrainingLogger:
-    """
-    Class to manage logging during training in a distributed setting.
-    Handles log rotation, formatting, and saving metrics to file.
-    """
-
-    def __init__(self, log_dir='logs', exp_name=None, rank=0, is_main_process=False):
-        """
-        Initialize the logger.
-
-        Args:
-            log_dir (str): Directory to save logs
-            exp_name (str): Experiment name for the log files
-            rank (int): Process rank in distributed training
-            is_main_process (bool): Whether this process is the main process
-        """
-        self.rank = rank
-        self.is_main_process = is_main_process
-        self.metrics = defaultdict(list)
-        self.start_time = time.time()
-
-        # Only the main process saves logs to avoid conflicts
-        if self.is_main_process:
-            os.makedirs(log_dir, exist_ok=True)
-
-            # Create experiment name based on timestamp if not provided
-            if exp_name is None:
-                exp_name = f"run_{time.strftime('%Y%m%d_%H%M%S')}"
-
-            self.exp_name = exp_name
-            self.log_dir = log_dir
-            self.log_file = os.path.join(log_dir, f"{exp_name}.log")
-            self.metrics_file = os.path.join(log_dir, f"{exp_name}_metrics.json")
-
-            # Configure logging
-            self.logger = logging.getLogger(f"trainer_{rank}")
-            self.logger.setLevel(logging.INFO)
-
-            # Create file handler
-            file_handler = logging.FileHandler(self.log_file)
-            file_handler.setLevel(logging.INFO)
-
-            # Create console handler
-            console_handler = logging.StreamHandler()
-            console_handler.setLevel(logging.INFO)
-
-            # Create formatter
-            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-            file_handler.setFormatter(formatter)
-            console_handler.setFormatter(formatter)
-
-            # Add handlers to logger
-            self.logger.addHandler(file_handler)
-            self.logger.addHandler(console_handler)
-
-            self.logger.info(f"Started training experiment: {exp_name}")
-            self.logger.info(f"Log file: {self.log_file}")
-
-    def log(self, message, level='info'):
-        """Log a message with the specified level."""
-        if self.is_main_process:
-            if level.lower() == 'info':
-                self.logger.info(message)
-            elif level.lower() == 'warning':
-                self.logger.warning(message)
-            elif level.lower() == 'error':
-                self.logger.error(message)
-            elif level.lower() == 'debug':
-                self.logger.debug(message)
-
-    def log_metrics(self, epoch, batch_idx, loss, batch_size, train_size, extras=None):
-        """
-        Log training metrics for the current batch.
-
-        Args:
-            epoch (int): Current epoch
-            batch_idx (int): Current batch index
-            loss (float): Current loss value
-            batch_size (int): Size of the batch
-            train_size (int): Total size of the training set
-            extras (dict): Extra metrics to log
-        """
-        if not self.is_main_process:
-            return
-
-        elapsed = time.time() - self.start_time
-        progress = 100. * batch_idx * batch_size / train_size
-        imgs_per_sec = batch_idx * batch_size / elapsed if elapsed > 0 else 0
-
-        # Store metrics
-        self.metrics['epoch'].append(epoch)
-        self.metrics['batch'].append(batch_idx)
-        self.metrics['loss'].append(loss)
-        self.metrics['imgs_per_sec'].append(imgs_per_sec)
-        self.metrics['progress'].append(progress)
-        self.metrics['elapsed'].append(elapsed)
-
-        if extras:
-            for key, value in extras.items():
-                self.metrics[key].append(value)
-
-        log_msg = (
-            f"Epoch: {epoch + 1} | "
-            f"Batch: {batch_idx + 1}/{train_size // batch_size} | "
-            f"Loss: {loss:.4f} | "
-            f"Images/sec: {imgs_per_sec:.2f} | "
-            f"Progress: {progress:.1f}% | "
-            f"Time: {elapsed:.2f}s"
-        )
-
-        # Add extras to log message if provided
-        if extras:
-            extras_str = " | ".join([f"{k}: {v:.4f}" for k, v in extras.items()])
-            log_msg += f" | {extras_str}"
-
-        self.log(log_msg)
-
-    def log_epoch(self, epoch, epoch_loss, epoch_time, world_size=1, extras=None):
-        """
-        Log metrics for completed epoch.
-
-        Args:
-            epoch (int): Current epoch
-            epoch_loss (float): Average loss for the epoch
-            epoch_time (float): Time taken for the epoch
-            world_size (int): Number of processes in distributed training
-            extras (dict): Extra metrics to log
-        """
-        if not self.is_main_process:
-            return
-
-        # Store epoch metrics
-        self.metrics['epoch_loss'].append(epoch_loss)
-        self.metrics['epoch_time'].append(epoch_time)
-
-        if extras:
-            for key, value in extras.items():
-                self.metrics[f"epoch_{key}"].append(value)
-
-        log_msg = (
-            f"Epoch {epoch + 1} completed in {epoch_time:.2f}s | "
-            f"Average Loss: {epoch_loss:.4f}"
-        )
-
-        # Add extras to log message if provided
-        if extras:
-            extras_str = " | ".join([f"{k}: {v:.4f}" for k, v in extras.items()])
-            log_msg += f" | {extras_str}"
-
-        self.log(log_msg)
-
-    def log_training_complete(self, total_time, total_images, world_size=1):
-        """
-        Log final training statistics.
-
-        Args:
-            total_time (float): Total training time
-            total_images (int): Total number of images processed
-            world_size (int): Number of processes in distributed training
-        """
-        if not self.is_main_process:
-            return
-
-        throughput = total_images / total_time
-
-        self.metrics['total_time'] = total_time
-        self.metrics['throughput'] = throughput
-        self.metrics['world_size'] = world_size
-
-        self.log(f"Training completed in {total_time:.2f} seconds.")
-        self.log(f"Average throughput: {throughput:.2f} Images/sec")
-        self.log(f"Total processes: {world_size}")
-
-        # Save all metrics to JSON file
-        with open(self.metrics_file, 'w') as f:
-            json.dump(self.metrics, f, indent=4)
-
-        self.log(f"Metrics saved to {self.metrics_file}")
 
 
 class TrainingPlotter:
     """
     Class to generate and save plots from training metrics.
+    Optimized for visualizing longer training runs with many epochs.
     """
 
-    def __init__(self, log_dir='logs', exp_name=None, is_main_process=False):
+    def __init__(self, log_dir='logs', train_name=None, is_main_process=False):
         """
         Initialize the plotter.
 
         Args:
             log_dir (str): Directory where logs are saved
-            exp_name (str): Experiment name
+            train_name (str): Training experiment name
             is_main_process (bool): Whether this process is the main process
         """
         self.is_main_process = is_main_process
@@ -209,17 +28,17 @@ class TrainingPlotter:
             os.makedirs(os.path.join(log_dir, 'plots'), exist_ok=True)
 
             # Set experiment name
-            if exp_name is None:
+            if train_name is None:
                 # Try to find the latest metrics file
                 metrics_files = [f for f in os.listdir(log_dir) if f.endswith('_metrics.json')]
                 if metrics_files:
                     # Get the most recent file
-                    exp_name = metrics_files[-1].replace('_metrics.json', '')
+                    train_name = metrics_files[-1].replace('_metrics.json', '')
                 else:
-                    exp_name = f"run_{time.strftime('%Y%m%d_%H%M%S')}"
+                    train_name = f"run_{time.strftime('%Y%m%d_%H%M%S')}"
 
-            self.exp_name = exp_name
-            self.metrics_file = os.path.join(log_dir, f"{exp_name}_metrics.json")
+            self.train_name = train_name
+            self.metrics_file = os.path.join(log_dir, f"{train_name}_metrics.json")
             self.plots_dir = os.path.join(log_dir, 'plots')
 
     def _load_metrics(self):
@@ -231,101 +50,139 @@ class TrainingPlotter:
         with open(self.metrics_file, 'r') as f:
             return json.load(f)
 
-    def plot_training_loss(self):
-        """Plot the training loss over time."""
+    def _get_epoch_range(self, num_epochs):
+        """Creates a proper epoch range for x-axis ticks."""
+        if num_epochs <= 20:
+            return list(range(1, num_epochs + 1))
+        elif num_epochs <= 50:
+            return list(range(1, num_epochs + 1, 2))
+        elif num_epochs <= 100:
+            return list(range(1, num_epochs + 1, 5))
+        else:
+            return list(range(1, num_epochs + 1, 10))
+
+    def plot_epoch_loss(self):
+        """Plot the training loss over epochs."""
         if not self.is_main_process:
             return
 
         metrics = self._load_metrics()
-        if not metrics or 'loss' not in metrics:
+        if not metrics or 'epoch_loss' not in metrics:
+            print("No epoch loss data found in metrics.")
             return
 
-        plt.figure(figsize=(10, 6))
-        plt.plot(metrics['loss'], label='Training Loss')
+        plt.figure(figsize=(12, 6))
 
-        # If we have epoch loss data, add it as points
-        if 'epoch_loss' in metrics and 'epoch' in metrics:
-            # Find the last batch index for each epoch
-            unique_epochs = sorted(set(metrics['epoch']))
-            epoch_indices = []
-            for e in unique_epochs:
-                indices = [i for i, epoch in enumerate(metrics['epoch']) if epoch == e]
-                if indices:
-                    epoch_indices.append(max(indices))
+        # Get epoch numbers (1-indexed for display)
+        epochs = list(range(1, len(metrics['epoch_loss']) + 1))
 
-            # Extract loss values at those indices
-            epoch_x = [i for i in range(len(metrics['epoch_loss']))]
-            epoch_y = metrics['epoch_loss']
+        # Plot the epoch loss
+        plt.plot(epochs, metrics['epoch_loss'], 'o-', linewidth=2, markersize=8,
+                 color='blue', label='Loss per Epoch')
 
-            plt.scatter(epoch_x, epoch_y, color='red', s=50, label='Epoch Average')
+        # Mark minimum loss
+        min_loss = min(metrics['epoch_loss'])
+        min_epoch = metrics['epoch_loss'].index(min_loss) + 1
+        plt.scatter([min_epoch], [min_loss], color='green', s=100, zorder=5,
+                    label=f'Min Loss: {min_loss:.4f} (Epoch {min_epoch})')
 
-        plt.title(f'Training Loss Over Time - {self.exp_name}')
-        plt.xlabel('Batch')
+        # Add smoothed trendline if we have enough epochs
+        if len(epochs) > 5:
+            # Simple moving average for trend visualization
+            window_size = min(5, len(epochs) // 5)
+            if window_size > 1:
+                smoothed = np.convolve(metrics['epoch_loss'],
+                                       np.ones(window_size) / window_size,
+                                       mode='valid')
+                plt.plot(range(window_size, len(epochs) + 1), smoothed,
+                         color='red', linestyle='--', linewidth=1.5,
+                         label=f'{window_size}-Epoch Moving Avg')
+
+        plt.title(f'Loss per Epoch - {self.train_name}')
+        plt.xlabel('Epoch')
         plt.ylabel('Loss')
-        plt.legend()
         plt.grid(True, linestyle='--', alpha=0.7)
+        plt.legend()
 
-        save_path = os.path.join(self.plots_dir, f"{self.exp_name}_loss.png")
+        # Set appropriate x-ticks based on number of epochs
+        plt.xticks(self._get_epoch_range(len(epochs)))
+
+        save_path = os.path.join(self.plots_dir, f"{self.train_name}_epoch_loss.png")
         plt.savefig(save_path)
         plt.close()
-        print(f"Loss plot saved to {save_path}")
+        print(f"Epoch loss plot saved to {save_path}")
 
-    def plot_throughput(self):
-        """Plot the training throughput over time."""
-        if not self.is_main_process:
-            return
-
-        metrics = self._load_metrics()
-        if not metrics or 'imgs_per_sec' not in metrics:
-            return
-
-        plt.figure(figsize=(10, 6))
-        plt.plot(metrics['imgs_per_sec'], label='Images/second')
-
-        if 'throughput' in metrics:
-            plt.axhline(y=metrics['throughput'], color='r', linestyle='-',
-                        label=f'Average: {metrics["throughput"]:.2f} imgs/sec')
-
-        plt.title(f'Training Throughput - {self.exp_name}')
-        plt.xlabel('Batch')
-        plt.ylabel('Images/second')
-        plt.legend()
-        plt.grid(True, linestyle='--', alpha=0.7)
-
-        save_path = os.path.join(self.plots_dir, f"{self.exp_name}_throughput.png")
-        plt.savefig(save_path)
-        plt.close()
-        print(f"Throughput plot saved to {save_path}")
-
-    def plot_epoch_times(self):
+    def plot_epoch_time(self):
         """Plot the time taken for each epoch."""
         if not self.is_main_process:
             return
 
         metrics = self._load_metrics()
         if not metrics or 'epoch_time' not in metrics:
+            print("No epoch time data found in metrics.")
             return
 
-        plt.figure(figsize=(10, 6))
+        plt.figure(figsize=(12, 6))
 
         # Create x-axis labels (epoch numbers)
         epochs = list(range(1, len(metrics['epoch_time']) + 1))
 
         plt.bar(epochs, metrics['epoch_time'], color='skyblue')
-        plt.axhline(y=np.mean(metrics['epoch_time']), color='r', linestyle='-',
-                    label=f'Average: {np.mean(metrics["epoch_time"]):.2f}s')
+        avg_time = np.mean(metrics['epoch_time'])
+        plt.axhline(y=avg_time, color='r', linestyle='-',
+                    label=f'Average: {avg_time:.2f}s')
 
-        plt.title(f'Time per Epoch - {self.exp_name}')
+        plt.title(f'Time per Epoch - {self.train_name}')
         plt.xlabel('Epoch')
         plt.ylabel('Time (seconds)')
         plt.legend()
         plt.grid(True, linestyle='--', alpha=0.7)
-        plt.xticks(epochs)
 
-        save_path = os.path.join(self.plots_dir, f"{self.exp_name}_epoch_times.png")
+        # Set appropriate x-ticks based on number of epochs
+        plt.xticks(self._get_epoch_range(len(epochs)))
+
+        save_path = os.path.join(self.plots_dir, f"{self.train_name}_epoch_times.png")
         plt.savefig(save_path)
         plt.close()
         print(f"Epoch times plot saved to {save_path}")
+
+    def plot_epoch_throughput(self):
+        """Plot the throughput for each epoch."""
+        if not self.is_main_process:
+            return
+
+        metrics = self._load_metrics()
+        if not metrics or 'epoch_time' not in metrics:
+            print("No epoch time data found for throughput calculation.")
+            return
+
+        plt.figure(figsize=(12, 6))
+
+        # Create x-axis labels (epoch numbers)
+        epochs = list(range(1, len(metrics['epoch_time']) + 1))
+
+        # Calculate throughput as inverse of time (higher is better)
+        # Note: This is a relative measure unless we know exact batch counts
+        throughputs = [1.0 / t for t in metrics['epoch_time']]
+
+        plt.bar(epochs, throughputs, color='lightgreen')
+        avg_throughput = np.mean(throughputs)
+        plt.axhline(y=avg_throughput, color='r', linestyle='-',
+                    label=f'Average: {avg_throughput:.4f}')
+
+        plt.title(f'Throughput per Epoch - {self.train_name}')
+        plt.xlabel('Epoch')
+        plt.ylabel('Relative Throughput (1/seconds)')
+        plt.legend()
+        plt.grid(True, linestyle='--', alpha=0.7)
+
+        # Set appropriate x-ticks based on number of epochs
+        plt.xticks(self._get_epoch_range(len(epochs)))
+
+        save_path = os.path.join(self.plots_dir, f"{self.train_name}_epoch_throughput.png")
+        plt.savefig(save_path)
+        plt.close()
+        print(f"Epoch throughput plot saved to {save_path}")
 
     def plot_accuracy(self):
         """Plot the training and validation accuracy over epochs."""
@@ -344,113 +201,270 @@ class TrainingPlotter:
             print("No accuracy data found in metrics.")
             return
 
-        plt.figure(figsize=(10, 6))
+        plt.figure(figsize=(12, 6))
         epochs = list(range(1, len(metrics['epoch_loss']) + 1))
 
         if has_train_acc:
-            plt.plot(epochs, metrics['epoch_train_acc'], 'o-', color='blue', label='Training Accuracy')
+            plt.plot(epochs, metrics['epoch_train_acc'], 'o-', color='blue',
+                     label='Training Accuracy')
 
         if has_val_acc:
-            plt.plot(epochs, metrics['epoch_val_acc'], 'o-', color='red', label='Validation Accuracy')
+            plt.plot(epochs, metrics['epoch_val_acc'], 'o-', color='red',
+                     label='Validation Accuracy')
 
-        plt.title(f'Model Accuracy - {self.exp_name}')
+            # Mark best validation accuracy
+            if len(metrics['epoch_val_acc']) > 0:
+                best_acc = max(metrics['epoch_val_acc'])
+                best_epoch = metrics['epoch_val_acc'].index(best_acc) + 1
+                plt.scatter([best_epoch], [best_acc], color='green', s=100, zorder=5,
+                            label=f'Best Val Acc: {best_acc:.2f}% (Epoch {best_epoch})')
+
+        plt.title(f'Model Accuracy - {self.train_name}')
         plt.xlabel('Epoch')
         plt.ylabel('Accuracy (%)')
         plt.legend()
         plt.grid(True, linestyle='--', alpha=0.7)
 
-        save_path = os.path.join(self.plots_dir, f"{self.exp_name}_accuracy.png")
+        # Set appropriate x-ticks based on number of epochs
+        plt.xticks(self._get_epoch_range(len(epochs)))
+
+        save_path = os.path.join(self.plots_dir, f"{self.train_name}_accuracy.png")
         plt.savefig(save_path)
         plt.close()
         print(f"Accuracy plot saved to {save_path}")
+
+    def plot_learning_rate(self):
+        """Plot the learning rate over epochs if available."""
+        if not self.is_main_process:
+            return
+
+        metrics = self._load_metrics()
+        if not metrics or 'epoch_lr' not in metrics:
+            print("No learning rate data found in metrics.")
+            return
+
+        plt.figure(figsize=(12, 6))
+
+        epochs = list(range(1, len(metrics['epoch_lr']) + 1))
+        plt.plot(epochs, metrics['epoch_lr'], 'o-', color='purple', linewidth=2)
+
+        plt.title(f'Learning Rate Schedule - {self.train_name}')
+        plt.xlabel('Epoch')
+        plt.ylabel('Learning Rate')
+        plt.grid(True, linestyle='--', alpha=0.7)
+
+        # Use log scale if learning rate changes significantly
+        lr_max = max(metrics['epoch_lr'])
+        lr_min = min(metrics['epoch_lr'])
+        if lr_max > lr_min * 10:  # If max LR is more than 10x min LR
+            plt.yscale('log')
+
+        # Set appropriate x-ticks based on number of epochs
+        plt.xticks(self._get_epoch_range(len(epochs)))
+
+        save_path = os.path.join(self.plots_dir, f"{self.train_name}_learning_rate.png")
+        plt.savefig(save_path)
+        plt.close()
+        print(f"Learning rate plot saved to {save_path}")
+
+    def plot_metric_comparison(self):
+        """Plot multiple metrics on the same graph for comparison."""
+        if not self.is_main_process:
+            return
+
+        metrics = self._load_metrics()
+        if not metrics or 'epoch_loss' not in metrics:
+            print("No epoch metrics found for comparison.")
+            return
+
+        # Find all epoch-level metrics
+        epoch_metrics = [key for key in metrics.keys() if key.startswith('epoch_') and key != 'epoch_time']
+
+        if len(epoch_metrics) < 2:
+            print("Not enough epoch metrics for comparison.")
+            return
+
+        plt.figure(figsize=(12, 6))
+        epochs = list(range(1, len(metrics['epoch_loss']) + 1))
+
+        # Use two different y-axes if we have various metrics with different scales
+        fig, ax1 = plt.subplots(figsize=(12, 6))
+
+        # First metric on left y-axis (usually loss)
+        ax1.set_xlabel('Epoch')
+        ax1.set_ylabel('Loss', color='blue')
+        ax1.plot(epochs, metrics['epoch_loss'], 'o-', color='blue', label='Loss')
+        ax1.tick_params(axis='y', labelcolor='blue')
+
+        # Second metric on right y-axis (usually accuracy)
+        has_second_axis = False
+        for metric in epoch_metrics:
+            if metric != 'epoch_loss':
+                if not has_second_axis:
+                    ax2 = ax1.twinx()
+                    ax2.set_ylabel('Other Metrics', color='red')
+                    has_second_axis = True
+
+                label = metric.replace('epoch_', '')
+                ax2.plot(epochs, metrics[metric], 'o-', color='red' if metric == 'epoch_val_acc' else 'green',
+                         label=label.capitalize())
+
+        if has_second_axis:
+            ax2.tick_params(axis='y', labelcolor='red')
+
+        fig.tight_layout()
+        plt.title(f'Training Metrics Comparison - {self.train_name}')
+
+        # Create combined legend
+        lines1, labels1 = ax1.get_legend_handles_labels()
+        if has_second_axis:
+            lines2, labels2 = ax2.get_legend_handles_labels()
+            ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper right')
+        else:
+            ax1.legend(loc='upper right')
+
+        # Set appropriate x-ticks based on number of epochs
+        ax1.set_xticks(self._get_epoch_range(len(epochs)))
+
+        save_path = os.path.join(self.plots_dir, f"{self.train_name}_metrics_comparison.png")
+        plt.savefig(save_path)
+        plt.close()
+        print(f"Metrics comparison plot saved to {save_path}")
+
+    def plot_summary(self):
+        """Generate a summary plot with multiple subplots for key metrics."""
+        if not self.is_main_process:
+            return
+
+        metrics = self._load_metrics()
+        if not metrics:
+            return
+
+        # Count how many plots we'll need
+        plot_count = 0
+        has_loss = 'epoch_loss' in metrics
+        has_time = 'epoch_time' in metrics
+        has_train_acc = 'epoch_train_acc' in metrics
+        has_val_acc = 'epoch_val_acc' in metrics
+        has_lr = 'epoch_lr' in metrics
+
+        if has_loss: plot_count += 1
+        if has_time: plot_count += 1
+        if has_train_acc or has_val_acc: plot_count += 1
+        if has_lr: plot_count += 1
+
+        if plot_count == 0:
+            print("No plottable metrics found.")
+            return
+
+        # Configure the grid layout
+        rows = min(3, plot_count)
+        cols = (plot_count + rows - 1) // rows  # Ceiling division
+
+        fig, axes = plt.subplots(rows, cols, figsize=(15, 5 * rows))
+        if rows * cols == 1:
+            axes = np.array([axes])  # Make sure axes is always indexable as array
+        axes = axes.flatten()
+
+        current_ax = 0
+        epochs = list(range(1, len(metrics['epoch_loss']) + 1)) if has_loss else []
+
+        # Plot Loss
+        if has_loss:
+            ax = axes[current_ax]
+            ax.plot(epochs, metrics['epoch_loss'], 'o-', color='blue')
+
+            # Mark minimum loss
+            min_loss = min(metrics['epoch_loss'])
+            min_epoch = metrics['epoch_loss'].index(min_loss) + 1
+            ax.scatter([min_epoch], [min_loss], color='green', s=50, zorder=5)
+
+            ax.set_title('Training Loss')
+            ax.set_xlabel('Epoch')
+            ax.set_ylabel('Loss')
+            ax.grid(True, linestyle='--', alpha=0.7)
+            ax.set_xticks(self._get_epoch_range(len(epochs)))
+            current_ax += 1
+
+        # Plot Time per Epoch
+        if has_time:
+            ax = axes[current_ax]
+            ax.bar(epochs, metrics['epoch_time'], color='skyblue')
+            avg_time = np.mean(metrics['epoch_time'])
+            ax.axhline(y=avg_time, color='r', linestyle='-', label=f'Avg: {avg_time:.2f}s')
+
+            ax.set_title('Time per Epoch')
+            ax.set_xlabel('Epoch')
+            ax.set_ylabel('Time (seconds)')
+            ax.grid(True, linestyle='--', alpha=0.7)
+            ax.set_xticks(self._get_epoch_range(len(epochs)))
+            ax.legend()
+            current_ax += 1
+
+        # Plot Accuracy
+        if has_train_acc or has_val_acc:
+            ax = axes[current_ax]
+
+            if has_train_acc:
+                ax.plot(epochs, metrics['epoch_train_acc'], 'o-', color='blue', label='Train')
+
+            if has_val_acc:
+                ax.plot(epochs, metrics['epoch_val_acc'], 'o-', color='red', label='Val')
+
+                # Mark best validation accuracy
+                if len(metrics['epoch_val_acc']) > 0:
+                    best_acc = max(metrics['epoch_val_acc'])
+                    best_epoch = metrics['epoch_val_acc'].index(best_acc) + 1
+                    ax.scatter([best_epoch], [best_acc], color='green', s=50, zorder=5)
+
+            ax.set_title('Accuracy')
+            ax.set_xlabel('Epoch')
+            ax.set_ylabel('Accuracy (%)')
+            ax.grid(True, linestyle='--', alpha=0.7)
+            ax.legend()
+            ax.set_xticks(self._get_epoch_range(len(epochs)))
+            current_ax += 1
+
+        # Plot Learning Rate
+        if has_lr:
+            ax = axes[current_ax]
+            ax.plot(epochs, metrics['epoch_lr'], 'o-', color='purple')
+
+            ax.set_title('Learning Rate')
+            ax.set_xlabel('Epoch')
+            ax.set_ylabel('Learning Rate')
+            ax.grid(True, linestyle='--', alpha=0.7)
+
+            # Use log scale if learning rate changes significantly
+            lr_max = max(metrics['epoch_lr'])
+            lr_min = min(metrics['epoch_lr'])
+            if lr_max > lr_min * 10:  # If max LR is more than 10x min LR
+                ax.set_yscale('log')
+
+            ax.set_xticks(self._get_epoch_range(len(epochs)))
+            current_ax += 1
+
+        # Hide unused subplots
+        for i in range(current_ax, len(axes)):
+            axes[i].axis('off')
+
+        plt.tight_layout()
+        save_path = os.path.join(self.plots_dir, f"{self.train_name}_summary.png")
+        plt.savefig(save_path)
+        plt.close()
+        print(f"Summary plot saved to {save_path}")
 
     def plot_all(self):
         """Generate all available plots."""
         if not self.is_main_process:
             return
 
-        self.plot_training_loss()
-        self.plot_throughput()
-        self.plot_epoch_times()
-        self.plot_accuracy()  # Add the new accuracy plot
-
-        # Create a summary plot with multiple subplots
-        metrics = self._load_metrics()
-        if not metrics:
-            return
-
-        plt.figure(figsize=(15, 12))  # Increased height for more subplots
-
-        # Plot loss
-        if 'loss' in metrics:
-            plt.subplot(3, 2, 1)  # Changed to 3x2 grid
-            plt.plot(metrics['loss'], label='Training Loss')
-            plt.title('Training Loss')
-            plt.xlabel('Batch')
-            plt.ylabel('Loss')
-            plt.grid(True, linestyle='--', alpha=0.7)
-
-        # Plot throughput
-        if 'imgs_per_sec' in metrics:
-            plt.subplot(3, 2, 2)
-            plt.plot(metrics['imgs_per_sec'], label='Images/second')
-            plt.title('Training Throughput')
-            plt.xlabel('Batch')
-            plt.ylabel('Images/second')
-            plt.grid(True, linestyle='--', alpha=0.7)
-
-        # Plot epoch times
-        if 'epoch_time' in metrics:
-            plt.subplot(3, 2, 3)
-            epochs = list(range(1, len(metrics['epoch_time']) + 1))
-            plt.bar(epochs, metrics['epoch_time'], color='skyblue')
-            plt.title('Time per Epoch')
-            plt.xlabel('Epoch')
-            plt.ylabel('Time (seconds)')
-            plt.grid(True, linestyle='--', alpha=0.7)
-
-        # Plot epoch loss if available
-        if 'epoch_loss' in metrics:
-            plt.subplot(3, 2, 4)
-            epochs = list(range(1, len(metrics['epoch_loss']) + 1))
-            plt.plot(epochs, metrics['epoch_loss'], 'o-', color='green')
-            plt.title('Loss per Epoch')
-            plt.xlabel('Epoch')
-            plt.ylabel('Loss')
-            plt.grid(True, linestyle='--', alpha=0.7)
-
-        # Plot accuracy if available
-        has_train_acc = 'epoch_train_acc' in metrics
-        has_val_acc = 'epoch_val_acc' in metrics
-
-        if has_train_acc or has_val_acc:
-            plt.subplot(3, 2, 5)
-            epochs = list(range(1, len(metrics['epoch_loss']) + 1))
-
-            if has_train_acc:
-                plt.plot(epochs, metrics['epoch_train_acc'], 'o-', color='blue', label='Train')
-
-            if has_val_acc:
-                plt.plot(epochs, metrics['epoch_val_acc'], 'o-', color='red', label='Val')
-
-            plt.title('Accuracy')
-            plt.xlabel('Epoch')
-            plt.ylabel('Accuracy (%)')
-            plt.legend()
-            plt.grid(True, linestyle='--', alpha=0.7)
-
-        # Plot learning rate if available
-        if 'epoch_lr' in metrics:
-            plt.subplot(3, 2, 6)
-            epochs = list(range(1, len(metrics['epoch_lr']) + 1))
-            plt.plot(epochs, metrics['epoch_lr'], 'o-', color='purple')
-            plt.title('Learning Rate')
-            plt.xlabel('Epoch')
-            plt.ylabel('Learning Rate')
-            plt.grid(True, linestyle='--', alpha=0.7)
-
-        plt.tight_layout()
-        save_path = os.path.join(self.plots_dir, f"{self.exp_name}_summary.png")
-        plt.savefig(save_path)
-        plt.close()
-        print(f"Summary plot saved to {save_path}")
+        print(f"Generating all plots for {self.train_name}...")
+        self.plot_epoch_loss()
+        self.plot_epoch_time()
+        self.plot_epoch_throughput()
+        self.plot_accuracy()
+        self.plot_learning_rate()
+        self.plot_metric_comparison()
+        self.plot_summary()
+        print("All plots generated successfully!")
