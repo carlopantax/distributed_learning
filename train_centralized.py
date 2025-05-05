@@ -45,7 +45,7 @@ def compute_accuracy(model, dataloader, device):
     return 100.0 * correct / total
 
 
-def train_centralized(optimizer_type='sgdm', learning_rate=0.001, resume=True, checkpoint_path='./checkpoint.pth'):
+def train_centralized(optimizer_type='sgdm', learning_rate=0.001, momentum=0.8, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth'):
     train_name = f"centralized_{optimizer_type}_lr{learning_rate}_{time.strftime('%Y%m%d_%H%M%S')}"
 
     logger = TrainingLogger(
@@ -65,9 +65,9 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, resume=True, c
     criterion = nn.CrossEntropyLoss().to(device)
 
     if optimizer_type == 'sgdm':
-        optimizer = optim.SGD(model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=5e-4)
+        optimizer = optim.SGD(model.parameters(), lr=learning_rate, momentum=momentum, weight_decay=weight_decay)
     elif optimizer_type == 'adamw':
-        optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-2)
+        optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     else:
         raise ValueError("Invalid optimizer type. Choose 'sgdm' or 'adamw'.")
 
@@ -192,6 +192,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--optimizer', type=str, default='sgdm', choices=['sgdm', 'adamw'])
     parser.add_argument('--lr', type=float, default=0.001)
+    parser.add_argument('--momentum', type=float, default=0.8)
+    parser.add_argument('--weight_decay', type=float, default=1e-4)
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--checkpoint', type=str, default='checkpoint.pth')
     args = parser.parse_args()
@@ -200,5 +202,7 @@ if __name__ == '__main__':
         optimizer_type=args.optimizer,
         learning_rate=args.lr,
         resume=args.resume,
+        momentum=args.momentum,
+        weight_decay=args.weight_decay,
         checkpoint_path=args.checkpoint
     )
