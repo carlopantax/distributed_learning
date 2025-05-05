@@ -29,8 +29,8 @@ def train():
         !torchrun --nproc_per_node=4 train.py      # for 4-GPU or 4-CPU parallel training on one machine
 
     In order to excute centalized training, you can run the script as follows:
-        !python train_centralized.py --optimizer sgdm --lr 0.05
-        or !python train_centralized.py --optimizer adamw --lr 0.001
+        !python train_centralized.py --resume --optimizer sgdm --lr 0.05 (use these different parameters for lr [0.01, 0.05, 0.1])
+        or !python train_centralized.py --resume --optimizer adamw --lr 0.001 (use these different parameters for lr [0.001, 0.005, 0.01])
 
     To compare the results of centralized and distributed training, you can run the following command:
         !python compare_runs.py

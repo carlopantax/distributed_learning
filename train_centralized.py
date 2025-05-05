@@ -45,7 +45,7 @@ def compute_accuracy(model, dataloader, device):
     return 100.0 * correct / total
 
 
-def train_centralized(optimizer_type='sgdm', learning_rate=0.001, resume=True, checkpoint_path='checkpoint.pth'):
+def train_centralized(optimizer_type='sgdm', learning_rate=0.001, resume=True, checkpoint_path='./checkpoint.pth'):
     train_name = f"centralized_{optimizer_type}_lr{learning_rate}_{time.strftime('%Y%m%d_%H%M%S')}"
 
     logger = TrainingLogger(
@@ -76,7 +76,8 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, resume=True, c
     start_epoch = 0
     best_val_acc = 0.0
 
-    # Load checkpoint if exists
+    logger.log(f"Checking if there is any checkpoint. Resuming {resume}, Checkpoint path: {checkpoint_path}")
+    # check if file exists
     if resume and os.path.exists(checkpoint_path):
         logger.log(f"Resuming from checkpoint: {checkpoint_path}")
         checkpoint = torch.load(checkpoint_path, map_location=device)
