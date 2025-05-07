@@ -46,10 +46,11 @@ def compute_accuracy(model, dataloader, device):
 
 
 def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth'):
+    DIR = f"centralized_{optimizer_type}_lr{learning_rate}_wd{weight_decay}_{time.strftime('%Y%m%d')}"
     train_name = f"centralized_{optimizer_type}_lr{learning_rate}_{time.strftime('%Y%m%d_%H%M%S')}"
 
     logger = TrainingLogger(
-        log_dir='logs_centralized',
+        log_dir=DIR,
         train_name=train_name,
         rank=0,  # Always 0 for centralized training
         is_main_process=True  # Always True for centralized training
@@ -181,7 +182,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     # Plots
     logger.log("Generating training plots...")
     plotter = TrainingPlotter(
-        log_dir='logs_centralized',
+        log_dir=DIR,
         is_main_process=True
     )
     plotter.plot_all()
