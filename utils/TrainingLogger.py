@@ -41,6 +41,8 @@ class TrainingLogger:
             self.logger = logging.getLogger(f"trainer_{rank}")
             self.logger.setLevel(logging.INFO)
 
+            # Prevent duplicate handlers (important when resuming)
+        if not self.logger.handlers:
             file_handler = logging.FileHandler(self.log_file)
             file_handler.setLevel(logging.INFO)
 
@@ -54,8 +56,19 @@ class TrainingLogger:
             self.logger.addHandler(file_handler)
             self.logger.addHandler(console_handler)
 
-            self.logger.info(f"Started training experiment: {train_name}")
-            self.logger.info(f"Log file: {self.log_file}")
+        self.logger.info(f"Started training experiment: {train_name}")
+        self.logger.info(f"Log file: {self.log_file}")
+
+            # Load metrics if resuming
+        if os.path.exists(self.metrics_file):
+            try:
+                with open(self.metrics_file, 'r') as f:
+                    previous_metrics = json.load(f)
+                for key, val in previous_metrics.items():
+                    self.metrics[key] = val if isinstance(val, list) else [val]
+                self.logger.info(f"Resumed metrics from {self.metrics_file}")
+            except Exception as e:
+                self.logger.warning(f"Could not load previous metrics: {e}")
 
     def log(self, message, level='info'):
         """Logs a message with the specified level."""

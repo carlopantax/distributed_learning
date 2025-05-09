@@ -46,16 +46,24 @@ def compute_accuracy(model, dataloader, device):
 
 
 def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth'):
-    DIR = f"centralized_{optimizer_type}_lr{learning_rate}_wd{weight_decay}_{time.strftime('%Y%m%d')}"
-    train_name = f"centralized_{optimizer_type}_lr{learning_rate}_{time.strftime('%Y%m%d_%H%M%S')}"
-
+    base_name = f"centralized_{optimizer_type}_lr{learning_rate}_wd{weight_decay}"
+    if resume and os.path.exists(checkpoint_path):
+        DIR = f"{base_name}"
+        existing = [f for f in os.listdir(DIR) if f.endswith('_metrics.json')]
+        if existing:
+            train_name = existing[0].replace('_metrics.json', '')
+        else:
+            train_name = f"{base_name}_{time.strftime('%Y%m%d_%H%M%S')}"
+    else:
+        timestamp = time.strftime('%Y%m%d_%H%M%S')
+        train_name = f"{base_name}_{timestamp}"
+        DIR = f"{base_name}"
     logger = TrainingLogger(
         log_dir=DIR,
         train_name=train_name,
-        rank=0,  # Always 0 for centralized training
-        is_main_process=True  # Always True for centralized training
+        rank=0,
+        is_main_process=True
     )
-    # logger = setup_logger()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.log(f"Training centralized on device: {device}")
     logger.log(f"Optimizer: {optimizer_type.upper()}, Epochs: {epochs}, LR: {learning_rate}")
@@ -182,9 +190,11 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     # Plots
     logger.log("Generating training plots...")
     plotter = TrainingPlotter(
-        log_dir=DIR,
-        is_main_process=True
-    )
+    log_dir=DIR,
+    train_name=train_name,
+    is_main_process=True
+)
+
     plotter.plot_all()
     logger.log("Training complete. Plots generated.")
 
