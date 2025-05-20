@@ -1,0 +1,9 @@
+2025-05-20 08:36:23,019 - trainer_0 - INFO - Started training experiment: centralized_lars_lr0.05_wd0.0005_20250520_083623
+2025-05-20 08:36:23,021 - trainer_0 - INFO - Log file: centralized_lars_lr0.05_wd0.0005/centralized_lars_lr0.05_wd0.0005_20250520_083623.log
+2025-05-20 08:36:23,022 - trainer_0 - INFO - Training centralized on device: cpu
+2025-05-20 08:36:23,023 - trainer_0 - INFO - Optimizer: LARS, Epochs: 150, LR: 0.05
+2025-05-20 08:36:33,223 - trainer_0 - INFO - Scaled LR using sqrt mode to: 0.1
+2025-05-20 08:36:33,224 - trainer_0 - INFO - Checking if there is any checkpoint. Resuming False, Checkpoint path: checkpoint.pth
+2025-05-20 08:36:53,910 - trainer_0 - INFO - Epoch: 1 | Batch: 10/78 | Loss: 4.6267 | Images/sec: 149.15 | Progress: 11.5% | Time: 30.90s | lr: 0.0000 | train_acc: 0.9375
+2025-05-20 08:37:13,016 - trainer_0 - INFO - Epoch: 1 | Batch: 20/78 | Loss: 4.6213 | Images/sec: 194.55 | Progress: 24.3% | Time: 50.00s | lr: 0.0000 | train_acc: 0.9766
+2025-05-20 08:37:31,567 - trainer_0 - INFO - Epoch: 1 | Batch: 30/78 | Loss: 4.6169 | Images/sec: 216.59 | Progress: 37.1% | Time: 68.55s | lr: 0.0000 | train_acc: 1.0221

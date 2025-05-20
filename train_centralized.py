@@ -6,7 +6,10 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.optim.lr_scheduler import CosineAnnealingLR
-
+from lars import LARS
+from lamb import LAMB
+from torch.optim.lr_scheduler import LambdaLR
+import math
 from models.lenet import LeNet5
 from utils.TrainingLogger import TrainingLogger
 from utils.TrainingPlotter import TrainingPlotter
@@ -44,6 +47,22 @@ def compute_accuracy(model, dataloader, device):
             correct += (predicted == labels).sum().item()
     return 100.0 * correct / total
 
+def scale_lr(base_lr, base_batch_size, actual_batch_size, mode='sqrt'):
+    scale = actual_batch_size / base_batch_size
+    if mode == 'linear':
+        return base_lr * scale
+    elif mode == 'sqrt':
+        return base_lr * scale**0.5
+    else:
+        raise ValueError("Unsupported scaling mode.")
+
+def warmup_cosine_schedule(epoch, warmup_epochs=10, total_epochs=150):
+    if epoch < warmup_epochs:
+        return float(epoch) / float(max(1, warmup_epochs))  # linear warm-up
+    # cosine after warmup
+    progress = (epoch - warmup_epochs) / (total_epochs - warmup_epochs)
+    return 0.5 * (1. + math.cos(math.pi * progress))
+
 
 def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth'):
     base_name = f"centralized_{optimizer_type}_lr{learning_rate}_wd{weight_decay}"
@@ -72,15 +91,24 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
 
     model = LeNet5(num_classes=100).to(device)
     criterion = nn.CrossEntropyLoss().to(device)
+    base_batch_size = 128
+    scaling_mode = 'sqrt' if optimizer_type in ['lars', 'lamb'] else None
 
+    if scaling_mode:
+      learning_rate = scale_lr(learning_rate, base_batch_size, batch_size, mode=scaling_mode)
+      logger.log(f"Scaled LR using {scaling_mode} mode to: {learning_rate}")
     if optimizer_type == 'sgdm':
         optimizer = optim.SGD(model.parameters(), lr=learning_rate, momentum = 0.9, weight_decay=weight_decay)
     elif optimizer_type == 'adamw':
         optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
+    elif optimizer_type == 'lars':
+      optimizer = LARS(model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=weight_decay)
+    elif optimizer_type == 'lamb':
+      optimizer = LAMB(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     else:
-        raise ValueError("Invalid optimizer type. Choose 'sgdm' or 'adamw'.")
+        raise ValueError("Invalid optimizer type. Choose 'sgdm', 'adamw', 'lars', 'lamb'.")
 
-    scheduler = CosineAnnealingLR(optimizer, T_max=epochs)
+    scheduler = LambdaLR(optimizer, lr_lambda=lambda epoch: warmup_cosine_schedule(epoch, warmup_epochs=10, total_epochs=epochs))
 
     start_epoch = 0
     best_val_acc = 0.0
@@ -201,11 +229,12 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--optimizer', type=str, default='sgdm', choices=['sgdm', 'adamw'])
+    parser.add_argument('--optimizer', type=str, default='sgdm', choices=['sgdm', 'adamw', 'lars', 'lamb'])
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--weight_decay', type=float, default=1e-4)
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--checkpoint', type=str, default='checkpoint.pth')
+    parser.add_argument('--batch_size', type = int, default=128)
     args = parser.parse_args()
 
     train_centralized(
