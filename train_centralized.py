@@ -56,7 +56,7 @@ def scale_lr(base_lr, base_batch_size, actual_batch_size, mode='sqrt'):
     else:
         raise ValueError("Unsupported scaling mode.")
 
-def warmup_cosine_schedule(epoch, warmup_epochs=10, total_epochs=150):
+def warmup_cosine_schedule(epoch, warmup_epochs=20, total_epochs=150):
     if epoch < warmup_epochs:
         return float(epoch) / float(max(1, warmup_epochs))  # linear warm-up
     # cosine after warmup
@@ -64,7 +64,7 @@ def warmup_cosine_schedule(epoch, warmup_epochs=10, total_epochs=150):
     return 0.5 * (1. + math.cos(math.pi * progress))
 
 
-def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth'):
+def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth', batch_size=128):
     base_name = f"centralized_{optimizer_type}_lr{learning_rate}_wd{weight_decay}"
     if resume and os.path.exists(checkpoint_path):
         DIR = f"{base_name}"
@@ -88,7 +88,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     logger.log(f"Optimizer: {optimizer_type.upper()}, Epochs: {epochs}, LR: {learning_rate}")
 
     trainloader, valloader, _ = load_cifar100(batch_size=batch_size, distributed=False)
-
+    logger.log(f"[DEBUG] Train dataset size: {len(trainloader.dataset)} | Expected batches: {len(trainloader)}")
     model = LeNet5(num_classes=100).to(device)
     criterion = nn.CrossEntropyLoss().to(device)
     base_batch_size = 128
@@ -102,52 +102,13 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     elif optimizer_type == 'adamw':
         optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     elif optimizer_type == 'lars':
-        # Separate bias and norm layers from weights
-        params_with_wd = []
-        params_without_wd = []
-
-        for name, param in model.named_parameters():
-            if len(param.shape) == 1 or name.endswith(".bias"):
-                # Bias and normalization layer parameters
-                params_without_wd.append(param)
-            else:
-                # Weight parameters
-                params_with_wd.append(param)
-
-        # LARS works best with properly adjusted learning rate and weight decay
-        optimizer = LARS(
-            [
-                {"params": params_with_wd, "weight_decay": weight_decay},
-                {"params": params_without_wd, "weight_decay": 0, "exclude_bias_and_norm": True}
-            ],
-            lr=learning_rate,
-            momentum=0.9,
-            eta=0.001,  # LARS coefficient
-            exclude_bias_and_norm=True
-        )
-
-        # LARS typically requires warm-up and different scaling approach
-        warmup_epochs = 5
-        warmup_scheduler = torch.optim.lr_scheduler.LambdaLR(
-            optimizer,
-            lr_lambda=lambda epoch: min(1.0, epoch / warmup_epochs)
-        )
-
-        # After warmup, use cosine decay
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer,
-            T_max=epochs - warmup_epochs
-        )
-
-        # Create a hybrid scheduler
-        hybrid_scheduler = lambda epoch: warmup_scheduler.get_lr()[0] if epoch < warmup_epochs else scheduler.get_lr()[
-            0]
+      optimizer = LARS(model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=weight_decay)
     elif optimizer_type == 'lamb':
       optimizer = LAMB(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     else:
         raise ValueError("Invalid optimizer type. Choose 'sgdm', 'adamw', 'lars', 'lamb'.")
 
-    scheduler = LambdaLR(optimizer, lr_lambda=lambda epoch: warmup_cosine_schedule(epoch, warmup_epochs=10, total_epochs=epochs))
+    scheduler = LambdaLR(optimizer, lr_lambda=lambda epoch: warmup_cosine_schedule(epoch, warmup_epochs=20, total_epochs=epochs))
 
     start_epoch = 0
     best_val_acc = 0.0
@@ -166,6 +127,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     start_time = time.time()
     log_interval = 10
     train_size = len(trainloader.dataset)
+    total_batches = len(trainloader)
 
     for epoch in range(start_epoch, epochs):
         model.train()
@@ -201,6 +163,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
                     loss=avg_loss,
                     batch_size=batch_size,
                     train_size=train_size,
+                    total_batches=total_batches,
                     extras={
                         'lr': current_lr,
                         'train_acc': 100.0 * correct / total if total > 0 else 0
@@ -208,13 +171,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
                 )
                 running_loss = 0.0
 
-        if optimizer_type == 'lars':
-            if epoch < warmup_epochs:
-                warmup_scheduler.step()
-            else:
-                scheduler.step()
-        else:
-            scheduler.step()
+        scheduler.step()
 
         train_acc = 100.0 * correct / total
         val_acc = compute_accuracy(model, valloader, device)
@@ -283,9 +240,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     train_centralized(
-        optimizer_type=args.optimizer,
-        learning_rate=args.lr,
-        resume=args.resume,
-        weight_decay=args.weight_decay,
-        checkpoint_path=args.checkpoint
-    )
+      optimizer_type=args.optimizer,
+      learning_rate=args.lr,
+      resume=args.resume,
+      weight_decay=args.weight_decay,
+      checkpoint_path=args.checkpoint,
+      batch_size=args.batch_size
+)
+
