@@ -102,7 +102,46 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     elif optimizer_type == 'adamw':
         optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     elif optimizer_type == 'lars':
-      optimizer = LARS(model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=weight_decay)
+        # Separate bias and norm layers from weights
+        params_with_wd = []
+        params_without_wd = []
+
+        for name, param in model.named_parameters():
+            if len(param.shape) == 1 or name.endswith(".bias"):
+                # Bias and normalization layer parameters
+                params_without_wd.append(param)
+            else:
+                # Weight parameters
+                params_with_wd.append(param)
+
+        # LARS works best with properly adjusted learning rate and weight decay
+        optimizer = LARS(
+            [
+                {"params": params_with_wd, "weight_decay": weight_decay},
+                {"params": params_without_wd, "weight_decay": 0, "exclude_bias_and_norm": True}
+            ],
+            lr=learning_rate,
+            momentum=0.9,
+            eta=0.001,  # LARS coefficient
+            exclude_bias_and_norm=True
+        )
+
+        # LARS typically requires warm-up and different scaling approach
+        warmup_epochs = 5
+        warmup_scheduler = torch.optim.lr_scheduler.LambdaLR(
+            optimizer,
+            lr_lambda=lambda epoch: min(1.0, epoch / warmup_epochs)
+        )
+
+        # After warmup, use cosine decay
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=epochs - warmup_epochs
+        )
+
+        # Create a hybrid scheduler
+        hybrid_scheduler = lambda epoch: warmup_scheduler.get_lr()[0] if epoch < warmup_epochs else scheduler.get_lr()[
+            0]
     elif optimizer_type == 'lamb':
       optimizer = LAMB(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     else:
@@ -169,7 +208,13 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
                 )
                 running_loss = 0.0
 
-        scheduler.step()
+        if optimizer_type == 'lars':
+            if epoch < warmup_epochs:
+                warmup_scheduler.step()
+            else:
+                scheduler.step()
+        else:
+            scheduler.step()
 
         train_acc = 100.0 * correct / total
         val_acc = compute_accuracy(model, valloader, device)
