@@ -163,7 +163,6 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
                     loss=avg_loss,
                     batch_size=batch_size,
                     train_size=train_size,
-                    total_batches=total_batches,
                     extras={
                         'lr': current_lr,
                         'train_acc': 100.0 * correct / total if total > 0 else 0
