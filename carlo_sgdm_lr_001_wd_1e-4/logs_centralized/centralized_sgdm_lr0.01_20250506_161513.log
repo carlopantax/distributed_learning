@@ -1,9 +1,0 @@
-2025-05-06 16:15:13,643 - trainer_0 - INFO - Started training experiment: centralized_sgdm_lr0.01_20250506_161513
-2025-05-06 16:15:13,644 - trainer_0 - INFO - Log file: logs_centralized/centralized_sgdm_lr0.01_20250506_161513.log
-2025-05-06 16:15:13,645 - trainer_0 - INFO - Training centralized on device: cpu
-2025-05-06 16:15:13,645 - trainer_0 - INFO - Optimizer: SGDM, Epochs: 150, LR: 0.01
-2025-05-06 16:15:29,511 - trainer_0 - INFO - Checking if there is any checkpoint. Resuming True, Checkpoint path: checkpoint.pth
-2025-05-06 16:15:29,512 - trainer_0 - INFO - Resuming from checkpoint: checkpoint.pth
-2025-05-06 16:15:35,558 - trainer_0 - INFO - Epoch: 38 | Batch: 10/312 | Loss: 1.7366 | Images/sec: 52.56 | Progress: 2.9% | Time: 21.92s | lr: 0.0086 | train_acc: 52.1875
-2025-05-06 16:15:38,701 - trainer_0 - INFO - Epoch: 38 | Batch: 20/312 | Loss: 1.7995 | Images/sec: 97.04 | Progress: 6.1% | Time: 25.06s | lr: 0.0086 | train_acc: 51.9141
-2025-05-06 16:15:43,315 - trainer_0 - INFO - Epoch: 38 | Batch: 30/312 | Loss: 1.6987 | Images/sec: 125.09 | Progress: 9.3% | Time: 29.68s | lr: 0.0086 | train_acc: 52.7865
