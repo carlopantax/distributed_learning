@@ -56,7 +56,7 @@ def scale_lr(base_lr, base_batch_size, actual_batch_size, mode='sqrt'):
     else:
         raise ValueError("Unsupported scaling mode.")
 
-def warmup_cosine_schedule(epoch, warmup_epochs=10, total_epochs=150):
+def warmup_cosine_schedule(epoch, warmup_epochs=20, total_epochs=150):
     if epoch < warmup_epochs:
         return float(epoch) / float(max(1, warmup_epochs))  # linear warm-up
     # cosine after warmup
@@ -64,7 +64,7 @@ def warmup_cosine_schedule(epoch, warmup_epochs=10, total_epochs=150):
     return 0.5 * (1. + math.cos(math.pi * progress))
 
 
-def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth'):
+def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth', batch_size=128):
     base_name = f"centralized_{optimizer_type}_lr{learning_rate}_wd{weight_decay}"
     if resume and os.path.exists(checkpoint_path):
         DIR = f"{base_name}"
@@ -88,7 +88,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     logger.log(f"Optimizer: {optimizer_type.upper()}, Epochs: {epochs}, LR: {learning_rate}")
 
     trainloader, valloader, _ = load_cifar100(batch_size=batch_size, distributed=False)
-
+    logger.log(f"[DEBUG] Train dataset size: {len(trainloader.dataset)} | Expected batches: {len(trainloader)}")
     model = LeNet5(num_classes=100).to(device)
     criterion = nn.CrossEntropyLoss().to(device)
     base_batch_size = 128
@@ -108,7 +108,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     else:
         raise ValueError("Invalid optimizer type. Choose 'sgdm', 'adamw', 'lars', 'lamb'.")
 
-    scheduler = LambdaLR(optimizer, lr_lambda=lambda epoch: warmup_cosine_schedule(epoch, warmup_epochs=10, total_epochs=epochs))
+    scheduler = LambdaLR(optimizer, lr_lambda=lambda epoch: warmup_cosine_schedule(epoch, warmup_epochs=20, total_epochs=epochs))
 
     start_epoch = 0
     best_val_acc = 0.0
@@ -127,6 +127,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     start_time = time.time()
     log_interval = 10
     train_size = len(trainloader.dataset)
+    total_batches = len(trainloader)
 
     for epoch in range(start_epoch, epochs):
         model.train()
@@ -238,9 +239,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     train_centralized(
-        optimizer_type=args.optimizer,
-        learning_rate=args.lr,
-        resume=args.resume,
-        weight_decay=args.weight_decay,
-        checkpoint_path=args.checkpoint
-    )
+      optimizer_type=args.optimizer,
+      learning_rate=args.lr,
+      resume=args.resume,
+      weight_decay=args.weight_decay,
+      checkpoint_path=args.checkpoint,
+      batch_size=args.batch_size
+)
+
