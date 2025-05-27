@@ -2,6 +2,7 @@ import os
 import json
 import time
 import logging
+import math
 from collections import defaultdict
 
 
@@ -42,33 +43,33 @@ class TrainingLogger:
             self.logger.setLevel(logging.INFO)
 
             # Prevent duplicate handlers (important when resuming)
-        if not self.logger.handlers:
-            file_handler = logging.FileHandler(self.log_file)
-            file_handler.setLevel(logging.INFO)
+            if not self.logger.handlers:
+                file_handler = logging.FileHandler(self.log_file)
+                file_handler.setLevel(logging.INFO)
 
-            console_handler = logging.StreamHandler()
-            console_handler.setLevel(logging.INFO)
+                console_handler = logging.StreamHandler()
+                console_handler.setLevel(logging.INFO)
 
-            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-            file_handler.setFormatter(formatter)
-            console_handler.setFormatter(formatter)
+                formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+                file_handler.setFormatter(formatter)
+                console_handler.setFormatter(formatter)
 
-            self.logger.addHandler(file_handler)
-            self.logger.addHandler(console_handler)
+                self.logger.addHandler(file_handler)
+                self.logger.addHandler(console_handler)
 
-        self.logger.info(f"Started training experiment: {train_name}")
-        self.logger.info(f"Log file: {self.log_file}")
+            self.logger.info(f"Started training experiment: {train_name}")
+            self.logger.info(f"Log file: {self.log_file}")
 
             # Load metrics if resuming
-        if os.path.exists(self.metrics_file):
-            try:
-                with open(self.metrics_file, 'r') as f:
-                    previous_metrics = json.load(f)
-                for key, val in previous_metrics.items():
-                    self.metrics[key] = val if isinstance(val, list) else [val]
-                self.logger.info(f"Resumed metrics from {self.metrics_file}")
-            except Exception as e:
-                self.logger.warning(f"Could not load previous metrics: {e}")
+            if os.path.exists(self.metrics_file):
+                try:
+                    with open(self.metrics_file, 'r') as f:
+                        previous_metrics = json.load(f)
+                    for key, val in previous_metrics.items():
+                        self.metrics[key] = val if isinstance(val, list) else [val]
+                    self.logger.info(f"Resumed metrics from {self.metrics_file}")
+                except Exception as e:
+                    self.logger.warning(f"Could not load previous metrics: {e}")
 
     def log(self, message, level='info'):
         """Logs a message with the specified level."""
@@ -101,6 +102,9 @@ class TrainingLogger:
         progress = 100. * batch_idx * batch_size / train_size
         imgs_per_sec = batch_idx * batch_size / elapsed if elapsed > 0 else 0
 
+        # Fix: Use ceiling division to get correct total batch count
+        total_batches = math.ceil(train_size / batch_size)
+
         self.metrics['epoch'].append(epoch)
         self.metrics['batch'].append(batch_idx)
         self.metrics['loss'].append(loss)
@@ -114,7 +118,7 @@ class TrainingLogger:
 
         log_msg = (
             f"Epoch: {epoch + 1} | "
-            f"Batch: {batch_idx + 1}/{train_size // batch_size} | "
+            f"Batch: {batch_idx + 1}/{total_batches} | "
             f"Loss: {loss:.4f} | "
             f"Images/sec: {imgs_per_sec:.2f} | "
             f"Progress: {progress:.1f}% | "
