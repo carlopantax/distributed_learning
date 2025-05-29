@@ -1,0 +1,7 @@
+2025-05-29 16:38:26,273 - trainer_0 - INFO - Started training experiment: centralized_lars_lr5.0_wd0.0005_20250529_163826
+2025-05-29 16:38:26,274 - trainer_0 - INFO - Log file: centralized_lars_lr5.0_wd0.0005/centralized_lars_lr5.0_wd0.0005_20250529_163826.log
+2025-05-29 16:38:26,297 - trainer_0 - INFO - Training centralized on device: cuda
+2025-05-29 16:38:26,297 - trainer_0 - INFO - Optimizer: LARS, Epochs: 150, LR: 5.0
+2025-05-29 16:38:35,513 - trainer_0 - INFO - [DEBUG] Train dataset size: 40000 | Expected batches: 2
+2025-05-29 16:38:35,720 - trainer_0 - INFO - Scaled LR using sqrt mode to: 80.0
+2025-05-29 16:38:35,720 - trainer_0 - INFO - Checking if there is any checkpoint. Resuming False, Checkpoint path: checkpoint.pth
