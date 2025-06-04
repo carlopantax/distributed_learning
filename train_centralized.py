@@ -65,7 +65,7 @@ def warmup_cosine_schedule(epoch, warmup_epochs=20, total_epochs=150):
 
 
 def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth', batch_size=128):
-    base_name = f"centralized_{optimizer_type}_lr{learning_rate}_wd{weight_decay}"
+    base_name = f"centralized_{optimizer_type}_lr{learning_rate}_wd{weight_decay}_batch_size{batch_size}"
     if resume and os.path.exists(checkpoint_path):
         DIR = f"{base_name}"
         existing = [f for f in os.listdir(DIR) if f.endswith('_metrics.json')]
