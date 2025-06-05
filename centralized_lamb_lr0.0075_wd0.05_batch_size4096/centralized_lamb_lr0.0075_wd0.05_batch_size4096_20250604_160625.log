@@ -1,0 +1,8 @@
+2025-06-04 16:06:25,820 - trainer_0 - INFO - Started training experiment: centralized_lamb_lr0.0075_wd0.05_batch_size4096_20250604_160625
+2025-06-04 16:06:25,821 - trainer_0 - INFO - Log file: centralized_lamb_lr0.0075_wd0.05_batch_size4096/centralized_lamb_lr0.0075_wd0.05_batch_size4096_20250604_160625.log
+2025-06-04 16:06:25,842 - trainer_0 - INFO - Training centralized on device: cuda
+2025-06-04 16:06:25,843 - trainer_0 - INFO - Optimizer: LAMB, Epochs: 150, LR: 0.0075
+2025-06-04 16:06:28,305 - trainer_0 - INFO - [DEBUG] Train dataset size: 40000 | Expected batches: 10
+2025-06-04 16:06:28,524 - trainer_0 - INFO - Scaled LR using sqrt mode to: 0.042426406871192854
+2025-06-04 16:06:28,524 - trainer_0 - INFO - Checking if there is any checkpoint. Resuming False, Checkpoint path: checkpoint.pth
+2025-06-04 16:06:42,839 - trainer_0 - INFO - Epoch: 1 | Batch: 10/10 | Loss: 4.6196 | Images/sec: 2165.76 | Progress: 92.2% | Time: 17.02s | lr: 0.0000 | train_acc: 1.0550
