@@ -12,7 +12,7 @@ class TrainingLogger:
     Handles log rotation, formatting, and saving metrics to file.
     """
 
-    def __init__(self, log_dir='logs', train_name=None, rank=0, is_main_process=False):
+    def __init__(self, log_dir='logs', train_name=None, rank=0, is_main_process=False, world_size=1):
         """
         Initializes the logger.
 
@@ -26,36 +26,35 @@ class TrainingLogger:
         self.is_main_process = is_main_process
         self.metrics = defaultdict(list)
         self.start_time = time.time()
+        self.world_size = world_size
 
-        # Only the main process saves logs to avoid conflicts
-        if self.is_main_process:
-            os.makedirs(log_dir, exist_ok=True)
+        os.makedirs(log_dir, exist_ok=True)
 
-            if train_name is None:
-                train_name = f"run_{time.strftime('%Y%m%d_%H%M%S')}"
+        if train_name is None:
+            train_name = f"run_{time.strftime('%Y%m%d_%H%M%S')}"
 
-            self.exp_name = train_name
-            self.log_dir = log_dir
-            self.log_file = os.path.join(log_dir, f"{train_name}.log")
-            self.metrics_file = os.path.join(log_dir, f"{train_name}_metrics.json")
+        self.exp_name = train_name
+        self.log_dir = log_dir
+        self.log_file = os.path.join(log_dir, f"{train_name}_rank{rank}.log")
 
-            self.logger = logging.getLogger(f"trainer_{rank}")
-            self.logger.setLevel(logging.INFO)
+        self.metrics_file = os.path.join(log_dir, f"{train_name}_metrics_rank{rank}.json")
 
-            # Prevent duplicate handlers (important when resuming)
-            if not self.logger.handlers:
-                file_handler = logging.FileHandler(self.log_file)
-                file_handler.setLevel(logging.INFO)
+        self.logger = logging.getLogger(f"trainer_{rank}")
+        self.logger.setLevel(logging.INFO)
 
-                console_handler = logging.StreamHandler()
-                console_handler.setLevel(logging.INFO)
+        # Prevent duplicate handlers (important when resuming)
+        if not self.logger.handlers:
 
-                formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-                file_handler.setFormatter(formatter)
-                console_handler.setFormatter(formatter)
+            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            console_handler = logging.StreamHandler()
+            console_handler.setLevel(logging.INFO)
+            console_handler.setFormatter(formatter)
+            self.logger.addHandler(console_handler)
 
-                self.logger.addHandler(file_handler)
-                self.logger.addHandler(console_handler)
+            file_handler = logging.FileHandler(self.log_file)
+            file_handler.setLevel(logging.INFO)
+            file_handler.setFormatter(formatter)
+            self.logger.addHandler(file_handler)
 
             self.logger.info(f"Started training experiment: {train_name}")
             self.logger.info(f"Log file: {self.log_file}")
@@ -73,10 +72,10 @@ class TrainingLogger:
 
     def log(self, message, level='info'):
         """Logs a message with the specified level."""
-        if self.is_main_process:
-            if level.lower() == 'info':
+        if level.lower() == 'info':
                 self.logger.info(message)
-            elif level.lower() == 'warning':
+        if self.is_main_process:
+            if level.lower() == 'warning':
                 self.logger.warning(message)
             elif level.lower() == 'error':
                 self.logger.error(message)
@@ -95,15 +94,18 @@ class TrainingLogger:
             train_size (int): Total size of the training set
             extras (dict): Extra metrics to log
         """
-        if not self.is_main_process:
-            return
 
         elapsed = time.time() - self.start_time
-        progress = 100. * batch_idx * batch_size / train_size
+        
         imgs_per_sec = batch_idx * batch_size / elapsed if elapsed > 0 else 0
 
-        # Fix: Use ceiling division to get correct total batch count
-        total_batches = math.ceil(train_size / batch_size)
+        if hasattr(self, 'local_train_size'):
+            local_train_size = self.local_train_size
+        else:
+            local_train_size = train_size // self.world_size
+
+        progress = 100. * (batch_idx + 1) * batch_size / local_train_size
+
 
         self.metrics['epoch'].append(epoch)
         self.metrics['batch'].append(batch_idx)
@@ -118,7 +120,7 @@ class TrainingLogger:
 
         log_msg = (
             f"Epoch: {epoch + 1} | "
-            f"Batch: {batch_idx + 1}/{total_batches} | "
+            f"Batch: {batch_idx + 1}/{math.ceil(local_train_size / batch_size)} | "
             f"Loss: {loss:.4f} | "
             f"Images/sec: {imgs_per_sec:.2f} | "
             f"Progress: {progress:.1f}% | "
@@ -142,8 +144,6 @@ class TrainingLogger:
             world_size (int): Number of processes in distributed training
             extras (dict): Extra metrics to log
         """
-        if not self.is_main_process:
-            return
 
         self.metrics['epoch_loss'].append(epoch_loss)
         self.metrics['epoch_time'].append(epoch_time)
@@ -172,8 +172,6 @@ class TrainingLogger:
             total_images (int): Total number of images processed
             world_size (int): Number of processes in distributed training
         """
-        if not self.is_main_process:
-            return
 
         throughput = total_images / total_time
 
@@ -184,6 +182,8 @@ class TrainingLogger:
         self.log(f"Training completed in {total_time:.2f} seconds.")
         self.log(f"Average throughput: {throughput:.2f} Images/sec")
         self.log(f"Total processes: {world_size}")
+
+        os.makedirs(os.path.dirname(self.metrics_file), exist_ok=True)
 
         with open(self.metrics_file, 'w') as f:
             json.dump(self.metrics, f, indent=4)

@@ -87,7 +87,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     logger.log(f"Training centralized on device: {device}")
     logger.log(f"Optimizer: {optimizer_type.upper()}, Epochs: {epochs}, LR: {learning_rate}")
 
-    trainloader, valloader, _ = load_cifar100(batch_size=batch_size, distributed=False)
+    trainloader, valloader, _, _ = load_cifar100(batch_size=batch_size, distributed=False)
     logger.log(f"[DEBUG] Train dataset size: {len(trainloader.dataset)} | Expected batches: {len(trainloader)}")
     model = LeNet5(num_classes=100).to(device)
     criterion = nn.CrossEntropyLoss().to(device)
@@ -216,13 +216,20 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     torch.save(model.state_dict(), model_path)
     logger.log(f"Model saved to {model_path}")
 
-    # Plots
     logger.log("Generating training plots...")
+
+    # Fix nome file
+    rank0_file = os.path.join(DIR, f"{train_name}_metrics_rank0.json")
+    default_file = os.path.join(DIR, f"{train_name}_metrics.json")
+    if os.path.exists(rank0_file):
+        import shutil
+        shutil.copy(rank0_file, default_file)
+
     plotter = TrainingPlotter(
-    log_dir=DIR,
-    train_name=train_name,
-    is_main_process=True
-)
+        log_dir=DIR,
+        train_name=train_name,
+        is_main_process=True
+    )
 
     plotter.plot_all()
     logger.log("Training complete. Plots generated.")

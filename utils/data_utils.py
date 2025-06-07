@@ -35,9 +35,10 @@ def load_cifar100(root='./data', batch_size=128, distributed=False, rank=0, worl
         train_sampler = DistributedSampler(trainset, num_replicas=world_size, rank=rank, shuffle=True)
         trainloader = DataLoader(trainset, batch_size=batch_size, sampler=train_sampler, num_workers=4, pin_memory=True)
     else:
+        train_sampler = None
         trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
 
     valloader = DataLoader(valset, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
     testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
 
-    return trainloader, valloader, testloader
+    return trainloader, valloader, testloader, train_sampler
