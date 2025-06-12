@@ -52,11 +52,14 @@ def scale_lr(base_lr, base_batch_size, actual_batch_size, mode='sqrt'):
     if mode == 'linear':
         return base_lr * scale
     elif mode == 'sqrt':
-        return base_lr * scale**0.5
+        # cap max scaling factor
+        max_scale=50
+        return base_lr * min(scale**0.5, max_scale)
     else:
         raise ValueError("Unsupported scaling mode.")
 
-def warmup_cosine_schedule(epoch, warmup_epochs=20, total_epochs=150):
+# prima 20 epoche!!!!!!!!!!!!!
+def warmup_cosine_schedule(epoch, warmup_epochs=40, total_epochs=150):
     if epoch < warmup_epochs:
         return float(epoch) / float(max(1, warmup_epochs))  # linear warm-up
     # cosine after warmup
@@ -143,6 +146,10 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
             outputs = model(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
+
+            #nuova versione
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            
             optimizer.step()
 
             running_loss += loss.item()
