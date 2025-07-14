@@ -1,7 +1,0 @@
-2025-06-10 09:51:33,483 - trainer_0 - INFO - Started training experiment: centralized_lamb_lr0.0075_wd0.05_batch_size16384_20250610_095133
-2025-06-10 09:51:33,484 - trainer_0 - INFO - Log file: centralized_lamb_lr0.0075_wd0.05_batch_size16384/centralized_lamb_lr0.0075_wd0.05_batch_size16384_20250610_095133_rank0.log
-2025-06-10 09:51:33,489 - trainer_0 - INFO - Training centralized on device: cpu
-2025-06-10 09:51:33,489 - trainer_0 - INFO - Optimizer: LAMB, Epochs: 150, LR: 0.0075
-2025-06-10 09:51:36,040 - trainer_0 - INFO - [DEBUG] Train dataset size: 40000 | Expected batches: 3
-2025-06-10 09:51:36,056 - trainer_0 - INFO - Scaled LR using sqrt mode to: 0.08485281374238571
-2025-06-10 09:51:36,056 - trainer_0 - INFO - Checking if there is any checkpoint. Resuming False, Checkpoint path: checkpoint.pth
