@@ -94,6 +94,19 @@ def train_distributed(args, tau=5, epochs_override=None):
 
     criterion = nn.CrossEntropyLoss().to(device)
     optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=0.9, weight_decay=args.weight_decay)
+    num_epochs = epochs_override if epochs_override is not None else epochs
+    total_steps = num_epochs
+    milestones = [int(0.5 * total_steps), int(0.75 * total_steps)]
+
+    warmup_epochs = 20
+    def warmup_lr(epoch):
+        return float(epoch + 1) / warmup_epochs if epoch < warmup_epochs else 1.0
+
+    from torch.optim.lr_scheduler import LambdaLR
+    scheduler_warmup = LambdaLR(optimizer, lr_lambda=warmup_lr)
+
+    scheduler_decay = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=milestones, gamma=0.1)
+
 
     start_epoch = 0
     best_val_acc = 0.0
@@ -111,7 +124,6 @@ def train_distributed(args, tau=5, epochs_override=None):
 
     start_time = time.time()
     total_train_size = len(trainloader.dataset) * world_size
-    num_epochs = epochs_override if epochs_override is not None else epochs
 
     for epoch in range(start_epoch, num_epochs):
         epoch_start = time.time()
@@ -130,6 +142,7 @@ def train_distributed(args, tau=5, epochs_override=None):
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
+            scheduler_decay.step()  # Decay (MultiStepLR)
 
             running_loss += loss.item()
             epoch_loss += loss.item()
@@ -155,7 +168,7 @@ def train_distributed(args, tau=5, epochs_override=None):
                     extras={'lr': optimizer.param_groups[0]['lr'], 'train_acc': train_acc}
                 )
                 running_loss = 0.0
-
+        scheduler_warmup.step()  # Warmup (LambdaLR)
         epoch_time = time.time() - epoch_start
         avg_epoch_loss = epoch_loss / batch_count
         train_acc = 100.0 * correct / total if total > 0 else 0
