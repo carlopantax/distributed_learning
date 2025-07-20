@@ -1,5 +1,0 @@
-2025-07-16 15:18:27,831 - trainer_0 - INFO - Started training experiment: localSGD_lenet5_cifar100_w2_20250716_151827
-2025-07-16 15:18:27,833 - trainer_0 - INFO - Log file: logs/localSGD_lenet5_cifar100_w2_20250716_151827_rank0.log
-2025-07-16 15:18:27,834 - trainer_0 - INFO - Starting LocalSGD training on 2 workers
-2025-07-16 15:18:27,835 - trainer_0 - INFO - Device: cuda:0 | Backend: nccl
-2025-07-16 15:18:27,835 - trainer_0 - INFO - Config: batch_size=128, lr=0.01, epochs=300
