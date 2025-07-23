@@ -142,8 +142,7 @@ def train_distributed(args, tau=5, epochs_override=None):
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
-            scheduler_decay.step()  # Decay (MultiStepLR)
-
+            
             running_loss += loss.item()
             epoch_loss += loss.item()
             batch_count += 1
@@ -168,7 +167,12 @@ def train_distributed(args, tau=5, epochs_override=None):
                     extras={'lr': optimizer.param_groups[0]['lr'], 'train_acc': train_acc}
                 )
                 running_loss = 0.0
-        scheduler_warmup.step()  # Warmup (LambdaLR)
+        
+        if epoch < warmup_epochs:
+            scheduler_warmup.step()
+        else:
+            scheduler_decay.step()
+
         epoch_time = time.time() - epoch_start
         avg_epoch_loss = epoch_loss / batch_count
         train_acc = 100.0 * correct / total if total > 0 else 0
