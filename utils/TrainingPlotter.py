@@ -3,6 +3,10 @@ import json
 import time
 import matplotlib.pyplot as plt
 import numpy as np
+from collections import defaultdict
+import glob
+import re
+
 
 
 class TrainingPlotter:
@@ -11,16 +15,14 @@ class TrainingPlotter:
     Optimized for visualizing longer training runs with many epochs.
     """
 
-    def __init__(self, log_dir='logs', train_name=None, is_main_process=False, metrics_files=None):
+    def __init__(self, log_dir='logs', train_name=None, metrics_files=None, world_size=1):
         """
         Initialize the plotter.
 
         Args:
             log_dir (str): Directory where logs are saved
             train_name (str): Training experiment name
-            is_main_process (bool): Whether this process is the main process
         """
-        self.is_main_process = is_main_process
 
         self.log_dir = log_dir
         os.makedirs(os.path.join(log_dir, 'plots'), exist_ok=True)
@@ -36,6 +38,7 @@ class TrainingPlotter:
                 train_name = f"run_{time.strftime('%Y%m%d_%H%M%S')}"
 
         self.train_name = train_name
+        self.world_size = world_size
 
         if metrics_files is not None:
                 self.metrics_files = metrics_files
@@ -51,47 +54,78 @@ class TrainingPlotter:
             else:
                 print(f"[WARNING] No metrics file found for {self.train_name}.")
                 self.metrics_files = []
-
-    def _load_metrics(self):
-        all_metrics = []
-        for path in self.metrics_files:
-            if os.path.exists(path):
-                with open(path, 'r') as f:
-                    data = json.load(f)
-                    all_metrics.append(data)
-            else:
-                print(f"[WARNING] Metrics file not found: {path}")
-            if len(all_metrics) == 1:
-                return all_metrics[0]  # dict centralizzato
-        return all_metrics  # lista di dicts (distribuito)
         
     
         
     def _load_all_metrics(self):
-        """Load and return metrics from all files in self.metrics_files."""
-        all_metrics = []
-        for fpath in self.metrics_files:
-            if not os.path.exists(fpath):
-                print(f"[WARNING] Metrics file not found: {fpath}")
+        """
+        Load all metrics files for this training session from all clients and rounds.
+        Returns a list of (filename, data) tuples.
+        """
+        metrics_data = []
+
+        for rank in range(self.world_size):
+            
+            pattern = os.path.join(self.log_dir, f"{self.train_name}_metrics_client{rank}*.json")
+            files = sorted(glob.glob(pattern))
+
+            if not files:
+                print(f"[WARNING] No metrics file found for client {rank}")
                 continue
-            with open(fpath, 'r') as f:
-                metrics = json.load(f)
-                all_metrics.append((os.path.basename(fpath), metrics))
-        return all_metrics
+
+            for file in files:
+                try:
+                    with open(file, 'r') as f:
+                        data = json.load(f)
+                        metrics_data.append((file, data))
+                except Exception as e:
+                    print(f"[ERROR] Could not load {file}: {e}")
+
+        return metrics_data  # [(filename, dict), ...]
+
+
+    def _group_metrics_by_rank(self, all_metrics):
+        """
+        Group and merge metrics by client ID across all rounds.
+        Returns: dict[rank] = merged_metrics_dict
+        """
+        rank_metrics = defaultdict(lambda: defaultdict(list))
+
+        for filename, metrics in all_metrics:
+            match = re.search(r'_client(\d+)', filename)
+            if not match:
+                continue
+            rank = int(match.group(1))
+
+            for key, value in metrics.items():
+                if isinstance(value, list):
+                    rank_metrics[rank][key].extend(value)
+                else:
+                    rank_metrics[rank][key] = value
+        return {rank: dict(metrics) for rank, metrics in rank_metrics.items()}
+
 
     def _convert_metrics_list_to_dict(self, metrics_list):
-        """Convert list of per-epoch metrics to a dict of lists."""
+        """
+        Converts a list of dicts (e.g., metrics for one client) into a single dict of lists.
+        """
         if not isinstance(metrics_list, list) or not metrics_list:
             return {}
 
-        metrics_dict = {}
+        merged = defaultdict(list)
         for entry in metrics_list:
             for key, value in entry.items():
-                metrics_dict.setdefault(key, []).append(value)
-        return metrics_dict
+                if isinstance(value, list):
+                    merged[key].extend(value)
+                else:
+                    merged[key].append(value)
+        return dict(merged)
+
 
     def _get_epoch_range(self, num_epochs):
-        """Creates a proper epoch range for x-axis ticks."""
+        """
+        Determines a suitable range of x-axis ticks based on number of epochs.
+        """
         if num_epochs <= 20:
             return list(range(1, num_epochs + 1))
         elif num_epochs <= 50:
@@ -102,20 +136,19 @@ class TrainingPlotter:
             return list(range(1, num_epochs + 1, 10))
 
     def plot_epoch_loss(self):
-        if not self.is_main_process:
-            return
-
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
             return
 
-        for filename, metrics in all_metrics:
-            if 'epoch_loss' not in metrics:
-                print(f"No epoch_loss data in {filename}")
+        metrics_by_rank = self._group_metrics_by_rank(all_metrics)
+
+        for client_id, metrics in metrics_by_rank.items():
+            epoch_loss = metrics.get('epoch_loss', [])
+            if not epoch_loss:
+                print(f"No epoch_loss for client {client_id}")
                 continue
 
-            epoch_loss = metrics['epoch_loss']
             epochs = list(range(1, len(epoch_loss) + 1))
 
             plt.figure(figsize=(12, 6))
@@ -130,106 +163,55 @@ class TrainingPlotter:
             if len(epochs) > 5:
                 window_size = min(5, len(epochs) // 5)
                 if window_size > 1:
-                    smoothed = np.convolve(epoch_loss,
-                                        np.ones(window_size) / window_size,
-                                        mode='valid')
+                    smoothed = np.convolve(epoch_loss, np.ones(window_size) / window_size, mode='valid')
                     plt.plot(range(window_size, len(epochs) + 1), smoothed,
                             color='red', linestyle='--', linewidth=1.5,
                             label=f'{window_size}-Epoch Moving Avg')
 
-            plt.title(f'Loss per Epoch - {filename}')
+            plt.title(f'Loss per Epoch - Client {client_id}')
             plt.xlabel('Epoch')
             plt.ylabel('Loss')
             plt.grid(True, linestyle='--', alpha=0.7)
             plt.legend()
             plt.xticks(self._get_epoch_range(len(epochs)))
 
-           
-            tag = filename.replace('_metrics.json', '').replace('.json', '')
-            save_path = os.path.join(self.plots_dir, f"{tag}_epoch_loss.png")
+            save_path = os.path.join(self.plots_dir, f"{self.train_name}_client{client_id}_epoch_loss.png")
             plt.savefig(save_path)
             plt.close()
-            print(f"Epoch loss plot saved to {save_path}")
+            print(f"[Plot] Saved epoch loss for client {client_id} to {save_path}")
 
-            """Plot the training loss over epochs."""
-            if not self.is_main_process:
-                return
-
-            metrics = self._load_metrics()
-            if not metrics or 'epoch_loss' not in metrics:
-                print("No epoch loss data found in metrics.")
-                return
-
-
-        plt.figure(figsize=(12, 6))
-
-        # Get epoch numbers (1-indexed for display)
-        epochs = list(range(1, len(metrics['epoch_loss']) + 1))
-
-        # Plot the epoch loss
-        plt.plot(epochs, metrics['epoch_loss'], 'o-', linewidth=2, markersize=8,
-                 color='blue', label='Loss per Epoch')
-
-        # Mark minimum loss
-        min_loss = min(metrics['epoch_loss'])
-        min_epoch = metrics['epoch_loss'].index(min_loss) + 1
-        plt.scatter([min_epoch], [min_loss], color='green', s=100, zorder=5,
-                    label=f'Min Loss: {min_loss:.4f} (Epoch {min_epoch})')
-
-        # Add smoothed trendline if we have enough epochs
-        if len(epochs) > 5:
-            # Simple moving average for trend visualization
-            window_size = min(5, len(epochs) // 5)
-            if window_size > 1:
-                smoothed = np.convolve(metrics['epoch_loss'],
-                                       np.ones(window_size) / window_size,
-                                       mode='valid')
-                plt.plot(range(window_size, len(epochs) + 1), smoothed,
-                         color='red', linestyle='--', linewidth=1.5,
-                         label=f'{window_size}-Epoch Moving Avg')
-
-        plt.title(f'Loss per Epoch - {self.train_name}')
-        plt.xlabel('Epoch')
-        plt.ylabel('Loss')
-        plt.grid(True, linestyle='--', alpha=0.7)
-        plt.legend()
-
-        # Set appropriate x-ticks based on number of epochs
-        plt.xticks(self._get_epoch_range(len(epochs)))
-
-        save_path = os.path.join(self.plots_dir, f"{self.train_name}_epoch_loss.png")
-        plt.savefig(save_path)
-        plt.close()
-        print(f"Epoch loss plot saved to {save_path}")
 
     def plot_epoch_time(self):
-        """Plot the time taken for each epoch (aggregated from multiple ranks)."""
-        if not self.is_main_process:
-            return
-
+        """Plot the average epoch time across clients (aggregated over all their metrics files)."""
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
             return
 
-        # Gestione centralizzato vs distribuito
-        if isinstance(all_metrics, dict):
-            epoch_time = all_metrics.get('epoch_time', [])
-            if not epoch_time:
-                print("No epoch time data found.")
-                return
-            num_epochs = len(epoch_time)
-            time_avg = epoch_time
-        else:
-            num_epochs = len(all_metrics[0][1].get('epoch_time', []))
-            epoch_times = np.array([m[1].get('epoch_time', [0]*num_epochs) for m in all_metrics])
-            time_avg = np.mean(epoch_times, axis=0)
+        metrics_by_rank = self._group_metrics_by_rank(all_metrics)
+
+        all_epoch_times = []
+        for client_id, metrics in metrics_by_rank.items():
+            epoch_times = metrics.get('epoch_time', [])
+            if epoch_times:
+                all_epoch_times.append(epoch_times)
+
+        if not all_epoch_times:
+            print("No epoch_time data found for any client.")
+            return
+
+        num_epochs = max(len(seq) for seq in all_epoch_times)
+
+        def pad_or_truncate(seq, length):
+            return seq[:length] + [0.0] * (length - len(seq))
+
+        avg_times = np.mean([pad_or_truncate(seq, num_epochs) for seq in all_epoch_times], axis=0)
 
         epochs = list(range(1, num_epochs + 1))
         plt.figure(figsize=(12, 6))
-        plt.bar(epochs, time_avg, color='skyblue')
-        avg_time = np.mean(time_avg)
-        plt.axhline(y=avg_time, color='r', linestyle='-', label=f'Average: {avg_time:.2f}s')
+        plt.bar(epochs, avg_times, color='skyblue')
+        avg_time = np.mean(avg_times)
+        plt.axhline(y=avg_time, color='red', linestyle='-', label=f'Average: {avg_time:.2f}s')
 
         plt.title(f'Time per Epoch - {self.train_name}')
         plt.xlabel('Epoch')
@@ -245,35 +227,37 @@ class TrainingPlotter:
 
 
     def plot_epoch_throughput(self):
-        """Plot the throughput for each epoch (aggregated from epoch time)."""
-        if not self.is_main_process:
-            return
-
+        """Plot the throughput for each epoch (aggregated from epoch time per client)."""
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
             return
 
-        # Gestione centralizzato vs distribuito
-        if isinstance(all_metrics, dict):
-            epoch_time = all_metrics.get('epoch_time', [])
-            if not epoch_time:
-                print("No epoch time data found.")
-                return
-            num_epochs = len(epoch_time)
-            avg_times = epoch_time
-        else:
-            num_epochs = len(all_metrics[0][1].get('epoch_time', []))
-            epoch_times = np.array([m[1].get('epoch_time', [0]*num_epochs) for m in all_metrics])
-            avg_times = np.mean(epoch_times, axis=0)
+        metrics_by_rank = self._group_metrics_by_rank(all_metrics)
 
+        all_epoch_times = []
+        for client_id, metrics in metrics_by_rank.items():
+            epoch_times = metrics.get('epoch_time', [])
+            if epoch_times:
+                all_epoch_times.append(epoch_times)
+
+        if not all_epoch_times:
+            print("No epoch_time data found.")
+            return
+
+        num_epochs = max(len(seq) for seq in all_epoch_times)
+
+        def pad_or_truncate(seq, length):
+            return seq[:length] + [0.0] * (length - len(seq))
+
+        avg_times = np.mean([pad_or_truncate(seq, num_epochs) for seq in all_epoch_times], axis=0)
         throughputs = [1.0 / t if t > 0 else 0 for t in avg_times]
 
         epochs = list(range(1, num_epochs + 1))
         plt.figure(figsize=(12, 6))
         plt.bar(epochs, throughputs, color='lightgreen')
         avg_throughput = np.mean(throughputs)
-        plt.axhline(y=avg_throughput, color='r', linestyle='-', label=f'Average: {avg_throughput:.4f}')
+        plt.axhline(y=avg_throughput, color='red', linestyle='-', label=f'Average: {avg_throughput:.4f}')
 
         plt.title(f'Throughput per Epoch - {self.train_name}')
         plt.xlabel('Epoch')
@@ -289,38 +273,46 @@ class TrainingPlotter:
 
 
 
-    def plot_accuracy(self):
-        """Plot the training and validation accuracy over epochs (aggregated or centralized)."""
-        if not self.is_main_process:
-            return
 
+    def plot_accuracy(self):
+        """Plot the training and validation accuracy over epochs (aggregated by client)."""
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
             return
 
-        if isinstance(all_metrics, dict):  # Centralized case
-            train_avg = all_metrics.get('epoch_train_acc', [])
-            val_avg = all_metrics.get('epoch_val_acc', [])
-            if len(train_avg) == 0 and len(val_avg) == 0:
-                print("No accuracy data found.")
-                return
-            num_epochs = len(train_avg)
-        else:  # Distributed case
-            num_epochs = len(all_metrics[0][1].get('epoch_train_acc', []))
-            train_acc_all = np.array([m[1].get('epoch_train_acc', [0] * num_epochs) for m in all_metrics])
-            val_acc_all = np.array([m[1].get('epoch_val_acc', [0] * num_epochs) for m in all_metrics])
-            train_avg = np.mean(train_acc_all, axis=0)
-            val_avg = np.mean(val_acc_all, axis=0)
+        metrics_by_rank = self._group_metrics_by_rank(all_metrics)
 
+        train_acc_all = []
+        val_acc_all = []
+
+        for client_id, metrics in metrics_by_rank.items():
+            train_acc = metrics.get('epoch_train_acc', [])
+            val_acc = metrics.get('epoch_val_acc', [])
+            if train_acc:
+                train_acc_all.append(train_acc)
+            if val_acc:
+                val_acc_all.append(val_acc)
+
+        if not train_acc_all and not val_acc_all:
+            print("No accuracy data found.")
+            return
+
+        num_epochs = max(len(seq) for seq in train_acc_all + val_acc_all)
         epochs = list(range(1, num_epochs + 1))
-        plt.figure(figsize=(12, 6))
 
-        if train_avg is not None and len(train_avg) > 0:
+        def pad_or_truncate(seq, length):
+            return seq[:length] + [0.0] * (length - len(seq))
+
+        train_avg = np.mean([pad_or_truncate(seq, num_epochs) for seq in train_acc_all], axis=0) if train_acc_all else []
+        val_avg = np.mean([pad_or_truncate(seq, num_epochs) for seq in val_acc_all], axis=0) if val_acc_all else []
+
+        plt.figure(figsize=(12, 6))
+        if len(train_avg):
             plt.plot(epochs, train_avg, 'o-', color='blue', label='Train Accuracy (avg)')
-        if val_avg is not None and len(val_avg) > 0:
+        if len(val_avg):
             plt.plot(epochs, val_avg, 'o-', color='red', label='Validation Accuracy (avg)')
-            best_acc = max(val_avg)
+            best_acc = np.max(val_avg)
             best_epoch = np.argmax(val_avg) + 1
             plt.scatter([best_epoch], [best_acc], color='green', s=100, zorder=5,
                         label=f'Best Val Acc: {best_acc:.2f}% (Epoch {best_epoch})')
@@ -338,26 +330,32 @@ class TrainingPlotter:
         print(f"Accuracy plot saved to {save_path}")
 
 
-
     def plot_learning_rate(self):
-        """Plot the learning rate over epochs (centralized or from rank 0 in distributed setup)."""
-        if not self.is_main_process:
-            return
+        """Plot the learning rate over epochs (averaged across clients)."""
 
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
             return
 
-        # Estrazione corretta del dizionario
-        if isinstance(all_metrics, dict):  # Centralized
-            epoch_lr = all_metrics.get('epoch_lr', None)
-        else:  # Distributed (prendiamo il rank 0 come riferimento per lr)
-            epoch_lr = all_metrics[0][1].get('epoch_lr', None)
+        metrics_by_rank = self._group_metrics_by_rank(all_metrics)
+        lr_all = []
 
-        if epoch_lr is None or len(epoch_lr) == 0:
-            print("No learning rate data found.")
+        for metrics in metrics_by_rank.values():
+            lr = metrics.get('epoch_lr', [])
+            if lr:
+                lr_all.append(lr)
+
+        if not lr_all:
+            print("No learning rate data found in any client.")
             return
+
+        num_epochs = max(len(seq) for seq in lr_all)
+
+        def pad_or_truncate(seq, length):
+            return seq[:length] + [0.0] * (length - len(seq))
+
+        epoch_lr = np.mean([pad_or_truncate(seq, num_epochs) for seq in lr_all], axis=0)
 
         epochs = list(range(1, len(epoch_lr) + 1))
         plt.figure(figsize=(12, 6))
@@ -381,58 +379,57 @@ class TrainingPlotter:
 
     def plot_metric_comparison(self):
         """Plot multiple metrics on the same graph for comparison."""
-        if not self.is_main_process:
-            return
 
-        metrics_raw = self._load_metrics()
-        if isinstance(metrics_raw, list):
-            metrics_raw = self._convert_metrics_list_to_dict(metrics_raw)
-        else:
-            metrics_raw = metrics_raw  # già nel formato corretto
-        metrics = metrics_raw
+        all_metrics = self._load_all_metrics()
 
-
-        if not metrics:
+        if not all_metrics:
             print("No metrics found.")
             return
 
-        epoch_metrics = [key for key in metrics.keys() if key.startswith('epoch_') and key != 'epoch_time']
+        # Convert list of dicts to dict of lists
+        metrics_list = [m[1] for m in all_metrics if isinstance(m[1], dict)]
+        metrics = self._convert_metrics_list_to_dict(metrics_list)
 
+        if not metrics:
+            print("No valid metrics found.")
+            return
+
+        
+        epoch_metrics = [key for key in metrics.keys() if key.startswith('epoch_') and key != 'epoch_time']
         if not epoch_metrics:
             print("No epoch metrics found for comparison.")
             return
 
-
-        keys = ['loss', 'val_loss', 'train_acc', 'val_acc', 'lr']
+        keys = ['epoch_loss', 'epoch_val_loss', 'epoch_train_acc', 'epoch_val_acc', 'epoch_lr']
         available = [k for k in keys if k in metrics and isinstance(metrics[k], list)]
         if len(available) < 2:
             print("Not enough metrics for comparison.")
             return
 
-        epochs = list(range(1, len(metrics['loss']) + 1))
+        epochs = list(range(1, len(metrics[available[0]]) + 1))
         fig, ax1 = plt.subplots(figsize=(12, 6))
         
         ax1.set_xlabel('Epoch')
         ax1.set_ylabel('Loss', color='blue')
 
-        if 'loss' in metrics:
-            ax1.plot(epochs, metrics['loss'], 'o-', color='blue', label='Train Loss')
-
-        if 'val_loss' in metrics:
-            ax1.plot(epochs, metrics['val_loss'], 's--', color='cyan', label='Val Loss')
+        if 'epoch_loss' in metrics:
+            ax1.plot(epochs, metrics['epoch_loss'], 'o-', color='blue', label='Train Loss')
+        if 'epoch_val_loss' in metrics:
+            ax1.plot(epochs, metrics['epoch_val_loss'], 's--', color='cyan', label='Val Loss')
 
         ax1.tick_params(axis='y', labelcolor='blue')
 
+    # Second axis for other metrics
         has_second_axis = False
         for key in available:
-            if key != 'loss':
+            if key not in ['epoch_loss', 'epoch_val_loss']:
                 if not has_second_axis:
                     ax2 = ax1.twinx()
                     ax2.set_ylabel('Other Metrics', color='red')
                     has_second_axis = True
-                color = 'red' if key == 'val_acc' else 'green'
-                label = key.replace('_', ' ').capitalize()
-                ax2.plot(epochs, metrics[key], 'o-', color=color, label=label)
+                color = 'red' if 'acc' in key else 'green'
+                label = key.replace('epoch_', '').replace('_', ' ').capitalize()
+                ax2.plot(epochs, metrics[key], 'o-', label=label, color=color)
 
         if has_second_axis:
             ax2.tick_params(axis='y', labelcolor='red')
@@ -455,27 +452,26 @@ class TrainingPlotter:
         print(f"Metrics comparison plot saved to {save_path}")
 
 
-
     def plot_summary(self):
         """Generate a summary plot with multiple subplots for key metrics."""
-        if not self.is_main_process:
-            return
 
-        metrics_raw = self._load_metrics()
-        if isinstance(metrics_raw, list):
-            metrics_raw = self._convert_metrics_list_to_dict(metrics_raw)
-        metrics = metrics_raw
-
-        if not metrics:
+        all_metrics = self._load_all_metrics()
+        if not all_metrics:
             print("No metrics found.")
             return
 
-        # Verifica disponibilità metriche
-        has_loss = 'loss' in metrics
+        metrics_list = [m[1] for m in all_metrics if isinstance(m[1], dict)]
+        metrics = self._convert_metrics_list_to_dict(metrics_list)
+
+        if not metrics:
+            print("No valid metrics found.")
+            return
+
+        has_loss = 'epoch_loss' in metrics
         has_time = 'epoch_time' in metrics
-        has_train_acc = 'train_acc' in metrics
-        has_val_acc = 'val_acc' in metrics
-        has_lr = 'lr' in metrics
+        has_train_acc = 'epoch_train_acc' in metrics
+        has_val_acc = 'epoch_val_acc' in metrics
+        has_lr = 'epoch_lr' in metrics
 
         plot_count = sum([has_loss, has_time, has_train_acc or has_val_acc, has_lr])
         if plot_count == 0:
@@ -492,7 +488,7 @@ class TrainingPlotter:
         current_ax = 0
 
         if has_loss:
-            loss = metrics['loss']
+            loss = metrics['epoch_loss']
             epochs = list(range(1, len(loss) + 1))
             ax = axes[current_ax]
             ax.plot(epochs, loss, 'o-', color='blue')
@@ -522,13 +518,13 @@ class TrainingPlotter:
             current_ax += 1
 
         if has_train_acc or has_val_acc:
-            acc_len = len(metrics.get('train_acc', metrics.get('val_acc', [])))
+            acc_len = len(metrics.get('epoch_train_acc', metrics.get('epoch_val_acc', [])))
             epochs = list(range(1, acc_len + 1))
             ax = axes[current_ax]
             if has_train_acc:
-                ax.plot(epochs, metrics['train_acc'], 'o-', color='blue', label='Train Acc')
+                ax.plot(epochs, metrics['epoch_train_acc'], 'o-', color='blue', label='Train Acc')
             if has_val_acc:
-                val_acc = metrics['val_acc']
+                val_acc = metrics['epoch_val_acc']
                 ax.plot(epochs, val_acc, 'o-', color='red', label='Val Acc')
                 best_acc = max(val_acc)
                 best_epoch = val_acc.index(best_acc) + 1
@@ -542,7 +538,7 @@ class TrainingPlotter:
             current_ax += 1
 
         if has_lr:
-            lr = metrics['lr']
+            lr = metrics['epoch_lr']
             epochs = list(range(1, len(lr) + 1))
             ax = axes[current_ax]
             ax.plot(epochs, lr, 'o-', color='purple')
@@ -555,7 +551,6 @@ class TrainingPlotter:
             ax.set_xticks(self._get_epoch_range(len(epochs)))
             current_ax += 1
 
-        # Disattiva assi vuoti
         for i in range(current_ax, len(axes)):
             axes[i].axis('off')
 
@@ -565,13 +560,8 @@ class TrainingPlotter:
         plt.close()
         print(f"Summary plot saved to {save_path}")
 
-
-
     def plot_all(self):
         """Generate all available plots."""
-        if not self.is_main_process:
-            return
-
         print(f"Generating all plots for {self.train_name}...")
         self.plot_epoch_loss()
         self.plot_epoch_time()
@@ -584,9 +574,6 @@ class TrainingPlotter:
 
     def plot_all_per_rank(self):
         """Generate all available plots."""
-        if not self.is_main_process:
-            return
-
         print(f"Generating all plots for {self.train_name}...")
         self.plot_epoch_loss()
         self.plot_epoch_time()
@@ -599,16 +586,13 @@ class TrainingPlotter:
 
     def plot_summary_per_rank(self):
         """Generate summary plots for each rank."""
-        if not self.is_main_process:
-            return
-
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
             return
 
         for filename, metrics in all_metrics:
-            tag = filename.replace('_metrics.json', '').replace('.json', '')
+            tag = os.path.splitext(os.path.basename(filename))[0]
             print(f"Generating summary for {tag}...")
 
             has_loss = 'epoch_loss' in metrics
@@ -696,9 +680,6 @@ class TrainingPlotter:
 
     def plot_metric_comparison_per_rank(self):
         """Generate comparison plot for each rank."""
-        if not self.is_main_process:
-            return
-
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
@@ -714,7 +695,8 @@ class TrainingPlotter:
                 print(f"Not enough metrics for comparison in {filename}")
                 continue
 
-            tag = filename.replace('_metrics.json', '').replace('.json', '')
+            tag = os.path.splitext(os.path.basename(filename))[0]
+
             epochs = list(range(1, len(metrics['epoch_loss']) + 1))
 
             fig, ax1 = plt.subplots(figsize=(12, 6))

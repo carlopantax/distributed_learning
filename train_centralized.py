@@ -58,7 +58,6 @@ def scale_lr(base_lr, base_batch_size, actual_batch_size, mode='sqrt'):
     else:
         raise ValueError("Unsupported scaling mode.")
 
-# prima 20 epoche!!!!!!!!!!!!!
 def warmup_cosine_schedule(epoch, warmup_epochs=40, total_epochs=150):
     if epoch < warmup_epochs:
         return float(epoch) / float(max(1, warmup_epochs))  # linear warm-up
@@ -82,9 +81,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
         DIR = f"{base_name}"
     logger = TrainingLogger(
         log_dir=DIR,
-        train_name=train_name,
-        rank=0,
-        is_main_process=True
+        train_name=train_name
     )
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.log(f"Training centralized on device: {device}")
@@ -147,7 +144,6 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
             loss = criterion(outputs, labels)
             loss.backward()
 
-            #nuova versione
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             
             optimizer.step()
@@ -225,7 +221,6 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
 
     logger.log("Generating training plots...")
 
-    # Fix nome file
     rank0_file = os.path.join(DIR, f"{train_name}_metrics_rank0.json")
     default_file = os.path.join(DIR, f"{train_name}_metrics.json")
     if os.path.exists(rank0_file):
@@ -234,8 +229,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
 
     plotter = TrainingPlotter(
         log_dir=DIR,
-        train_name=train_name,
-        is_main_process=True
+        train_name=train_name
     )
 
     plotter.plot_all()

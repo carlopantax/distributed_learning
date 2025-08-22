@@ -7,26 +7,11 @@ from collections import defaultdict
 
 
 class TrainingLogger:
-    """
-    Class to manage logging during training in a distributed setting.
-    Handles log rotation, formatting, and saving metrics to file.
-    """
-
-    def __init__(self, log_dir='logs', train_name=None, rank=0, is_main_process=False, world_size=1):
-        """
-        Initializes the logger.
-
-        Args:
-            log_dir (str): Directory to save logs
-            train_name (str): Experiment name for the log files
-            rank (int): Process rank in distributed training
-            is_main_process (bool): Whether this process is the main process
-        """
-        self.rank = rank
-        self.is_main_process = is_main_process
+    def __init__(self, log_dir='logs', train_name=None, client_id=0, num_clients=1):
+        self.client_id = client_id
+        self.num_clients = num_clients
         self.metrics = defaultdict(list)
         self.start_time = time.time()
-        self.world_size = world_size
 
         os.makedirs(log_dir, exist_ok=True)
 
@@ -35,77 +20,59 @@ class TrainingLogger:
 
         self.exp_name = train_name
         self.log_dir = log_dir
-        self.log_file = os.path.join(log_dir, f"{train_name}_rank{rank}.log")
+        self.log_file = os.path.join(log_dir, f"{train_name}_client{client_id}.log")
+        self.metrics_file = os.path.join(log_dir, f"{train_name}_metrics_client{client_id}.json")
 
-        self.metrics_file = os.path.join(log_dir, f"{train_name}_metrics_rank{rank}.json")
-
-        self.logger = logging.getLogger(f"trainer_{rank}")
+        self.logger = logging.getLogger(f"client_{client_id}")
         self.logger.setLevel(logging.INFO)
 
-        # Prevent duplicate handlers (important when resuming)
         if not self.logger.handlers:
-
             formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
             console_handler = logging.StreamHandler()
-            console_handler.setLevel(logging.INFO)
             console_handler.setFormatter(formatter)
             self.logger.addHandler(console_handler)
 
             file_handler = logging.FileHandler(self.log_file)
-            file_handler.setLevel(logging.INFO)
             file_handler.setFormatter(formatter)
             self.logger.addHandler(file_handler)
 
-            self.logger.info(f"Started training experiment: {train_name}")
+            self.logger.info(f"Started training for Client {client_id}")
             self.logger.info(f"Log file: {self.log_file}")
 
-            # Load metrics if resuming
-            if os.path.exists(self.metrics_file):
-                try:
-                    with open(self.metrics_file, 'r') as f:
-                        previous_metrics = json.load(f)
-                    for key, val in previous_metrics.items():
-                        self.metrics[key] = val if isinstance(val, list) else [val]
-                    self.logger.info(f"Resumed metrics from {self.metrics_file}")
-                except Exception as e:
-                    self.logger.warning(f"Could not load previous metrics: {e}")
+        if os.path.exists(self.metrics_file):
+            try:
+                with open(self.metrics_file, 'r') as f:
+                    previous_metrics = json.load(f)
+                for key, val in previous_metrics.items():
+                    if isinstance(val, list):
+                        self.metrics[key].extend(val)
+                    else:
+                        self.metrics[key].append(val)
+                self.logger.info(f"Resumed metrics from {self.metrics_file}")
+            except Exception as e:
+                self.logger.warning(f"Could not load previous metrics: {e}")
+
 
     def log(self, message, level='info'):
         """Logs a message with the specified level."""
         if level.lower() == 'info':
-                self.logger.info(message)
-        if self.is_main_process:
-            if level.lower() == 'warning':
-                self.logger.warning(message)
-            elif level.lower() == 'error':
-                self.logger.error(message)
-            elif level.lower() == 'debug':
-                self.logger.debug(message)
+            self.logger.info(message)
+        elif level.lower() == 'warning':
+            self.logger.warning(message)
+        elif level.lower() == 'error':
+            self.logger.error(message)
+        elif level.lower() == 'debug':
+            self.logger.debug(message)
+
 
     def log_metrics(self, epoch, batch_idx, loss, batch_size, train_size, extras=None):
-        """
-        Logs training metrics for the current batch.
-
-        Args:
-            epoch (int): Current epoch
-            batch_idx (int): Current batch index
-            loss (float): Current loss value
-            batch_size (int): Size of the batch
-            train_size (int): Total size of the training set
-            extras (dict): Extra metrics to log
-        """
-
         elapsed = time.time() - self.start_time
-        
         imgs_per_sec = batch_idx * batch_size / elapsed if elapsed > 0 else 0
 
-        if hasattr(self, 'local_train_size'):
-            local_train_size = self.local_train_size
-        else:
-            local_train_size = train_size // self.world_size
+        local_train_size = train_size 
 
         progress = 100. * (batch_idx + 1) * batch_size / local_train_size
-
 
         self.metrics['epoch'].append(epoch)
         self.metrics['batch'].append(batch_idx)
@@ -119,6 +86,7 @@ class TrainingLogger:
                 self.metrics[key].append(value)
 
         log_msg = (
+            f"[Client {self.client_id}/{self.num_clients}] "
             f"Epoch: {epoch + 1} | "
             f"Batch: {batch_idx + 1}/{math.ceil(local_train_size / batch_size)} | "
             f"Loss: {loss:.4f} | "
@@ -131,31 +99,32 @@ class TrainingLogger:
             extras_str = " | ".join([f"{k}: {v:.4f}" for k, v in extras.items()])
             log_msg += f" | {extras_str}"
 
-        self.log(log_msg)
+        try:
+            with open(self.metrics_file, 'w') as f:
+                json.dump(self.metrics, f, indent=4)
+        except Exception as e:
+            self.log(f"[ERROR] Could not save metrics to {self.metrics_file}: {e}", level='error')
 
-    def log_epoch(self, epoch, epoch_loss, epoch_time, world_size=1, extras=None):
-        """
-        Logs metrics for completed epoch.
 
-        Args:
-            epoch (int): Current epoch
-            epoch_loss (float): Average loss for the epoch
-            epoch_time (float): Time taken for the epoch
-            world_size (int): Number of processes in distributed training
-            extras (dict): Extra metrics to log
-        """
+    def log_epoch(self, epoch, epoch_loss, epoch_time, world_size=None, extras=None):
+        self.metrics.setdefault('epoch_loss', []).append(epoch_loss)
+        self.metrics.setdefault('epoch_time', []).append(epoch_time)
 
-        self.metrics['epoch_loss'].append(epoch_loss)
-        self.metrics['epoch_time'].append(epoch_time)
+        if world_size is not None:
+            self.metrics.setdefault('epoch_world_size', []).append(world_size)
 
         if extras:
             for key, value in extras.items():
-                self.metrics[f"epoch_{key}"].append(value)
+                self.metrics.setdefault(f"epoch_{key}", []).append(value)
 
         log_msg = (
+            f"[Client {self.client_id}/{self.num_clients}] "
             f"Epoch {epoch + 1} completed in {epoch_time:.2f}s | "
             f"Average Loss: {epoch_loss:.4f}"
         )
+
+        if world_size is not None:
+            log_msg += f" | World Size: {world_size}"
 
         if extras:
             extras_str = " | ".join([f"{k}: {v:.4f}" for k, v in extras.items()])
@@ -163,25 +132,29 @@ class TrainingLogger:
 
         self.log(log_msg)
 
-    def log_training_complete(self, total_time, total_images, world_size=1):
-        """
-        Logs final training statistics.
+        try:
+            with open(self.metrics_file, 'w') as f:
+                json.dump(self.metrics, f, indent=4)
+        except Exception as e:
+            self.log(f"[ERROR] Could not save metrics to {self.metrics_file}: {e}", level='error')
 
-        Args:
-            total_time (float): Total training time
-            total_images (int): Total number of images processed
-            world_size (int): Number of processes in distributed training
-        """
 
+
+    def log_training_complete(self, total_time, total_images, num_clients=None):
         throughput = total_images / total_time
 
         self.metrics['total_time'] = total_time
         self.metrics['throughput'] = throughput
-        self.metrics['world_size'] = world_size
+        self.metrics['client_id'] = self.client_id
 
-        self.log(f"Training completed in {total_time:.2f} seconds.")
-        self.log(f"Average throughput: {throughput:.2f} Images/sec")
-        self.log(f"Total processes: {world_size}")
+        if num_clients is not None:
+            self.metrics['num_clients'] = num_clients
+        else:
+            self.metrics['num_clients'] = self.num_clients
+            num_clients = self.num_clients
+
+        self.log(f"[Client {self.client_id}/{num_clients}] Training completed in {total_time:.2f} seconds.")
+        self.log(f"[Client {self.client_id}/{num_clients}] Average throughput: {throughput:.2f} Images/sec")
 
         os.makedirs(os.path.dirname(self.metrics_file), exist_ok=True)
 
