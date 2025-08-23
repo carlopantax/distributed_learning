@@ -12,6 +12,7 @@ import time
 from config import learning_rate, batch_size, epochs
 import os
 import json
+import math
 from collections import defaultdict
 from utils.distributed import setup_distributed, cleanup_distributed, is_main_process, setup_logger, get_rank, get_world_size
 os.environ["OMP_NUM_THREADS"] = "4"
@@ -37,6 +38,15 @@ def average_models(models):
             avg_state_dict[key] += models[i].state_dict()[key]
         avg_state_dict[key] = avg_state_dict[key] / len(models)
     return avg_state_dict
+
+def get_cosine_schedule_with_warmup(optimizer, warmup_epochs, total_epochs, base_lr):
+    def lr_lambda(current_epoch):
+        if current_epoch < warmup_epochs:
+            return float(current_epoch + 1) / float(warmup_epochs)
+        progress = float(current_epoch - warmup_epochs) / float(total_epochs - warmup_epochs)
+        return 0.5 * (1.0 + math.cos(math.pi * progress))
+    return torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
+
 
 def train_distributed(args, epochs_override=None):
     """
@@ -107,6 +117,7 @@ def train_distributed(args, epochs_override=None):
             model.train()
 
             optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=0.9, weight_decay=args.weight_decay)
+            scheduler = get_cosine_schedule_with_warmup(optimizer, warmup_epochs=5, total_epochs=num_epochs, base_lr=args.lr)
             criterion = nn.CrossEntropyLoss()
             logger = TrainingLogger(
                 log_dir='logs',
@@ -157,7 +168,7 @@ def train_distributed(args, epochs_override=None):
                             loss=avg_loss,
                             batch_size=inputs.size(0),
                             train_size=len(client_loaders[client_idx].dataset),
-                            extras={'train_acc': train_acc, 'lr': args.lr}
+                            extras={'train_acc': train_acc, 'lr': scheduler.get_last_lr()[0]}
                         )
 
                 general_logger.log(f"[Client {client_idx}] Completed local epoch {local_epoch+1}/{tau} | "
@@ -178,8 +189,10 @@ def train_distributed(args, epochs_override=None):
                     epoch_loss=avg_epoch_loss,
                     epoch_time=epoch_time,
                     world_size=num_clients,
-                    extras={'train_acc': train_acc, 'val_acc': val_acc, 'lr': args.lr}
+                    extras={'train_acc': train_acc, 'val_acc': val_acc, 'lr': scheduler.get_last_lr()[0]}
                 )
+                scheduler.step()
+
 
         global_model.load_state_dict(average_models(client_models))
         
@@ -207,6 +220,9 @@ def train_distributed(args, epochs_override=None):
             model.train()
 
             optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=0.9, weight_decay=args.weight_decay)
+            scheduler = get_cosine_schedule_with_warmup(
+                optimizer, warmup_epochs=5, total_epochs=num_epochs, base_lr=args.lr
+            )
             criterion = nn.CrossEntropyLoss()
 
             total_seen = 0
@@ -255,7 +271,7 @@ def train_distributed(args, epochs_override=None):
                             loss=avg_loss,
                             batch_size=inputs.size(0),
                             train_size=len(client_loaders[client_idx].dataset),
-                            extras={'train_acc': train_acc, 'lr': args.lr}
+                            extras={'train_acc': train_acc, 'lr': scheduler.get_last_lr()[0]}
                         )
 
                 logger.log(
@@ -279,8 +295,10 @@ def train_distributed(args, epochs_override=None):
                     epoch_loss=avg_epoch_loss,
                     epoch_time=epoch_time,
                     world_size=num_clients,
-                    extras={'train_acc': train_acc, 'val_acc': val_acc, 'lr': args.lr}
+                    extras={'train_acc': train_acc, 'val_acc': val_acc, 'lr': scheduler.get_last_lr()[0]}
                 )
+                scheduler.step()
+
 
         global_model.load_state_dict(average_models(client_models))
         torch.save(global_model.state_dict(), f'checkpoints/global_model_epoch{current_epoch}.pth')
