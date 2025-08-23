@@ -9,6 +9,8 @@ from utils.TrainingPlotter import TrainingPlotter
 from utils.data_utils import load_cifar100_for_clients as load_cifar100
 from models.lenet import LeNet5
 import time
+from utils.outer_optimizer_bmuf import initialize_global_momentum, global_momentum_update
+from utils.slowmo import initialize_slowmo_state, slowmo_update
 from config import learning_rate, batch_size, epochs
 import os
 import json
@@ -103,6 +105,14 @@ def train_distributed(args, epochs_override=None):
     best_val_acc = 0.0
     global_model = LeNet5(num_classes=100).to(device)
     os.makedirs('checkpoints', exist_ok=True)
+    momentum_buffer = None
+    slowmo_buffer = None
+    if args.use_global_momentum:
+        momentum_buffer = initialize_global_momentum(global_model)
+    elif args.use_slowmo:
+        slowmo_buffer = initialize_slowmo_state(global_model)
+
+
 
     for round_idx in range(num_rounds):
         epoch_loss_total = 0.0
@@ -194,7 +204,18 @@ def train_distributed(args, epochs_override=None):
                 scheduler.step()
 
 
-        global_model.load_state_dict(average_models(client_models))
+        averaged_weights = average_models(client_models)
+
+        if args.use_global_momentum:
+            updated_weights, momentum_buffer = global_momentum_update(global_model, averaged_weights, momentum_buffer)
+            global_model.load_state_dict(updated_weights)
+        elif args.use_slowmo:
+            updated_weights, slowmo_buffer = slowmo_update(global_model, averaged_weights, slowmo_buffer)
+            global_model.load_state_dict(updated_weights)
+        else:
+            global_model.load_state_dict(averaged_weights)
+
+
         
         torch.save(global_model.state_dict(), f'checkpoints/global_model_epoch{current_epoch}.pth')
 
@@ -300,7 +321,17 @@ def train_distributed(args, epochs_override=None):
                 scheduler.step()
 
 
-        global_model.load_state_dict(average_models(client_models))
+        averaged_weights = average_models(client_models)
+
+        if args.use_global_momentum:
+            updated_weights, momentum_buffer = global_momentum_update(global_model, averaged_weights, momentum_buffer)
+            global_model.load_state_dict(updated_weights)
+        elif args.use_slowmo:
+            updated_weights, slowmo_buffer = slowmo_update(global_model, averaged_weights, slowmo_buffer)
+            global_model.load_state_dict(updated_weights)
+        else:
+            global_model.load_state_dict(averaged_weights)
+
         torch.save(global_model.state_dict(), f'checkpoints/global_model_epoch{current_epoch}.pth')
 
         best_val_acc = max(best_val_acc, val_acc)
@@ -329,6 +360,10 @@ if __name__ == '__main__':
     parser.add_argument('--world_size', type=int, default=4)
     parser.add_argument('--resume', action='store_true', help='Resume training from checkpoint')
     parser.add_argument('--epochs', type=int, default=150, help='Number of total training epochs')
+    parser.add_argument('--use_global_momentum', action='store_true', help='Use Global Momentum (BMUF-style) update')
+    parser.add_argument('--use_slowmo', action='store_true', help='Use SlowMo optimizer update')
+
+
 
     args = parser.parse_args()
 
