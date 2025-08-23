@@ -1,0 +1,14 @@
+2025-08-23 15:17:16,283 - client_0 - INFO - Started training for Client 0
+2025-08-23 15:17:16,284 - client_0 - INFO - Log file: logs/localSGD_lenet5_seq_cifar100_w2_20250823_151709_client0.log
+2025-08-23 15:17:18,981 - client_0 - INFO - Client 0 | Epoch 1 | Batch 10/157 | Loss: 4.6126 | Images/sec: 474.64 | Progress: 6.4% | Time: 2.70s | lr: 0.05 | train_acc: 1.2500
+2025-08-23 15:17:19,279 - client_0 - INFO - Client 0 | Epoch 1 | Batch 20/157 | Loss: 4.5979 | Images/sec: 854.77 | Progress: 12.7% | Time: 2.99s | lr: 0.05 | train_acc: 1.6406
+2025-08-23 15:17:19,550 - client_0 - INFO - Client 0 | Epoch 1 | Batch 30/157 | Loss: 4.5750 | Images/sec: 1175.71 | Progress: 19.1% | Time: 3.27s | lr: 0.05 | train_acc: 2.0833
+2025-08-23 15:17:19,813 - client_0 - INFO - Client 0 | Epoch 1 | Batch 40/157 | Loss: 4.5493 | Images/sec: 1450.56 | Progress: 25.5% | Time: 3.53s | lr: 0.05 | train_acc: 2.3828
+2025-08-23 15:17:20,087 - client_0 - INFO - Client 0 | Epoch 1 | Batch 50/157 | Loss: 4.5213 | Images/sec: 1682.59 | Progress: 31.8% | Time: 3.80s | lr: 0.05 | train_acc: 2.7500
+2025-08-23 15:17:20,378 - client_0 - INFO - Client 0 | Epoch 1 | Batch 60/157 | Loss: 4.4920 | Images/sec: 1875.71 | Progress: 38.2% | Time: 4.09s | lr: 0.05 | train_acc: 3.0339
+2025-08-23 15:17:20,716 - client_0 - INFO - Client 0 | Epoch 1 | Batch 70/157 | Loss: 4.4622 | Images/sec: 2021.62 | Progress: 44.6% | Time: 4.43s | lr: 0.05 | train_acc: 3.3371
+2025-08-23 15:17:20,977 - client_0 - INFO - Client 0 | Epoch 1 | Batch 80/157 | Loss: 4.4309 | Images/sec: 2181.88 | Progress: 51.0% | Time: 4.69s | lr: 0.05 | train_acc: 3.6426
+2025-08-23 15:17:21,252 - client_0 - INFO - Client 0 | Epoch 1 | Batch 90/157 | Loss: 4.4023 | Images/sec: 2318.57 | Progress: 57.3% | Time: 4.97s | lr: 0.05 | train_acc: 4.0191
+2025-08-23 15:17:21,525 - client_0 - INFO - Client 0 | Epoch 1 | Batch 100/157 | Loss: 4.3735 | Images/sec: 2442.23 | Progress: 63.7% | Time: 5.24s | lr: 0.05 | train_acc: 4.2969
+2025-08-23 15:17:21,799 - client_0 - INFO - Client 0 | Epoch 1 | Batch 110/157 | Loss: 4.3463 | Images/sec: 2552.73 | Progress: 70.1% | Time: 5.52s | lr: 0.05 | train_acc: 4.5739
+2025-08-23 15:17:22,066 - client_0 - INFO - Client 0 | Epoch 1 | Batch 120/157 | Loss: 4.3214 | Images/sec: 2656.46 | Progress: 76.4% | Time: 5.78s | lr: 0.05 | train_acc: 4.8503
