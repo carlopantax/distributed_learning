@@ -271,6 +271,53 @@ class TrainingPlotter:
         plt.close()
         print(f"Epoch throughput plot saved to {save_path}")
 
+    
+    def plot_accuracy_per_client(self):
+        """Plot training and validation accuracy for each client individually, highlighting best val accuracy."""
+        all_metrics = self._load_all_metrics()
+        if not all_metrics:
+            print("No metrics found.")
+            return
+
+        metrics_by_rank = self._group_metrics_by_rank(all_metrics)
+
+        for client_id, metrics in metrics_by_rank.items():
+            train_acc = metrics.get('epoch_train_acc', [])
+            val_acc = metrics.get('epoch_val_acc', [])
+            if not train_acc and not val_acc:
+                continue
+
+            num_epochs = max(len(train_acc), len(val_acc))
+            epochs = list(range(1, num_epochs + 1))
+
+            def pad_or_truncate(seq, length):
+                return seq[:length] + [0.0] * (length - len(seq))
+
+            train_acc = pad_or_truncate(train_acc, num_epochs)
+            val_acc = pad_or_truncate(val_acc, num_epochs)
+
+            plt.figure(figsize=(12, 6))
+            if train_acc:
+                plt.plot(epochs, train_acc, 'o-', color='blue', label='Train Accuracy')
+            if val_acc:
+                plt.plot(epochs, val_acc, 'o-', color='red', label='Validation Accuracy')
+                best_val = max(val_acc)
+                best_epoch = val_acc.index(best_val) + 1
+                plt.scatter([best_epoch], [best_val], color='green', s=100, zorder=5,
+                            label=f'Best Val Acc: {best_val:.2f}% (Epoch {best_epoch})')
+
+            plt.title(f"Client {client_id} Accuracy - {self.train_name}")
+            plt.xlabel("Epoch")
+            plt.ylabel("Accuracy (%)")
+            plt.grid(True, linestyle='--', alpha=0.7)
+            plt.legend()
+            plt.xticks(self._get_epoch_range(num_epochs))
+
+            filename = f"{self.train_name}_client{client_id}_accuracy.png"
+            save_path = os.path.join(self.plots_dir, filename)
+            plt.savefig(save_path)
+            plt.close()
+            print(f"Accuracy plot for client {client_id} saved to {save_path}")
 
 
 
@@ -579,6 +626,7 @@ class TrainingPlotter:
         self.plot_epoch_time()
         self.plot_epoch_throughput()
         self.plot_accuracy()
+        self.plot_accuracy_per_client()
         self.plot_learning_rate()
         self.plot_metric_comparison_per_rank()
         self.plot_summary_per_rank()
