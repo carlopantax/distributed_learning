@@ -1,0 +1,791 @@
+2025-08-24 18:00:23,953 - client_1 - INFO - Started training for Client 1
+2025-08-24 18:00:23,954 - client_1 - INFO - Log file: logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_client1.log
+2025-08-24 18:00:24,701 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 4.6054 | Images/sec: 1712.98 | Progress: 25.0% | Time: 0.75s | lr: 0.05 | train_acc: 1.0156
+2025-08-24 18:00:25,386 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 4.5894 | Images/sec: 1788.18 | Progress: 50.0% | Time: 1.43s | lr: 0.05 | train_acc: 1.6406
+2025-08-24 18:00:26,049 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 4.5672 | Images/sec: 1833.31 | Progress: 75.0% | Time: 2.09s | lr: 0.05 | train_acc: 1.8229
+2025-08-24 18:00:26,672 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 4.5473 | Images/sec: 1839.83 | Progress: 100.0% | Time: 2.72s | lr: 0.05 | train_acc: 2.1800
+2025-08-24 18:00:29,047 - client_1 - INFO - [Client 1/8] Epoch 5 completed in 25.55s | Average Loss: 4.3021 | World Size: 8 | train_acc: 5.4800 | val_acc: 4.4000 | lr: 0.0100
+2025-08-24 18:00:29,547 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 4.3934 | Images/sec: 2591.43 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 3.7500
+2025-08-24 18:00:29,972 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 4.3430 | Images/sec: 2783.61 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 4.1797
+2025-08-24 18:00:30,349 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 4.2915 | Images/sec: 2962.73 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 4.6354
+2025-08-24 18:00:30,716 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 4.2535 | Images/sec: 3005.88 | Progress: 100.0% | Time: 1.66s | lr: 0.05 | train_acc: 5.0200
+2025-08-24 18:00:33,028 - client_1 - INFO - [Client 1/8] Epoch 5 completed in 29.53s | Average Loss: 4.2940 | World Size: 8 | train_acc: 7.9400 | val_acc: 6.4800 | lr: 0.0200
+2025-08-24 18:00:33,499 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 4.1722 | Images/sec: 2753.87 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 6.0156
+2025-08-24 18:00:33,940 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 4.1258 | Images/sec: 2823.87 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 6.1328
+2025-08-24 18:00:34,360 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 4.0738 | Images/sec: 2895.80 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 6.8490
+2025-08-24 18:00:34,713 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 4.0448 | Images/sec: 2977.51 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 7.3600
+2025-08-24 18:00:37,106 - client_1 - INFO - [Client 1/8] Epoch 5 completed in 33.61s | Average Loss: 4.2584 | World Size: 8 | train_acc: 9.8000 | val_acc: 8.2400 | lr: 0.0300
+2025-08-24 18:00:37,922 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 4.1058 | Images/sec: 1582.26 | Progress: 25.0% | Time: 0.81s | lr: 0.05 | train_acc: 7.1875
+2025-08-24 18:00:38,528 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 4.0583 | Images/sec: 1809.02 | Progress: 50.0% | Time: 1.42s | lr: 0.05 | train_acc: 7.5391
+2025-08-24 18:00:39,201 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 4.0150 | Images/sec: 1838.98 | Progress: 75.0% | Time: 2.09s | lr: 0.05 | train_acc: 8.0208
+2025-08-24 18:00:39,764 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 3.9892 | Images/sec: 1885.92 | Progress: 100.0% | Time: 2.65s | lr: 0.05 | train_acc: 8.2800
+2025-08-24 18:00:42,401 - client_1 - INFO - [Client 1/8] Epoch 5 completed in 38.91s | Average Loss: 4.2247 | World Size: 8 | train_acc: 10.4200 | val_acc: 8.6400 | lr: 0.0400
+2025-08-24 18:02:45,760 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:02:46,244 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 4.0625 | Images/sec: 2645.71 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 10.5469
+2025-08-24 18:02:46,702 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 3.9501 | Images/sec: 2717.55 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 11.1328
+2025-08-24 18:02:47,093 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 3.8864 | Images/sec: 2880.13 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 11.2240
+2025-08-24 18:02:47,467 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 3.8496 | Images/sec: 2928.09 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 11.3800
+2025-08-24 18:02:49,762 - client_1 - INFO - [Client 1/8] Epoch 9 completed in 22.10s | Average Loss: 3.8073 | World Size: 8 | train_acc: 14.8800 | val_acc: 13.0400 | lr: 0.0100
+2025-08-24 18:02:50,248 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 3.7821 | Images/sec: 2662.09 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 10.2344
+2025-08-24 18:02:50,696 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 3.7676 | Images/sec: 2756.57 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 10.6250
+2025-08-24 18:02:51,119 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 3.7375 | Images/sec: 2842.53 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 11.3542
+2025-08-24 18:02:51,481 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 3.7374 | Images/sec: 2917.94 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 11.3200
+2025-08-24 18:02:54,253 - client_1 - INFO - [Client 1/8] Epoch 9 completed in 26.59s | Average Loss: 3.7957 | World Size: 8 | train_acc: 14.8200 | val_acc: 12.4800 | lr: 0.0200
+2025-08-24 18:02:55,100 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 3.7150 | Images/sec: 1524.77 | Progress: 25.0% | Time: 0.84s | lr: 0.05 | train_acc: 11.6406
+2025-08-24 18:02:55,788 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 3.7362 | Images/sec: 1675.94 | Progress: 50.0% | Time: 1.53s | lr: 0.05 | train_acc: 11.7578
+2025-08-24 18:02:56,399 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 3.7333 | Images/sec: 1795.65 | Progress: 75.0% | Time: 2.14s | lr: 0.05 | train_acc: 11.2760
+2025-08-24 18:02:56,778 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 3.7378 | Images/sec: 1985.87 | Progress: 100.0% | Time: 2.52s | lr: 0.05 | train_acc: 11.3200
+2025-08-24 18:02:59,104 - client_1 - INFO - [Client 1/8] Epoch 9 completed in 31.44s | Average Loss: 3.7874 | World Size: 8 | train_acc: 14.2600 | val_acc: 12.3200 | lr: 0.0300
+2025-08-24 18:02:59,597 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 3.7930 | Images/sec: 2628.57 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 11.0938
+2025-08-24 18:03:00,058 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 3.7804 | Images/sec: 2701.77 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 11.6797
+2025-08-24 18:03:00,490 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 3.7563 | Images/sec: 2783.10 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 12.0573
+2025-08-24 18:03:00,859 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 3.7472 | Images/sec: 2859.82 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 12.0200
+2025-08-24 18:03:03,241 - client_1 - INFO - [Client 1/8] Epoch 9 completed in 35.58s | Average Loss: 3.7824 | World Size: 8 | train_acc: 11.6000 | val_acc: 10.1600 | lr: 0.0400
+2025-08-24 18:05:10,309 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:05:11,077 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 3.6247 | Images/sec: 1666.89 | Progress: 25.0% | Time: 0.77s | lr: 0.05 | train_acc: 15.5469
+2025-08-24 18:05:11,769 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 3.5574 | Images/sec: 1753.29 | Progress: 50.0% | Time: 1.46s | lr: 0.05 | train_acc: 15.1172
+2025-08-24 18:05:12,488 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 3.5387 | Images/sec: 1762.40 | Progress: 75.0% | Time: 2.18s | lr: 0.05 | train_acc: 15.6510
+2025-08-24 18:05:13,010 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 3.5104 | Images/sec: 1851.27 | Progress: 100.0% | Time: 2.70s | lr: 0.05 | train_acc: 15.8200
+2025-08-24 18:05:15,646 - client_1 - INFO - [Client 1/8] Epoch 13 completed in 23.32s | Average Loss: 3.5266 | World Size: 8 | train_acc: 19.2200 | val_acc: 18.8800 | lr: 0.0100
+2025-08-24 18:05:16,132 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 3.4775 | Images/sec: 2670.62 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 15.0000
+2025-08-24 18:05:16,528 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 3.4454 | Images/sec: 2922.43 | Progress: 50.0% | Time: 0.88s | lr: 0.05 | train_acc: 16.2891
+2025-08-24 18:05:16,957 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 3.4534 | Images/sec: 2942.47 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 16.0156
+2025-08-24 18:05:17,334 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 3.4645 | Images/sec: 2972.70 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 16.0600
+2025-08-24 18:05:19,607 - client_1 - INFO - [Client 1/8] Epoch 13 completed in 27.28s | Average Loss: 3.5162 | World Size: 8 | train_acc: 20.3600 | val_acc: 18.1600 | lr: 0.0200
+2025-08-24 18:05:20,098 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 3.4846 | Images/sec: 2640.65 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 16.1719
+2025-08-24 18:05:20,513 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 3.4975 | Images/sec: 2845.53 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 15.6641
+2025-08-24 18:05:20,920 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 3.4782 | Images/sec: 2938.59 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 15.7552
+2025-08-24 18:05:21,297 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 3.4734 | Images/sec: 2969.60 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 16.0000
+2025-08-24 18:05:23,598 - client_1 - INFO - [Client 1/8] Epoch 13 completed in 31.27s | Average Loss: 3.5101 | World Size: 8 | train_acc: 18.0600 | val_acc: 14.8800 | lr: 0.0300
+2025-08-24 18:05:24,274 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 3.5236 | Images/sec: 1913.84 | Progress: 25.0% | Time: 0.67s | lr: 0.05 | train_acc: 12.7344
+2025-08-24 18:05:24,852 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 3.5594 | Images/sec: 2052.29 | Progress: 50.0% | Time: 1.25s | lr: 0.05 | train_acc: 13.0469
+2025-08-24 18:05:25,566 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 3.5618 | Images/sec: 1957.66 | Progress: 75.0% | Time: 1.96s | lr: 0.05 | train_acc: 13.1771
+2025-08-24 18:05:26,126 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 3.5550 | Images/sec: 1983.39 | Progress: 100.0% | Time: 2.52s | lr: 0.05 | train_acc: 13.5600
+2025-08-24 18:05:29,017 - client_1 - INFO - [Client 1/8] Epoch 13 completed in 36.69s | Average Loss: 3.5157 | World Size: 8 | train_acc: 18.4800 | val_acc: 14.7200 | lr: 0.0400
+2025-08-24 18:07:33,035 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:07:33,515 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 3.3624 | Images/sec: 2671.59 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 19.0625
+2025-08-24 18:07:33,937 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 3.2892 | Images/sec: 2841.31 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 20.1562
+2025-08-24 18:07:34,373 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 3.3053 | Images/sec: 2871.90 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 19.5833
+2025-08-24 18:07:34,757 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 3.2998 | Images/sec: 2904.82 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 19.6400
+2025-08-24 18:07:37,121 - client_1 - INFO - [Client 1/8] Epoch 17 completed in 22.14s | Average Loss: 3.3308 | World Size: 8 | train_acc: 24.3800 | val_acc: 22.8000 | lr: 0.0100
+2025-08-24 18:07:37,607 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 3.2395 | Images/sec: 2669.83 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 20.5469
+2025-08-24 18:07:38,060 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 3.2619 | Images/sec: 2746.38 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 19.4141
+2025-08-24 18:07:38,479 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 3.2517 | Images/sec: 2842.03 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 19.8177
+2025-08-24 18:07:38,819 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 3.2614 | Images/sec: 2955.73 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 19.4600
+2025-08-24 18:07:41,738 - client_1 - INFO - [Client 1/8] Epoch 17 completed in 26.75s | Average Loss: 3.3193 | World Size: 8 | train_acc: 24.7400 | val_acc: 21.4400 | lr: 0.0200
+2025-08-24 18:07:42,571 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 3.3250 | Images/sec: 1549.46 | Progress: 25.0% | Time: 0.83s | lr: 0.05 | train_acc: 18.4375
+2025-08-24 18:07:43,362 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 3.3482 | Images/sec: 1583.61 | Progress: 50.0% | Time: 1.62s | lr: 0.05 | train_acc: 17.8516
+2025-08-24 18:07:43,786 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 3.3117 | Images/sec: 1881.38 | Progress: 75.0% | Time: 2.04s | lr: 0.05 | train_acc: 18.1510
+2025-08-24 18:07:44,137 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 3.3231 | Images/sec: 2090.82 | Progress: 100.0% | Time: 2.39s | lr: 0.05 | train_acc: 18.5000
+2025-08-24 18:07:46,496 - client_1 - INFO - [Client 1/8] Epoch 17 completed in 31.51s | Average Loss: 3.3198 | World Size: 8 | train_acc: 22.1200 | val_acc: 18.0800 | lr: 0.0300
+2025-08-24 18:07:46,988 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 3.3422 | Images/sec: 2635.30 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 18.0469
+2025-08-24 18:07:47,406 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 3.3817 | Images/sec: 2833.26 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 17.3047
+2025-08-24 18:07:47,835 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 3.3923 | Images/sec: 2881.69 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 17.7083
+2025-08-24 18:07:48,204 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 3.3772 | Images/sec: 2938.70 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 17.9000
+2025-08-24 18:07:50,568 - client_1 - INFO - [Client 1/8] Epoch 17 completed in 35.59s | Average Loss: 3.3270 | World Size: 8 | train_acc: 22.5400 | val_acc: 19.1200 | lr: 0.0400
+2025-08-24 18:10:05,544 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:10:06,063 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 3.1715 | Images/sec: 2467.76 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 23.1250
+2025-08-24 18:10:06,523 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 3.1254 | Images/sec: 2616.60 | Progress: 50.0% | Time: 0.98s | lr: 0.05 | train_acc: 23.9453
+2025-08-24 18:10:06,971 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 3.1347 | Images/sec: 2691.31 | Progress: 75.0% | Time: 1.43s | lr: 0.05 | train_acc: 22.7604
+2025-08-24 18:10:07,325 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 3.1164 | Images/sec: 2808.14 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 23.2400
+2025-08-24 18:10:09,841 - client_1 - INFO - [Client 1/8] Epoch 21 completed in 23.10s | Average Loss: 3.1663 | World Size: 8 | train_acc: 27.2000 | val_acc: 25.2800 | lr: 0.0100
+2025-08-24 18:10:10,351 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 3.1796 | Images/sec: 2539.98 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 21.5625
+2025-08-24 18:10:10,788 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 3.1453 | Images/sec: 2719.98 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 21.4453
+2025-08-24 18:10:11,245 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 3.1392 | Images/sec: 2746.39 | Progress: 75.0% | Time: 1.40s | lr: 0.05 | train_acc: 21.7708
+2025-08-24 18:10:11,650 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 3.1339 | Images/sec: 2772.69 | Progress: 100.0% | Time: 1.80s | lr: 0.05 | train_acc: 21.6400
+2025-08-24 18:10:14,857 - client_1 - INFO - [Client 1/8] Epoch 21 completed in 28.12s | Average Loss: 3.1609 | World Size: 8 | train_acc: 26.0200 | val_acc: 23.9200 | lr: 0.0200
+2025-08-24 18:10:15,648 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 3.2227 | Images/sec: 1636.46 | Progress: 25.0% | Time: 0.78s | lr: 0.05 | train_acc: 20.7812
+2025-08-24 18:10:16,229 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 3.2115 | Images/sec: 1876.80 | Progress: 50.0% | Time: 1.36s | lr: 0.05 | train_acc: 21.4062
+2025-08-24 18:10:16,667 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 3.2178 | Images/sec: 2131.77 | Progress: 75.0% | Time: 1.80s | lr: 0.05 | train_acc: 21.0938
+2025-08-24 18:10:17,055 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 3.2017 | Images/sec: 2283.56 | Progress: 100.0% | Time: 2.19s | lr: 0.05 | train_acc: 21.0800
+2025-08-24 18:10:19,476 - client_1 - INFO - [Client 1/8] Epoch 21 completed in 32.74s | Average Loss: 3.1667 | World Size: 8 | train_acc: 26.2200 | val_acc: 24.1600 | lr: 0.0300
+2025-08-24 18:10:19,987 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 3.1504 | Images/sec: 2539.03 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 22.8125
+2025-08-24 18:10:20,466 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 3.1473 | Images/sec: 2603.84 | Progress: 50.0% | Time: 0.98s | lr: 0.05 | train_acc: 21.4062
+2025-08-24 18:10:20,903 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 3.1968 | Images/sec: 2703.71 | Progress: 75.0% | Time: 1.42s | lr: 0.05 | train_acc: 20.9115
+2025-08-24 18:10:21,295 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 3.1936 | Images/sec: 2759.02 | Progress: 100.0% | Time: 1.81s | lr: 0.05 | train_acc: 20.9600
+2025-08-24 18:10:23,739 - client_1 - INFO - [Client 1/8] Epoch 21 completed in 37.00s | Average Loss: 3.1701 | World Size: 8 | train_acc: 26.3200 | val_acc: 19.6800 | lr: 0.0400
+2025-08-24 18:12:32,318 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:12:32,942 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.9965 | Images/sec: 2051.97 | Progress: 25.0% | Time: 0.62s | lr: 0.05 | train_acc: 26.0156
+2025-08-24 18:12:33,368 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.9673 | Images/sec: 2440.03 | Progress: 50.0% | Time: 1.05s | lr: 0.05 | train_acc: 26.6406
+2025-08-24 18:12:33,811 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.9733 | Images/sec: 2573.26 | Progress: 75.0% | Time: 1.49s | lr: 0.05 | train_acc: 26.9271
+2025-08-24 18:12:34,225 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.9881 | Images/sec: 2622.77 | Progress: 100.0% | Time: 1.91s | lr: 0.05 | train_acc: 26.6600
+2025-08-24 18:12:36,688 - client_1 - INFO - [Client 1/8] Epoch 25 completed in 23.33s | Average Loss: 3.0285 | World Size: 8 | train_acc: 29.7600 | val_acc: 28.1600 | lr: 0.0100
+2025-08-24 18:12:37,207 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.9999 | Images/sec: 2501.27 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 24.1406
+2025-08-24 18:12:37,656 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.9819 | Images/sec: 2664.01 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 24.4922
+2025-08-24 18:12:38,132 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.9719 | Images/sec: 2672.55 | Progress: 75.0% | Time: 1.44s | lr: 0.05 | train_acc: 25.0000
+2025-08-24 18:12:38,456 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.9750 | Images/sec: 2839.00 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 25.1200
+2025-08-24 18:12:40,875 - client_1 - INFO - [Client 1/8] Epoch 25 completed in 27.51s | Average Loss: 3.0196 | World Size: 8 | train_acc: 30.3800 | val_acc: 27.8400 | lr: 0.0200
+2025-08-24 18:12:41,385 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.9174 | Images/sec: 2542.93 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 25.3906
+2025-08-24 18:12:41,838 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.9916 | Images/sec: 2675.02 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 23.3984
+2025-08-24 18:12:42,295 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 3.0022 | Images/sec: 2715.75 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 23.8802
+2025-08-24 18:12:42,721 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 3.0007 | Images/sec: 2717.23 | Progress: 100.0% | Time: 1.84s | lr: 0.05 | train_acc: 24.0600
+2025-08-24 18:12:46,205 - client_1 - INFO - [Client 1/8] Epoch 25 completed in 32.84s | Average Loss: 3.0169 | World Size: 8 | train_acc: 28.5600 | val_acc: 24.7200 | lr: 0.0300
+2025-08-24 18:12:46,729 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 3.0994 | Images/sec: 2477.16 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 22.1875
+2025-08-24 18:12:47,151 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 3.0944 | Images/sec: 2728.70 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 23.0078
+2025-08-24 18:12:47,575 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 3.0652 | Images/sec: 2818.26 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 23.4375
+2025-08-24 18:12:47,960 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 3.0824 | Images/sec: 2861.68 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 23.1600
+2025-08-24 18:12:50,343 - client_1 - INFO - [Client 1/8] Epoch 25 completed in 36.98s | Average Loss: 3.0251 | World Size: 8 | train_acc: 26.4800 | val_acc: 22.1600 | lr: 0.0400
+2025-08-24 18:14:58,736 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:14:59,224 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.8739 | Images/sec: 2629.08 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 28.0469
+2025-08-24 18:14:59,759 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.8690 | Images/sec: 2504.17 | Progress: 50.0% | Time: 1.02s | lr: 0.05 | train_acc: 28.0469
+2025-08-24 18:15:00,456 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.8841 | Images/sec: 2233.02 | Progress: 75.0% | Time: 1.72s | lr: 0.05 | train_acc: 27.2917
+2025-08-24 18:15:01,047 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.8728 | Images/sec: 2164.55 | Progress: 100.0% | Time: 2.31s | lr: 0.05 | train_acc: 27.5600
+2025-08-24 18:15:04,137 - client_1 - INFO - [Client 1/8] Epoch 29 completed in 23.25s | Average Loss: 2.9357 | World Size: 8 | train_acc: 33.7000 | val_acc: 31.0400 | lr: 0.0100
+2025-08-24 18:15:04,674 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.8817 | Images/sec: 2420.32 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 28.5938
+2025-08-24 18:15:05,111 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.8630 | Images/sec: 2650.53 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 29.2188
+2025-08-24 18:15:05,519 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.8699 | Images/sec: 2794.08 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 28.8542
+2025-08-24 18:15:05,921 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.8585 | Images/sec: 2814.28 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 28.2600
+2025-08-24 18:15:08,320 - client_1 - INFO - [Client 1/8] Epoch 29 completed in 27.43s | Average Loss: 2.9228 | World Size: 8 | train_acc: 32.1400 | val_acc: 29.5200 | lr: 0.0200
+2025-08-24 18:15:08,843 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.9240 | Images/sec: 2478.98 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 25.5469
+2025-08-24 18:15:09,274 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.9337 | Images/sec: 2701.39 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 25.7422
+2025-08-24 18:15:09,714 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.9380 | Images/sec: 2766.55 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 25.4688
+2025-08-24 18:15:10,104 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.9233 | Images/sec: 2812.52 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 25.5600
+2025-08-24 18:15:12,563 - client_1 - INFO - [Client 1/8] Epoch 29 completed in 31.68s | Average Loss: 2.9229 | World Size: 8 | train_acc: 30.6800 | val_acc: 24.8800 | lr: 0.0300
+2025-08-24 18:15:13,097 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.9275 | Images/sec: 2429.57 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 26.3281
+2025-08-24 18:15:13,737 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.9582 | Images/sec: 2193.48 | Progress: 50.0% | Time: 1.17s | lr: 0.05 | train_acc: 25.2344
+2025-08-24 18:15:14,390 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.9871 | Images/sec: 2110.71 | Progress: 75.0% | Time: 1.82s | lr: 0.05 | train_acc: 24.9219
+2025-08-24 18:15:14,989 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.9976 | Images/sec: 2067.25 | Progress: 100.0% | Time: 2.42s | lr: 0.05 | train_acc: 24.7600
+2025-08-24 18:15:17,997 - client_1 - INFO - [Client 1/8] Epoch 29 completed in 37.11s | Average Loss: 2.9322 | World Size: 8 | train_acc: 29.2600 | val_acc: 23.2000 | lr: 0.0400
+2025-08-24 18:17:26,850 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:17:27,350 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.8433 | Images/sec: 2559.00 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 28.9844
+2025-08-24 18:17:27,808 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.8202 | Images/sec: 2671.71 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 29.0625
+2025-08-24 18:17:28,193 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.7684 | Images/sec: 2860.17 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 29.8698
+2025-08-24 18:17:28,586 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.7512 | Images/sec: 2879.52 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 30.0400
+2025-08-24 18:17:30,956 - client_1 - INFO - [Client 1/8] Epoch 33 completed in 22.20s | Average Loss: 2.8161 | World Size: 8 | train_acc: 35.7000 | val_acc: 33.0400 | lr: 0.0100
+2025-08-24 18:17:31,460 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.8013 | Images/sec: 2576.19 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 28.5156
+2025-08-24 18:17:32,132 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.7867 | Images/sec: 2190.82 | Progress: 50.0% | Time: 1.17s | lr: 0.05 | train_acc: 28.2422
+2025-08-24 18:17:32,877 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.8064 | Images/sec: 2007.02 | Progress: 75.0% | Time: 1.91s | lr: 0.05 | train_acc: 28.4375
+2025-08-24 18:17:33,380 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.8070 | Images/sec: 2068.73 | Progress: 100.0% | Time: 2.42s | lr: 0.05 | train_acc: 28.7800
+2025-08-24 18:17:36,437 - client_1 - INFO - [Client 1/8] Epoch 33 completed in 27.68s | Average Loss: 2.8146 | World Size: 8 | train_acc: 35.0600 | val_acc: 31.2800 | lr: 0.0200
+2025-08-24 18:17:36,951 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.8113 | Images/sec: 2522.51 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 28.1250
+2025-08-24 18:17:37,362 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.7923 | Images/sec: 2789.04 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 29.5312
+2025-08-24 18:17:37,803 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.8271 | Images/sec: 2825.62 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 29.1927
+2025-08-24 18:17:38,159 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.8248 | Images/sec: 2915.17 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 28.6800
+2025-08-24 18:17:40,591 - client_1 - INFO - [Client 1/8] Epoch 33 completed in 31.83s | Average Loss: 2.8160 | World Size: 8 | train_acc: 32.8600 | val_acc: 26.8000 | lr: 0.0300
+2025-08-24 18:17:41,098 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.8578 | Images/sec: 2566.25 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 27.0312
+2025-08-24 18:17:41,533 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.8570 | Images/sec: 2740.47 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 26.6797
+2025-08-24 18:17:41,954 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.8377 | Images/sec: 2834.57 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 27.4740
+2025-08-24 18:17:42,343 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.8466 | Images/sec: 2866.70 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 27.5200
+2025-08-24 18:17:44,800 - client_1 - INFO - [Client 1/8] Epoch 33 completed in 36.04s | Average Loss: 2.8199 | World Size: 8 | train_acc: 29.9400 | val_acc: 25.6000 | lr: 0.0400
+2025-08-24 18:19:54,543 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:19:55,053 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.7370 | Images/sec: 2510.03 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 32.2656
+2025-08-24 18:19:55,491 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.6460 | Images/sec: 2700.28 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 33.5938
+2025-08-24 18:19:55,930 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.6511 | Images/sec: 2768.53 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 33.3333
+2025-08-24 18:19:56,273 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.6598 | Images/sec: 2891.50 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 33.1800
+2025-08-24 18:19:58,657 - client_1 - INFO - [Client 1/8] Epoch 37 completed in 23.45s | Average Loss: 2.7376 | World Size: 8 | train_acc: 38.8400 | val_acc: 35.2000 | lr: 0.0100
+2025-08-24 18:19:59,139 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.5975 | Images/sec: 2695.46 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 35.0000
+2025-08-24 18:19:59,580 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.6433 | Images/sec: 2794.83 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 33.3203
+2025-08-24 18:19:59,978 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.6541 | Images/sec: 2922.52 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 33.0469
+2025-08-24 18:20:00,371 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.6684 | Images/sec: 2930.41 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 32.5000
+2025-08-24 18:20:02,729 - client_1 - INFO - [Client 1/8] Epoch 37 completed in 27.52s | Average Loss: 2.7260 | World Size: 8 | train_acc: 35.7800 | val_acc: 32.8800 | lr: 0.0200
+2025-08-24 18:20:03,235 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.8409 | Images/sec: 2563.35 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 28.9844
+2025-08-24 18:20:03,680 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.7820 | Images/sec: 2709.67 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 29.2578
+2025-08-24 18:20:04,270 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.7793 | Images/sec: 2503.10 | Progress: 75.0% | Time: 1.53s | lr: 0.05 | train_acc: 29.5833
+2025-08-24 18:20:04,796 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.7535 | Images/sec: 2426.96 | Progress: 100.0% | Time: 2.06s | lr: 0.05 | train_acc: 29.9400
+2025-08-24 18:20:07,903 - client_1 - INFO - [Client 1/8] Epoch 37 completed in 32.69s | Average Loss: 2.7300 | World Size: 8 | train_acc: 32.6400 | val_acc: 28.2400 | lr: 0.0300
+2025-08-24 18:20:08,380 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.9365 | Images/sec: 2718.39 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 26.2500
+2025-08-24 18:20:08,833 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.8763 | Images/sec: 2771.24 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 27.7734
+2025-08-24 18:20:09,266 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.8756 | Images/sec: 2830.03 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 27.1875
+2025-08-24 18:20:09,593 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.8586 | Images/sec: 2970.45 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 27.4400
+2025-08-24 18:20:11,972 - client_1 - INFO - [Client 1/8] Epoch 37 completed in 36.76s | Average Loss: 2.7460 | World Size: 8 | train_acc: 33.5400 | val_acc: 26.8800 | lr: 0.0400
+2025-08-24 18:22:15,413 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:22:15,874 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.6310 | Images/sec: 2777.19 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 32.1094
+2025-08-24 18:22:16,272 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.5976 | Images/sec: 2980.65 | Progress: 50.0% | Time: 0.86s | lr: 0.05 | train_acc: 34.2188
+2025-08-24 18:22:16,735 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.5766 | Images/sec: 2904.78 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 34.1927
+2025-08-24 18:22:17,106 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.5825 | Images/sec: 2953.60 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 34.0600
+2025-08-24 18:22:19,765 - client_1 - INFO - [Client 1/8] Epoch 41 completed in 21.53s | Average Loss: 2.6715 | World Size: 8 | train_acc: 39.2000 | val_acc: 34.8000 | lr: 0.0100
+2025-08-24 18:22:20,554 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.6443 | Images/sec: 1639.52 | Progress: 25.0% | Time: 0.78s | lr: 0.05 | train_acc: 31.3281
+2025-08-24 18:22:21,216 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.6085 | Images/sec: 1774.59 | Progress: 50.0% | Time: 1.44s | lr: 0.05 | train_acc: 32.6172
+2025-08-24 18:22:21,884 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.6156 | Images/sec: 1819.51 | Progress: 75.0% | Time: 2.11s | lr: 0.05 | train_acc: 32.1354
+2025-08-24 18:22:22,405 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.6030 | Images/sec: 1899.89 | Progress: 100.0% | Time: 2.63s | lr: 0.05 | train_acc: 32.8000
+2025-08-24 18:22:24,743 - client_1 - INFO - [Client 1/8] Epoch 41 completed in 26.50s | Average Loss: 2.6600 | World Size: 8 | train_acc: 38.4200 | val_acc: 33.5200 | lr: 0.0200
+2025-08-24 18:22:25,246 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.6542 | Images/sec: 2581.07 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 32.2656
+2025-08-24 18:22:25,644 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.6778 | Images/sec: 2862.52 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 31.2891
+2025-08-24 18:22:26,072 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.6530 | Images/sec: 2905.24 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 31.4844
+2025-08-24 18:22:26,413 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.6411 | Images/sec: 3006.62 | Progress: 100.0% | Time: 1.66s | lr: 0.05 | train_acc: 31.8800
+2025-08-24 18:22:28,694 - client_1 - INFO - [Client 1/8] Epoch 41 completed in 30.45s | Average Loss: 2.6573 | World Size: 8 | train_acc: 38.1800 | val_acc: 30.2400 | lr: 0.0300
+2025-08-24 18:22:29,204 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.7457 | Images/sec: 2548.81 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 28.2812
+2025-08-24 18:22:29,621 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.7173 | Images/sec: 2783.28 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 29.7266
+2025-08-24 18:22:30,002 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.7186 | Images/sec: 2953.25 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 30.1823
+2025-08-24 18:22:30,406 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.7415 | Images/sec: 2933.22 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 29.9400
+2025-08-24 18:22:32,887 - client_1 - INFO - [Client 1/8] Epoch 41 completed in 34.65s | Average Loss: 2.6679 | World Size: 8 | train_acc: 34.9200 | val_acc: 27.3600 | lr: 0.0400
+2025-08-24 18:24:40,075 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:24:40,562 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.4977 | Images/sec: 2628.91 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 36.0156
+2025-08-24 18:24:40,976 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.5196 | Images/sec: 2842.85 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 34.9609
+2025-08-24 18:24:41,415 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.4938 | Images/sec: 2866.97 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 35.3125
+2025-08-24 18:24:41,798 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.5007 | Images/sec: 2903.00 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 35.7000
+2025-08-24 18:24:44,138 - client_1 - INFO - [Client 1/8] Epoch 45 completed in 22.67s | Average Loss: 2.5605 | World Size: 8 | train_acc: 41.4200 | val_acc: 37.3600 | lr: 0.0100
+2025-08-24 18:24:44,658 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.4683 | Images/sec: 2558.40 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 36.4844
+2025-08-24 18:24:45,090 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.4852 | Images/sec: 2744.66 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 35.3906
+2025-08-24 18:24:45,512 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.5062 | Images/sec: 2834.70 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 34.7135
+2025-08-24 18:24:45,921 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.5001 | Images/sec: 2835.85 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 35.0600
+2025-08-24 18:24:48,274 - client_1 - INFO - [Client 1/8] Epoch 45 completed in 26.80s | Average Loss: 2.5505 | World Size: 8 | train_acc: 40.7600 | val_acc: 35.0400 | lr: 0.0200
+2025-08-24 18:24:48,770 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.5323 | Images/sec: 2620.62 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 33.9844
+2025-08-24 18:24:49,348 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.5823 | Images/sec: 2398.90 | Progress: 50.0% | Time: 1.07s | lr: 0.05 | train_acc: 33.5547
+2025-08-24 18:24:49,934 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.5899 | Images/sec: 2323.95 | Progress: 75.0% | Time: 1.65s | lr: 0.05 | train_acc: 33.5156
+2025-08-24 18:24:50,450 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.5805 | Images/sec: 2305.73 | Progress: 100.0% | Time: 2.17s | lr: 0.05 | train_acc: 33.7600
+2025-08-24 18:24:53,537 - client_1 - INFO - [Client 1/8] Epoch 45 completed in 32.07s | Average Loss: 2.5548 | World Size: 8 | train_acc: 39.9400 | val_acc: 31.7600 | lr: 0.0300
+2025-08-24 18:24:54,044 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.7243 | Images/sec: 2566.71 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 31.0156
+2025-08-24 18:24:54,462 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.6995 | Images/sec: 2790.07 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 30.8984
+2025-08-24 18:24:54,897 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.6843 | Images/sec: 2840.44 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 31.0677
+2025-08-24 18:24:55,258 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.6745 | Images/sec: 2918.30 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 31.3600
+2025-08-24 18:24:57,569 - client_1 - INFO - [Client 1/8] Epoch 45 completed in 36.10s | Average Loss: 2.5697 | World Size: 8 | train_acc: 35.7200 | val_acc: 29.1200 | lr: 0.0400
+2025-08-24 18:27:01,596 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:27:02,066 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.5078 | Images/sec: 2726.42 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 36.8750
+2025-08-24 18:27:02,510 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.4725 | Images/sec: 2802.31 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 37.0703
+2025-08-24 18:27:02,926 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.4250 | Images/sec: 2886.80 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 38.3333
+2025-08-24 18:27:03,305 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.4283 | Images/sec: 2925.94 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 37.9200
+2025-08-24 18:27:06,218 - client_1 - INFO - [Client 1/8] Epoch 49 completed in 22.34s | Average Loss: 2.5068 | World Size: 8 | train_acc: 42.9600 | val_acc: 38.8000 | lr: 0.0100
+2025-08-24 18:27:07,067 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.5601 | Images/sec: 1524.01 | Progress: 25.0% | Time: 0.84s | lr: 0.05 | train_acc: 35.0000
+2025-08-24 18:27:07,678 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.5535 | Images/sec: 1764.56 | Progress: 50.0% | Time: 1.45s | lr: 0.05 | train_acc: 34.4141
+2025-08-24 18:27:08,061 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.5072 | Images/sec: 2093.39 | Progress: 75.0% | Time: 1.83s | lr: 0.05 | train_acc: 35.6250
+2025-08-24 18:27:08,428 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.4871 | Images/sec: 2271.46 | Progress: 100.0% | Time: 2.20s | lr: 0.05 | train_acc: 35.7600
+2025-08-24 18:27:10,741 - client_1 - INFO - [Client 1/8] Epoch 49 completed in 26.86s | Average Loss: 2.5035 | World Size: 8 | train_acc: 41.3200 | val_acc: 35.4400 | lr: 0.0200
+2025-08-24 18:27:11,283 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.3909 | Images/sec: 2412.82 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 38.0469
+2025-08-24 18:27:11,700 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.4246 | Images/sec: 2701.28 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 37.0703
+2025-08-24 18:27:12,125 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.4528 | Images/sec: 2798.06 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 36.3281
+2025-08-24 18:27:12,476 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.4820 | Images/sec: 2900.96 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 35.6200
+2025-08-24 18:27:14,823 - client_1 - INFO - [Client 1/8] Epoch 49 completed in 30.94s | Average Loss: 2.5004 | World Size: 8 | train_acc: 37.9400 | val_acc: 31.8400 | lr: 0.0300
+2025-08-24 18:27:15,353 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.5036 | Images/sec: 2447.73 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 34.9219
+2025-08-24 18:27:15,779 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.5420 | Images/sec: 2698.05 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 33.9844
+2025-08-24 18:27:16,199 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.5460 | Images/sec: 2806.38 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 33.7500
+2025-08-24 18:27:16,588 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.5613 | Images/sec: 2845.29 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 33.5000
+2025-08-24 18:27:19,422 - client_1 - INFO - [Client 1/8] Epoch 49 completed in 35.54s | Average Loss: 2.5080 | World Size: 8 | train_acc: 39.5000 | val_acc: 30.3200 | lr: 0.0400
+2025-08-24 18:29:26,893 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:29:27,384 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.3783 | Images/sec: 2611.62 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 37.2656
+2025-08-24 18:29:27,826 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.3634 | Images/sec: 2746.56 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 38.4375
+2025-08-24 18:29:28,240 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.3769 | Images/sec: 2852.44 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 38.6719
+2025-08-24 18:29:28,589 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.3786 | Images/sec: 2949.85 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 38.5000
+2025-08-24 18:29:30,947 - client_1 - INFO - [Client 1/8] Epoch 53 completed in 22.35s | Average Loss: 2.4697 | World Size: 8 | train_acc: 43.6200 | val_acc: 39.4400 | lr: 0.0100
+2025-08-24 18:29:31,430 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.2775 | Images/sec: 2693.46 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 39.6875
+2025-08-24 18:29:31,880 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.3125 | Images/sec: 2767.99 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 39.9609
+2025-08-24 18:29:32,303 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.3695 | Images/sec: 2847.78 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 38.5938
+2025-08-24 18:29:32,697 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.3739 | Images/sec: 2869.58 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 38.1000
+2025-08-24 18:29:35,489 - client_1 - INFO - [Client 1/8] Epoch 53 completed in 26.89s | Average Loss: 2.4537 | World Size: 8 | train_acc: 41.2800 | val_acc: 34.3200 | lr: 0.0200
+2025-08-24 18:29:36,217 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.3398 | Images/sec: 1779.70 | Progress: 25.0% | Time: 0.72s | lr: 0.05 | train_acc: 38.7500
+2025-08-24 18:29:36,908 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.3862 | Images/sec: 1816.26 | Progress: 50.0% | Time: 1.41s | lr: 0.05 | train_acc: 37.8906
+2025-08-24 18:29:37,548 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.3931 | Images/sec: 1873.09 | Progress: 75.0% | Time: 2.05s | lr: 0.05 | train_acc: 37.8646
+2025-08-24 18:29:38,030 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.4239 | Images/sec: 1974.80 | Progress: 100.0% | Time: 2.53s | lr: 0.05 | train_acc: 37.2000
+2025-08-24 18:29:40,421 - client_1 - INFO - [Client 1/8] Epoch 53 completed in 31.82s | Average Loss: 2.4495 | World Size: 8 | train_acc: 40.2200 | val_acc: 32.8800 | lr: 0.0300
+2025-08-24 18:29:40,920 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.4773 | Images/sec: 2604.84 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 34.8438
+2025-08-24 18:29:41,365 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.4807 | Images/sec: 2733.49 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 34.6875
+2025-08-24 18:29:41,783 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.4950 | Images/sec: 2835.46 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 34.8438
+2025-08-24 18:29:42,131 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.4869 | Images/sec: 2938.09 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 34.6800
+2025-08-24 18:29:44,502 - client_1 - INFO - [Client 1/8] Epoch 53 completed in 35.90s | Average Loss: 2.4542 | World Size: 8 | train_acc: 37.2800 | val_acc: 30.4000 | lr: 0.0400
+2025-08-24 18:31:51,502 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:31:51,993 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.3513 | Images/sec: 2609.42 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 39.5312
+2025-08-24 18:31:52,526 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.3466 | Images/sec: 2499.91 | Progress: 50.0% | Time: 1.02s | lr: 0.05 | train_acc: 39.7266
+2025-08-24 18:31:53,182 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.3343 | Images/sec: 2286.38 | Progress: 75.0% | Time: 1.68s | lr: 0.05 | train_acc: 39.5573
+2025-08-24 18:31:53,769 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.3338 | Images/sec: 2205.56 | Progress: 100.0% | Time: 2.27s | lr: 0.05 | train_acc: 39.4800
+2025-08-24 18:31:56,879 - client_1 - INFO - [Client 1/8] Epoch 57 completed in 23.22s | Average Loss: 2.3948 | World Size: 8 | train_acc: 46.1200 | val_acc: 41.2000 | lr: 0.0100
+2025-08-24 18:31:57,382 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.3115 | Images/sec: 2586.57 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 39.8438
+2025-08-24 18:31:57,811 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.3485 | Images/sec: 2770.44 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 38.3984
+2025-08-24 18:31:58,222 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.3486 | Images/sec: 2875.85 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 38.1510
+2025-08-24 18:31:58,617 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.3349 | Images/sec: 2889.16 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 38.2600
+2025-08-24 18:32:00,950 - client_1 - INFO - [Client 1/8] Epoch 57 completed in 27.29s | Average Loss: 2.3848 | World Size: 8 | train_acc: 42.0600 | val_acc: 36.6400 | lr: 0.0200
+2025-08-24 18:32:01,461 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.3647 | Images/sec: 2547.18 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 35.7812
+2025-08-24 18:32:01,908 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.4091 | Images/sec: 2694.28 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 35.1172
+2025-08-24 18:32:02,327 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.3957 | Images/sec: 2804.82 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 35.9896
+2025-08-24 18:32:02,709 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.3931 | Images/sec: 2856.42 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 36.3200
+2025-08-24 18:32:05,051 - client_1 - INFO - [Client 1/8] Epoch 57 completed in 31.39s | Average Loss: 2.3860 | World Size: 8 | train_acc: 43.9800 | val_acc: 34.4000 | lr: 0.0300
+2025-08-24 18:32:05,563 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.4478 | Images/sec: 2539.33 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 35.3125
+2025-08-24 18:32:05,990 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.4886 | Images/sec: 2748.15 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 34.6094
+2025-08-24 18:32:06,587 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.4747 | Images/sec: 2513.17 | Progress: 75.0% | Time: 1.53s | lr: 0.05 | train_acc: 34.1667
+2025-08-24 18:32:07,230 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.4744 | Images/sec: 2302.60 | Progress: 100.0% | Time: 2.17s | lr: 0.05 | train_acc: 34.4000
+2025-08-24 18:32:10,325 - client_1 - INFO - [Client 1/8] Epoch 57 completed in 36.66s | Average Loss: 2.3970 | World Size: 8 | train_acc: 40.1000 | val_acc: 33.3600 | lr: 0.0400
+2025-08-24 18:34:14,426 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:34:14,908 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.3374 | Images/sec: 2656.34 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 39.5312
+2025-08-24 18:34:15,355 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.3039 | Images/sec: 2756.00 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 41.0156
+2025-08-24 18:34:15,769 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.2826 | Images/sec: 2859.88 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 41.2760
+2025-08-24 18:34:16,129 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.2840 | Images/sec: 2936.57 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 40.9600
+2025-08-24 18:34:18,523 - client_1 - INFO - [Client 1/8] Epoch 61 completed in 21.97s | Average Loss: 2.3626 | World Size: 8 | train_acc: 47.5600 | val_acc: 41.9200 | lr: 0.0100
+2025-08-24 18:34:19,014 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.2715 | Images/sec: 2651.93 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 42.0312
+2025-08-24 18:34:19,466 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.2750 | Images/sec: 2737.43 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 41.1719
+2025-08-24 18:34:19,847 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.2772 | Images/sec: 2918.85 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 41.2760
+2025-08-24 18:34:20,226 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.2944 | Images/sec: 2950.16 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 40.5200
+2025-08-24 18:34:23,087 - client_1 - INFO - [Client 1/8] Epoch 61 completed in 26.53s | Average Loss: 2.3512 | World Size: 8 | train_acc: 46.6000 | val_acc: 39.3600 | lr: 0.0200
+2025-08-24 18:34:23,912 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.4259 | Images/sec: 1571.28 | Progress: 25.0% | Time: 0.81s | lr: 0.05 | train_acc: 36.5625
+2025-08-24 18:34:24,701 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.3711 | Images/sec: 1595.52 | Progress: 50.0% | Time: 1.60s | lr: 0.05 | train_acc: 38.0469
+2025-08-24 18:34:25,204 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.3821 | Images/sec: 1822.40 | Progress: 75.0% | Time: 2.11s | lr: 0.05 | train_acc: 37.5521
+2025-08-24 18:34:25,535 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.3764 | Images/sec: 2050.95 | Progress: 100.0% | Time: 2.44s | lr: 0.05 | train_acc: 37.2600
+2025-08-24 18:34:27,928 - client_1 - INFO - [Client 1/8] Epoch 61 completed in 31.37s | Average Loss: 2.3548 | World Size: 8 | train_acc: 45.9600 | val_acc: 34.1600 | lr: 0.0300
+2025-08-24 18:34:28,412 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.3216 | Images/sec: 2692.71 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 38.7500
+2025-08-24 18:34:28,839 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.3393 | Images/sec: 2835.33 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 38.5156
+2025-08-24 18:34:29,252 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.3494 | Images/sec: 2918.42 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 38.2812
+2025-08-24 18:34:29,628 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.3767 | Images/sec: 2955.19 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 37.6400
+2025-08-24 18:34:31,934 - client_1 - INFO - [Client 1/8] Epoch 61 completed in 35.38s | Average Loss: 2.3576 | World Size: 8 | train_acc: 42.7200 | val_acc: 33.4400 | lr: 0.0400
+2025-08-24 18:36:39,233 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:36:39,739 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.2909 | Images/sec: 2534.88 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 40.8594
+2025-08-24 18:36:40,380 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.2540 | Images/sec: 2233.56 | Progress: 50.0% | Time: 1.15s | lr: 0.05 | train_acc: 41.0156
+2025-08-24 18:36:40,975 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.2028 | Images/sec: 2204.42 | Progress: 75.0% | Time: 1.74s | lr: 0.05 | train_acc: 41.9531
+2025-08-24 18:36:41,562 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.2183 | Images/sec: 2147.23 | Progress: 100.0% | Time: 2.33s | lr: 0.05 | train_acc: 42.0200
+2025-08-24 18:36:44,589 - client_1 - INFO - [Client 1/8] Epoch 65 completed in 23.27s | Average Loss: 2.3080 | World Size: 8 | train_acc: 46.9000 | val_acc: 42.3200 | lr: 0.0100
+2025-08-24 18:36:45,106 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.2255 | Images/sec: 2514.96 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 39.8438
+2025-08-24 18:36:45,530 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.2478 | Images/sec: 2741.65 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 39.9609
+2025-08-24 18:36:45,988 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.2588 | Images/sec: 2759.88 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 39.9219
+2025-08-24 18:36:46,349 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.2632 | Images/sec: 2852.65 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 40.1000
+2025-08-24 18:36:48,713 - client_1 - INFO - [Client 1/8] Epoch 65 completed in 27.40s | Average Loss: 2.3006 | World Size: 8 | train_acc: 47.5600 | val_acc: 40.5600 | lr: 0.0200
+2025-08-24 18:36:49,258 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.3003 | Images/sec: 2399.52 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 40.5469
+2025-08-24 18:36:49,693 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.3099 | Images/sec: 2642.13 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 39.2578
+2025-08-24 18:36:50,121 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.3201 | Images/sec: 2749.55 | Progress: 75.0% | Time: 1.40s | lr: 0.05 | train_acc: 38.5938
+2025-08-24 18:36:50,454 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.3117 | Images/sec: 2889.86 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 38.8400
+2025-08-24 18:36:52,811 - client_1 - INFO - [Client 1/8] Epoch 65 completed in 31.50s | Average Loss: 2.3021 | World Size: 8 | train_acc: 42.8000 | val_acc: 35.2800 | lr: 0.0300
+2025-08-24 18:36:53,345 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.4147 | Images/sec: 2434.03 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 35.6250
+2025-08-24 18:36:53,910 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.4161 | Images/sec: 2347.49 | Progress: 50.0% | Time: 1.09s | lr: 0.05 | train_acc: 36.5234
+2025-08-24 18:36:54,504 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.4241 | Images/sec: 2278.89 | Progress: 75.0% | Time: 1.69s | lr: 0.05 | train_acc: 36.3021
+2025-08-24 18:36:55,100 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.3967 | Images/sec: 2192.27 | Progress: 100.0% | Time: 2.28s | lr: 0.05 | train_acc: 36.6600
+2025-08-24 18:36:58,129 - client_1 - INFO - [Client 1/8] Epoch 65 completed in 36.81s | Average Loss: 2.3140 | World Size: 8 | train_acc: 42.8400 | val_acc: 33.8400 | lr: 0.0400
+2025-08-24 18:39:03,409 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:39:03,913 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.2178 | Images/sec: 2542.89 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 41.3281
+2025-08-24 18:39:04,360 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.2029 | Images/sec: 2694.50 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 41.6406
+2025-08-24 18:39:04,802 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.2000 | Images/sec: 2758.58 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 42.5781
+2025-08-24 18:39:05,152 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.1875 | Images/sec: 2869.12 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 42.9600
+2025-08-24 18:39:07,512 - client_1 - INFO - [Client 1/8] Epoch 69 completed in 21.60s | Average Loss: 2.2740 | World Size: 8 | train_acc: 47.8000 | val_acc: 41.1200 | lr: 0.0100
+2025-08-24 18:39:08,029 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.3171 | Images/sec: 2517.88 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 37.9688
+2025-08-24 18:39:08,474 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.3200 | Images/sec: 2684.02 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 39.4531
+2025-08-24 18:39:08,875 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.3087 | Images/sec: 2835.81 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 39.6094
+2025-08-24 18:39:09,299 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.2909 | Images/sec: 2811.82 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 40.0200
+2025-08-24 18:39:12,647 - client_1 - INFO - [Client 1/8] Epoch 69 completed in 26.74s | Average Loss: 2.2768 | World Size: 8 | train_acc: 45.7200 | val_acc: 38.8800 | lr: 0.0200
+2025-08-24 18:39:13,172 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.3466 | Images/sec: 2478.22 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 39.6875
+2025-08-24 18:39:13,616 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.3606 | Images/sec: 2665.78 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 38.5547
+2025-08-24 18:39:14,038 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.3377 | Images/sec: 2778.45 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 39.6094
+2025-08-24 18:39:14,392 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.3302 | Images/sec: 2880.20 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 39.1200
+2025-08-24 18:39:16,755 - client_1 - INFO - [Client 1/8] Epoch 69 completed in 30.84s | Average Loss: 2.2844 | World Size: 8 | train_acc: 44.5000 | val_acc: 35.5200 | lr: 0.0300
+2025-08-24 18:39:17,236 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.4188 | Images/sec: 2706.77 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 35.3125
+2025-08-24 18:39:17,687 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.4079 | Images/sec: 2770.21 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 36.4453
+2025-08-24 18:39:18,105 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.3916 | Images/sec: 2861.23 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 36.9531
+2025-08-24 18:39:18,491 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.3702 | Images/sec: 2894.42 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 36.9600
+2025-08-24 18:39:20,851 - client_1 - INFO - [Client 1/8] Epoch 69 completed in 34.94s | Average Loss: 2.2952 | World Size: 8 | train_acc: 45.5000 | val_acc: 36.0000 | lr: 0.0400
+2025-08-24 18:41:26,329 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:41:27,132 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.1591 | Images/sec: 1596.26 | Progress: 25.0% | Time: 0.80s | lr: 0.05 | train_acc: 42.5781
+2025-08-24 18:41:27,822 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.1571 | Images/sec: 1715.12 | Progress: 50.0% | Time: 1.49s | lr: 0.05 | train_acc: 42.6172
+2025-08-24 18:41:28,500 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.1398 | Images/sec: 1769.53 | Progress: 75.0% | Time: 2.17s | lr: 0.05 | train_acc: 43.1510
+2025-08-24 18:41:28,837 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.1343 | Images/sec: 1994.27 | Progress: 100.0% | Time: 2.51s | lr: 0.05 | train_acc: 43.1200
+2025-08-24 18:41:31,200 - client_1 - INFO - [Client 1/8] Epoch 73 completed in 22.93s | Average Loss: 2.2421 | World Size: 8 | train_acc: 50.1200 | val_acc: 44.4800 | lr: 0.0100
+2025-08-24 18:41:31,695 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.1266 | Images/sec: 2626.71 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 42.1875
+2025-08-24 18:41:32,137 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.1021 | Images/sec: 2755.22 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 43.2422
+2025-08-24 18:41:32,555 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.1220 | Images/sec: 2850.67 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 42.4740
+2025-08-24 18:41:32,927 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.1311 | Images/sec: 2909.01 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 42.7200
+2025-08-24 18:41:35,331 - client_1 - INFO - [Client 1/8] Epoch 73 completed in 27.06s | Average Loss: 2.2236 | World Size: 8 | train_acc: 48.5800 | val_acc: 41.2800 | lr: 0.0200
+2025-08-24 18:41:35,821 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.1890 | Images/sec: 2655.55 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 43.2031
+2025-08-24 18:41:36,269 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.1982 | Images/sec: 2753.72 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 41.9531
+2025-08-24 18:41:36,683 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.2303 | Images/sec: 2857.51 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 41.5104
+2025-08-24 18:41:37,104 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.2353 | Images/sec: 2833.07 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 41.0600
+2025-08-24 18:41:39,915 - client_1 - INFO - [Client 1/8] Epoch 73 completed in 31.65s | Average Loss: 2.2253 | World Size: 8 | train_acc: 45.9200 | val_acc: 36.6400 | lr: 0.0300
+2025-08-24 18:41:40,749 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.2803 | Images/sec: 1555.70 | Progress: 25.0% | Time: 0.82s | lr: 0.05 | train_acc: 41.3281
+2025-08-24 18:41:41,542 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.2910 | Images/sec: 1584.90 | Progress: 50.0% | Time: 1.62s | lr: 0.05 | train_acc: 39.6094
+2025-08-24 18:41:42,110 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.2733 | Images/sec: 1758.96 | Progress: 75.0% | Time: 2.18s | lr: 0.05 | train_acc: 39.4271
+2025-08-24 18:41:42,460 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.2938 | Images/sec: 1973.78 | Progress: 100.0% | Time: 2.53s | lr: 0.05 | train_acc: 38.7000
+2025-08-24 18:41:44,830 - client_1 - INFO - [Client 1/8] Epoch 73 completed in 36.56s | Average Loss: 2.2338 | World Size: 8 | train_acc: 45.3800 | val_acc: 33.6800 | lr: 0.0400
+2025-08-24 18:43:52,323 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:43:52,814 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.0521 | Images/sec: 2611.44 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 45.9375
+2025-08-24 18:43:53,264 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.1123 | Images/sec: 2721.98 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 44.1406
+2025-08-24 18:43:53,699 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.1112 | Images/sec: 2792.69 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 43.8542
+2025-08-24 18:43:54,066 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.1138 | Images/sec: 2869.74 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 44.3000
+2025-08-24 18:43:56,906 - client_1 - INFO - [Client 1/8] Epoch 77 completed in 22.66s | Average Loss: 2.1833 | World Size: 8 | train_acc: 49.4400 | val_acc: 43.0400 | lr: 0.0100
+2025-08-24 18:43:57,728 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.9788 | Images/sec: 1578.31 | Progress: 25.0% | Time: 0.81s | lr: 0.05 | train_acc: 47.5000
+2025-08-24 18:43:58,463 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.0494 | Images/sec: 1655.42 | Progress: 50.0% | Time: 1.55s | lr: 0.05 | train_acc: 45.3906
+2025-08-24 18:43:59,145 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.0909 | Images/sec: 1723.92 | Progress: 75.0% | Time: 2.23s | lr: 0.05 | train_acc: 44.3229
+2025-08-24 18:43:59,487 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.1031 | Images/sec: 1945.56 | Progress: 100.0% | Time: 2.57s | lr: 0.05 | train_acc: 44.4400
+2025-08-24 18:44:01,905 - client_1 - INFO - [Client 1/8] Epoch 77 completed in 27.66s | Average Loss: 2.1699 | World Size: 8 | train_acc: 49.6400 | val_acc: 40.4000 | lr: 0.0200
+2025-08-24 18:44:02,390 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.1597 | Images/sec: 2684.64 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 41.7969
+2025-08-24 18:44:02,816 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.2198 | Images/sec: 2834.73 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 41.2891
+2025-08-24 18:44:03,252 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.2324 | Images/sec: 2868.34 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 41.2240
+2025-08-24 18:44:03,637 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.2392 | Images/sec: 2901.23 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 40.8400
+2025-08-24 18:44:06,054 - client_1 - INFO - [Client 1/8] Epoch 77 completed in 31.81s | Average Loss: 2.1798 | World Size: 8 | train_acc: 45.0400 | val_acc: 36.0800 | lr: 0.0300
+2025-08-24 18:44:06,555 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.2632 | Images/sec: 2602.42 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 40.1562
+2025-08-24 18:44:07,074 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.2783 | Images/sec: 2532.06 | Progress: 50.0% | Time: 1.01s | lr: 0.05 | train_acc: 39.7656
+2025-08-24 18:44:07,508 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.2840 | Images/sec: 2657.00 | Progress: 75.0% | Time: 1.45s | lr: 0.05 | train_acc: 39.6875
+2025-08-24 18:44:07,889 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.2953 | Images/sec: 2738.81 | Progress: 100.0% | Time: 1.83s | lr: 0.05 | train_acc: 39.5600
+2025-08-24 18:44:10,698 - client_1 - INFO - [Client 1/8] Epoch 77 completed in 36.45s | Average Loss: 2.1943 | World Size: 8 | train_acc: 44.9400 | val_acc: 35.6800 | lr: 0.0400
+2025-08-24 18:46:19,094 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:46:19,621 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.0145 | Images/sec: 2429.12 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 47.0312
+2025-08-24 18:46:20,059 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.0641 | Images/sec: 2652.79 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 45.7422
+2025-08-24 18:46:20,468 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.0669 | Images/sec: 2796.47 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 45.8594
+2025-08-24 18:46:20,866 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.0553 | Images/sec: 2822.82 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 45.7800
+2025-08-24 18:46:23,236 - client_1 - INFO - [Client 1/8] Epoch 81 completed in 22.52s | Average Loss: 2.1547 | World Size: 8 | train_acc: 51.0600 | val_acc: 46.8000 | lr: 0.0100
+2025-08-24 18:46:23,749 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.1052 | Images/sec: 2539.48 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 42.6562
+2025-08-24 18:46:24,181 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.1259 | Images/sec: 2734.22 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 42.2656
+2025-08-24 18:46:24,612 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.1211 | Images/sec: 2808.02 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 42.9167
+2025-08-24 18:46:25,031 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.1123 | Images/sec: 2799.34 | Progress: 100.0% | Time: 1.79s | lr: 0.05 | train_acc: 43.8400
+2025-08-24 18:46:28,017 - client_1 - INFO - [Client 1/8] Epoch 81 completed in 27.30s | Average Loss: 2.1476 | World Size: 8 | train_acc: 49.7800 | val_acc: 42.2400 | lr: 0.0200
+2025-08-24 18:46:28,839 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.1483 | Images/sec: 1580.71 | Progress: 25.0% | Time: 0.81s | lr: 0.05 | train_acc: 43.3594
+2025-08-24 18:46:29,543 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.1364 | Images/sec: 1690.42 | Progress: 50.0% | Time: 1.51s | lr: 0.05 | train_acc: 42.7734
+2025-08-24 18:46:29,976 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.1555 | Images/sec: 1971.84 | Progress: 75.0% | Time: 1.95s | lr: 0.05 | train_acc: 42.8646
+2025-08-24 18:46:30,333 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.1607 | Images/sec: 2170.13 | Progress: 100.0% | Time: 2.30s | lr: 0.05 | train_acc: 42.6000
+2025-08-24 18:46:32,706 - client_1 - INFO - [Client 1/8] Epoch 81 completed in 31.99s | Average Loss: 2.1495 | World Size: 8 | train_acc: 48.2200 | val_acc: 39.2000 | lr: 0.0300
+2025-08-24 18:46:33,225 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.2402 | Images/sec: 2512.00 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 40.4688
+2025-08-24 18:46:33,682 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.2611 | Images/sec: 2648.08 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 40.5078
+2025-08-24 18:46:34,090 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.2291 | Images/sec: 2793.36 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 41.0417
+2025-08-24 18:46:34,486 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.2468 | Images/sec: 2823.00 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 40.4600
+2025-08-24 18:46:36,862 - client_1 - INFO - [Client 1/8] Epoch 81 completed in 36.15s | Average Loss: 2.1616 | World Size: 8 | train_acc: 48.3400 | val_acc: 35.8400 | lr: 0.0400
+2025-08-24 18:48:44,846 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:48:45,723 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.0578 | Images/sec: 1460.82 | Progress: 25.0% | Time: 0.88s | lr: 0.05 | train_acc: 43.6719
+2025-08-24 18:48:46,208 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.0357 | Images/sec: 1880.89 | Progress: 50.0% | Time: 1.36s | lr: 0.05 | train_acc: 45.1172
+2025-08-24 18:48:46,602 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.0677 | Images/sec: 2187.16 | Progress: 75.0% | Time: 1.76s | lr: 0.05 | train_acc: 44.4271
+2025-08-24 18:48:46,990 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.0594 | Images/sec: 2332.99 | Progress: 100.0% | Time: 2.14s | lr: 0.05 | train_acc: 44.5800
+2025-08-24 18:48:49,367 - client_1 - INFO - [Client 1/8] Epoch 85 completed in 23.13s | Average Loss: 2.1158 | World Size: 8 | train_acc: 51.8000 | val_acc: 46.3200 | lr: 0.0100
+2025-08-24 18:48:49,885 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.1155 | Images/sec: 2512.08 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 41.0938
+2025-08-24 18:48:50,365 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.0925 | Images/sec: 2588.74 | Progress: 50.0% | Time: 0.99s | lr: 0.05 | train_acc: 42.3828
+2025-08-24 18:48:50,788 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.0788 | Images/sec: 2719.29 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 43.6719
+2025-08-24 18:48:51,118 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.0661 | Images/sec: 2869.17 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 44.1800
+2025-08-24 18:48:53,509 - client_1 - INFO - [Client 1/8] Epoch 85 completed in 27.27s | Average Loss: 2.1075 | World Size: 8 | train_acc: 50.3400 | val_acc: 42.0800 | lr: 0.0200
+2025-08-24 18:48:54,007 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.0505 | Images/sec: 2615.79 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 45.7031
+2025-08-24 18:48:54,463 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.0711 | Images/sec: 2707.34 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 44.2578
+2025-08-24 18:48:54,897 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.1003 | Images/sec: 2783.88 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 43.8021
+2025-08-24 18:48:55,264 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.0922 | Images/sec: 2863.64 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 44.3000
+2025-08-24 18:48:58,359 - client_1 - INFO - [Client 1/8] Epoch 85 completed in 32.12s | Average Loss: 2.1053 | World Size: 8 | train_acc: 49.3000 | val_acc: 38.6400 | lr: 0.0300
+2025-08-24 18:48:59,142 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.2657 | Images/sec: 1662.71 | Progress: 25.0% | Time: 0.77s | lr: 0.05 | train_acc: 37.8125
+2025-08-24 18:48:59,603 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.2154 | Images/sec: 2079.49 | Progress: 50.0% | Time: 1.23s | lr: 0.05 | train_acc: 40.1953
+2025-08-24 18:49:00,048 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.2040 | Images/sec: 2290.88 | Progress: 75.0% | Time: 1.68s | lr: 0.05 | train_acc: 40.4167
+2025-08-24 18:49:00,423 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.2016 | Images/sec: 2438.34 | Progress: 100.0% | Time: 2.05s | lr: 0.05 | train_acc: 40.8400
+2025-08-24 18:49:02,814 - client_1 - INFO - [Client 1/8] Epoch 85 completed in 36.58s | Average Loss: 2.1173 | World Size: 8 | train_acc: 48.7800 | val_acc: 37.0400 | lr: 0.0400
+2025-08-24 18:51:08,988 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:51:09,506 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 2.0711 | Images/sec: 2475.89 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 45.7031
+2025-08-24 18:51:09,943 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 2.0332 | Images/sec: 2682.74 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 45.6250
+2025-08-24 18:51:10,348 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 2.0320 | Images/sec: 2824.37 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 45.9115
+2025-08-24 18:51:10,759 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 2.0121 | Images/sec: 2824.53 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 46.7800
+2025-08-24 18:51:13,781 - client_1 - INFO - [Client 1/8] Epoch 89 completed in 22.75s | Average Loss: 2.0922 | World Size: 8 | train_acc: 52.6600 | val_acc: 46.9600 | lr: 0.0100
+2025-08-24 18:51:14,587 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.9663 | Images/sec: 1612.30 | Progress: 25.0% | Time: 0.79s | lr: 0.05 | train_acc: 48.1250
+2025-08-24 18:51:15,262 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.0124 | Images/sec: 1741.91 | Progress: 50.0% | Time: 1.47s | lr: 0.05 | train_acc: 46.5234
+2025-08-24 18:51:15,701 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.0396 | Images/sec: 2012.48 | Progress: 75.0% | Time: 1.91s | lr: 0.05 | train_acc: 45.3125
+2025-08-24 18:51:16,114 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.0385 | Images/sec: 2154.15 | Progress: 100.0% | Time: 2.32s | lr: 0.05 | train_acc: 45.7200
+2025-08-24 18:51:18,500 - client_1 - INFO - [Client 1/8] Epoch 89 completed in 27.47s | Average Loss: 2.0832 | World Size: 8 | train_acc: 52.5800 | val_acc: 43.6800 | lr: 0.0200
+2025-08-24 18:51:19,031 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.1077 | Images/sec: 2448.88 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 42.9688
+2025-08-24 18:51:19,436 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.1336 | Images/sec: 2759.33 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 42.7344
+2025-08-24 18:51:19,841 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.1038 | Images/sec: 2882.27 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 43.2812
+2025-08-24 18:51:20,272 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.1057 | Images/sec: 2835.19 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 43.2400
+2025-08-24 18:51:22,649 - client_1 - INFO - [Client 1/8] Epoch 89 completed in 31.62s | Average Loss: 2.0864 | World Size: 8 | train_acc: 52.1200 | val_acc: 40.3200 | lr: 0.0300
+2025-08-24 18:51:23,143 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.3088 | Images/sec: 2648.07 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 38.8281
+2025-08-24 18:51:23,590 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.2744 | Images/sec: 2752.94 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 39.3359
+2025-08-24 18:51:24,011 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.2601 | Images/sec: 2841.28 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 39.8177
+2025-08-24 18:51:24,419 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.2514 | Images/sec: 2842.51 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 39.9800
+2025-08-24 18:51:27,452 - client_1 - INFO - [Client 1/8] Epoch 89 completed in 36.42s | Average Loss: 2.1071 | World Size: 8 | train_acc: 45.5600 | val_acc: 33.7600 | lr: 0.0400
+2025-08-24 18:53:34,836 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:53:35,336 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.9933 | Images/sec: 2560.75 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 47.4219
+2025-08-24 18:53:35,760 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.9704 | Images/sec: 2772.00 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 47.7344
+2025-08-24 18:53:36,223 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.9630 | Images/sec: 2768.11 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 47.5000
+2025-08-24 18:53:36,621 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.9641 | Images/sec: 2801.82 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 47.3800
+2025-08-24 18:53:39,002 - client_1 - INFO - [Client 1/8] Epoch 93 completed in 22.48s | Average Loss: 2.0791 | World Size: 8 | train_acc: 53.9600 | val_acc: 46.9600 | lr: 0.0100
+2025-08-24 18:53:39,542 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.9093 | Images/sec: 2464.33 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 47.3438
+2025-08-24 18:53:39,955 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.9703 | Images/sec: 2746.92 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 46.2109
+2025-08-24 18:53:40,431 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.9865 | Images/sec: 2726.14 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 46.4844
+2025-08-24 18:53:40,786 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.9827 | Images/sec: 2836.06 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 46.4000
+2025-08-24 18:53:43,867 - client_1 - INFO - [Client 1/8] Epoch 93 completed in 27.34s | Average Loss: 2.0630 | World Size: 8 | train_acc: 54.3200 | val_acc: 42.9600 | lr: 0.0200
+2025-08-24 18:53:44,664 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.9940 | Images/sec: 1628.26 | Progress: 25.0% | Time: 0.79s | lr: 0.05 | train_acc: 47.5000
+2025-08-24 18:53:45,339 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.0163 | Images/sec: 1752.21 | Progress: 50.0% | Time: 1.46s | lr: 0.05 | train_acc: 46.7188
+2025-08-24 18:53:45,772 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.0209 | Images/sec: 2028.05 | Progress: 75.0% | Time: 1.89s | lr: 0.05 | train_acc: 45.8333
+2025-08-24 18:53:46,155 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.0314 | Images/sec: 2196.25 | Progress: 100.0% | Time: 2.28s | lr: 0.05 | train_acc: 45.2200
+2025-08-24 18:53:48,538 - client_1 - INFO - [Client 1/8] Epoch 93 completed in 32.01s | Average Loss: 2.0585 | World Size: 8 | train_acc: 50.1600 | val_acc: 40.4000 | lr: 0.0300
+2025-08-24 18:53:49,041 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.1027 | Images/sec: 2590.58 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 41.6406
+2025-08-24 18:53:49,453 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.1617 | Images/sec: 2824.34 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 41.3281
+2025-08-24 18:53:49,891 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.1362 | Images/sec: 2856.34 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 41.4583
+2025-08-24 18:53:50,276 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.1548 | Images/sec: 2891.11 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 41.1800
+2025-08-24 18:53:52,645 - client_1 - INFO - [Client 1/8] Epoch 93 completed in 36.12s | Average Loss: 2.0705 | World Size: 8 | train_acc: 48.4400 | val_acc: 36.7200 | lr: 0.0400
+2025-08-24 18:56:00,024 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:56:00,841 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.9532 | Images/sec: 1568.74 | Progress: 25.0% | Time: 0.82s | lr: 0.05 | train_acc: 47.0312
+2025-08-24 18:56:01,318 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.9454 | Images/sec: 1978.86 | Progress: 50.0% | Time: 1.29s | lr: 0.05 | train_acc: 47.9688
+2025-08-24 18:56:01,721 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.9627 | Images/sec: 2263.28 | Progress: 75.0% | Time: 1.70s | lr: 0.05 | train_acc: 47.4219
+2025-08-24 18:56:02,102 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.9521 | Images/sec: 2407.01 | Progress: 100.0% | Time: 2.08s | lr: 0.05 | train_acc: 47.7600
+2025-08-24 18:56:04,517 - client_1 - INFO - [Client 1/8] Epoch 97 completed in 22.84s | Average Loss: 2.0381 | World Size: 8 | train_acc: 54.4600 | val_acc: 46.1600 | lr: 0.0100
+2025-08-24 18:56:05,036 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 2.0558 | Images/sec: 2509.71 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 43.2812
+2025-08-24 18:56:05,482 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 2.0047 | Images/sec: 2678.64 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 44.6094
+2025-08-24 18:56:05,880 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 2.0526 | Images/sec: 2835.42 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 44.4531
+2025-08-24 18:56:06,270 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 2.0368 | Images/sec: 2867.38 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 44.7800
+2025-08-24 18:56:08,611 - client_1 - INFO - [Client 1/8] Epoch 97 completed in 26.94s | Average Loss: 2.0379 | World Size: 8 | train_acc: 52.8600 | val_acc: 43.0400 | lr: 0.0200
+2025-08-24 18:56:09,105 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.0085 | Images/sec: 2635.50 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 46.2500
+2025-08-24 18:56:09,548 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.0561 | Images/sec: 2757.98 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 44.5312
+2025-08-24 18:56:09,954 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.0619 | Images/sec: 2876.75 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 44.3490
+2025-08-24 18:56:10,355 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.0528 | Images/sec: 2881.62 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 44.7000
+2025-08-24 18:56:13,274 - client_1 - INFO - [Client 1/8] Epoch 97 completed in 31.60s | Average Loss: 2.0400 | World Size: 8 | train_acc: 50.0800 | val_acc: 40.4800 | lr: 0.0300
+2025-08-24 18:56:14,035 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.2219 | Images/sec: 1715.67 | Progress: 25.0% | Time: 0.75s | lr: 0.05 | train_acc: 41.7969
+2025-08-24 18:56:14,727 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.2026 | Images/sec: 1780.12 | Progress: 50.0% | Time: 1.44s | lr: 0.05 | train_acc: 41.7578
+2025-08-24 18:56:15,129 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.1592 | Images/sec: 2087.03 | Progress: 75.0% | Time: 1.84s | lr: 0.05 | train_acc: 42.1875
+2025-08-24 18:56:15,506 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.1802 | Images/sec: 2254.78 | Progress: 100.0% | Time: 2.22s | lr: 0.05 | train_acc: 41.5600
+2025-08-24 18:56:17,929 - client_1 - INFO - [Client 1/8] Epoch 97 completed in 36.26s | Average Loss: 2.0575 | World Size: 8 | train_acc: 47.6600 | val_acc: 37.6800 | lr: 0.0400
+2025-08-24 18:58:24,243 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 18:58:24,726 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.9193 | Images/sec: 2655.90 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 49.2969
+2025-08-24 18:58:25,199 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.9245 | Images/sec: 2681.02 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 48.3203
+2025-08-24 18:58:25,652 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.9184 | Images/sec: 2725.76 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 48.3854
+2025-08-24 18:58:25,982 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.9263 | Images/sec: 2875.92 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 48.4000
+2025-08-24 18:58:28,767 - client_1 - INFO - [Client 1/8] Epoch 101 completed in 22.41s | Average Loss: 2.0166 | World Size: 8 | train_acc: 53.8200 | val_acc: 47.1200 | lr: 0.0100
+2025-08-24 18:58:29,573 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.9345 | Images/sec: 1613.17 | Progress: 25.0% | Time: 0.79s | lr: 0.05 | train_acc: 47.3438
+2025-08-24 18:58:30,273 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.9359 | Images/sec: 1715.08 | Progress: 50.0% | Time: 1.49s | lr: 0.05 | train_acc: 48.0469
+2025-08-24 18:58:30,887 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.9325 | Images/sec: 1822.68 | Progress: 75.0% | Time: 2.11s | lr: 0.05 | train_acc: 47.8125
+2025-08-24 18:58:31,263 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.9321 | Images/sec: 2013.50 | Progress: 100.0% | Time: 2.48s | lr: 0.05 | train_acc: 48.1400
+2025-08-24 18:58:33,587 - client_1 - INFO - [Client 1/8] Epoch 101 completed in 27.23s | Average Loss: 2.0025 | World Size: 8 | train_acc: 54.7000 | val_acc: 45.1200 | lr: 0.0200
+2025-08-24 18:58:34,073 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 2.0040 | Images/sec: 2707.01 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 46.5625
+2025-08-24 18:58:34,531 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.0192 | Images/sec: 2750.44 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 46.0938
+2025-08-24 18:58:34,983 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.0077 | Images/sec: 2777.05 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 46.2500
+2025-08-24 18:58:35,349 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.0112 | Images/sec: 2859.82 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 46.1800
+2025-08-24 18:58:37,714 - client_1 - INFO - [Client 1/8] Epoch 101 completed in 31.36s | Average Loss: 2.0038 | World Size: 8 | train_acc: 50.1600 | val_acc: 39.7600 | lr: 0.0300
+2025-08-24 18:58:38,232 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.2215 | Images/sec: 2518.60 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 43.0469
+2025-08-24 18:58:38,689 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.2008 | Images/sec: 2652.10 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 42.4219
+2025-08-24 18:58:39,114 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.1614 | Images/sec: 2762.20 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 42.4219
+2025-08-24 18:58:39,454 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.1617 | Images/sec: 2889.20 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 42.3400
+2025-08-24 18:58:42,185 - client_1 - INFO - [Client 1/8] Epoch 101 completed in 35.83s | Average Loss: 2.0235 | World Size: 8 | train_acc: 45.0000 | val_acc: 34.2400 | lr: 0.0400
+2025-08-24 19:00:51,053 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:00:51,555 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.9143 | Images/sec: 2549.97 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 47.1875
+2025-08-24 19:00:52,011 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.9220 | Images/sec: 2672.80 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 48.5156
+2025-08-24 19:00:52,434 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.9001 | Images/sec: 2781.82 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 48.5938
+2025-08-24 19:00:52,835 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.9096 | Images/sec: 2806.73 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 48.4800
+2025-08-24 19:00:55,227 - client_1 - INFO - [Client 1/8] Epoch 105 completed in 22.82s | Average Loss: 2.0039 | World Size: 8 | train_acc: 55.4600 | val_acc: 48.1600 | lr: 0.0100
+2025-08-24 19:00:55,753 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.9381 | Images/sec: 2483.38 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 46.3281
+2025-08-24 19:00:56,173 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.9130 | Images/sec: 2736.30 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 46.9922
+2025-08-24 19:00:56,666 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.9222 | Images/sec: 2687.75 | Progress: 75.0% | Time: 1.43s | lr: 0.05 | train_acc: 47.0573
+2025-08-24 19:00:57,051 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.9448 | Images/sec: 2756.32 | Progress: 100.0% | Time: 1.81s | lr: 0.05 | train_acc: 47.4200
+2025-08-24 19:01:00,002 - client_1 - INFO - [Client 1/8] Epoch 105 completed in 27.59s | Average Loss: 1.9941 | World Size: 8 | train_acc: 53.0200 | val_acc: 43.3600 | lr: 0.0200
+2025-08-24 19:01:00,841 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.9850 | Images/sec: 1562.48 | Progress: 25.0% | Time: 0.82s | lr: 0.05 | train_acc: 46.1719
+2025-08-24 19:01:01,507 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 2.0310 | Images/sec: 1714.53 | Progress: 50.0% | Time: 1.49s | lr: 0.05 | train_acc: 45.1172
+2025-08-24 19:01:01,959 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 2.0407 | Images/sec: 1974.37 | Progress: 75.0% | Time: 1.94s | lr: 0.05 | train_acc: 44.6615
+2025-08-24 19:01:02,353 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 2.0230 | Images/sec: 2137.80 | Progress: 100.0% | Time: 2.34s | lr: 0.05 | train_acc: 45.1000
+2025-08-24 19:01:04,725 - client_1 - INFO - [Client 1/8] Epoch 105 completed in 32.32s | Average Loss: 1.9982 | World Size: 8 | train_acc: 47.1600 | val_acc: 37.6000 | lr: 0.0300
+2025-08-24 19:01:05,208 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.2085 | Images/sec: 2703.29 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 40.9375
+2025-08-24 19:01:05,665 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.2068 | Images/sec: 2752.15 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 40.0391
+2025-08-24 19:01:06,100 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.2146 | Images/sec: 2812.94 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 40.1562
+2025-08-24 19:01:06,500 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.1861 | Images/sec: 2832.63 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 40.9600
+2025-08-24 19:01:08,891 - client_1 - INFO - [Client 1/8] Epoch 105 completed in 36.48s | Average Loss: 2.0217 | World Size: 8 | train_acc: 48.6400 | val_acc: 36.4000 | lr: 0.0400
+2025-08-24 19:03:16,803 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:03:17,626 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.9628 | Images/sec: 1557.09 | Progress: 25.0% | Time: 0.82s | lr: 0.05 | train_acc: 48.0469
+2025-08-24 19:03:18,193 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.9106 | Images/sec: 1843.13 | Progress: 50.0% | Time: 1.39s | lr: 0.05 | train_acc: 49.1797
+2025-08-24 19:03:18,640 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.8933 | Images/sec: 2091.24 | Progress: 75.0% | Time: 1.84s | lr: 0.05 | train_acc: 49.6875
+2025-08-24 19:03:19,033 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.8850 | Images/sec: 2242.31 | Progress: 100.0% | Time: 2.23s | lr: 0.05 | train_acc: 49.9000
+2025-08-24 19:03:21,439 - client_1 - INFO - [Client 1/8] Epoch 109 completed in 23.07s | Average Loss: 1.9850 | World Size: 8 | train_acc: 56.9600 | val_acc: 49.2800 | lr: 0.0100
+2025-08-24 19:03:22,052 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.8661 | Images/sec: 2121.02 | Progress: 25.0% | Time: 0.60s | lr: 0.05 | train_acc: 48.6719
+2025-08-24 19:03:22,497 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.8840 | Images/sec: 2442.22 | Progress: 50.0% | Time: 1.05s | lr: 0.05 | train_acc: 48.3984
+2025-08-24 19:03:22,928 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.8993 | Images/sec: 2595.53 | Progress: 75.0% | Time: 1.48s | lr: 0.05 | train_acc: 48.2552
+2025-08-24 19:03:23,311 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.9221 | Images/sec: 2684.59 | Progress: 100.0% | Time: 1.86s | lr: 0.05 | train_acc: 47.9400
+2025-08-24 19:03:25,688 - client_1 - INFO - [Client 1/8] Epoch 109 completed in 27.32s | Average Loss: 1.9745 | World Size: 8 | train_acc: 54.2800 | val_acc: 46.0800 | lr: 0.0200
+2025-08-24 19:03:26,210 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.9442 | Images/sec: 2497.04 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 46.8750
+2025-08-24 19:03:26,639 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.9758 | Images/sec: 2720.36 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 45.7812
+2025-08-24 19:03:27,110 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.9713 | Images/sec: 2718.80 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 45.8333
+2025-08-24 19:03:27,486 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.9659 | Images/sec: 2796.13 | Progress: 100.0% | Time: 1.79s | lr: 0.05 | train_acc: 45.8600
+2025-08-24 19:03:30,513 - client_1 - INFO - [Client 1/8] Epoch 109 completed in 32.15s | Average Loss: 1.9733 | World Size: 8 | train_acc: 51.3800 | val_acc: 40.4000 | lr: 0.0300
+2025-08-24 19:03:31,366 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.0529 | Images/sec: 1547.05 | Progress: 25.0% | Time: 0.83s | lr: 0.05 | train_acc: 45.7031
+2025-08-24 19:03:31,932 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.0488 | Images/sec: 1836.35 | Progress: 50.0% | Time: 1.39s | lr: 0.05 | train_acc: 44.8438
+2025-08-24 19:03:32,377 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.0797 | Images/sec: 2087.87 | Progress: 75.0% | Time: 1.84s | lr: 0.05 | train_acc: 43.5938
+2025-08-24 19:03:32,774 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.0826 | Images/sec: 2236.56 | Progress: 100.0% | Time: 2.24s | lr: 0.05 | train_acc: 43.5800
+2025-08-24 19:03:35,168 - client_1 - INFO - [Client 1/8] Epoch 109 completed in 36.80s | Average Loss: 1.9870 | World Size: 8 | train_acc: 49.6200 | val_acc: 38.5600 | lr: 0.0400
+2025-08-24 19:05:43,666 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:05:44,171 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.9182 | Images/sec: 2535.66 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 47.8906
+2025-08-24 19:05:44,678 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.8885 | Images/sec: 2531.15 | Progress: 50.0% | Time: 1.01s | lr: 0.05 | train_acc: 48.7109
+2025-08-24 19:05:45,249 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.8575 | Images/sec: 2426.25 | Progress: 75.0% | Time: 1.58s | lr: 0.05 | train_acc: 49.1927
+2025-08-24 19:05:45,791 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.8698 | Images/sec: 2353.24 | Progress: 100.0% | Time: 2.12s | lr: 0.05 | train_acc: 48.9600
+2025-08-24 19:05:49,148 - client_1 - INFO - [Client 1/8] Epoch 113 completed in 23.56s | Average Loss: 1.9570 | World Size: 8 | train_acc: 56.9400 | val_acc: 49.9200 | lr: 0.0100
+2025-08-24 19:05:49,670 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.8829 | Images/sec: 2497.52 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 49.9219
+2025-08-24 19:05:50,145 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.8726 | Images/sec: 2592.94 | Progress: 50.0% | Time: 0.99s | lr: 0.05 | train_acc: 50.0000
+2025-08-24 19:05:50,591 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.8887 | Images/sec: 2679.04 | Progress: 75.0% | Time: 1.43s | lr: 0.05 | train_acc: 48.7760
+2025-08-24 19:05:50,971 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.9058 | Images/sec: 2757.95 | Progress: 100.0% | Time: 1.81s | lr: 0.05 | train_acc: 48.5600
+2025-08-24 19:05:53,371 - client_1 - INFO - [Client 1/8] Epoch 113 completed in 27.78s | Average Loss: 1.9485 | World Size: 8 | train_acc: 55.4800 | val_acc: 45.0400 | lr: 0.0200
+2025-08-24 19:05:53,896 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.9180 | Images/sec: 2484.99 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 48.2812
+2025-08-24 19:05:54,341 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.9522 | Images/sec: 2666.43 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 46.6797
+2025-08-24 19:05:54,847 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.9202 | Images/sec: 2618.92 | Progress: 75.0% | Time: 1.47s | lr: 0.05 | train_acc: 47.7344
+2025-08-24 19:05:55,278 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.9278 | Images/sec: 2636.04 | Progress: 100.0% | Time: 1.90s | lr: 0.05 | train_acc: 47.4600
+2025-08-24 19:05:57,732 - client_1 - INFO - [Client 1/8] Epoch 113 completed in 32.14s | Average Loss: 1.9455 | World Size: 8 | train_acc: 50.6000 | val_acc: 37.3600 | lr: 0.0300
+2025-08-24 19:05:58,239 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.0067 | Images/sec: 2575.43 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 46.2500
+2025-08-24 19:05:58,698 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.0350 | Images/sec: 2677.41 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 45.3906
+2025-08-24 19:05:59,353 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.0487 | Images/sec: 2382.48 | Progress: 75.0% | Time: 1.61s | lr: 0.05 | train_acc: 44.5312
+2025-08-24 19:05:59,980 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.0471 | Images/sec: 2234.04 | Progress: 100.0% | Time: 2.24s | lr: 0.05 | train_acc: 44.9000
+2025-08-24 19:06:03,040 - client_1 - INFO - [Client 1/8] Epoch 113 completed in 37.45s | Average Loss: 1.9582 | World Size: 8 | train_acc: 48.4000 | val_acc: 36.3200 | lr: 0.0400
+2025-08-24 19:08:08,906 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:08:09,395 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.8133 | Images/sec: 2615.72 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 52.3438
+2025-08-24 19:08:09,829 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.8421 | Images/sec: 2774.56 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 51.1719
+2025-08-24 19:08:10,252 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.8635 | Images/sec: 2853.34 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 49.8698
+2025-08-24 19:08:10,623 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.8495 | Images/sec: 2912.75 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 49.8400
+2025-08-24 19:08:13,091 - client_1 - INFO - [Client 1/8] Epoch 117 completed in 21.82s | Average Loss: 1.9380 | World Size: 8 | train_acc: 57.0600 | val_acc: 49.4400 | lr: 0.0100
+2025-08-24 19:08:13,634 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.8010 | Images/sec: 2415.41 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 50.4688
+2025-08-24 19:08:14,110 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.8460 | Images/sec: 2545.37 | Progress: 50.0% | Time: 1.01s | lr: 0.05 | train_acc: 49.9219
+2025-08-24 19:08:14,632 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.8499 | Images/sec: 2513.29 | Progress: 75.0% | Time: 1.53s | lr: 0.05 | train_acc: 49.5573
+2025-08-24 19:08:15,168 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.8505 | Images/sec: 2423.18 | Progress: 100.0% | Time: 2.06s | lr: 0.05 | train_acc: 49.1800
+2025-08-24 19:08:18,527 - client_1 - INFO - [Client 1/8] Epoch 117 completed in 27.26s | Average Loss: 1.9234 | World Size: 8 | train_acc: 56.5200 | val_acc: 44.4800 | lr: 0.0200
+2025-08-24 19:08:19,038 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.8580 | Images/sec: 2564.48 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 47.1875
+2025-08-24 19:08:19,515 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.8992 | Images/sec: 2624.40 | Progress: 50.0% | Time: 0.98s | lr: 0.05 | train_acc: 47.2656
+2025-08-24 19:08:19,897 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.8963 | Images/sec: 2827.25 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 47.2656
+2025-08-24 19:08:20,313 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.9112 | Images/sec: 2818.85 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 46.8800
+2025-08-24 19:08:22,716 - client_1 - INFO - [Client 1/8] Epoch 117 completed in 31.45s | Average Loss: 1.9217 | World Size: 8 | train_acc: 55.8400 | val_acc: 43.6800 | lr: 0.0300
+2025-08-24 19:08:23,232 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.0189 | Images/sec: 2537.82 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 46.4062
+2025-08-24 19:08:23,694 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.0411 | Images/sec: 2647.70 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 45.4688
+2025-08-24 19:08:24,149 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.0233 | Images/sec: 2700.71 | Progress: 75.0% | Time: 1.42s | lr: 0.05 | train_acc: 45.8333
+2025-08-24 19:08:24,521 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.0034 | Images/sec: 2787.17 | Progress: 100.0% | Time: 1.79s | lr: 0.05 | train_acc: 46.0400
+2025-08-24 19:08:27,017 - client_1 - INFO - [Client 1/8] Epoch 117 completed in 35.75s | Average Loss: 1.9319 | World Size: 8 | train_acc: 53.6400 | val_acc: 40.6400 | lr: 0.0400
+2025-08-24 19:10:42,263 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:10:42,772 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.8396 | Images/sec: 2518.50 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 49.6094
+2025-08-24 19:10:43,230 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.7983 | Images/sec: 2648.39 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 50.9766
+2025-08-24 19:10:43,676 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.7940 | Images/sec: 2718.74 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 50.7292
+2025-08-24 19:10:44,098 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.8061 | Images/sec: 2725.55 | Progress: 100.0% | Time: 1.83s | lr: 0.05 | train_acc: 50.4400
+2025-08-24 19:10:46,535 - client_1 - INFO - [Client 1/8] Epoch 121 completed in 23.03s | Average Loss: 1.9177 | World Size: 8 | train_acc: 57.6000 | val_acc: 48.7200 | lr: 0.0100
+2025-08-24 19:10:47,049 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.8378 | Images/sec: 2541.03 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 50.5469
+2025-08-24 19:10:47,602 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.8379 | Images/sec: 2423.57 | Progress: 50.0% | Time: 1.06s | lr: 0.05 | train_acc: 49.9219
+2025-08-24 19:10:48,254 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.8371 | Images/sec: 2247.24 | Progress: 75.0% | Time: 1.71s | lr: 0.05 | train_acc: 50.2083
+2025-08-24 19:10:48,844 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.8403 | Images/sec: 2174.99 | Progress: 100.0% | Time: 2.30s | lr: 0.05 | train_acc: 50.0600
+2025-08-24 19:10:52,044 - client_1 - INFO - [Client 1/8] Epoch 121 completed in 28.54s | Average Loss: 1.9048 | World Size: 8 | train_acc: 57.9800 | val_acc: 46.6400 | lr: 0.0200
+2025-08-24 19:10:52,585 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.8588 | Images/sec: 2408.89 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 47.9688
+2025-08-24 19:10:53,030 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.8630 | Images/sec: 2623.72 | Progress: 50.0% | Time: 0.98s | lr: 0.05 | train_acc: 48.7500
+2025-08-24 19:10:53,467 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.9102 | Images/sec: 2717.77 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 47.9427
+2025-08-24 19:10:53,896 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.9087 | Images/sec: 2714.98 | Progress: 100.0% | Time: 1.84s | lr: 0.05 | train_acc: 48.2800
+2025-08-24 19:10:56,355 - client_1 - INFO - [Client 1/8] Epoch 121 completed in 32.85s | Average Loss: 1.9054 | World Size: 8 | train_acc: 51.1200 | val_acc: 41.8400 | lr: 0.0300
+2025-08-24 19:10:56,884 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 2.0038 | Images/sec: 2465.54 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 45.0781
+2025-08-24 19:10:57,352 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 2.0194 | Images/sec: 2593.60 | Progress: 50.0% | Time: 0.99s | lr: 0.05 | train_acc: 44.8438
+2025-08-24 19:10:57,765 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 2.0057 | Images/sec: 2744.07 | Progress: 75.0% | Time: 1.40s | lr: 0.05 | train_acc: 44.9479
+2025-08-24 19:10:58,191 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 2.0118 | Images/sec: 2738.96 | Progress: 100.0% | Time: 1.83s | lr: 0.05 | train_acc: 45.1400
+2025-08-24 19:11:00,647 - client_1 - INFO - [Client 1/8] Epoch 121 completed in 37.15s | Average Loss: 1.9187 | World Size: 8 | train_acc: 48.2200 | val_acc: 36.9600 | lr: 0.0400
+2025-08-24 19:13:12,936 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:13:13,447 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.8307 | Images/sec: 2511.94 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 50.0781
+2025-08-24 19:13:13,905 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.7953 | Images/sec: 2643.20 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 51.3672
+2025-08-24 19:13:14,368 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.8017 | Images/sec: 2682.72 | Progress: 75.0% | Time: 1.43s | lr: 0.05 | train_acc: 50.5990
+2025-08-24 19:13:14,779 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.8054 | Images/sec: 2713.75 | Progress: 100.0% | Time: 1.84s | lr: 0.05 | train_acc: 50.5000
+2025-08-24 19:13:17,214 - client_1 - INFO - [Client 1/8] Epoch 125 completed in 23.44s | Average Loss: 1.8912 | World Size: 8 | train_acc: 58.1000 | val_acc: 50.0800 | lr: 0.0100
+2025-08-24 19:13:17,724 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.8021 | Images/sec: 2563.56 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 50.3125
+2025-08-24 19:13:18,172 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.8597 | Images/sec: 2702.50 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 49.2188
+2025-08-24 19:13:18,604 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.8552 | Images/sec: 2783.24 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 50.0000
+2025-08-24 19:13:18,998 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.8428 | Images/sec: 2819.71 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 50.1400
+2025-08-24 19:13:21,712 - client_1 - INFO - [Client 1/8] Epoch 125 completed in 27.94s | Average Loss: 1.8831 | World Size: 8 | train_acc: 58.3600 | val_acc: 47.6000 | lr: 0.0200
+2025-08-24 19:13:22,568 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.8915 | Images/sec: 1523.04 | Progress: 25.0% | Time: 0.84s | lr: 0.05 | train_acc: 46.7188
+2025-08-24 19:13:23,241 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.8870 | Images/sec: 1691.56 | Progress: 50.0% | Time: 1.51s | lr: 0.05 | train_acc: 48.2422
+2025-08-24 19:13:23,954 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.8865 | Images/sec: 1724.84 | Progress: 75.0% | Time: 2.23s | lr: 0.05 | train_acc: 48.3594
+2025-08-24 19:13:24,520 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.8969 | Images/sec: 1790.56 | Progress: 100.0% | Time: 2.79s | lr: 0.05 | train_acc: 48.0800
+2025-08-24 19:13:26,925 - client_1 - INFO - [Client 1/8] Epoch 125 completed in 33.15s | Average Loss: 1.8851 | World Size: 8 | train_acc: 54.9400 | val_acc: 42.6400 | lr: 0.0300
+2025-08-24 19:13:27,434 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 1.9377 | Images/sec: 2659.67 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 45.9375
+2025-08-24 19:13:27,892 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 1.9533 | Images/sec: 2726.06 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 46.0938
+2025-08-24 19:13:28,334 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 1.9763 | Images/sec: 2779.40 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 45.5990
+2025-08-24 19:13:28,740 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 1.9884 | Images/sec: 2797.94 | Progress: 100.0% | Time: 1.79s | lr: 0.05 | train_acc: 45.3200
+2025-08-24 19:13:31,127 - client_1 - INFO - [Client 1/8] Epoch 125 completed in 37.35s | Average Loss: 1.8980 | World Size: 8 | train_acc: 55.5400 | val_acc: 39.3600 | lr: 0.0400
+2025-08-24 19:15:40,575 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:15:41,250 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.7942 | Images/sec: 1896.87 | Progress: 25.0% | Time: 0.67s | lr: 0.05 | train_acc: 51.1719
+2025-08-24 19:15:41,700 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.7989 | Images/sec: 2275.90 | Progress: 50.0% | Time: 1.12s | lr: 0.05 | train_acc: 50.4688
+2025-08-24 19:15:42,152 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.7962 | Images/sec: 2434.95 | Progress: 75.0% | Time: 1.58s | lr: 0.05 | train_acc: 50.9635
+2025-08-24 19:15:42,545 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.7853 | Images/sec: 2538.66 | Progress: 100.0% | Time: 1.97s | lr: 0.05 | train_acc: 51.1000
+2025-08-24 19:15:44,952 - client_1 - INFO - [Client 1/8] Epoch 129 completed in 23.34s | Average Loss: 1.8952 | World Size: 8 | train_acc: 59.1800 | val_acc: 50.8000 | lr: 0.0100
+2025-08-24 19:15:45,474 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.8664 | Images/sec: 2502.54 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 49.0625
+2025-08-24 19:15:45,913 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.8617 | Images/sec: 2694.21 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 49.2188
+2025-08-24 19:15:46,346 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.8609 | Images/sec: 2776.79 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 48.6458
+2025-08-24 19:15:46,774 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.8637 | Images/sec: 2760.57 | Progress: 100.0% | Time: 1.81s | lr: 0.05 | train_acc: 48.9200
+2025-08-24 19:15:49,205 - client_1 - INFO - [Client 1/8] Epoch 129 completed in 27.59s | Average Loss: 1.8899 | World Size: 8 | train_acc: 53.4000 | val_acc: 41.8400 | lr: 0.0200
+2025-08-24 19:15:49,721 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.8600 | Images/sec: 2532.22 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 47.8125
+2025-08-24 19:15:50,171 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.9085 | Images/sec: 2678.52 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 47.2656
+2025-08-24 19:15:50,594 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.8841 | Images/sec: 2785.02 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 47.6302
+2025-08-24 19:15:50,985 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.8789 | Images/sec: 2825.78 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 47.9800
+2025-08-24 19:15:54,333 - client_1 - INFO - [Client 1/8] Epoch 129 completed in 32.72s | Average Loss: 1.8884 | World Size: 8 | train_acc: 54.7800 | val_acc: 42.8000 | lr: 0.0300
+2025-08-24 19:15:55,082 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 1.8393 | Images/sec: 1745.73 | Progress: 25.0% | Time: 0.73s | lr: 0.05 | train_acc: 50.4688
+2025-08-24 19:15:55,520 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 1.9295 | Images/sec: 2185.58 | Progress: 50.0% | Time: 1.17s | lr: 0.05 | train_acc: 47.1094
+2025-08-24 19:15:55,967 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 1.9482 | Images/sec: 2373.09 | Progress: 75.0% | Time: 1.62s | lr: 0.05 | train_acc: 47.2917
+2025-08-24 19:15:56,349 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 1.9678 | Images/sec: 2500.53 | Progress: 100.0% | Time: 2.00s | lr: 0.05 | train_acc: 46.6400
+2025-08-24 19:15:58,747 - client_1 - INFO - [Client 1/8] Epoch 129 completed in 37.13s | Average Loss: 1.8983 | World Size: 8 | train_acc: 52.3400 | val_acc: 39.2000 | lr: 0.0400
+2025-08-24 19:18:06,340 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:18:06,838 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.7430 | Images/sec: 2577.48 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 53.2031
+2025-08-24 19:18:07,289 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.7467 | Images/sec: 2701.35 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 52.8906
+2025-08-24 19:18:07,971 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.7656 | Images/sec: 2356.19 | Progress: 75.0% | Time: 1.63s | lr: 0.05 | train_acc: 51.4323
+2025-08-24 19:18:08,591 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.7634 | Images/sec: 2222.07 | Progress: 100.0% | Time: 2.25s | lr: 0.05 | train_acc: 51.3400
+2025-08-24 19:18:11,800 - client_1 - INFO - [Client 1/8] Epoch 133 completed in 23.64s | Average Loss: 1.8526 | World Size: 8 | train_acc: 58.4000 | val_acc: 51.4400 | lr: 0.0100
+2025-08-24 19:18:12,323 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.7814 | Images/sec: 2500.00 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 51.3281
+2025-08-24 19:18:12,776 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.8256 | Images/sec: 2650.81 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 50.2734
+2025-08-24 19:18:13,220 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.8240 | Images/sec: 2724.88 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 50.4427
+2025-08-24 19:18:13,594 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.8198 | Images/sec: 2803.59 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 50.2800
+2025-08-24 19:18:16,001 - client_1 - INFO - [Client 1/8] Epoch 133 completed in 27.84s | Average Loss: 1.8471 | World Size: 8 | train_acc: 58.6000 | val_acc: 45.7600 | lr: 0.0200
+2025-08-24 19:18:16,529 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.7967 | Images/sec: 2479.46 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 50.4688
+2025-08-24 19:18:16,987 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.8529 | Images/sec: 2625.70 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 50.1562
+2025-08-24 19:18:17,422 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.8704 | Images/sec: 2724.35 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 49.7656
+2025-08-24 19:18:17,816 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.8656 | Images/sec: 2771.66 | Progress: 100.0% | Time: 1.80s | lr: 0.05 | train_acc: 49.4400
+2025-08-24 19:18:20,191 - client_1 - INFO - [Client 1/8] Epoch 133 completed in 32.03s | Average Loss: 1.8498 | World Size: 8 | train_acc: 54.7200 | val_acc: 42.7200 | lr: 0.0300
+2025-08-24 19:18:20,692 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 1.8510 | Images/sec: 2607.35 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 47.9688
+2025-08-24 19:18:21,144 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 1.8726 | Images/sec: 2714.54 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 47.9297
+2025-08-24 19:18:21,812 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 1.9034 | Images/sec: 2384.25 | Progress: 75.0% | Time: 1.61s | lr: 0.05 | train_acc: 47.1094
+2025-08-24 19:18:22,472 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 1.9012 | Images/sec: 2201.71 | Progress: 100.0% | Time: 2.27s | lr: 0.05 | train_acc: 47.5600
+2025-08-24 19:18:25,675 - client_1 - INFO - [Client 1/8] Epoch 133 completed in 37.52s | Average Loss: 1.8562 | World Size: 8 | train_acc: 53.9200 | val_acc: 41.2800 | lr: 0.0400
+2025-08-24 19:20:35,527 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:20:36,043 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.8088 | Images/sec: 2482.25 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 50.8594
+2025-08-24 19:20:36,511 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.7472 | Images/sec: 2603.03 | Progress: 50.0% | Time: 0.98s | lr: 0.05 | train_acc: 52.5000
+2025-08-24 19:20:36,990 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.7478 | Images/sec: 2624.60 | Progress: 75.0% | Time: 1.46s | lr: 0.05 | train_acc: 52.5260
+2025-08-24 19:20:37,347 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.7467 | Images/sec: 2746.91 | Progress: 100.0% | Time: 1.82s | lr: 0.05 | train_acc: 51.7200
+2025-08-24 19:20:39,779 - client_1 - INFO - [Client 1/8] Epoch 137 completed in 22.63s | Average Loss: 1.8273 | World Size: 8 | train_acc: 59.1200 | val_acc: 51.4400 | lr: 0.0100
+2025-08-24 19:20:40,630 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.6933 | Images/sec: 1542.56 | Progress: 25.0% | Time: 0.83s | lr: 0.05 | train_acc: 54.5312
+2025-08-24 19:20:41,377 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.7523 | Images/sec: 1622.51 | Progress: 50.0% | Time: 1.58s | lr: 0.05 | train_acc: 52.5781
+2025-08-24 19:20:42,054 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.7795 | Images/sec: 1703.30 | Progress: 75.0% | Time: 2.25s | lr: 0.05 | train_acc: 51.0417
+2025-08-24 19:20:42,693 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.7846 | Images/sec: 1727.93 | Progress: 100.0% | Time: 2.89s | lr: 0.05 | train_acc: 51.0000
+2025-08-24 19:20:45,406 - client_1 - INFO - [Client 1/8] Epoch 137 completed in 28.26s | Average Loss: 1.8202 | World Size: 8 | train_acc: 56.8600 | val_acc: 46.7200 | lr: 0.0200
+2025-08-24 19:20:45,943 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.9260 | Images/sec: 2441.90 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 48.3594
+2025-08-24 19:20:46,361 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.9419 | Images/sec: 2717.76 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 47.6953
+2025-08-24 19:20:46,787 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.8957 | Images/sec: 2805.73 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 48.7500
+2025-08-24 19:20:47,178 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.8911 | Images/sec: 2841.44 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 48.2400
+2025-08-24 19:20:49,609 - client_1 - INFO - [Client 1/8] Epoch 137 completed in 32.46s | Average Loss: 1.8303 | World Size: 8 | train_acc: 54.1800 | val_acc: 41.2800 | lr: 0.0300
+2025-08-24 19:20:50,126 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 1.9414 | Images/sec: 2553.75 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 46.5625
+2025-08-24 19:20:50,557 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 1.9741 | Images/sec: 2745.71 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 45.8203
+2025-08-24 19:20:51,022 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 1.9664 | Images/sec: 2748.71 | Progress: 75.0% | Time: 1.40s | lr: 0.05 | train_acc: 45.7292
+2025-08-24 19:20:51,394 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 1.9654 | Images/sec: 2826.35 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 45.9200
+2025-08-24 19:20:53,907 - client_1 - INFO - [Client 1/8] Epoch 137 completed in 36.76s | Average Loss: 1.8472 | World Size: 8 | train_acc: 49.2000 | val_acc: 35.4400 | lr: 0.0400
+2025-08-24 19:23:04,761 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:23:05,315 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.7777 | Images/sec: 2313.35 | Progress: 25.0% | Time: 0.55s | lr: 0.05 | train_acc: 51.7188
+2025-08-24 19:23:05,779 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.7825 | Images/sec: 2515.21 | Progress: 50.0% | Time: 1.02s | lr: 0.05 | train_acc: 52.3047
+2025-08-24 19:23:06,244 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.7505 | Images/sec: 2591.04 | Progress: 75.0% | Time: 1.48s | lr: 0.05 | train_acc: 52.6823
+2025-08-24 19:23:06,596 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.7341 | Images/sec: 2726.24 | Progress: 100.0% | Time: 1.83s | lr: 0.05 | train_acc: 52.9800
+2025-08-24 19:23:09,028 - client_1 - INFO - [Client 1/8] Epoch 141 completed in 22.67s | Average Loss: 1.8292 | World Size: 8 | train_acc: 60.2800 | val_acc: 52.0800 | lr: 0.0100
+2025-08-24 19:23:09,555 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.7657 | Images/sec: 2539.23 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 52.1875
+2025-08-24 19:23:09,987 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.7608 | Images/sec: 2733.55 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 52.4609
+2025-08-24 19:23:10,449 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.7788 | Images/sec: 2745.64 | Progress: 75.0% | Time: 1.40s | lr: 0.05 | train_acc: 51.9531
+2025-08-24 19:23:10,798 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.7832 | Images/sec: 2861.54 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 51.6200
+2025-08-24 19:23:14,037 - client_1 - INFO - [Client 1/8] Epoch 141 completed in 27.68s | Average Loss: 1.8216 | World Size: 8 | train_acc: 56.8200 | val_acc: 44.3200 | lr: 0.0200
+2025-08-24 19:23:14,846 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.7997 | Images/sec: 1610.65 | Progress: 25.0% | Time: 0.79s | lr: 0.05 | train_acc: 50.8594
+2025-08-24 19:23:15,242 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.8447 | Images/sec: 2149.09 | Progress: 50.0% | Time: 1.19s | lr: 0.05 | train_acc: 49.6875
+2025-08-24 19:23:15,693 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.8340 | Images/sec: 2338.25 | Progress: 75.0% | Time: 1.64s | lr: 0.05 | train_acc: 49.9219
+2025-08-24 19:23:16,073 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.8294 | Images/sec: 2473.39 | Progress: 100.0% | Time: 2.02s | lr: 0.05 | train_acc: 49.9200
+2025-08-24 19:23:18,467 - client_1 - INFO - [Client 1/8] Epoch 141 completed in 32.11s | Average Loss: 1.8227 | World Size: 8 | train_acc: 57.0400 | val_acc: 44.0000 | lr: 0.0300
+2025-08-24 19:23:18,977 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 1.8722 | Images/sec: 2591.21 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 46.8750
+2025-08-24 19:23:19,443 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 1.8754 | Images/sec: 2667.03 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 48.0469
+2025-08-24 19:23:19,899 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 1.9021 | Images/sec: 2712.11 | Progress: 75.0% | Time: 1.42s | lr: 0.05 | train_acc: 47.9427
+2025-08-24 19:23:20,269 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 1.9277 | Images/sec: 2800.11 | Progress: 100.0% | Time: 1.79s | lr: 0.05 | train_acc: 47.4800
+2025-08-24 19:23:22,720 - client_1 - INFO - [Client 1/8] Epoch 141 completed in 36.37s | Average Loss: 1.8358 | World Size: 8 | train_acc: 47.3000 | val_acc: 34.0000 | lr: 0.0400
+2025-08-24 19:25:31,172 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:25:31,719 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.7182 | Images/sec: 2340.81 | Progress: 25.0% | Time: 0.55s | lr: 0.05 | train_acc: 52.9688
+2025-08-24 19:25:32,172 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.6794 | Images/sec: 2561.09 | Progress: 50.0% | Time: 1.00s | lr: 0.05 | train_acc: 53.7109
+2025-08-24 19:25:32,618 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.7079 | Images/sec: 2656.04 | Progress: 75.0% | Time: 1.45s | lr: 0.05 | train_acc: 52.9948
+2025-08-24 19:25:32,967 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.7107 | Images/sec: 2785.18 | Progress: 100.0% | Time: 1.80s | lr: 0.05 | train_acc: 53.3200
+2025-08-24 19:25:35,356 - client_1 - INFO - [Client 1/8] Epoch 145 completed in 23.22s | Average Loss: 1.7940 | World Size: 8 | train_acc: 59.2600 | val_acc: 48.8000 | lr: 0.0100
+2025-08-24 19:25:35,882 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.6843 | Images/sec: 2480.75 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 53.3594
+2025-08-24 19:25:36,304 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.7145 | Images/sec: 2729.08 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 52.8125
+2025-08-24 19:25:36,755 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.7407 | Images/sec: 2765.85 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 52.2396
+2025-08-24 19:25:37,150 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.7467 | Images/sec: 2802.57 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 52.1000
+2025-08-24 19:25:39,537 - client_1 - INFO - [Client 1/8] Epoch 145 completed in 27.40s | Average Loss: 1.7861 | World Size: 8 | train_acc: 60.8400 | val_acc: 48.6400 | lr: 0.0200
+2025-08-24 19:25:40,053 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.6925 | Images/sec: 2534.17 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 53.6719
+2025-08-24 19:25:40,516 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.7497 | Images/sec: 2643.33 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 51.4844
+2025-08-24 19:25:40,953 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.7649 | Images/sec: 2732.50 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 50.8594
+2025-08-24 19:25:41,535 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.7902 | Images/sec: 2515.52 | Progress: 100.0% | Time: 1.99s | lr: 0.05 | train_acc: 50.4800
+2025-08-24 19:25:45,006 - client_1 - INFO - [Client 1/8] Epoch 145 completed in 32.87s | Average Loss: 1.7867 | World Size: 8 | train_acc: 57.5800 | val_acc: 44.2400 | lr: 0.0300
+2025-08-24 19:25:45,565 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 1.9039 | Images/sec: 2335.07 | Progress: 25.0% | Time: 0.55s | lr: 0.05 | train_acc: 45.9375
+2025-08-24 19:25:45,971 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 1.9143 | Images/sec: 2684.51 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 46.9531
+2025-08-24 19:25:46,439 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 1.8929 | Images/sec: 2700.16 | Progress: 75.0% | Time: 1.42s | lr: 0.05 | train_acc: 47.0833
+2025-08-24 19:25:46,838 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 1.8985 | Images/sec: 2746.36 | Progress: 100.0% | Time: 1.82s | lr: 0.05 | train_acc: 47.4400
+2025-08-24 19:25:49,251 - client_1 - INFO - [Client 1/8] Epoch 145 completed in 37.12s | Average Loss: 1.8007 | World Size: 8 | train_acc: 53.9400 | val_acc: 39.4400 | lr: 0.0400
+2025-08-24 19:28:00,030 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:28:00,887 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.7193 | Images/sec: 1494.60 | Progress: 25.0% | Time: 0.86s | lr: 0.05 | train_acc: 53.1250
+2025-08-24 19:28:01,580 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.6865 | Images/sec: 1652.48 | Progress: 50.0% | Time: 1.55s | lr: 0.05 | train_acc: 54.2578
+2025-08-24 19:28:02,311 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.6976 | Images/sec: 1683.79 | Progress: 75.0% | Time: 2.28s | lr: 0.05 | train_acc: 53.8021
+2025-08-24 19:28:02,943 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.7049 | Images/sec: 1716.99 | Progress: 100.0% | Time: 2.91s | lr: 0.05 | train_acc: 53.5400
+2025-08-24 19:28:05,466 - client_1 - INFO - [Client 1/8] Epoch 149 completed in 23.97s | Average Loss: 1.7952 | World Size: 8 | train_acc: 61.8800 | val_acc: 52.6400 | lr: 0.0100
+2025-08-24 19:28:05,983 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.6495 | Images/sec: 2531.40 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 53.6719
+2025-08-24 19:28:06,483 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.6949 | Images/sec: 2547.08 | Progress: 50.0% | Time: 1.01s | lr: 0.05 | train_acc: 52.1875
+2025-08-24 19:28:06,929 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.7215 | Images/sec: 2646.20 | Progress: 75.0% | Time: 1.45s | lr: 0.05 | train_acc: 52.1875
+2025-08-24 19:28:07,276 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.7217 | Images/sec: 2780.14 | Progress: 100.0% | Time: 1.80s | lr: 0.05 | train_acc: 52.4200
+2025-08-24 19:28:09,690 - client_1 - INFO - [Client 1/8] Epoch 149 completed in 28.20s | Average Loss: 1.7829 | World Size: 8 | train_acc: 60.4200 | val_acc: 47.6000 | lr: 0.0200
+2025-08-24 19:28:10,198 - client_1 - INFO - Client 1 | Epoch 3 | Batch 10/40 | Loss: 1.7440 | Images/sec: 2577.14 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 50.6250
+2025-08-24 19:28:10,650 - client_1 - INFO - Client 1 | Epoch 3 | Batch 20/40 | Loss: 1.7470 | Images/sec: 2698.57 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 50.8984
+2025-08-24 19:28:11,096 - client_1 - INFO - Client 1 | Epoch 3 | Batch 30/40 | Loss: 1.7430 | Images/sec: 2754.15 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 51.2500
+2025-08-24 19:28:11,495 - client_1 - INFO - Client 1 | Epoch 3 | Batch 40/40 | Loss: 1.7416 | Images/sec: 2787.09 | Progress: 100.0% | Time: 1.79s | lr: 0.05 | train_acc: 51.3000
+2025-08-24 19:28:14,239 - client_1 - INFO - [Client 1/8] Epoch 149 completed in 32.75s | Average Loss: 1.7770 | World Size: 8 | train_acc: 59.6400 | val_acc: 45.1200 | lr: 0.0300
+2025-08-24 19:28:15,147 - client_1 - INFO - Client 1 | Epoch 4 | Batch 10/40 | Loss: 1.7964 | Images/sec: 1451.77 | Progress: 25.0% | Time: 0.88s | lr: 0.05 | train_acc: 49.7656
+2025-08-24 19:28:15,915 - client_1 - INFO - Client 1 | Epoch 4 | Batch 20/40 | Loss: 1.9160 | Images/sec: 1551.73 | Progress: 50.0% | Time: 1.65s | lr: 0.05 | train_acc: 48.4766
+2025-08-24 19:28:16,608 - client_1 - INFO - Client 1 | Epoch 4 | Batch 30/40 | Loss: 1.8875 | Images/sec: 1638.95 | Progress: 75.0% | Time: 2.34s | lr: 0.05 | train_acc: 48.9062
+2025-08-24 19:28:17,196 - client_1 - INFO - Client 1 | Epoch 4 | Batch 40/40 | Loss: 1.8787 | Images/sec: 1705.90 | Progress: 100.0% | Time: 2.93s | lr: 0.05 | train_acc: 48.8800
+2025-08-24 19:28:19,653 - client_1 - INFO - [Client 1/8] Epoch 149 completed in 38.16s | Average Loss: 1.7897 | World Size: 8 | train_acc: 55.5200 | val_acc: 41.1200 | lr: 0.0400
+2025-08-24 19:30:18,987 - client_1 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250824_175952_metrics_client1.json
+2025-08-24 19:30:19,832 - client_1 - INFO - Client 1 | Epoch 1 | Batch 10/40 | Loss: 1.7581 | Images/sec: 1555.52 | Progress: 25.0% | Time: 0.82s | lr: 0.05 | train_acc: 51.1719
+2025-08-24 19:30:20,426 - client_1 - INFO - Client 1 | Epoch 1 | Batch 20/40 | Loss: 1.7148 | Images/sec: 1806.63 | Progress: 50.0% | Time: 1.42s | lr: 0.05 | train_acc: 52.8125
+2025-08-24 19:30:20,868 - client_1 - INFO - Client 1 | Epoch 1 | Batch 30/40 | Loss: 1.7041 | Images/sec: 2065.82 | Progress: 75.0% | Time: 1.86s | lr: 0.05 | train_acc: 52.8385
+2025-08-24 19:30:21,278 - client_1 - INFO - Client 1 | Epoch 1 | Batch 40/40 | Loss: 1.7028 | Images/sec: 2204.33 | Progress: 100.0% | Time: 2.27s | lr: 0.05 | train_acc: 52.9800
+2025-08-24 19:30:21,316 - client_1 - INFO - [Client 1] Completed local epoch 1/2 | Final Loss: 1.7028 | Final Train Acc: 52.98%
+2025-08-24 19:30:23,643 - client_1 - INFO - [Client 1/8] Epoch 151 completed in 13.73s | Average Loss: 1.7065 | World Size: 8 | train_acc: 61.2000 | val_acc: 52.5600 | lr: 0.0100
+2025-08-24 19:30:24,149 - client_1 - INFO - Client 1 | Epoch 2 | Batch 10/40 | Loss: 1.6352 | Images/sec: 2586.19 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 54.6875
+2025-08-24 19:30:24,634 - client_1 - INFO - Client 1 | Epoch 2 | Batch 20/40 | Loss: 1.6821 | Images/sec: 2611.71 | Progress: 50.0% | Time: 0.98s | lr: 0.05 | train_acc: 54.1016
+2025-08-24 19:30:25,032 - client_1 - INFO - Client 1 | Epoch 2 | Batch 30/40 | Loss: 1.6834 | Images/sec: 2785.99 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 54.0885
+2025-08-24 19:30:25,457 - client_1 - INFO - Client 1 | Epoch 2 | Batch 40/40 | Loss: 1.7127 | Images/sec: 2773.74 | Progress: 100.0% | Time: 1.80s | lr: 0.05 | train_acc: 53.1000
+2025-08-24 19:30:25,493 - client_1 - INFO - [Client 1] Completed local epoch 2/2 | Final Loss: 1.7127 | Final Train Acc: 53.10%
+2025-08-24 19:30:27,861 - client_1 - INFO - [Client 1/8] Epoch 151 completed in 17.95s | Average Loss: 1.7081 | World Size: 8 | train_acc: 60.9200 | val_acc: 50.0000 | lr: 0.0200
