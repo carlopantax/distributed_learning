@@ -1,7 +1,7 @@
 import numpy as np
 from collections import defaultdict, deque
 import random
-
+import torch
 
 class DynamicTauController:
     """
@@ -85,7 +85,26 @@ class DynamicTauController:
             'overfitting_detected': False
         }
 
-    def should_sync_early(self, client_id, current_val_acc, current_loss, gradient_norm=None):
+    def compute_model_divergence(self,local_model, global_model):
+        """
+        Computes the L2 divergence between local and global model parameters.
+
+        Args:
+            local_model (torch.nn.Module): current client model.
+            global_model (torch.nn.Module): last synchronized model.
+
+        Returns:
+            float: L2 norm between parameters.
+        """
+        divergence = 0.0
+        with torch.no_grad():
+            for local_param, global_param in zip(local_model.parameters(), global_model.parameters()):
+                if local_param.requires_grad:
+                    divergence += torch.norm(local_param.data - global_param.data, p=2).item() ** 2
+
+        return divergence ** 0.5 
+
+    def should_sync_early(self, client_id, current_val_acc, current_loss, gradient_norm=None, model_divergence=None):
         """
         Determine if client should sync before reaching current tau
         """
@@ -132,7 +151,7 @@ class DynamicTauController:
 
         if should_sync:
             new_tau = self._calculate_new_tau(state, current_local_epoch, reached_max_tau,
-                                              stagnating, diverging, overfitting, current_val_acc)
+                                              stagnating, diverging, overfitting, current_val_acc, model_divergence)
         else:
             new_tau = state['current_tau']
             state['tau_change_reason'] = 'continuing'
@@ -140,83 +159,85 @@ class DynamicTauController:
         return should_sync, new_tau
 
     def _calculate_new_tau(self, state, current_epoch, reached_max_tau, stagnating,
-                           diverging, overfitting, current_val_acc):
-        """Calculate new tau based on training conditions - restricted to power-of-2 values"""
+                       diverging, overfitting, current_val_acc, model_divergence):
+        """
+        Calculate a new tau value based on validation accuracy,
+        model divergence, stagnation, and overfitting.
+        """
         current_tau = state['current_tau']
+        divergence_threshold = 1.0  
 
         if reached_max_tau and not stagnating and not diverging and not overfitting:
-            # Completed full tau successfully - consider increasing
             performance_improvement = current_val_acc - state['last_sync_performance']
 
-            if performance_improvement > self.improvement_threshold * 2:
-                # Excellent performance - increase tau by 2 steps if possible
+            if performance_improvement > self.improvement_threshold * 2 and model_divergence < divergence_threshold:
+                # Excellent accuracy and consistency: increase τ by two steps if possible
                 new_tau = self._get_next_tau_up(current_tau)
                 if new_tau == current_tau and current_tau < self.max_tau:
-                    # Try to go up by 2 levels if we're not at max
                     next_up = self._get_next_tau_up(new_tau)
                     if next_up != new_tau:
                         new_tau = next_up
-
-                state['tau_change_reason'] = 'excellent_performance'
+                state['tau_change_reason'] = 'excellent_performance_low_divergence'
                 state['tau_increase_streak'] += 1
 
-            elif (performance_improvement > self.improvement_threshold or
-                  state['consecutive_good_epochs'] >= 3):
-                # Good performance or consistent improvement - increase by 1 step
+            elif performance_improvement > self.improvement_threshold or state['consecutive_good_epochs'] >= 3:
+                # Good accuracy or positive trend
                 new_tau = self._get_next_tau_up(current_tau)
-
                 if performance_improvement > self.improvement_threshold:
                     state['tau_change_reason'] = 'good_performance'
-                    state['tau_increase_streak'] += 1
                 else:
                     state['tau_change_reason'] = 'consistent_improvement'
-                    state['tau_increase_streak'] = max(0, state['tau_increase_streak'])
+                state['tau_increase_streak'] += 1
+
             else:
-                # Maintain current tau
                 new_tau = current_tau
                 state['tau_change_reason'] = 'maintain_tau'
                 state['tau_increase_streak'] = 0
 
         elif stagnating:
-            # No improvement for several epochs - decrease tau
-            if state['epochs_without_improvement'] > self.patience * 1.5:
-                # Severe stagnation - reduce tau by 2 steps if possible
+            if model_divergence > 1.5 * divergence_threshold:
+                # Stagnation and high divergence – reduce τ
                 new_tau = self._get_next_tau_down(current_tau)
-                if new_tau != current_tau:  # Successfully went down one step
+                state['tau_change_reason'] = 'stagnating_high_divergence'
+            elif state['epochs_without_improvement'] > self.patience * 1.5:
+                # Severe stagnation – reduce τ by 2 steps if possible
+                new_tau = self._get_next_tau_down(current_tau)
+                if new_tau != current_tau:
                     next_down = self._get_next_tau_down(new_tau)
-                    if next_down != new_tau:  # Can go down another step
+                    if next_down != new_tau:
                         new_tau = next_down
-
                 state['tau_change_reason'] = 'severe_stagnation'
             else:
-                # Mild stagnation - reduce tau by 1 step
                 new_tau = self._get_next_tau_down(current_tau)
                 state['tau_change_reason'] = 'mild_stagnation'
-
             state['tau_increase_streak'] = 0
 
         elif diverging:
-            # Training is diverging - aggressive tau reduction
-            # Go to minimum tau or current epoch count (whichever is larger but valid)
-            target_tau = max(self.min_tau, min(current_epoch, 8))  # Cap at 8 for diverging
+            # Serious divergence – aggressive reduction
+            target_tau = max(self.min_tau, min(current_epoch, 8))  
             new_tau = self._get_closest_valid_tau(target_tau)
             state['tau_change_reason'] = 'diverging'
             state['tau_increase_streak'] = 0
 
         elif overfitting:
-            # Overfitting detected - moderate reduction
-            # Reduce by 1 step or go to a reasonable tau based on current epoch
+            # Overfitting – moderate reduction
             target_tau = min(current_epoch + 1, self._get_next_tau_down(current_tau))
             new_tau = self._get_closest_valid_tau(target_tau)
             state['tau_change_reason'] = 'overfitting'
             state['tau_increase_streak'] = 0
 
+        elif model_divergence > 2 * divergence_threshold:
+            # Even without other signals, high divergence – be cautious
+            new_tau = self._get_next_tau_down(current_tau)
+            state['tau_change_reason'] = 'high_model_divergence'
+            state['tau_increase_streak'] = 0
+
         else:
-            # Default case - maintain tau
             new_tau = current_tau
             state['tau_change_reason'] = 'default_maintain'
 
         return new_tau
+
 
     def _detect_divergence(self, state):
         """Detect if training is diverging (loss increasing consistently)"""

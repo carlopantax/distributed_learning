@@ -73,8 +73,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
     # Initialize dynamic tau controller
     tau_controller = DynamicTauController(
         initial_tau=initial_tau,
-        min_tau=args.min_tau,
-        max_tau=args.max_tau,
         patience=args.patience,
         improvement_threshold=args.improvement_threshold
     )
@@ -208,20 +206,28 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                 epoch_loss = running_loss / total_seen
                 train_acc = 100.0 * running_correct / total_seen
                 val_acc = compute_accuracy(model, client_val_loaders[client_idx], device)
+                model_divergence = tau_controller.compute_model_divergence(model, global_model)
 
                 tau_controller.step_epoch(client_idx)
 
                 # Check if should sync early
                 should_sync, new_tau = tau_controller.should_sync_early(
-                    client_idx, val_acc, epoch_loss, grad_norm
+                    client_id=client_idx,
+                    current_val_acc=val_acc,
+                    current_loss=epoch_loss,
+                    gradient_norm=grad_norm,
+                    model_divergence=model_divergence   
                 )
+
 
                 logger.log(
                     f"Client {client_idx} | Local Epoch {local_epoch + 1}/{current_tau} | "
                     f"Loss: {epoch_loss:.4f} | Train Acc: {train_acc:.2f}% | "
                     f"Val Acc: {val_acc:.2f}% | Grad Norm: {grad_norm:.4f} | "
+                    f"Divergence: {model_divergence:.4f} | "
                     f"Should Sync: {should_sync} | New Tau: {new_tau}"
                 )
+
 
                 # Log epoch using your logger
                 current_global_epoch = tau_controller.client_states[client_idx]['total_epochs']
@@ -237,6 +243,7 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                         'lr': scheduler.get_last_lr()[0],
                         'current_tau': current_tau,
                         'grad_norm': grad_norm,
+                        'model_divergence': model_divergence,
                         'local_epoch': local_epoch + 1,
                         'sync_round': total_syncs + 1
                     }

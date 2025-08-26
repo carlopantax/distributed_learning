@@ -86,7 +86,7 @@ class TrainingLogger:
                 self.metrics[key].append(value)
 
         log_msg = (
-            f"[Client {self.client_id}/{self.num_clients}] "
+            f"[Client {self.client_id}] "
             f"Epoch: {epoch + 1} | "
             f"Batch: {batch_idx + 1}/{math.ceil(local_train_size / batch_size)} | "
             f"Loss: {loss:.4f} | "
@@ -118,7 +118,7 @@ class TrainingLogger:
                 self.metrics.setdefault(f"epoch_{key}", []).append(value)
 
         log_msg = (
-            f"[Client {self.client_id}/{self.num_clients}] "
+            f"[Client {self.client_id}] "
             f"Epoch {epoch + 1} completed in {epoch_time:.2f}s | "
             f"Average Loss: {epoch_loss:.4f}"
         )
@@ -153,8 +153,8 @@ class TrainingLogger:
             self.metrics['num_clients'] = self.num_clients
             num_clients = self.num_clients
 
-        self.log(f"[Client {self.client_id}/{num_clients}] Training completed in {total_time:.2f} seconds.")
-        self.log(f"[Client {self.client_id}/{num_clients}] Average throughput: {throughput:.2f} Images/sec")
+        self.log(f"[Client {self.client_id}] Training completed in {total_time:.2f} seconds.")
+        self.log(f"[Client {self.client_id}] Average throughput: {throughput:.2f} Images/sec")
 
         os.makedirs(os.path.dirname(self.metrics_file), exist_ok=True)
 
