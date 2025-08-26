@@ -1,6 +1,5 @@
 import os
 import matplotlib.pyplot as plt
-import numpy as np
 from utils.TrainingPlotter import TrainingPlotter
 
 
@@ -19,7 +18,13 @@ class DynamicTauPlotter(TrainingPlotter):
         metrics_by_rank = self._group_metrics_by_rank(all_metrics)
 
         plt.figure(figsize=(15, 8))
-        colors = plt.cm.tab10(np.linspace(0, 1, self.world_size))
+
+        colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
+                  '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
+                  '#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#ff99cc']
+
+        if self.world_size > len(colors):
+            colors = colors * ((self.world_size // len(colors)) + 1)
 
         has_tau_data = False
         for client_id, metrics in metrics_by_rank.items():
@@ -97,7 +102,12 @@ class DynamicTauPlotter(TrainingPlotter):
             print("No performance vs tau data found.")
             return
 
-        colors = plt.cm.tab10(np.linspace(0, 1, self.world_size))
+        colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
+                  '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
+                  '#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#ff99cc']
+
+        if self.world_size > len(colors):
+            colors = colors * ((self.world_size // len(colors)) + 1)
 
         for client_id in range(self.world_size):
             client_mask = [cid == client_id for cid in all_data['client_id']]
@@ -166,7 +176,6 @@ class DynamicTauPlotter(TrainingPlotter):
         plt.close()
         print(f"Performance vs tau plot saved to {save_path}")
 
-
     def plot_convergence_comparison(self):
         """Compare convergence patterns across clients with different tau strategies"""
         all_metrics = self._load_all_metrics()
@@ -178,7 +187,13 @@ class DynamicTauPlotter(TrainingPlotter):
 
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
 
-        colors = plt.cm.tab10(np.linspace(0, 1, self.world_size))
+        colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
+                  '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
+                  '#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#ff99cc']
+
+        # If we have more clients than colors, cycle through them
+        if self.world_size > len(colors):
+            colors = colors * ((self.world_size // len(colors)) + 1)
 
         for client_id, metrics in metrics_by_rank.items():
             val_acc = metrics.get('epoch_val_acc', [])
@@ -192,7 +207,7 @@ class DynamicTauPlotter(TrainingPlotter):
                 best_acc = max(val_acc)
                 best_epoch = val_acc.index(best_acc) + 1
                 ax1.scatter([best_epoch], [best_acc], color=colors[client_id % len(colors)],
-                            s=100, marker='*', edgecolors='black', linewidths=1)
+                            s=100, marker='o', edgecolors='black', linewidths=1)
 
             if loss:
                 epochs = list(range(1, len(loss) + 1))
