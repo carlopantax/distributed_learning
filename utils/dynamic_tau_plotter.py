@@ -1,11 +1,6 @@
 import os
-import json
-import time
 import matplotlib.pyplot as plt
 import numpy as np
-from collections import defaultdict
-import glob
-import re
 from utils.TrainingPlotter import TrainingPlotter
 
 
@@ -28,7 +23,6 @@ class DynamicTauPlotter(TrainingPlotter):
 
         has_tau_data = False
         for client_id, metrics in metrics_by_rank.items():
-            # Extract tau values from epoch metrics
             current_tau_values = metrics.get('epoch_current_tau', [])
             sync_rounds = metrics.get('epoch_sync_round', [])
 
@@ -41,12 +35,11 @@ class DynamicTauPlotter(TrainingPlotter):
             plt.step(epochs, current_tau_values, where='post', label=f'Client {client_id}',
                      color=colors[client_id % len(colors)], linewidth=2, marker='o', markersize=4)
 
-            # Mark sync events with different markers
             if sync_rounds:
                 sync_epochs = []
                 sync_tau_values = []
                 for i, sync_round in enumerate(sync_rounds):
-                    if i < len(current_tau_values) and sync_round > 0:  # Only mark actual syncs
+                    if i < len(current_tau_values) and sync_round > 0:
                         sync_epochs.append(i + 1)
                         sync_tau_values.append(current_tau_values[i])
 
@@ -70,81 +63,6 @@ class DynamicTauPlotter(TrainingPlotter):
         plt.close()
         print(f"Dynamic tau timeline plot saved to {save_path}")
 
-    def plot_sync_frequency_analysis(self):
-        """Analyze synchronization frequency patterns"""
-        all_metrics = self._load_all_metrics()
-        if not all_metrics:
-            print("No metrics found.")
-            return
-
-        metrics_by_rank = self._group_metrics_by_rank(all_metrics)
-
-        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 10))
-
-        # Plot 1: Sync events over time
-        has_sync_data = False
-        for client_id, metrics in metrics_by_rank.items():
-            sync_rounds = metrics.get('epoch_sync_round', [])
-            epoch_times = metrics.get('epoch_time', [])
-
-            if not sync_rounds or not epoch_times:
-                continue
-
-            has_sync_data = True
-            # Find actual sync events (when sync_round changes)
-            sync_epochs = []
-            sync_times = []
-            cumulative_time = 0
-
-            prev_sync = 0
-            for i, (sync_round, epoch_time) in enumerate(zip(sync_rounds, epoch_times)):
-                cumulative_time += epoch_time
-                if sync_round > prev_sync:  # New sync event
-                    sync_epochs.append(i + 1)
-                    sync_times.append(cumulative_time)
-                    prev_sync = sync_round
-
-            if sync_epochs:
-                ax1.scatter(sync_times, [client_id] * len(sync_times),
-                            label=f'Client {client_id}', s=50, alpha=0.7)
-
-        if has_sync_data:
-            ax1.set_title('Synchronization Events Over Time')
-            ax1.set_xlabel('Cumulative Training Time (seconds)')
-            ax1.set_ylabel('Client ID')
-            ax1.grid(True, alpha=0.3)
-            ax1.legend()
-            ax1.set_yticks(range(self.world_size))
-
-        # Plot 2: Distribution of tau values across all clients
-        all_tau_values = []
-        client_labels = []
-
-        for client_id, metrics in metrics_by_rank.items():
-            current_tau_values = metrics.get('epoch_current_tau', [])
-
-            if current_tau_values:
-                all_tau_values.extend(current_tau_values)
-                client_labels.extend([f'Client {client_id}'] * len(current_tau_values))
-
-        if all_tau_values:
-            # Create histogram
-            unique_taus = sorted(list(set(all_tau_values)))
-            counts = [all_tau_values.count(tau) for tau in unique_taus]
-
-            ax2.bar(unique_taus, counts, alpha=0.7, edgecolor='black')
-            ax2.set_title('Distribution of Tau Values Across Training')
-            ax2.set_xlabel('Tau Value (Local Epochs)')
-            ax2.set_ylabel('Frequency')
-            ax2.grid(True, alpha=0.3)
-            ax2.set_xticks(unique_taus)
-
-        plt.tight_layout()
-        save_path = os.path.join(self.plots_dir, f"{self.train_name}_sync_analysis.png")
-        plt.savefig(save_path)
-        plt.close()
-        print(f"Sync frequency analysis plot saved to {save_path}")
-
     def plot_performance_vs_tau(self):
         """Plot performance metrics vs tau values to analyze effectiveness"""
         all_metrics = self._load_all_metrics()
@@ -164,7 +82,6 @@ class DynamicTauPlotter(TrainingPlotter):
             loss = metrics.get('epoch_loss', [])
             grad_norm = metrics.get('epoch_grad_norm', [])
 
-            # Align all metrics to same length
             min_len = min(len(arr) for arr in [current_tau, val_acc, loss, grad_norm] if arr)
             if min_len == 0:
                 continue
@@ -180,7 +97,6 @@ class DynamicTauPlotter(TrainingPlotter):
             print("No performance vs tau data found.")
             return
 
-        # Plot relationships
         colors = plt.cm.tab10(np.linspace(0, 1, self.world_size))
 
         for client_id in range(self.world_size):
@@ -222,11 +138,9 @@ class DynamicTauPlotter(TrainingPlotter):
         ax3.set_ylabel('Gradient Norm')
         ax3.grid(True, alpha=0.3)
 
-        # Summary statistics in fourth subplot
         ax4.axis('off')
         summary_text = "Dynamic Tau Summary:\n\n"
 
-        # Calculate statistics
         unique_clients = list(set(all_data['client_id']))
         for client_id in sorted(unique_clients):
             client_mask = [cid == client_id for cid in all_data['client_id']]
@@ -252,59 +166,6 @@ class DynamicTauPlotter(TrainingPlotter):
         plt.close()
         print(f"Performance vs tau plot saved to {save_path}")
 
-    def plot_tau_adaptation_heatmap(self):
-        """Create a heatmap showing tau values over training epochs for all clients"""
-        all_metrics = self._load_all_metrics()
-        if not all_metrics:
-            print("No metrics found.")
-            return
-
-        metrics_by_rank = self._group_metrics_by_rank(all_metrics)
-
-        # Create matrix: clients x epochs
-        max_epochs = 0
-        tau_data = {}
-
-        for client_id, metrics in metrics_by_rank.items():
-            current_tau = metrics.get('epoch_current_tau', [])
-            if current_tau:
-                tau_data[client_id] = current_tau
-                max_epochs = max(max_epochs, len(current_tau))
-
-        if not tau_data or max_epochs == 0:
-            print("No tau adaptation data found.")
-            return
-
-        # Build matrix
-        tau_matrix = np.zeros((len(tau_data), max_epochs))
-        client_ids = sorted(tau_data.keys())
-
-        for i, client_id in enumerate(client_ids):
-            client_taus = tau_data[client_id]
-            for j, tau in enumerate(client_taus):
-                tau_matrix[i, j] = tau
-            # Fill remaining epochs with last tau value
-            if len(client_taus) < max_epochs:
-                tau_matrix[i, len(client_taus):] = client_taus[-1]
-
-        plt.figure(figsize=(15, 8))
-        im = plt.imshow(tau_matrix, cmap='viridis', aspect='auto', interpolation='nearest')
-
-        plt.colorbar(im, label='Tau Value')
-        plt.title(f'Tau Adaptation Heatmap - {self.train_name}')
-        plt.xlabel('Training Epoch')
-        plt.ylabel('Client ID')
-        plt.yticks(range(len(client_ids)), [f'Client {cid}' for cid in client_ids])
-
-        # Add epoch ticks
-        epoch_ticks = self._get_epoch_range(max_epochs)
-        plt.xticks(np.array(epoch_ticks) - 1, epoch_ticks)  # -1 because imshow is 0-indexed
-
-        plt.tight_layout()
-        save_path = os.path.join(self.plots_dir, f"{self.train_name}_tau_heatmap.png")
-        plt.savefig(save_path)
-        plt.close()
-        print(f"Tau adaptation heatmap saved to {save_path}")
 
     def plot_convergence_comparison(self):
         """Compare convergence patterns across clients with different tau strategies"""
@@ -328,7 +189,6 @@ class DynamicTauPlotter(TrainingPlotter):
                 ax1.plot(epochs, val_acc, color=colors[client_id % len(colors)],
                          label=f'Client {client_id}', linewidth=2, alpha=0.8)
 
-                # Mark best accuracy
                 best_acc = max(val_acc)
                 best_epoch = val_acc.index(best_acc) + 1
                 ax1.scatter([best_epoch], [best_acc], color=colors[client_id % len(colors)],
@@ -361,16 +221,11 @@ class DynamicTauPlotter(TrainingPlotter):
         """Generate all plots including dynamic tau specific visualizations"""
         print(f"Generating all plots including dynamic tau analysis for {self.train_name}...")
 
-        # Original plots from parent class
         self.plot_epoch_loss()
         self.plot_accuracy_per_client()
         self.plot_learning_rate()
-
-        # Dynamic tau specific plots
         self.plot_dynamic_tau_timeline()
-        self.plot_sync_frequency_analysis()
         self.plot_performance_vs_tau()
-        self.plot_tau_adaptation_heatmap()
         self.plot_convergence_comparison()
 
         print("All dynamic tau plots generated successfully!")
