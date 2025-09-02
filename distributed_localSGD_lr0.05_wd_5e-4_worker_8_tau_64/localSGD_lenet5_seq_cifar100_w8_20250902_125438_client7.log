@@ -1,0 +1,776 @@
+2025-09-02 13:27:31,650 - client_7 - INFO - Started training for Client 7
+2025-09-02 13:27:31,652 - client_7 - INFO - Log file: logs/localSGD_lenet5_seq_cifar100_w8_20250902_125438_client7.log
+2025-09-02 13:27:32,156 - client_7 - INFO - Client 7 | Epoch 1 | Batch 10/40 | Loss: 4.6026 | Images/sec: 2544.29 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 1.4062
+2025-09-02 13:27:32,576 - client_7 - INFO - Client 7 | Epoch 1 | Batch 20/40 | Loss: 4.5904 | Images/sec: 2771.88 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 1.5234
+2025-09-02 13:27:32,984 - client_7 - INFO - Client 7 | Epoch 1 | Batch 30/40 | Loss: 4.5677 | Images/sec: 2885.17 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 2.3177
+2025-09-02 13:27:33,357 - client_7 - INFO - Client 7 | Epoch 1 | Batch 40/40 | Loss: 4.5431 | Images/sec: 2933.52 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 2.7800
+2025-09-02 13:27:35,683 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 1968.02s | Average Loss: 2.6696 | World Size: 8 | train_acc: 5.3600 | val_acc: 3.8400 | lr: 0.0100
+2025-09-02 13:27:36,321 - client_7 - INFO - Client 7 | Epoch 2 | Batch 10/40 | Loss: 4.4041 | Images/sec: 2026.96 | Progress: 25.0% | Time: 0.63s | lr: 0.05 | train_acc: 3.3594
+2025-09-02 13:27:36,991 - client_7 - INFO - Client 7 | Epoch 2 | Batch 20/40 | Loss: 4.3507 | Images/sec: 1965.66 | Progress: 50.0% | Time: 1.30s | lr: 0.05 | train_acc: 4.1406
+2025-09-02 13:27:37,712 - client_7 - INFO - Client 7 | Epoch 2 | Batch 30/40 | Loss: 4.3098 | Images/sec: 1898.54 | Progress: 75.0% | Time: 2.02s | lr: 0.05 | train_acc: 5.2865
+2025-09-02 13:27:38,328 - client_7 - INFO - Client 7 | Epoch 2 | Batch 40/40 | Loss: 4.2797 | Images/sec: 1894.90 | Progress: 100.0% | Time: 2.64s | lr: 0.05 | train_acc: 5.2600
+2025-09-02 13:27:41,096 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 1973.43s | Average Loss: 2.6732 | World Size: 8 | train_acc: 9.8200 | val_acc: 7.8400 | lr: 0.0200
+2025-09-02 13:27:41,594 - client_7 - INFO - Client 7 | Epoch 3 | Batch 10/40 | Loss: 4.2067 | Images/sec: 2601.42 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 5.7812
+2025-09-02 13:27:42,036 - client_7 - INFO - Client 7 | Epoch 3 | Batch 20/40 | Loss: 4.1666 | Images/sec: 2740.88 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 6.3672
+2025-09-02 13:27:42,434 - client_7 - INFO - Client 7 | Epoch 3 | Batch 30/40 | Loss: 4.1243 | Images/sec: 2882.90 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 7.1354
+2025-09-02 13:27:42,837 - client_7 - INFO - Client 7 | Epoch 3 | Batch 40/40 | Loss: 4.0935 | Images/sec: 2881.03 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 7.3600
+2025-09-02 13:27:45,172 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 1977.51s | Average Loss: 2.6764 | World Size: 8 | train_acc: 8.4600 | val_acc: 7.4400 | lr: 0.0300
+2025-09-02 13:27:45,677 - client_7 - INFO - Client 7 | Epoch 4 | Batch 10/40 | Loss: 4.0352 | Images/sec: 2567.27 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 7.2656
+2025-09-02 13:27:46,129 - client_7 - INFO - Client 7 | Epoch 4 | Batch 20/40 | Loss: 4.0403 | Images/sec: 2690.73 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 8.0078
+2025-09-02 13:27:46,531 - client_7 - INFO - Client 7 | Epoch 4 | Batch 30/40 | Loss: 4.0045 | Images/sec: 2837.89 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 8.8542
+2025-09-02 13:27:46,886 - client_7 - INFO - Client 7 | Epoch 4 | Batch 40/40 | Loss: 3.9924 | Images/sec: 2926.63 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 9.1000
+2025-09-02 13:27:49,228 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 1981.57s | Average Loss: 2.6793 | World Size: 8 | train_acc: 12.4400 | val_acc: 9.5200 | lr: 0.0400
+2025-09-02 13:27:49,764 - client_7 - INFO - Client 7 | Epoch 5 | Batch 10/40 | Loss: 4.0279 | Images/sec: 2420.18 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 8.1250
+2025-09-02 13:27:50,424 - client_7 - INFO - Client 7 | Epoch 5 | Batch 20/40 | Loss: 4.0120 | Images/sec: 2153.21 | Progress: 50.0% | Time: 1.19s | lr: 0.05 | train_acc: 8.6719
+2025-09-02 13:27:51,122 - client_7 - INFO - Client 7 | Epoch 5 | Batch 30/40 | Loss: 3.9796 | Images/sec: 2035.27 | Progress: 75.0% | Time: 1.89s | lr: 0.05 | train_acc: 8.9583
+2025-09-02 13:27:51,690 - client_7 - INFO - Client 7 | Epoch 5 | Batch 40/40 | Loss: 3.9607 | Images/sec: 2037.03 | Progress: 100.0% | Time: 2.45s | lr: 0.05 | train_acc: 8.9200
+2025-09-02 13:27:54,608 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 1986.95s | Average Loss: 2.6821 | World Size: 8 | train_acc: 11.1200 | val_acc: 7.6000 | lr: 0.0500
+2025-09-02 13:27:55,087 - client_7 - INFO - Client 7 | Epoch 6 | Batch 10/40 | Loss: 4.0051 | Images/sec: 2715.82 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 7.6562
+2025-09-02 13:27:55,490 - client_7 - INFO - Client 7 | Epoch 6 | Batch 20/40 | Loss: 3.9601 | Images/sec: 2928.72 | Progress: 50.0% | Time: 0.87s | lr: 0.05 | train_acc: 9.1797
+2025-09-02 13:27:55,898 - client_7 - INFO - Client 7 | Epoch 6 | Batch 30/40 | Loss: 3.9249 | Images/sec: 2994.95 | Progress: 75.0% | Time: 1.28s | lr: 0.05 | train_acc: 9.3750
+2025-09-02 13:27:56,255 - client_7 - INFO - Client 7 | Epoch 6 | Batch 40/40 | Loss: 3.8933 | Images/sec: 3050.57 | Progress: 100.0% | Time: 1.64s | lr: 0.05 | train_acc: 9.7600
+2025-09-02 13:27:58,534 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 1990.87s | Average Loss: 2.6848 | World Size: 8 | train_acc: 13.8000 | val_acc: 11.6800 | lr: 0.0500
+2025-09-02 13:27:58,998 - client_7 - INFO - Client 7 | Epoch 7 | Batch 10/40 | Loss: 3.8732 | Images/sec: 2796.84 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 9.8438
+2025-09-02 13:27:59,419 - client_7 - INFO - Client 7 | Epoch 7 | Batch 20/40 | Loss: 3.8500 | Images/sec: 2913.66 | Progress: 50.0% | Time: 0.88s | lr: 0.05 | train_acc: 9.5703
+2025-09-02 13:27:59,845 - client_7 - INFO - Client 7 | Epoch 7 | Batch 30/40 | Loss: 3.8253 | Images/sec: 2944.06 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 10.4427
+2025-09-02 13:28:00,182 - client_7 - INFO - Client 7 | Epoch 7 | Batch 40/40 | Loss: 3.8061 | Images/sec: 3046.18 | Progress: 100.0% | Time: 1.64s | lr: 0.05 | train_acc: 10.8000
+2025-09-02 13:28:02,417 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 1994.76s | Average Loss: 2.6872 | World Size: 8 | train_acc: 15.9400 | val_acc: 11.3600 | lr: 0.0500
+2025-09-02 13:28:02,924 - client_7 - INFO - Client 7 | Epoch 8 | Batch 10/40 | Loss: 3.7155 | Images/sec: 2554.82 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 11.0156
+2025-09-02 13:28:03,319 - client_7 - INFO - Client 7 | Epoch 8 | Batch 20/40 | Loss: 3.6969 | Images/sec: 2856.87 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 12.1094
+2025-09-02 13:28:03,988 - client_7 - INFO - Client 7 | Epoch 8 | Batch 30/40 | Loss: 3.7058 | Images/sec: 2453.92 | Progress: 75.0% | Time: 1.56s | lr: 0.05 | train_acc: 11.7969
+2025-09-02 13:28:04,542 - client_7 - INFO - Client 7 | Epoch 8 | Batch 40/40 | Loss: 3.6897 | Images/sec: 2359.58 | Progress: 100.0% | Time: 2.12s | lr: 0.05 | train_acc: 12.2200
+2025-09-02 13:28:07,526 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 1999.87s | Average Loss: 2.6894 | World Size: 8 | train_acc: 16.9600 | val_acc: 12.7200 | lr: 0.0500
+2025-09-02 13:28:08,007 - client_7 - INFO - Client 7 | Epoch 9 | Batch 10/40 | Loss: 3.6778 | Images/sec: 2700.02 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 13.4375
+2025-09-02 13:28:08,435 - client_7 - INFO - Client 7 | Epoch 9 | Batch 20/40 | Loss: 3.6931 | Images/sec: 2839.01 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 13.3203
+2025-09-02 13:28:08,843 - client_7 - INFO - Client 7 | Epoch 9 | Batch 30/40 | Loss: 3.6878 | Images/sec: 2930.94 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 13.3073
+2025-09-02 13:28:09,211 - client_7 - INFO - Client 7 | Epoch 9 | Batch 40/40 | Loss: 3.6661 | Images/sec: 2978.90 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 13.4400
+2025-09-02 13:28:11,505 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2003.84s | Average Loss: 2.6916 | World Size: 8 | train_acc: 19.2600 | val_acc: 14.1600 | lr: 0.0499
+2025-09-02 13:28:11,988 - client_7 - INFO - Client 7 | Epoch 10 | Batch 10/40 | Loss: 3.5598 | Images/sec: 2766.14 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 14.8438
+2025-09-02 13:28:12,417 - client_7 - INFO - Client 7 | Epoch 10 | Batch 20/40 | Loss: 3.5806 | Images/sec: 2869.24 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 14.5703
+2025-09-02 13:28:12,847 - client_7 - INFO - Client 7 | Epoch 10 | Batch 30/40 | Loss: 3.5760 | Images/sec: 2904.15 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 14.3750
+2025-09-02 13:28:13,205 - client_7 - INFO - Client 7 | Epoch 10 | Batch 40/40 | Loss: 3.5520 | Images/sec: 2975.85 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 15.0400
+2025-09-02 13:28:15,478 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2007.82s | Average Loss: 2.6934 | World Size: 8 | train_acc: 20.6800 | val_acc: 14.4800 | lr: 0.0499
+2025-09-02 13:28:16,003 - client_7 - INFO - Client 7 | Epoch 11 | Batch 10/40 | Loss: 3.5269 | Images/sec: 2469.66 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 14.5312
+2025-09-02 13:28:16,435 - client_7 - INFO - Client 7 | Epoch 11 | Batch 20/40 | Loss: 3.4992 | Images/sec: 2692.96 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 15.8203
+2025-09-02 13:28:16,910 - client_7 - INFO - Client 7 | Epoch 11 | Batch 30/40 | Loss: 3.4846 | Images/sec: 2694.06 | Progress: 75.0% | Time: 1.43s | lr: 0.05 | train_acc: 16.1979
+2025-09-02 13:28:17,475 - client_7 - INFO - Client 7 | Epoch 11 | Batch 40/40 | Loss: 3.4868 | Images/sec: 2512.46 | Progress: 100.0% | Time: 1.99s | lr: 0.05 | train_acc: 15.7000
+2025-09-02 13:28:20,576 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2012.92s | Average Loss: 2.6952 | World Size: 8 | train_acc: 22.7600 | val_acc: 16.8800 | lr: 0.0499
+2025-09-02 13:28:21,076 - client_7 - INFO - Client 7 | Epoch 12 | Batch 10/40 | Loss: 3.4548 | Images/sec: 2595.49 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 16.0938
+2025-09-02 13:28:21,480 - client_7 - INFO - Client 7 | Epoch 12 | Batch 20/40 | Loss: 3.4613 | Images/sec: 2852.17 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 15.9766
+2025-09-02 13:28:21,891 - client_7 - INFO - Client 7 | Epoch 12 | Batch 30/40 | Loss: 3.4315 | Images/sec: 2935.91 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 16.6667
+2025-09-02 13:28:22,264 - client_7 - INFO - Client 7 | Epoch 12 | Batch 40/40 | Loss: 3.4239 | Images/sec: 2973.61 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 17.0400
+2025-09-02 13:28:24,497 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2016.84s | Average Loss: 2.6968 | World Size: 8 | train_acc: 21.6000 | val_acc: 14.5600 | lr: 0.0498
+2025-09-02 13:28:25,047 - client_7 - INFO - Client 7 | Epoch 13 | Batch 10/40 | Loss: 3.4198 | Images/sec: 2351.56 | Progress: 25.0% | Time: 0.54s | lr: 0.05 | train_acc: 16.7969
+2025-09-02 13:28:25,429 - client_7 - INFO - Client 7 | Epoch 13 | Batch 20/40 | Loss: 3.4234 | Images/sec: 2766.14 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 16.3672
+2025-09-02 13:28:25,827 - client_7 - INFO - Client 7 | Epoch 13 | Batch 30/40 | Loss: 3.4025 | Images/sec: 2900.74 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 16.4062
+2025-09-02 13:28:26,200 - client_7 - INFO - Client 7 | Epoch 13 | Batch 40/40 | Loss: 3.3685 | Images/sec: 2946.90 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 17.1800
+2025-09-02 13:28:28,449 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2020.79s | Average Loss: 2.6982 | World Size: 8 | train_acc: 22.8600 | val_acc: 15.7600 | lr: 0.0497
+2025-09-02 13:28:28,926 - client_7 - INFO - Client 7 | Epoch 14 | Batch 10/40 | Loss: 3.2947 | Images/sec: 2720.20 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 18.2812
+2025-09-02 13:28:29,349 - client_7 - INFO - Client 7 | Epoch 14 | Batch 20/40 | Loss: 3.2737 | Images/sec: 2864.62 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 18.7891
+2025-09-02 13:28:29,790 - client_7 - INFO - Client 7 | Epoch 14 | Batch 30/40 | Loss: 3.2628 | Images/sec: 2878.61 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 18.8281
+2025-09-02 13:28:30,155 - client_7 - INFO - Client 7 | Epoch 14 | Batch 40/40 | Loss: 3.2792 | Images/sec: 2942.43 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 19.0400
+2025-09-02 13:28:33,220 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2025.56s | Average Loss: 2.6995 | World Size: 8 | train_acc: 26.1600 | val_acc: 16.6400 | lr: 0.0496
+2025-09-02 13:28:33,888 - client_7 - INFO - Client 7 | Epoch 15 | Batch 10/40 | Loss: 3.2811 | Images/sec: 1952.72 | Progress: 25.0% | Time: 0.66s | lr: 0.05 | train_acc: 21.4062
+2025-09-02 13:28:34,297 - client_7 - INFO - Client 7 | Epoch 15 | Batch 20/40 | Loss: 3.2618 | Images/sec: 2405.13 | Progress: 50.0% | Time: 1.06s | lr: 0.05 | train_acc: 20.7812
+2025-09-02 13:28:34,695 - client_7 - INFO - Client 7 | Epoch 15 | Batch 30/40 | Loss: 3.2318 | Images/sec: 2626.72 | Progress: 75.0% | Time: 1.46s | lr: 0.05 | train_acc: 21.3021
+2025-09-02 13:28:35,031 - client_7 - INFO - Client 7 | Epoch 15 | Batch 40/40 | Loss: 3.2191 | Images/sec: 2780.85 | Progress: 100.0% | Time: 1.80s | lr: 0.05 | train_acc: 21.2400
+2025-09-02 13:28:37,262 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2029.60s | Average Loss: 2.7006 | World Size: 8 | train_acc: 26.1000 | val_acc: 19.8400 | lr: 0.0495
+2025-09-02 13:28:37,735 - client_7 - INFO - Client 7 | Epoch 16 | Batch 10/40 | Loss: 3.1741 | Images/sec: 2748.54 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 23.1250
+2025-09-02 13:28:38,171 - client_7 - INFO - Client 7 | Epoch 16 | Batch 20/40 | Loss: 3.1687 | Images/sec: 2838.57 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 22.3438
+2025-09-02 13:28:38,592 - client_7 - INFO - Client 7 | Epoch 16 | Batch 30/40 | Loss: 3.1618 | Images/sec: 2902.67 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 21.5104
+2025-09-02 13:28:38,915 - client_7 - INFO - Client 7 | Epoch 16 | Batch 40/40 | Loss: 3.1723 | Images/sec: 3037.64 | Progress: 100.0% | Time: 1.65s | lr: 0.05 | train_acc: 21.5600
+2025-09-02 13:28:41,167 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2033.51s | Average Loss: 2.7016 | World Size: 8 | train_acc: 24.1600 | val_acc: 16.7200 | lr: 0.0494
+2025-09-02 13:28:41,654 - client_7 - INFO - Client 7 | Epoch 17 | Batch 10/40 | Loss: 3.1879 | Images/sec: 2661.07 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 21.6406
+2025-09-02 13:28:42,063 - client_7 - INFO - Client 7 | Epoch 17 | Batch 20/40 | Loss: 3.1699 | Images/sec: 2875.54 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 21.0938
+2025-09-02 13:28:42,471 - client_7 - INFO - Client 7 | Epoch 17 | Batch 30/40 | Loss: 3.1463 | Images/sec: 2959.70 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 21.4062
+2025-09-02 13:28:42,859 - client_7 - INFO - Client 7 | Epoch 17 | Batch 40/40 | Loss: 3.1200 | Images/sec: 2966.40 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 22.1200
+2025-09-02 13:28:45,654 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2037.99s | Average Loss: 2.7025 | World Size: 8 | train_acc: 30.2000 | val_acc: 20.0000 | lr: 0.0493
+2025-09-02 13:28:46,426 - client_7 - INFO - Client 7 | Epoch 18 | Batch 10/40 | Loss: 3.0565 | Images/sec: 1676.25 | Progress: 25.0% | Time: 0.76s | lr: 0.05 | train_acc: 22.9688
+2025-09-02 13:28:47,135 - client_7 - INFO - Client 7 | Epoch 18 | Batch 20/40 | Loss: 3.0711 | Images/sec: 1738.35 | Progress: 50.0% | Time: 1.47s | lr: 0.05 | train_acc: 22.5781
+2025-09-02 13:28:47,540 - client_7 - INFO - Client 7 | Epoch 18 | Batch 30/40 | Loss: 3.0529 | Images/sec: 2045.32 | Progress: 75.0% | Time: 1.88s | lr: 0.05 | train_acc: 23.3073
+2025-09-02 13:28:47,887 - client_7 - INFO - Client 7 | Epoch 18 | Batch 40/40 | Loss: 3.0705 | Images/sec: 2247.70 | Progress: 100.0% | Time: 2.22s | lr: 0.05 | train_acc: 23.0200
+2025-09-02 13:28:50,212 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2042.55s | Average Loss: 2.7033 | World Size: 8 | train_acc: 29.5000 | val_acc: 18.6400 | lr: 0.0492
+2025-09-02 13:28:50,684 - client_7 - INFO - Client 7 | Epoch 19 | Batch 10/40 | Loss: 3.0468 | Images/sec: 2748.34 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 22.8125
+2025-09-02 13:28:51,141 - client_7 - INFO - Client 7 | Epoch 19 | Batch 20/40 | Loss: 3.0382 | Images/sec: 2774.99 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 23.7891
+2025-09-02 13:28:51,548 - client_7 - INFO - Client 7 | Epoch 19 | Batch 30/40 | Loss: 3.0077 | Images/sec: 2887.55 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 24.5312
+2025-09-02 13:28:51,899 - client_7 - INFO - Client 7 | Epoch 19 | Batch 40/40 | Loss: 3.0109 | Images/sec: 2975.56 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 24.1400
+2025-09-02 13:28:54,180 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2046.52s | Average Loss: 2.7040 | World Size: 8 | train_acc: 31.0000 | val_acc: 21.2800 | lr: 0.0490
+2025-09-02 13:28:54,677 - client_7 - INFO - Client 7 | Epoch 20 | Batch 10/40 | Loss: 2.9696 | Images/sec: 2620.98 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 26.3281
+2025-09-02 13:28:55,074 - client_7 - INFO - Client 7 | Epoch 20 | Batch 20/40 | Loss: 2.9923 | Images/sec: 2891.48 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 25.0781
+2025-09-02 13:28:55,508 - client_7 - INFO - Client 7 | Epoch 20 | Batch 30/40 | Loss: 2.9776 | Images/sec: 2910.73 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 24.9219
+2025-09-02 13:28:55,860 - client_7 - INFO - Client 7 | Epoch 20 | Batch 40/40 | Loss: 2.9659 | Images/sec: 2991.38 | Progress: 100.0% | Time: 1.67s | lr: 0.05 | train_acc: 25.0200
+2025-09-02 13:28:58,500 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2050.84s | Average Loss: 2.7045 | World Size: 8 | train_acc: 32.5400 | val_acc: 21.1200 | lr: 0.0489
+2025-09-02 13:28:59,313 - client_7 - INFO - Client 7 | Epoch 21 | Batch 10/40 | Loss: 2.9519 | Images/sec: 1589.92 | Progress: 25.0% | Time: 0.81s | lr: 0.05 | train_acc: 24.8438
+2025-09-02 13:28:59,927 - client_7 - INFO - Client 7 | Epoch 21 | Batch 20/40 | Loss: 2.9403 | Images/sec: 1805.00 | Progress: 50.0% | Time: 1.42s | lr: 0.05 | train_acc: 25.5859
+2025-09-02 13:29:00,630 - client_7 - INFO - Client 7 | Epoch 21 | Batch 30/40 | Loss: 2.9446 | Images/sec: 1809.53 | Progress: 75.0% | Time: 2.12s | lr: 0.05 | train_acc: 25.3385
+2025-09-02 13:29:01,058 - client_7 - INFO - Client 7 | Epoch 21 | Batch 40/40 | Loss: 2.9272 | Images/sec: 1960.86 | Progress: 100.0% | Time: 2.55s | lr: 0.05 | train_acc: 25.5200
+2025-09-02 13:29:03,365 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2055.70s | Average Loss: 2.7050 | World Size: 8 | train_acc: 32.1600 | val_acc: 21.2800 | lr: 0.0487
+2025-09-02 13:29:03,899 - client_7 - INFO - Client 7 | Epoch 22 | Batch 10/40 | Loss: 2.9372 | Images/sec: 2429.99 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 25.5469
+2025-09-02 13:29:04,299 - client_7 - INFO - Client 7 | Epoch 22 | Batch 20/40 | Loss: 2.9480 | Images/sec: 2761.33 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 25.1953
+2025-09-02 13:29:04,688 - client_7 - INFO - Client 7 | Epoch 22 | Batch 30/40 | Loss: 2.9348 | Images/sec: 2917.50 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 25.4688
+2025-09-02 13:29:05,080 - client_7 - INFO - Client 7 | Epoch 22 | Batch 40/40 | Loss: 2.9301 | Images/sec: 2926.93 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 25.5600
+2025-09-02 13:29:07,372 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2059.71s | Average Loss: 2.7055 | World Size: 8 | train_acc: 34.3400 | val_acc: 21.6800 | lr: 0.0485
+2025-09-02 13:29:07,850 - client_7 - INFO - Client 7 | Epoch 23 | Batch 10/40 | Loss: 2.9026 | Images/sec: 2718.97 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 26.6406
+2025-09-02 13:29:08,262 - client_7 - INFO - Client 7 | Epoch 23 | Batch 20/40 | Loss: 2.8606 | Images/sec: 2897.17 | Progress: 50.0% | Time: 0.88s | lr: 0.05 | train_acc: 27.0312
+2025-09-02 13:29:08,702 - client_7 - INFO - Client 7 | Epoch 23 | Batch 30/40 | Loss: 2.8859 | Images/sec: 2902.23 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 26.6146
+2025-09-02 13:29:09,078 - client_7 - INFO - Client 7 | Epoch 23 | Batch 40/40 | Loss: 2.8807 | Images/sec: 2942.22 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 26.5800
+2025-09-02 13:29:11,539 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2063.88s | Average Loss: 2.7058 | World Size: 8 | train_acc: 33.8400 | val_acc: 21.4400 | lr: 0.0483
+2025-09-02 13:29:12,381 - client_7 - INFO - Client 7 | Epoch 24 | Batch 10/40 | Loss: 2.7892 | Images/sec: 1534.38 | Progress: 25.0% | Time: 0.83s | lr: 0.05 | train_acc: 28.6719
+2025-09-02 13:29:12,944 - client_7 - INFO - Client 7 | Epoch 24 | Batch 20/40 | Loss: 2.7764 | Images/sec: 1832.02 | Progress: 50.0% | Time: 1.40s | lr: 0.05 | train_acc: 28.3203
+2025-09-02 13:29:13,655 - client_7 - INFO - Client 7 | Epoch 24 | Batch 30/40 | Loss: 2.7899 | Images/sec: 1821.22 | Progress: 75.0% | Time: 2.11s | lr: 0.05 | train_acc: 28.2812
+2025-09-02 13:29:14,205 - client_7 - INFO - Client 7 | Epoch 24 | Batch 40/40 | Loss: 2.8107 | Images/sec: 1880.79 | Progress: 100.0% | Time: 2.66s | lr: 0.05 | train_acc: 27.8600
+2025-09-02 13:29:16,556 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2068.90s | Average Loss: 2.7061 | World Size: 8 | train_acc: 34.9200 | val_acc: 21.4400 | lr: 0.0481
+2025-09-02 13:29:17,035 - client_7 - INFO - Client 7 | Epoch 25 | Batch 10/40 | Loss: 2.7555 | Images/sec: 2711.62 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 26.7188
+2025-09-02 13:29:17,481 - client_7 - INFO - Client 7 | Epoch 25 | Batch 20/40 | Loss: 2.7727 | Images/sec: 2788.52 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 28.3203
+2025-09-02 13:29:17,897 - client_7 - INFO - Client 7 | Epoch 25 | Batch 30/40 | Loss: 2.7677 | Images/sec: 2878.42 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 28.3073
+2025-09-02 13:29:18,223 - client_7 - INFO - Client 7 | Epoch 25 | Batch 40/40 | Loss: 2.7554 | Images/sec: 3011.62 | Progress: 100.0% | Time: 1.66s | lr: 0.05 | train_acc: 28.6400
+2025-09-02 13:29:20,587 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2072.93s | Average Loss: 2.7062 | World Size: 8 | train_acc: 30.8400 | val_acc: 19.3600 | lr: 0.0479
+2025-09-02 13:29:21,087 - client_7 - INFO - Client 7 | Epoch 26 | Batch 10/40 | Loss: 2.9054 | Images/sec: 2593.02 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 27.0312
+2025-09-02 13:29:21,493 - client_7 - INFO - Client 7 | Epoch 26 | Batch 20/40 | Loss: 2.8129 | Images/sec: 2846.50 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 28.3984
+2025-09-02 13:29:21,911 - client_7 - INFO - Client 7 | Epoch 26 | Batch 30/40 | Loss: 2.8004 | Images/sec: 2913.17 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 28.5156
+2025-09-02 13:29:22,261 - client_7 - INFO - Client 7 | Epoch 26 | Batch 40/40 | Loss: 2.7897 | Images/sec: 2997.81 | Progress: 100.0% | Time: 1.67s | lr: 0.05 | train_acc: 28.3800
+2025-09-02 13:29:24,582 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2076.92s | Average Loss: 2.7063 | World Size: 8 | train_acc: 35.3400 | val_acc: 24.1600 | lr: 0.0477
+2025-09-02 13:29:25,398 - client_7 - INFO - Client 7 | Epoch 27 | Batch 10/40 | Loss: 2.7517 | Images/sec: 1587.58 | Progress: 25.0% | Time: 0.81s | lr: 0.05 | train_acc: 30.6250
+2025-09-02 13:29:26,128 - client_7 - INFO - Client 7 | Epoch 27 | Batch 20/40 | Loss: 2.7544 | Images/sec: 1666.46 | Progress: 50.0% | Time: 1.54s | lr: 0.05 | train_acc: 29.5312
+2025-09-02 13:29:26,856 - client_7 - INFO - Client 7 | Epoch 27 | Batch 30/40 | Loss: 2.7464 | Images/sec: 1696.13 | Progress: 75.0% | Time: 2.26s | lr: 0.05 | train_acc: 28.9062
+2025-09-02 13:29:27,354 - client_7 - INFO - Client 7 | Epoch 27 | Batch 40/40 | Loss: 2.7475 | Images/sec: 1810.30 | Progress: 100.0% | Time: 2.76s | lr: 0.05 | train_acc: 29.0200
+2025-09-02 13:29:29,913 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2082.25s | Average Loss: 2.7064 | World Size: 8 | train_acc: 40.4200 | val_acc: 23.7600 | lr: 0.0475
+2025-09-02 13:29:30,415 - client_7 - INFO - Client 7 | Epoch 28 | Batch 10/40 | Loss: 2.6535 | Images/sec: 2642.76 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 31.1719
+2025-09-02 13:29:30,822 - client_7 - INFO - Client 7 | Epoch 28 | Batch 20/40 | Loss: 2.6820 | Images/sec: 2870.99 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 30.2344
+2025-09-02 13:29:31,256 - client_7 - INFO - Client 7 | Epoch 28 | Batch 30/40 | Loss: 2.6765 | Images/sec: 2896.24 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 30.5208
+2025-09-02 13:29:31,606 - client_7 - INFO - Client 7 | Epoch 28 | Batch 40/40 | Loss: 2.6867 | Images/sec: 2983.80 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 30.0400
+2025-09-02 13:29:33,899 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2086.24s | Average Loss: 2.7064 | World Size: 8 | train_acc: 38.8600 | val_acc: 23.5200 | lr: 0.0472
+2025-09-02 13:29:34,392 - client_7 - INFO - Client 7 | Epoch 29 | Batch 10/40 | Loss: 2.7161 | Images/sec: 2632.08 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 29.6875
+2025-09-02 13:29:34,810 - client_7 - INFO - Client 7 | Epoch 29 | Batch 20/40 | Loss: 2.6905 | Images/sec: 2831.12 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 30.1953
+2025-09-02 13:29:35,189 - client_7 - INFO - Client 7 | Epoch 29 | Batch 30/40 | Loss: 2.6924 | Images/sec: 2992.33 | Progress: 75.0% | Time: 1.28s | lr: 0.05 | train_acc: 30.3646
+2025-09-02 13:29:35,563 - client_7 - INFO - Client 7 | Epoch 29 | Batch 40/40 | Loss: 2.6755 | Images/sec: 3016.77 | Progress: 100.0% | Time: 1.66s | lr: 0.05 | train_acc: 30.7200
+2025-09-02 13:29:37,801 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2090.14s | Average Loss: 2.7063 | World Size: 8 | train_acc: 37.6200 | val_acc: 24.6400 | lr: 0.0470
+2025-09-02 13:29:38,415 - client_7 - INFO - Client 7 | Epoch 30 | Batch 10/40 | Loss: 2.5965 | Images/sec: 2125.80 | Progress: 25.0% | Time: 0.60s | lr: 0.05 | train_acc: 31.0156
+2025-09-02 13:29:39,043 - client_7 - INFO - Client 7 | Epoch 30 | Batch 20/40 | Loss: 2.6090 | Images/sec: 2072.99 | Progress: 50.0% | Time: 1.23s | lr: 0.05 | train_acc: 30.6641
+2025-09-02 13:29:39,617 - client_7 - INFO - Client 7 | Epoch 30 | Batch 30/40 | Loss: 2.6215 | Images/sec: 2122.28 | Progress: 75.0% | Time: 1.81s | lr: 0.05 | train_acc: 30.9635
+2025-09-02 13:29:40,221 - client_7 - INFO - Client 7 | Epoch 30 | Batch 40/40 | Loss: 2.6159 | Images/sec: 2072.49 | Progress: 100.0% | Time: 2.41s | lr: 0.05 | train_acc: 31.0600
+2025-09-02 13:29:43,013 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2095.35s | Average Loss: 2.7061 | World Size: 8 | train_acc: 42.0800 | val_acc: 23.0400 | lr: 0.0467
+2025-09-02 13:29:43,484 - client_7 - INFO - Client 7 | Epoch 31 | Batch 10/40 | Loss: 2.6007 | Images/sec: 2762.89 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 30.7812
+2025-09-02 13:29:43,907 - client_7 - INFO - Client 7 | Epoch 31 | Batch 20/40 | Loss: 2.5637 | Images/sec: 2889.13 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 32.2656
+2025-09-02 13:29:44,321 - client_7 - INFO - Client 7 | Epoch 31 | Batch 30/40 | Loss: 2.5890 | Images/sec: 2954.33 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 31.5625
+2025-09-02 13:29:44,686 - client_7 - INFO - Client 7 | Epoch 31 | Batch 40/40 | Loss: 2.5914 | Images/sec: 3001.89 | Progress: 100.0% | Time: 1.67s | lr: 0.05 | train_acc: 31.5600
+2025-09-02 13:29:46,965 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2099.30s | Average Loss: 2.7059 | World Size: 8 | train_acc: 40.3000 | val_acc: 23.2000 | lr: 0.0464
+2025-09-02 13:29:47,428 - client_7 - INFO - Client 7 | Epoch 32 | Batch 10/40 | Loss: 2.5801 | Images/sec: 2807.83 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 32.1094
+2025-09-02 13:29:47,827 - client_7 - INFO - Client 7 | Epoch 32 | Batch 20/40 | Loss: 2.5378 | Images/sec: 2994.84 | Progress: 50.0% | Time: 0.85s | lr: 0.05 | train_acc: 33.2812
+2025-09-02 13:29:48,251 - client_7 - INFO - Client 7 | Epoch 32 | Batch 30/40 | Loss: 2.5407 | Images/sec: 3002.08 | Progress: 75.0% | Time: 1.28s | lr: 0.05 | train_acc: 33.1250
+2025-09-02 13:29:48,626 - client_7 - INFO - Client 7 | Epoch 32 | Batch 40/40 | Loss: 2.5420 | Images/sec: 3022.26 | Progress: 100.0% | Time: 1.65s | lr: 0.05 | train_acc: 33.0800
+2025-09-02 13:29:50,940 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2103.28s | Average Loss: 2.7056 | World Size: 8 | train_acc: 41.7800 | val_acc: 23.3600 | lr: 0.0461
+2025-09-02 13:29:51,425 - client_7 - INFO - Client 7 | Epoch 33 | Batch 10/40 | Loss: 2.5522 | Images/sec: 2678.19 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 33.4375
+2025-09-02 13:29:51,886 - client_7 - INFO - Client 7 | Epoch 33 | Batch 20/40 | Loss: 2.5134 | Images/sec: 2728.73 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 33.8672
+2025-09-02 13:29:52,512 - client_7 - INFO - Client 7 | Epoch 33 | Batch 30/40 | Loss: 2.5002 | Images/sec: 2453.89 | Progress: 75.0% | Time: 1.56s | lr: 0.05 | train_acc: 34.1406
+2025-09-02 13:29:53,061 - client_7 - INFO - Client 7 | Epoch 33 | Batch 40/40 | Loss: 2.5104 | Images/sec: 2365.39 | Progress: 100.0% | Time: 2.11s | lr: 0.05 | train_acc: 33.7200
+2025-09-02 13:29:56,040 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2108.38s | Average Loss: 2.7051 | World Size: 8 | train_acc: 47.0400 | val_acc: 25.6800 | lr: 0.0458
+2025-09-02 13:29:56,514 - client_7 - INFO - Client 7 | Epoch 34 | Batch 10/40 | Loss: 2.4966 | Images/sec: 2742.06 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 32.9688
+2025-09-02 13:29:56,924 - client_7 - INFO - Client 7 | Epoch 34 | Batch 20/40 | Loss: 2.4796 | Images/sec: 2919.76 | Progress: 50.0% | Time: 0.88s | lr: 0.05 | train_acc: 33.7109
+2025-09-02 13:29:57,339 - client_7 - INFO - Client 7 | Epoch 34 | Batch 30/40 | Loss: 2.4961 | Images/sec: 2972.36 | Progress: 75.0% | Time: 1.29s | lr: 0.05 | train_acc: 32.9427
+2025-09-02 13:29:57,710 - client_7 - INFO - Client 7 | Epoch 34 | Batch 40/40 | Loss: 2.4618 | Images/sec: 3006.28 | Progress: 100.0% | Time: 1.66s | lr: 0.05 | train_acc: 34.0000
+2025-09-02 13:29:59,993 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2112.33s | Average Loss: 2.7046 | World Size: 8 | train_acc: 45.8200 | val_acc: 24.3200 | lr: 0.0455
+2025-09-02 13:30:00,474 - client_7 - INFO - Client 7 | Epoch 35 | Batch 10/40 | Loss: 2.5291 | Images/sec: 2707.09 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 31.4062
+2025-09-02 13:30:00,921 - client_7 - INFO - Client 7 | Epoch 35 | Batch 20/40 | Loss: 2.4880 | Images/sec: 2781.52 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 33.2812
+2025-09-02 13:30:01,285 - client_7 - INFO - Client 7 | Epoch 35 | Batch 30/40 | Loss: 2.4692 | Images/sec: 2990.47 | Progress: 75.0% | Time: 1.28s | lr: 0.05 | train_acc: 33.5938
+2025-09-02 13:30:01,650 - client_7 - INFO - Client 7 | Epoch 35 | Batch 40/40 | Loss: 2.4606 | Images/sec: 3031.55 | Progress: 100.0% | Time: 1.65s | lr: 0.05 | train_acc: 34.1400
+2025-09-02 13:30:03,915 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2116.25s | Average Loss: 2.7041 | World Size: 8 | train_acc: 45.0200 | val_acc: 24.8800 | lr: 0.0452
+2025-09-02 13:30:04,384 - client_7 - INFO - Client 7 | Epoch 36 | Batch 10/40 | Loss: 2.3432 | Images/sec: 2772.94 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 35.9375
+2025-09-02 13:30:04,806 - client_7 - INFO - Client 7 | Epoch 36 | Batch 20/40 | Loss: 2.3498 | Images/sec: 2898.31 | Progress: 50.0% | Time: 0.88s | lr: 0.05 | train_acc: 36.2891
+2025-09-02 13:30:05,219 - client_7 - INFO - Client 7 | Epoch 36 | Batch 30/40 | Loss: 2.3752 | Images/sec: 2961.74 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 36.2240
+2025-09-02 13:30:05,706 - client_7 - INFO - Client 7 | Epoch 36 | Batch 40/40 | Loss: 2.3655 | Images/sec: 2802.88 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 36.0200
+2025-09-02 13:30:08,817 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2121.16s | Average Loss: 2.7034 | World Size: 8 | train_acc: 48.0200 | val_acc: 25.0400 | lr: 0.0449
+2025-09-02 13:30:09,300 - client_7 - INFO - Client 7 | Epoch 37 | Batch 10/40 | Loss: 2.4580 | Images/sec: 2689.77 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 35.5469
+2025-09-02 13:30:09,689 - client_7 - INFO - Client 7 | Epoch 37 | Batch 20/40 | Loss: 2.4407 | Images/sec: 2959.70 | Progress: 50.0% | Time: 0.86s | lr: 0.05 | train_acc: 34.7656
+2025-09-02 13:30:10,123 - client_7 - INFO - Client 7 | Epoch 37 | Batch 30/40 | Loss: 2.4203 | Images/sec: 2956.88 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 35.0521
+2025-09-02 13:30:10,479 - client_7 - INFO - Client 7 | Epoch 37 | Batch 40/40 | Loss: 2.3893 | Images/sec: 3021.49 | Progress: 100.0% | Time: 1.65s | lr: 0.05 | train_acc: 35.8400
+2025-09-02 13:30:12,745 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2125.08s | Average Loss: 2.7028 | World Size: 8 | train_acc: 44.1800 | val_acc: 24.2400 | lr: 0.0446
+2025-09-02 13:30:13,244 - client_7 - INFO - Client 7 | Epoch 38 | Batch 10/40 | Loss: 2.2660 | Images/sec: 2620.42 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 38.2812
+2025-09-02 13:30:13,652 - client_7 - INFO - Client 7 | Epoch 38 | Batch 20/40 | Loss: 2.3380 | Images/sec: 2856.96 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 36.8750
+2025-09-02 13:30:14,062 - client_7 - INFO - Client 7 | Epoch 38 | Batch 30/40 | Loss: 2.3400 | Images/sec: 2939.16 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 36.4583
+2025-09-02 13:30:14,430 - client_7 - INFO - Client 7 | Epoch 38 | Batch 40/40 | Loss: 2.3445 | Images/sec: 2986.53 | Progress: 100.0% | Time: 1.67s | lr: 0.05 | train_acc: 36.5200
+2025-09-02 13:30:16,687 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2129.03s | Average Loss: 2.7021 | World Size: 8 | train_acc: 49.8400 | val_acc: 25.2000 | lr: 0.0442
+2025-09-02 13:30:17,174 - client_7 - INFO - Client 7 | Epoch 39 | Batch 10/40 | Loss: 2.3610 | Images/sec: 2666.16 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 36.7188
+2025-09-02 13:30:17,643 - client_7 - INFO - Client 7 | Epoch 39 | Batch 20/40 | Loss: 2.3310 | Images/sec: 2696.95 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 37.1875
+2025-09-02 13:30:18,006 - client_7 - INFO - Client 7 | Epoch 39 | Batch 30/40 | Loss: 2.3211 | Images/sec: 2927.19 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 38.1250
+2025-09-02 13:30:18,363 - client_7 - INFO - Client 7 | Epoch 39 | Batch 40/40 | Loss: 2.3211 | Images/sec: 2996.31 | Progress: 100.0% | Time: 1.67s | lr: 0.05 | train_acc: 37.9000
+2025-09-02 13:30:21,441 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2133.78s | Average Loss: 2.7013 | World Size: 8 | train_acc: 49.6600 | val_acc: 26.4000 | lr: 0.0439
+2025-09-02 13:30:22,188 - client_7 - INFO - Client 7 | Epoch 40 | Batch 10/40 | Loss: 2.3024 | Images/sec: 1733.39 | Progress: 25.0% | Time: 0.74s | lr: 0.05 | train_acc: 36.7188
+2025-09-02 13:30:22,594 - client_7 - INFO - Client 7 | Epoch 40 | Batch 20/40 | Loss: 2.2714 | Images/sec: 2236.41 | Progress: 50.0% | Time: 1.14s | lr: 0.05 | train_acc: 37.5391
+2025-09-02 13:30:23,054 - client_7 - INFO - Client 7 | Epoch 40 | Batch 30/40 | Loss: 2.2655 | Images/sec: 2393.88 | Progress: 75.0% | Time: 1.60s | lr: 0.05 | train_acc: 38.0729
+2025-09-02 13:30:23,426 - client_7 - INFO - Client 7 | Epoch 40 | Batch 40/40 | Loss: 2.2674 | Images/sec: 2529.98 | Progress: 100.0% | Time: 1.98s | lr: 0.05 | train_acc: 38.2800
+2025-09-02 13:30:25,661 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2138.00s | Average Loss: 2.7004 | World Size: 8 | train_acc: 50.7400 | val_acc: 28.1600 | lr: 0.0435
+2025-09-02 13:30:26,162 - client_7 - INFO - Client 7 | Epoch 41 | Batch 10/40 | Loss: 2.2539 | Images/sec: 2592.52 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 39.6094
+2025-09-02 13:30:26,566 - client_7 - INFO - Client 7 | Epoch 41 | Batch 20/40 | Loss: 2.2597 | Images/sec: 2851.60 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 39.7266
+2025-09-02 13:30:26,963 - client_7 - INFO - Client 7 | Epoch 41 | Batch 30/40 | Loss: 2.2419 | Images/sec: 2965.03 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 39.8958
+2025-09-02 13:30:27,328 - client_7 - INFO - Client 7 | Epoch 41 | Batch 40/40 | Loss: 2.2502 | Images/sec: 3012.75 | Progress: 100.0% | Time: 1.66s | lr: 0.05 | train_acc: 39.4400
+2025-09-02 13:30:29,616 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2141.96s | Average Loss: 2.6995 | World Size: 8 | train_acc: 53.0800 | val_acc: 27.2800 | lr: 0.0431
+2025-09-02 13:30:30,098 - client_7 - INFO - Client 7 | Epoch 42 | Batch 10/40 | Loss: 2.2606 | Images/sec: 2696.67 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 39.2969
+2025-09-02 13:30:30,502 - client_7 - INFO - Client 7 | Epoch 42 | Batch 20/40 | Loss: 2.2404 | Images/sec: 2914.77 | Progress: 50.0% | Time: 0.88s | lr: 0.05 | train_acc: 39.1797
+2025-09-02 13:30:30,922 - client_7 - INFO - Client 7 | Epoch 42 | Batch 30/40 | Loss: 2.2367 | Images/sec: 2956.90 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 38.9062
+2025-09-02 13:30:31,317 - client_7 - INFO - Client 7 | Epoch 42 | Batch 40/40 | Loss: 2.2313 | Images/sec: 2952.35 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 39.3800
+2025-09-02 13:30:34,135 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2146.47s | Average Loss: 2.6985 | World Size: 8 | train_acc: 51.6800 | val_acc: 25.5200 | lr: 0.0428
+2025-09-02 13:30:34,917 - client_7 - INFO - Client 7 | Epoch 43 | Batch 10/40 | Loss: 2.2247 | Images/sec: 1663.37 | Progress: 25.0% | Time: 0.77s | lr: 0.05 | train_acc: 39.9219
+2025-09-02 13:30:35,475 - client_7 - INFO - Client 7 | Epoch 43 | Batch 20/40 | Loss: 2.2208 | Images/sec: 1929.20 | Progress: 50.0% | Time: 1.33s | lr: 0.05 | train_acc: 40.5469
+2025-09-02 13:30:36,015 - client_7 - INFO - Client 7 | Epoch 43 | Batch 30/40 | Loss: 2.2204 | Images/sec: 2056.33 | Progress: 75.0% | Time: 1.87s | lr: 0.05 | train_acc: 39.8698
+2025-09-02 13:30:36,366 - client_7 - INFO - Client 7 | Epoch 43 | Batch 40/40 | Loss: 2.2207 | Images/sec: 2253.64 | Progress: 100.0% | Time: 2.22s | lr: 0.05 | train_acc: 39.5800
+2025-09-02 13:30:38,603 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2150.94s | Average Loss: 2.6975 | World Size: 8 | train_acc: 47.8000 | val_acc: 25.1200 | lr: 0.0424
+2025-09-02 13:30:39,102 - client_7 - INFO - Client 7 | Epoch 44 | Batch 10/40 | Loss: 2.2430 | Images/sec: 2602.07 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 40.3125
+2025-09-02 13:30:39,566 - client_7 - INFO - Client 7 | Epoch 44 | Batch 20/40 | Loss: 2.1971 | Images/sec: 2679.19 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 41.2891
+2025-09-02 13:30:39,990 - client_7 - INFO - Client 7 | Epoch 44 | Batch 30/40 | Loss: 2.1744 | Images/sec: 2782.95 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 41.7969
+2025-09-02 13:30:40,309 - client_7 - INFO - Client 7 | Epoch 44 | Batch 40/40 | Loss: 2.1545 | Images/sec: 2943.74 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 41.5800
+2025-09-02 13:30:42,570 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2154.91s | Average Loss: 2.6964 | World Size: 8 | train_acc: 56.1000 | val_acc: 27.3600 | lr: 0.0420
+2025-09-02 13:30:43,067 - client_7 - INFO - Client 7 | Epoch 45 | Batch 10/40 | Loss: 2.0188 | Images/sec: 2615.29 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 44.2969
+2025-09-02 13:30:43,470 - client_7 - INFO - Client 7 | Epoch 45 | Batch 20/40 | Loss: 2.0381 | Images/sec: 2866.17 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 44.2969
+2025-09-02 13:30:43,918 - client_7 - INFO - Client 7 | Epoch 45 | Batch 30/40 | Loss: 2.0653 | Images/sec: 2863.91 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 43.2552
+2025-09-02 13:30:44,223 - client_7 - INFO - Client 7 | Epoch 45 | Batch 40/40 | Loss: 2.0705 | Images/sec: 3038.69 | Progress: 100.0% | Time: 1.65s | lr: 0.05 | train_acc: 43.1800
+2025-09-02 13:30:46,783 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2159.12s | Average Loss: 2.6952 | World Size: 8 | train_acc: 56.1400 | val_acc: 27.3600 | lr: 0.0416
+2025-09-02 13:30:47,535 - client_7 - INFO - Client 7 | Epoch 46 | Batch 10/40 | Loss: 2.0608 | Images/sec: 1721.80 | Progress: 25.0% | Time: 0.74s | lr: 0.05 | train_acc: 42.5000
+2025-09-02 13:30:48,141 - client_7 - INFO - Client 7 | Epoch 46 | Batch 20/40 | Loss: 2.0637 | Images/sec: 1897.21 | Progress: 50.0% | Time: 1.35s | lr: 0.05 | train_acc: 42.0312
+2025-09-02 13:30:48,817 - client_7 - INFO - Client 7 | Epoch 46 | Batch 30/40 | Loss: 2.0405 | Images/sec: 1895.96 | Progress: 75.0% | Time: 2.03s | lr: 0.05 | train_acc: 43.2552
+2025-09-02 13:30:49,408 - client_7 - INFO - Client 7 | Epoch 46 | Batch 40/40 | Loss: 2.0407 | Images/sec: 1911.47 | Progress: 100.0% | Time: 2.62s | lr: 0.05 | train_acc: 42.8600
+2025-09-02 13:30:51,656 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2164.00s | Average Loss: 2.6938 | World Size: 8 | train_acc: 55.1400 | val_acc: 26.7200 | lr: 0.0412
+2025-09-02 13:30:52,146 - client_7 - INFO - Client 7 | Epoch 47 | Batch 10/40 | Loss: 2.1742 | Images/sec: 2651.13 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 39.1406
+2025-09-02 13:30:52,580 - client_7 - INFO - Client 7 | Epoch 47 | Batch 20/40 | Loss: 2.1653 | Images/sec: 2793.25 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 40.6250
+2025-09-02 13:30:52,964 - client_7 - INFO - Client 7 | Epoch 47 | Batch 30/40 | Loss: 2.1450 | Images/sec: 2953.16 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 41.0417
+2025-09-02 13:30:53,351 - client_7 - INFO - Client 7 | Epoch 47 | Batch 40/40 | Loss: 2.1296 | Images/sec: 2962.68 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 41.4800
+2025-09-02 13:30:55,610 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2167.95s | Average Loss: 2.6927 | World Size: 8 | train_acc: 53.4800 | val_acc: 25.2000 | lr: 0.0408
+2025-09-02 13:30:56,076 - client_7 - INFO - Client 7 | Epoch 48 | Batch 10/40 | Loss: 2.0535 | Images/sec: 2793.12 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 43.7500
+2025-09-02 13:30:56,528 - client_7 - INFO - Client 7 | Epoch 48 | Batch 20/40 | Loss: 2.0795 | Images/sec: 2811.39 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 43.2031
+2025-09-02 13:30:56,904 - client_7 - INFO - Client 7 | Epoch 48 | Batch 30/40 | Loss: 2.0550 | Images/sec: 2985.58 | Progress: 75.0% | Time: 1.29s | lr: 0.05 | train_acc: 43.9062
+2025-09-02 13:30:57,285 - client_7 - INFO - Client 7 | Epoch 48 | Batch 40/40 | Loss: 2.0484 | Images/sec: 2999.01 | Progress: 100.0% | Time: 1.67s | lr: 0.05 | train_acc: 44.1000
+2025-09-02 13:30:59,608 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2171.95s | Average Loss: 2.6914 | World Size: 8 | train_acc: 50.7800 | val_acc: 25.1200 | lr: 0.0403
+2025-09-02 13:31:00,351 - client_7 - INFO - Client 7 | Epoch 49 | Batch 10/40 | Loss: 2.1120 | Images/sec: 1751.90 | Progress: 25.0% | Time: 0.73s | lr: 0.05 | train_acc: 44.7656
+2025-09-02 13:31:01,043 - client_7 - INFO - Client 7 | Epoch 49 | Batch 20/40 | Loss: 2.1330 | Images/sec: 1799.02 | Progress: 50.0% | Time: 1.42s | lr: 0.05 | train_acc: 42.4609
+2025-09-02 13:31:01,785 - client_7 - INFO - Client 7 | Epoch 49 | Batch 30/40 | Loss: 2.1244 | Images/sec: 1773.74 | Progress: 75.0% | Time: 2.16s | lr: 0.05 | train_acc: 42.2135
+2025-09-02 13:31:02,270 - client_7 - INFO - Client 7 | Epoch 49 | Batch 40/40 | Loss: 2.1013 | Images/sec: 1886.92 | Progress: 100.0% | Time: 2.65s | lr: 0.05 | train_acc: 42.9000
+2025-09-02 13:31:04,862 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2177.20s | Average Loss: 2.6902 | World Size: 8 | train_acc: 56.3200 | val_acc: 28.8000 | lr: 0.0399
+2025-09-02 13:31:05,320 - client_7 - INFO - Client 7 | Epoch 50 | Batch 10/40 | Loss: 2.0414 | Images/sec: 2841.24 | Progress: 25.0% | Time: 0.45s | lr: 0.05 | train_acc: 43.9844
+2025-09-02 13:31:05,755 - client_7 - INFO - Client 7 | Epoch 50 | Batch 20/40 | Loss: 2.0407 | Images/sec: 2891.18 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 43.7891
+2025-09-02 13:31:06,169 - client_7 - INFO - Client 7 | Epoch 50 | Batch 30/40 | Loss: 2.0238 | Images/sec: 2955.08 | Progress: 75.0% | Time: 1.30s | lr: 0.05 | train_acc: 44.0365
+2025-09-02 13:31:06,515 - client_7 - INFO - Client 7 | Epoch 50 | Batch 40/40 | Loss: 2.0311 | Images/sec: 3038.87 | Progress: 100.0% | Time: 1.65s | lr: 0.05 | train_acc: 43.9200
+2025-09-02 13:31:08,778 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2181.12s | Average Loss: 2.6889 | World Size: 8 | train_acc: 53.0600 | val_acc: 25.6000 | lr: 0.0395
+2025-09-02 13:31:09,250 - client_7 - INFO - Client 7 | Epoch 51 | Batch 10/40 | Loss: 2.0024 | Images/sec: 2773.84 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 44.6094
+2025-09-02 13:31:09,681 - client_7 - INFO - Client 7 | Epoch 51 | Batch 20/40 | Loss: 2.0479 | Images/sec: 2868.73 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 43.5547
+2025-09-02 13:31:10,101 - client_7 - INFO - Client 7 | Epoch 51 | Batch 30/40 | Loss: 2.0169 | Images/sec: 2925.26 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 44.1927
+2025-09-02 13:31:10,441 - client_7 - INFO - Client 7 | Epoch 51 | Batch 40/40 | Loss: 1.9842 | Images/sec: 3025.39 | Progress: 100.0% | Time: 1.65s | lr: 0.05 | train_acc: 45.0600
+2025-09-02 13:31:12,645 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2184.98s | Average Loss: 2.6875 | World Size: 8 | train_acc: 62.0200 | val_acc: 27.8400 | lr: 0.0390
+2025-09-02 13:31:13,171 - client_7 - INFO - Client 7 | Epoch 52 | Batch 10/40 | Loss: 1.8266 | Images/sec: 2469.26 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 48.0469
+2025-09-02 13:31:13,779 - client_7 - INFO - Client 7 | Epoch 52 | Batch 20/40 | Loss: 1.8863 | Images/sec: 2295.50 | Progress: 50.0% | Time: 1.12s | lr: 0.05 | train_acc: 46.9141
+2025-09-02 13:31:14,460 - client_7 - INFO - Client 7 | Epoch 52 | Batch 30/40 | Loss: 1.9191 | Images/sec: 2124.91 | Progress: 75.0% | Time: 1.81s | lr: 0.05 | train_acc: 46.3021
+2025-09-02 13:31:15,008 - client_7 - INFO - Client 7 | Epoch 52 | Batch 40/40 | Loss: 1.9150 | Images/sec: 2122.70 | Progress: 100.0% | Time: 2.36s | lr: 0.05 | train_acc: 46.2200
+2025-09-02 13:31:17,825 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2190.16s | Average Loss: 2.6859 | World Size: 8 | train_acc: 62.3400 | val_acc: 30.0000 | lr: 0.0386
+2025-09-02 13:31:18,327 - client_7 - INFO - Client 7 | Epoch 53 | Batch 10/40 | Loss: 1.8816 | Images/sec: 2588.15 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 48.1250
+2025-09-02 13:31:18,770 - client_7 - INFO - Client 7 | Epoch 53 | Batch 20/40 | Loss: 1.8610 | Images/sec: 2729.61 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 47.8906
+2025-09-02 13:31:19,157 - client_7 - INFO - Client 7 | Epoch 53 | Batch 30/40 | Loss: 1.8795 | Images/sec: 2899.81 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 47.1875
+2025-09-02 13:31:19,542 - client_7 - INFO - Client 7 | Epoch 53 | Batch 40/40 | Loss: 1.8840 | Images/sec: 2924.28 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 47.2200
+2025-09-02 13:31:21,775 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2194.11s | Average Loss: 2.6843 | World Size: 8 | train_acc: 62.3600 | val_acc: 27.8400 | lr: 0.0381
+2025-09-02 13:31:22,252 - client_7 - INFO - Client 7 | Epoch 54 | Batch 10/40 | Loss: 1.9168 | Images/sec: 2728.82 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 46.2500
+2025-09-02 13:31:22,703 - client_7 - INFO - Client 7 | Epoch 54 | Batch 20/40 | Loss: 1.9491 | Images/sec: 2783.15 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 45.8984
+2025-09-02 13:31:23,096 - client_7 - INFO - Client 7 | Epoch 54 | Batch 30/40 | Loss: 1.9504 | Images/sec: 2925.87 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 45.4688
+2025-09-02 13:31:23,462 - client_7 - INFO - Client 7 | Epoch 54 | Batch 40/40 | Loss: 1.9431 | Images/sec: 2978.46 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 45.4000
+2025-09-02 13:31:25,732 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2198.07s | Average Loss: 2.6828 | World Size: 8 | train_acc: 58.6000 | val_acc: 26.6400 | lr: 0.0377
+2025-09-02 13:31:26,244 - client_7 - INFO - Client 7 | Epoch 55 | Batch 10/40 | Loss: 2.0117 | Images/sec: 2538.65 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 44.1406
+2025-09-02 13:31:26,689 - client_7 - INFO - Client 7 | Epoch 55 | Batch 20/40 | Loss: 1.9507 | Images/sec: 2695.54 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 46.2109
+2025-09-02 13:31:27,212 - client_7 - INFO - Client 7 | Epoch 55 | Batch 30/40 | Loss: 1.9331 | Images/sec: 2607.71 | Progress: 75.0% | Time: 1.47s | lr: 0.05 | train_acc: 46.3021
+2025-09-02 13:31:27,796 - client_7 - INFO - Client 7 | Epoch 55 | Batch 40/40 | Loss: 1.9369 | Images/sec: 2431.09 | Progress: 100.0% | Time: 2.06s | lr: 0.05 | train_acc: 46.2800
+2025-09-02 13:31:30,896 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2203.24s | Average Loss: 2.6814 | World Size: 8 | train_acc: 63.0400 | val_acc: 28.5600 | lr: 0.0372
+2025-09-02 13:31:31,362 - client_7 - INFO - Client 7 | Epoch 56 | Batch 10/40 | Loss: 1.7843 | Images/sec: 2795.56 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 50.4688
+2025-09-02 13:31:31,772 - client_7 - INFO - Client 7 | Epoch 56 | Batch 20/40 | Loss: 1.7992 | Images/sec: 2946.50 | Progress: 50.0% | Time: 0.87s | lr: 0.05 | train_acc: 50.2734
+2025-09-02 13:31:32,194 - client_7 - INFO - Client 7 | Epoch 56 | Batch 30/40 | Loss: 1.8030 | Images/sec: 2976.51 | Progress: 75.0% | Time: 1.29s | lr: 0.05 | train_acc: 49.4010
+2025-09-02 13:31:32,552 - client_7 - INFO - Client 7 | Epoch 56 | Batch 40/40 | Loss: 1.8122 | Images/sec: 3033.33 | Progress: 100.0% | Time: 1.65s | lr: 0.05 | train_acc: 49.3000
+2025-09-02 13:31:34,832 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2207.17s | Average Loss: 2.6796 | World Size: 8 | train_acc: 61.2000 | val_acc: 27.6000 | lr: 0.0367
+2025-09-02 13:31:35,325 - client_7 - INFO - Client 7 | Epoch 57 | Batch 10/40 | Loss: 1.8081 | Images/sec: 2638.66 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 48.2812
+2025-09-02 13:31:35,774 - client_7 - INFO - Client 7 | Epoch 57 | Batch 20/40 | Loss: 1.8415 | Images/sec: 2741.60 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 48.2812
+2025-09-02 13:31:36,190 - client_7 - INFO - Client 7 | Epoch 57 | Batch 30/40 | Loss: 1.8499 | Images/sec: 2843.63 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 48.4115
+2025-09-02 13:31:36,515 - client_7 - INFO - Client 7 | Epoch 57 | Batch 40/40 | Loss: 1.8408 | Images/sec: 2985.03 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 48.6400
+2025-09-02 13:31:38,706 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2211.05s | Average Loss: 2.6780 | World Size: 8 | train_acc: 67.2000 | val_acc: 30.0000 | lr: 0.0362
+2025-09-02 13:31:39,178 - client_7 - INFO - Client 7 | Epoch 58 | Batch 10/40 | Loss: 1.8269 | Images/sec: 2763.14 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 49.4531
+2025-09-02 13:31:39,607 - client_7 - INFO - Client 7 | Epoch 58 | Batch 20/40 | Loss: 1.7841 | Images/sec: 2869.23 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 49.8047
+2025-09-02 13:31:40,009 - client_7 - INFO - Client 7 | Epoch 58 | Batch 30/40 | Loss: 1.7856 | Images/sec: 2966.92 | Progress: 75.0% | Time: 1.29s | lr: 0.05 | train_acc: 49.3490
+2025-09-02 13:31:40,497 - client_7 - INFO - Client 7 | Epoch 58 | Batch 40/40 | Loss: 1.7840 | Images/sec: 2806.01 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 49.5200
+2025-09-02 13:31:43,685 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2216.02s | Average Loss: 2.6762 | World Size: 8 | train_acc: 63.0400 | val_acc: 27.6800 | lr: 0.0357
+2025-09-02 13:31:44,179 - client_7 - INFO - Client 7 | Epoch 59 | Batch 10/40 | Loss: 1.7223 | Images/sec: 2631.55 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 52.0312
+2025-09-02 13:31:44,626 - client_7 - INFO - Client 7 | Epoch 59 | Batch 20/40 | Loss: 1.7406 | Images/sec: 2743.27 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 51.2891
+2025-09-02 13:31:45,022 - client_7 - INFO - Client 7 | Epoch 59 | Batch 30/40 | Loss: 1.7257 | Images/sec: 2889.58 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 51.6406
+2025-09-02 13:31:45,377 - client_7 - INFO - Client 7 | Epoch 59 | Batch 40/40 | Loss: 1.7430 | Images/sec: 2968.17 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 51.3600
+2025-09-02 13:31:47,654 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2219.99s | Average Loss: 2.6744 | World Size: 8 | train_acc: 64.5800 | val_acc: 27.3600 | lr: 0.0353
+2025-09-02 13:31:48,146 - client_7 - INFO - Client 7 | Epoch 60 | Batch 10/40 | Loss: 1.8059 | Images/sec: 2649.68 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 49.2969
+2025-09-02 13:31:48,571 - client_7 - INFO - Client 7 | Epoch 60 | Batch 20/40 | Loss: 1.7989 | Images/sec: 2820.21 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 49.5312
+2025-09-02 13:31:49,022 - client_7 - INFO - Client 7 | Epoch 60 | Batch 30/40 | Loss: 1.8008 | Images/sec: 2825.39 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 49.6094
+2025-09-02 13:31:49,385 - client_7 - INFO - Client 7 | Epoch 60 | Batch 40/40 | Loss: 1.7935 | Images/sec: 2903.45 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 49.4200
+2025-09-02 13:31:51,702 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2224.04s | Average Loss: 2.6726 | World Size: 8 | train_acc: 63.0800 | val_acc: 27.4400 | lr: 0.0348
+2025-09-02 13:31:52,207 - client_7 - INFO - Client 7 | Epoch 61 | Batch 10/40 | Loss: 1.8507 | Images/sec: 2577.59 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 48.2031
+2025-09-02 13:31:52,606 - client_7 - INFO - Client 7 | Epoch 61 | Batch 20/40 | Loss: 1.8189 | Images/sec: 2858.22 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 49.6875
+2025-09-02 13:31:53,039 - client_7 - INFO - Client 7 | Epoch 61 | Batch 30/40 | Loss: 1.7816 | Images/sec: 2889.13 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 50.5208
+2025-09-02 13:31:53,418 - client_7 - INFO - Client 7 | Epoch 61 | Batch 40/40 | Loss: 1.7750 | Images/sec: 2928.43 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 50.6000
+2025-09-02 13:31:56,570 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2228.91s | Average Loss: 2.6709 | World Size: 8 | train_acc: 66.9600 | val_acc: 28.0000 | lr: 0.0343
+2025-09-02 13:31:57,197 - client_7 - INFO - Client 7 | Epoch 62 | Batch 10/40 | Loss: 1.8497 | Images/sec: 2132.31 | Progress: 25.0% | Time: 0.60s | lr: 0.05 | train_acc: 47.5781
+2025-09-02 13:31:57,644 - client_7 - INFO - Client 7 | Epoch 62 | Batch 20/40 | Loss: 1.8157 | Images/sec: 2445.77 | Progress: 50.0% | Time: 1.05s | lr: 0.05 | train_acc: 48.6719
+2025-09-02 13:31:58,046 - client_7 - INFO - Client 7 | Epoch 62 | Batch 30/40 | Loss: 1.7955 | Images/sec: 2649.62 | Progress: 75.0% | Time: 1.45s | lr: 0.05 | train_acc: 49.5312
+2025-09-02 13:31:58,428 - client_7 - INFO - Client 7 | Epoch 62 | Batch 40/40 | Loss: 1.7872 | Images/sec: 2731.53 | Progress: 100.0% | Time: 1.83s | lr: 0.05 | train_acc: 49.7000
+2025-09-02 13:32:00,738 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2233.08s | Average Loss: 2.6691 | World Size: 8 | train_acc: 69.0400 | val_acc: 30.9600 | lr: 0.0337
+2025-09-02 13:32:01,222 - client_7 - INFO - Client 7 | Epoch 63 | Batch 10/40 | Loss: 1.7023 | Images/sec: 2690.93 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 51.9531
+2025-09-02 13:32:01,670 - client_7 - INFO - Client 7 | Epoch 63 | Batch 20/40 | Loss: 1.6869 | Images/sec: 2771.46 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 52.3828
+2025-09-02 13:32:02,111 - client_7 - INFO - Client 7 | Epoch 63 | Batch 30/40 | Loss: 1.7139 | Images/sec: 2813.20 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 51.0156
+2025-09-02 13:32:02,443 - client_7 - INFO - Client 7 | Epoch 63 | Batch 40/40 | Loss: 1.7122 | Images/sec: 2946.34 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 50.8600
+2025-09-02 13:32:04,710 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2237.05s | Average Loss: 2.6673 | World Size: 8 | train_acc: 69.7400 | val_acc: 28.8800 | lr: 0.0332
+2025-09-02 13:32:05,195 - client_7 - INFO - Client 7 | Epoch 64 | Batch 10/40 | Loss: 1.6437 | Images/sec: 2684.28 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 52.9688
+2025-09-02 13:32:05,643 - client_7 - INFO - Client 7 | Epoch 64 | Batch 20/40 | Loss: 1.6619 | Images/sec: 2768.08 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 52.6172
+2025-09-02 13:32:06,038 - client_7 - INFO - Client 7 | Epoch 64 | Batch 30/40 | Loss: 1.6704 | Images/sec: 2910.41 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 52.8385
+2025-09-02 13:32:06,408 - client_7 - INFO - Client 7 | Epoch 64 | Batch 40/40 | Loss: 1.6459 | Images/sec: 2959.38 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 53.3000
+2025-09-02 13:32:09,329 - client_7 - INFO - [Client 7/8] Epoch 65 completed in 2241.67s | Average Loss: 2.6653 | World Size: 8 | train_acc: 71.3000 | val_acc: 31.6800 | lr: 0.0327
+2025-09-02 14:05:06,623 - client_7 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250902_125438_metrics_client7.json
+2025-09-02 14:05:07,095 - client_7 - INFO - Client 7 | Epoch 1 | Batch 10/40 | Loss: 3.9738 | Images/sec: 2715.19 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 15.0000
+2025-09-02 14:05:07,579 - client_7 - INFO - Client 7 | Epoch 1 | Batch 20/40 | Loss: 3.8565 | Images/sec: 2680.05 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 16.2891
+2025-09-02 14:05:07,998 - client_7 - INFO - Client 7 | Epoch 1 | Batch 30/40 | Loss: 3.7223 | Images/sec: 2795.38 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 16.2760
+2025-09-02 14:05:08,445 - client_7 - INFO - Client 7 | Epoch 1 | Batch 40/40 | Loss: 3.6205 | Images/sec: 2746.18 | Progress: 100.0% | Time: 1.82s | lr: 0.05 | train_acc: 17.4800
+2025-09-02 14:05:11,674 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 1981.12s | Average Loss: 1.7399 | World Size: 8 | train_acc: 23.9000 | val_acc: 22.1600 | lr: 0.0100
+2025-09-02 14:05:12,174 - client_7 - INFO - Client 7 | Epoch 2 | Batch 10/40 | Loss: 3.2304 | Images/sec: 2605.19 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 20.5469
+2025-09-02 14:05:12,632 - client_7 - INFO - Client 7 | Epoch 2 | Batch 20/40 | Loss: 3.1683 | Images/sec: 2695.22 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 22.0312
+2025-09-02 14:05:13,100 - client_7 - INFO - Client 7 | Epoch 2 | Batch 30/40 | Loss: 3.1393 | Images/sec: 2707.88 | Progress: 75.0% | Time: 1.42s | lr: 0.05 | train_acc: 22.4740
+2025-09-02 14:05:13,535 - client_7 - INFO - Client 7 | Epoch 2 | Batch 40/40 | Loss: 3.0975 | Images/sec: 2699.14 | Progress: 100.0% | Time: 1.85s | lr: 0.05 | train_acc: 23.2400
+2025-09-02 14:05:15,894 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 1985.34s | Average Loss: 1.7429 | World Size: 8 | train_acc: 30.0000 | val_acc: 27.9200 | lr: 0.0200
+2025-09-02 14:05:16,414 - client_7 - INFO - Client 7 | Epoch 3 | Batch 10/40 | Loss: 2.9878 | Images/sec: 2499.34 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 24.7656
+2025-09-02 14:05:16,846 - client_7 - INFO - Client 7 | Epoch 3 | Batch 20/40 | Loss: 2.9817 | Images/sec: 2711.20 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 25.5859
+2025-09-02 14:05:17,260 - client_7 - INFO - Client 7 | Epoch 3 | Batch 30/40 | Loss: 2.9505 | Images/sec: 2827.78 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 26.0677
+2025-09-02 14:05:17,631 - client_7 - INFO - Client 7 | Epoch 3 | Batch 40/40 | Loss: 2.9352 | Images/sec: 2891.93 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 26.0000
+2025-09-02 14:05:19,974 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 1989.42s | Average Loss: 1.7456 | World Size: 8 | train_acc: 32.3800 | val_acc: 25.4400 | lr: 0.0300
+2025-09-02 14:05:20,447 - client_7 - INFO - Client 7 | Epoch 4 | Batch 10/40 | Loss: 2.8304 | Images/sec: 2756.37 | Progress: 25.0% | Time: 0.46s | lr: 0.05 | train_acc: 25.3906
+2025-09-02 14:05:20,874 - client_7 - INFO - Client 7 | Epoch 4 | Batch 20/40 | Loss: 2.8392 | Images/sec: 2871.61 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 26.8359
+2025-09-02 14:05:21,325 - client_7 - INFO - Client 7 | Epoch 4 | Batch 30/40 | Loss: 2.8346 | Images/sec: 2859.71 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 26.7969
+2025-09-02 14:05:21,815 - client_7 - INFO - Client 7 | Epoch 4 | Batch 40/40 | Loss: 2.8677 | Images/sec: 2728.45 | Progress: 100.0% | Time: 1.83s | lr: 0.05 | train_acc: 26.3400
+2025-09-02 14:05:25,000 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 1994.44s | Average Loss: 1.7481 | World Size: 8 | train_acc: 30.2800 | val_acc: 21.3600 | lr: 0.0400
+2025-09-02 14:05:25,522 - client_7 - INFO - Client 7 | Epoch 5 | Batch 10/40 | Loss: 3.0335 | Images/sec: 2498.25 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 24.2188
+2025-09-02 14:05:25,950 - client_7 - INFO - Client 7 | Epoch 5 | Batch 20/40 | Loss: 2.9964 | Images/sec: 2721.64 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 24.4141
+2025-09-02 14:05:26,418 - client_7 - INFO - Client 7 | Epoch 5 | Batch 30/40 | Loss: 2.9747 | Images/sec: 2725.17 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 25.4948
+2025-09-02 14:05:26,795 - client_7 - INFO - Client 7 | Epoch 5 | Batch 40/40 | Loss: 2.9471 | Images/sec: 2799.74 | Progress: 100.0% | Time: 1.79s | lr: 0.05 | train_acc: 25.8800
+2025-09-02 14:05:29,128 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 1998.57s | Average Loss: 1.7507 | World Size: 8 | train_acc: 28.0400 | val_acc: 22.9600 | lr: 0.0500
+2025-09-02 14:05:29,632 - client_7 - INFO - Client 7 | Epoch 6 | Batch 10/40 | Loss: 2.8528 | Images/sec: 2587.01 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 25.8594
+2025-09-02 14:05:30,093 - client_7 - INFO - Client 7 | Epoch 6 | Batch 20/40 | Loss: 2.8626 | Images/sec: 2678.64 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 26.0547
+2025-09-02 14:05:30,506 - client_7 - INFO - Client 7 | Epoch 6 | Batch 30/40 | Loss: 2.8510 | Images/sec: 2805.33 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 26.5365
+2025-09-02 14:05:30,887 - client_7 - INFO - Client 7 | Epoch 6 | Batch 40/40 | Loss: 2.8291 | Images/sec: 2858.08 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 27.1600
+2025-09-02 14:05:33,193 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2002.64s | Average Loss: 1.7531 | World Size: 8 | train_acc: 33.8000 | val_acc: 23.6800 | lr: 0.0500
+2025-09-02 14:05:33,696 - client_7 - INFO - Client 7 | Epoch 7 | Batch 10/40 | Loss: 2.7558 | Images/sec: 2592.52 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 29.2969
+2025-09-02 14:05:34,145 - client_7 - INFO - Client 7 | Epoch 7 | Batch 20/40 | Loss: 2.7325 | Images/sec: 2714.69 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 29.3359
+2025-09-02 14:05:34,634 - client_7 - INFO - Client 7 | Epoch 7 | Batch 30/40 | Loss: 2.7191 | Images/sec: 2680.81 | Progress: 75.0% | Time: 1.43s | lr: 0.05 | train_acc: 29.2969
+2025-09-02 14:05:35,107 - client_7 - INFO - Client 7 | Epoch 7 | Batch 40/40 | Loss: 2.6985 | Images/sec: 2624.00 | Progress: 100.0% | Time: 1.91s | lr: 0.05 | train_acc: 30.0000
+2025-09-02 14:05:38,304 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2007.75s | Average Loss: 1.7552 | World Size: 8 | train_acc: 37.4200 | val_acc: 25.6000 | lr: 0.0500
+2025-09-02 14:05:38,799 - client_7 - INFO - Client 7 | Epoch 8 | Batch 10/40 | Loss: 2.6289 | Images/sec: 2631.37 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 31.9531
+2025-09-02 14:05:39,249 - client_7 - INFO - Client 7 | Epoch 8 | Batch 20/40 | Loss: 2.6107 | Images/sec: 2733.00 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 32.0703
+2025-09-02 14:05:39,684 - client_7 - INFO - Client 7 | Epoch 8 | Batch 30/40 | Loss: 2.6304 | Images/sec: 2799.11 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 32.0312
+2025-09-02 14:05:40,077 - client_7 - INFO - Client 7 | Epoch 8 | Batch 40/40 | Loss: 2.6308 | Images/sec: 2833.49 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 31.7600
+2025-09-02 14:05:42,389 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2011.83s | Average Loss: 1.7571 | World Size: 8 | train_acc: 36.9000 | val_acc: 23.7600 | lr: 0.0500
+2025-09-02 14:05:42,878 - client_7 - INFO - Client 7 | Epoch 9 | Batch 10/40 | Loss: 2.6202 | Images/sec: 2663.64 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 31.5625
+2025-09-02 14:05:43,319 - client_7 - INFO - Client 7 | Epoch 9 | Batch 20/40 | Loss: 2.6485 | Images/sec: 2778.94 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 31.4453
+2025-09-02 14:05:43,830 - client_7 - INFO - Client 7 | Epoch 9 | Batch 30/40 | Loss: 2.5826 | Images/sec: 2681.24 | Progress: 75.0% | Time: 1.43s | lr: 0.05 | train_acc: 32.9167
+2025-09-02 14:05:44,231 - client_7 - INFO - Client 7 | Epoch 9 | Batch 40/40 | Loss: 2.5859 | Images/sec: 2727.67 | Progress: 100.0% | Time: 1.83s | lr: 0.05 | train_acc: 33.1000
+2025-09-02 14:05:46,548 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2015.99s | Average Loss: 1.7589 | World Size: 8 | train_acc: 37.0200 | val_acc: 24.8800 | lr: 0.0499
+2025-09-02 14:05:47,039 - client_7 - INFO - Client 7 | Epoch 10 | Batch 10/40 | Loss: 2.6378 | Images/sec: 2654.32 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 31.4844
+2025-09-02 14:05:47,512 - client_7 - INFO - Client 7 | Epoch 10 | Batch 20/40 | Loss: 2.6091 | Images/sec: 2679.43 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 31.4062
+2025-09-02 14:05:47,964 - client_7 - INFO - Client 7 | Epoch 10 | Batch 30/40 | Loss: 2.5485 | Images/sec: 2729.73 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 32.7865
+2025-09-02 14:05:48,523 - client_7 - INFO - Client 7 | Epoch 10 | Batch 40/40 | Loss: 2.5257 | Images/sec: 2542.97 | Progress: 100.0% | Time: 1.97s | lr: 0.05 | train_acc: 33.4600
+2025-09-02 14:05:51,681 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2021.12s | Average Loss: 1.7606 | World Size: 8 | train_acc: 43.7000 | val_acc: 27.6000 | lr: 0.0499
+2025-09-02 14:05:52,195 - client_7 - INFO - Client 7 | Epoch 11 | Batch 10/40 | Loss: 2.4559 | Images/sec: 2533.30 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 36.2500
+2025-09-02 14:05:52,668 - client_7 - INFO - Client 7 | Epoch 11 | Batch 20/40 | Loss: 2.3935 | Images/sec: 2617.38 | Progress: 50.0% | Time: 0.98s | lr: 0.05 | train_acc: 36.6797
+2025-09-02 14:05:53,055 - client_7 - INFO - Client 7 | Epoch 11 | Batch 30/40 | Loss: 2.3959 | Images/sec: 2813.03 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 36.9792
+2025-09-02 14:05:53,412 - client_7 - INFO - Client 7 | Epoch 11 | Batch 40/40 | Loss: 2.4233 | Images/sec: 2903.25 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 36.3400
+2025-09-02 14:05:55,787 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2025.23s | Average Loss: 1.7620 | World Size: 8 | train_acc: 40.9600 | val_acc: 23.6800 | lr: 0.0499
+2025-09-02 14:05:56,248 - client_7 - INFO - Client 7 | Epoch 12 | Batch 10/40 | Loss: 2.3068 | Images/sec: 2828.07 | Progress: 25.0% | Time: 0.45s | lr: 0.05 | train_acc: 36.8750
+2025-09-02 14:05:56,702 - client_7 - INFO - Client 7 | Epoch 12 | Batch 20/40 | Loss: 2.3627 | Images/sec: 2824.11 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 36.2891
+2025-09-02 14:05:57,118 - client_7 - INFO - Client 7 | Epoch 12 | Batch 30/40 | Loss: 2.3576 | Images/sec: 2904.09 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 36.5625
+2025-09-02 14:05:57,485 - client_7 - INFO - Client 7 | Epoch 12 | Batch 40/40 | Loss: 2.3841 | Images/sec: 2960.34 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 36.3200
+2025-09-02 14:05:59,841 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2029.28s | Average Loss: 1.7634 | World Size: 8 | train_acc: 40.3200 | val_acc: 24.9600 | lr: 0.0498
+2025-09-02 14:06:00,352 - client_7 - INFO - Client 7 | Epoch 13 | Batch 10/40 | Loss: 2.3673 | Images/sec: 2551.42 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 36.3281
+2025-09-02 14:06:00,755 - client_7 - INFO - Client 7 | Epoch 13 | Batch 20/40 | Loss: 2.3757 | Images/sec: 2826.98 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 35.6641
+2025-09-02 14:06:01,252 - client_7 - INFO - Client 7 | Epoch 13 | Batch 30/40 | Loss: 2.3363 | Images/sec: 2738.32 | Progress: 75.0% | Time: 1.40s | lr: 0.05 | train_acc: 36.6406
+2025-09-02 14:06:01,808 - client_7 - INFO - Client 7 | Epoch 13 | Batch 40/40 | Loss: 2.3315 | Images/sec: 2553.76 | Progress: 100.0% | Time: 1.96s | lr: 0.05 | train_acc: 37.0200
+2025-09-02 14:06:04,900 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2034.34s | Average Loss: 1.7646 | World Size: 8 | train_acc: 47.6200 | val_acc: 25.9200 | lr: 0.0497
+2025-09-02 14:06:05,397 - client_7 - INFO - Client 7 | Epoch 14 | Batch 10/40 | Loss: 2.2880 | Images/sec: 2622.70 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 37.8906
+2025-09-02 14:06:05,831 - client_7 - INFO - Client 7 | Epoch 14 | Batch 20/40 | Loss: 2.2636 | Images/sec: 2775.40 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 38.7500
+2025-09-02 14:06:06,265 - client_7 - INFO - Client 7 | Epoch 14 | Batch 30/40 | Loss: 2.2684 | Images/sec: 2831.29 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 38.3333
+2025-09-02 14:06:06,627 - client_7 - INFO - Client 7 | Epoch 14 | Batch 40/40 | Loss: 2.2699 | Images/sec: 2909.66 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 38.6200
+2025-09-02 14:06:08,934 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2038.38s | Average Loss: 1.7657 | World Size: 8 | train_acc: 48.5200 | val_acc: 28.8000 | lr: 0.0496
+2025-09-02 14:06:09,466 - client_7 - INFO - Client 7 | Epoch 15 | Batch 10/40 | Loss: 2.1873 | Images/sec: 2445.87 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 42.6562
+2025-09-02 14:06:09,881 - client_7 - INFO - Client 7 | Epoch 15 | Batch 20/40 | Loss: 2.1936 | Images/sec: 2729.38 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 41.0156
+2025-09-02 14:06:10,315 - client_7 - INFO - Client 7 | Epoch 15 | Batch 30/40 | Loss: 2.2197 | Images/sec: 2798.95 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 40.6250
+2025-09-02 14:06:10,702 - client_7 - INFO - Client 7 | Epoch 15 | Batch 40/40 | Loss: 2.2228 | Images/sec: 2842.19 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 40.4800
+2025-09-02 14:06:12,975 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2042.42s | Average Loss: 1.7667 | World Size: 8 | train_acc: 50.0400 | val_acc: 27.6000 | lr: 0.0495
+2025-09-02 14:06:13,480 - client_7 - INFO - Client 7 | Epoch 16 | Batch 10/40 | Loss: 2.1288 | Images/sec: 2576.18 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 43.7500
+2025-09-02 14:06:14,013 - client_7 - INFO - Client 7 | Epoch 16 | Batch 20/40 | Loss: 2.2231 | Images/sec: 2486.64 | Progress: 50.0% | Time: 1.03s | lr: 0.05 | train_acc: 40.5859
+2025-09-02 14:06:14,458 - client_7 - INFO - Client 7 | Epoch 16 | Batch 30/40 | Loss: 2.1943 | Images/sec: 2604.54 | Progress: 75.0% | Time: 1.47s | lr: 0.05 | train_acc: 41.2760
+2025-09-02 14:06:15,001 - client_7 - INFO - Client 7 | Epoch 16 | Batch 40/40 | Loss: 2.1944 | Images/sec: 2478.41 | Progress: 100.0% | Time: 2.02s | lr: 0.05 | train_acc: 40.9200
+2025-09-02 14:06:18,056 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2047.50s | Average Loss: 1.7676 | World Size: 8 | train_acc: 51.7400 | val_acc: 29.2800 | lr: 0.0494
+2025-09-02 14:06:18,531 - client_7 - INFO - Client 7 | Epoch 17 | Batch 10/40 | Loss: 2.0498 | Images/sec: 2749.71 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 44.6094
+2025-09-02 14:06:18,973 - client_7 - INFO - Client 7 | Epoch 17 | Batch 20/40 | Loss: 2.1020 | Images/sec: 2820.92 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 43.0859
+2025-09-02 14:06:19,432 - client_7 - INFO - Client 7 | Epoch 17 | Batch 30/40 | Loss: 2.0999 | Images/sec: 2810.22 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 43.6198
+2025-09-02 14:06:19,763 - client_7 - INFO - Client 7 | Epoch 17 | Batch 40/40 | Loss: 2.1039 | Images/sec: 2945.61 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 43.2000
+2025-09-02 14:06:22,082 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2051.53s | Average Loss: 1.7683 | World Size: 8 | train_acc: 45.3400 | val_acc: 24.3200 | lr: 0.0493
+2025-09-02 14:06:22,574 - client_7 - INFO - Client 7 | Epoch 18 | Batch 10/40 | Loss: 2.1731 | Images/sec: 2650.24 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 42.8125
+2025-09-02 14:06:23,040 - client_7 - INFO - Client 7 | Epoch 18 | Batch 20/40 | Loss: 2.1396 | Images/sec: 2696.40 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 41.9141
+2025-09-02 14:06:23,467 - client_7 - INFO - Client 7 | Epoch 18 | Batch 30/40 | Loss: 2.1204 | Images/sec: 2789.79 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 42.0573
+2025-09-02 14:06:23,829 - client_7 - INFO - Client 7 | Epoch 18 | Batch 40/40 | Loss: 2.1254 | Images/sec: 2877.23 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 41.4600
+2025-09-02 14:06:26,088 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2055.53s | Average Loss: 1.7691 | World Size: 8 | train_acc: 50.6800 | val_acc: 27.5200 | lr: 0.0492
+2025-09-02 14:06:26,584 - client_7 - INFO - Client 7 | Epoch 19 | Batch 10/40 | Loss: 1.9701 | Images/sec: 2646.52 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 44.5312
+2025-09-02 14:06:26,995 - client_7 - INFO - Client 7 | Epoch 19 | Batch 20/40 | Loss: 1.9936 | Images/sec: 2860.65 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 45.0391
+2025-09-02 14:06:27,427 - client_7 - INFO - Client 7 | Epoch 19 | Batch 30/40 | Loss: 2.0233 | Images/sec: 2893.96 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 44.5833
+2025-09-02 14:06:27,915 - client_7 - INFO - Client 7 | Epoch 19 | Batch 40/40 | Loss: 2.0277 | Images/sec: 2754.43 | Progress: 100.0% | Time: 1.82s | lr: 0.05 | train_acc: 44.1200
+2025-09-02 14:06:31,117 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2060.56s | Average Loss: 1.7697 | World Size: 8 | train_acc: 52.6400 | val_acc: 28.1600 | lr: 0.0490
+2025-09-02 14:06:31,637 - client_7 - INFO - Client 7 | Epoch 20 | Batch 10/40 | Loss: 1.9122 | Images/sec: 2513.17 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 47.7344
+2025-09-02 14:06:32,041 - client_7 - INFO - Client 7 | Epoch 20 | Batch 20/40 | Loss: 1.9387 | Images/sec: 2802.10 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 47.3047
+2025-09-02 14:06:32,465 - client_7 - INFO - Client 7 | Epoch 20 | Batch 30/40 | Loss: 1.9599 | Images/sec: 2870.76 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 46.5885
+2025-09-02 14:06:32,840 - client_7 - INFO - Client 7 | Epoch 20 | Batch 40/40 | Loss: 1.9629 | Images/sec: 2918.59 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 46.1400
+2025-09-02 14:06:35,190 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2064.63s | Average Loss: 1.7701 | World Size: 8 | train_acc: 53.4600 | val_acc: 26.5600 | lr: 0.0489
+2025-09-02 14:06:35,688 - client_7 - INFO - Client 7 | Epoch 21 | Batch 10/40 | Loss: 2.0504 | Images/sec: 2627.60 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 44.2969
+2025-09-02 14:06:36,130 - client_7 - INFO - Client 7 | Epoch 21 | Batch 20/40 | Loss: 2.0330 | Images/sec: 2755.32 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 43.6719
+2025-09-02 14:06:36,525 - client_7 - INFO - Client 7 | Epoch 21 | Batch 30/40 | Loss: 2.0406 | Images/sec: 2900.51 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 43.7240
+2025-09-02 14:06:36,921 - client_7 - INFO - Client 7 | Epoch 21 | Batch 40/40 | Loss: 2.0125 | Images/sec: 2905.82 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 44.5800
+2025-09-02 14:06:39,187 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2068.63s | Average Loss: 1.7706 | World Size: 8 | train_acc: 52.2600 | val_acc: 27.7600 | lr: 0.0487
+2025-09-02 14:06:39,670 - client_7 - INFO - Client 7 | Epoch 22 | Batch 10/40 | Loss: 1.9372 | Images/sec: 2702.96 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 45.7812
+2025-09-02 14:06:40,132 - client_7 - INFO - Client 7 | Epoch 22 | Batch 20/40 | Loss: 1.8756 | Images/sec: 2735.18 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 47.0703
+2025-09-02 14:06:40,557 - client_7 - INFO - Client 7 | Epoch 22 | Batch 30/40 | Loss: 1.8954 | Images/sec: 2821.09 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 46.9531
+2025-09-02 14:06:41,034 - client_7 - INFO - Client 7 | Epoch 22 | Batch 40/40 | Loss: 1.8970 | Images/sec: 2720.91 | Progress: 100.0% | Time: 1.84s | lr: 0.05 | train_acc: 47.0400
+2025-09-02 14:06:44,274 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2073.72s | Average Loss: 1.7709 | World Size: 8 | train_acc: 52.2600 | val_acc: 27.5200 | lr: 0.0485
+2025-09-02 14:06:44,765 - client_7 - INFO - Client 7 | Epoch 23 | Batch 10/40 | Loss: 2.0994 | Images/sec: 2656.66 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 43.5938
+2025-09-02 14:06:45,226 - client_7 - INFO - Client 7 | Epoch 23 | Batch 20/40 | Loss: 2.0070 | Images/sec: 2715.86 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 44.8828
+2025-09-02 14:06:45,657 - client_7 - INFO - Client 7 | Epoch 23 | Batch 30/40 | Loss: 1.9840 | Images/sec: 2794.69 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 45.5208
+2025-09-02 14:06:46,039 - client_7 - INFO - Client 7 | Epoch 23 | Batch 40/40 | Loss: 1.9598 | Images/sec: 2847.92 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 45.8400
+2025-09-02 14:06:48,328 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2077.77s | Average Loss: 1.7713 | World Size: 8 | train_acc: 60.9400 | val_acc: 31.2000 | lr: 0.0483
+2025-09-02 14:06:48,807 - client_7 - INFO - Client 7 | Epoch 24 | Batch 10/40 | Loss: 1.8150 | Images/sec: 2726.17 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 49.9219
+2025-09-02 14:06:49,240 - client_7 - INFO - Client 7 | Epoch 24 | Batch 20/40 | Loss: 1.8167 | Images/sec: 2836.32 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 49.0625
+2025-09-02 14:06:49,707 - client_7 - INFO - Client 7 | Epoch 24 | Batch 30/40 | Loss: 1.8164 | Images/sec: 2803.16 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 48.9844
+2025-09-02 14:06:50,096 - client_7 - INFO - Client 7 | Epoch 24 | Batch 40/40 | Loss: 1.8139 | Images/sec: 2843.89 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 49.2200
+2025-09-02 14:06:52,393 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2081.84s | Average Loss: 1.7713 | World Size: 8 | train_acc: 59.7800 | val_acc: 29.5200 | lr: 0.0481
+2025-09-02 14:06:52,889 - client_7 - INFO - Client 7 | Epoch 25 | Batch 10/40 | Loss: 1.8062 | Images/sec: 2634.40 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 49.8438
+2025-09-02 14:06:53,301 - client_7 - INFO - Client 7 | Epoch 25 | Batch 20/40 | Loss: 1.8408 | Images/sec: 2853.00 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 49.3359
+2025-09-02 14:06:53,730 - client_7 - INFO - Client 7 | Epoch 25 | Batch 30/40 | Loss: 1.8335 | Images/sec: 2895.24 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 48.9583
+2025-09-02 14:06:54,255 - client_7 - INFO - Client 7 | Epoch 25 | Batch 40/40 | Loss: 1.8142 | Images/sec: 2699.74 | Progress: 100.0% | Time: 1.85s | lr: 0.05 | train_acc: 49.2800
+2025-09-02 14:06:57,399 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2086.84s | Average Loss: 1.7714 | World Size: 8 | train_acc: 61.6200 | val_acc: 30.2400 | lr: 0.0479
+2025-09-02 14:06:57,898 - client_7 - INFO - Client 7 | Epoch 26 | Batch 10/40 | Loss: 1.7265 | Images/sec: 2619.49 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 51.1719
+2025-09-02 14:06:58,334 - client_7 - INFO - Client 7 | Epoch 26 | Batch 20/40 | Loss: 1.7516 | Images/sec: 2768.28 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 50.8984
+2025-09-02 14:06:58,770 - client_7 - INFO - Client 7 | Epoch 26 | Batch 30/40 | Loss: 1.7826 | Images/sec: 2822.80 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 50.0260
+2025-09-02 14:06:59,133 - client_7 - INFO - Client 7 | Epoch 26 | Batch 40/40 | Loss: 1.7790 | Images/sec: 2900.17 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 49.9800
+2025-09-02 14:07:01,399 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2090.84s | Average Loss: 1.7715 | World Size: 8 | train_acc: 58.9800 | val_acc: 29.2000 | lr: 0.0477
+2025-09-02 14:07:01,878 - client_7 - INFO - Client 7 | Epoch 27 | Batch 10/40 | Loss: 1.8541 | Images/sec: 2737.66 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 47.8906
+2025-09-02 14:07:02,326 - client_7 - INFO - Client 7 | Epoch 27 | Batch 20/40 | Loss: 1.8344 | Images/sec: 2796.33 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 49.4922
+2025-09-02 14:07:02,746 - client_7 - INFO - Client 7 | Epoch 27 | Batch 30/40 | Loss: 1.8108 | Images/sec: 2874.89 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 49.6354
+2025-09-02 14:07:03,137 - client_7 - INFO - Client 7 | Epoch 27 | Batch 40/40 | Loss: 1.8067 | Images/sec: 2895.93 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 49.7800
+2025-09-02 14:07:05,374 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2094.82s | Average Loss: 1.7715 | World Size: 8 | train_acc: 59.1000 | val_acc: 28.0800 | lr: 0.0475
+2025-09-02 14:07:05,870 - client_7 - INFO - Client 7 | Epoch 28 | Batch 10/40 | Loss: 1.8242 | Images/sec: 2693.93 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 48.6719
+2025-09-02 14:07:06,285 - client_7 - INFO - Client 7 | Epoch 28 | Batch 20/40 | Loss: 1.7929 | Images/sec: 2875.48 | Progress: 50.0% | Time: 0.89s | lr: 0.05 | train_acc: 49.9609
+2025-09-02 14:07:06,707 - client_7 - INFO - Client 7 | Epoch 28 | Batch 30/40 | Loss: 1.7474 | Images/sec: 2927.27 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 51.1719
+2025-09-02 14:07:07,078 - client_7 - INFO - Client 7 | Epoch 28 | Batch 40/40 | Loss: 1.7382 | Images/sec: 2970.94 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 51.5400
+2025-09-02 14:07:10,321 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2099.77s | Average Loss: 1.7715 | World Size: 8 | train_acc: 61.1800 | val_acc: 29.1200 | lr: 0.0472
+2025-09-02 14:07:10,846 - client_7 - INFO - Client 7 | Epoch 29 | Batch 10/40 | Loss: 1.7316 | Images/sec: 2483.14 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 52.4219
+2025-09-02 14:07:11,231 - client_7 - INFO - Client 7 | Epoch 29 | Batch 20/40 | Loss: 1.7335 | Images/sec: 2843.25 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 51.7188
+2025-09-02 14:07:11,660 - client_7 - INFO - Client 7 | Epoch 29 | Batch 30/40 | Loss: 1.7297 | Images/sec: 2889.18 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 51.2240
+2025-09-02 14:07:12,013 - client_7 - INFO - Client 7 | Epoch 29 | Batch 40/40 | Loss: 1.7185 | Images/sec: 2972.55 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 51.2400
+2025-09-02 14:07:14,287 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2103.73s | Average Loss: 1.7713 | World Size: 8 | train_acc: 58.9200 | val_acc: 29.5200 | lr: 0.0470
+2025-09-02 14:07:14,802 - client_7 - INFO - Client 7 | Epoch 30 | Batch 10/40 | Loss: 1.8012 | Images/sec: 2539.57 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 49.9219
+2025-09-02 14:07:15,224 - client_7 - INFO - Client 7 | Epoch 30 | Batch 20/40 | Loss: 1.7655 | Images/sec: 2763.84 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 51.6797
+2025-09-02 14:07:15,618 - client_7 - INFO - Client 7 | Epoch 30 | Batch 30/40 | Loss: 1.7442 | Images/sec: 2909.23 | Progress: 75.0% | Time: 1.32s | lr: 0.05 | train_acc: 51.9271
+2025-09-02 14:07:15,995 - client_7 - INFO - Client 7 | Epoch 30 | Batch 40/40 | Loss: 1.7245 | Images/sec: 2946.01 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 52.0800
+2025-09-02 14:07:18,270 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2107.71s | Average Loss: 1.7712 | World Size: 8 | train_acc: 66.1000 | val_acc: 31.2800 | lr: 0.0467
+2025-09-02 14:07:18,756 - client_7 - INFO - Client 7 | Epoch 31 | Batch 10/40 | Loss: 1.7749 | Images/sec: 2685.05 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 49.3750
+2025-09-02 14:07:19,217 - client_7 - INFO - Client 7 | Epoch 31 | Batch 20/40 | Loss: 1.6879 | Images/sec: 2730.05 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 52.3828
+2025-09-02 14:07:19,679 - client_7 - INFO - Client 7 | Epoch 31 | Batch 30/40 | Loss: 1.6640 | Images/sec: 2742.33 | Progress: 75.0% | Time: 1.40s | lr: 0.05 | train_acc: 53.2552
+2025-09-02 14:07:20,047 - client_7 - INFO - Client 7 | Epoch 31 | Batch 40/40 | Loss: 1.6550 | Images/sec: 2828.52 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 53.5400
+2025-09-02 14:07:23,268 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2112.71s | Average Loss: 1.7710 | World Size: 8 | train_acc: 68.7600 | val_acc: 30.8000 | lr: 0.0464
+2025-09-02 14:07:23,750 - client_7 - INFO - Client 7 | Epoch 32 | Batch 10/40 | Loss: 1.5957 | Images/sec: 2715.15 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 54.7656
+2025-09-02 14:07:24,196 - client_7 - INFO - Client 7 | Epoch 32 | Batch 20/40 | Loss: 1.6120 | Images/sec: 2789.92 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 54.2969
+2025-09-02 14:07:24,654 - client_7 - INFO - Client 7 | Epoch 32 | Batch 30/40 | Loss: 1.6204 | Images/sec: 2791.16 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 54.3229
+2025-09-02 14:07:25,003 - client_7 - INFO - Client 7 | Epoch 32 | Batch 40/40 | Loss: 1.6109 | Images/sec: 2898.64 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 54.3000
+2025-09-02 14:07:27,272 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2116.72s | Average Loss: 1.7707 | World Size: 8 | train_acc: 70.8200 | val_acc: 30.4000 | lr: 0.0461
+2025-09-02 14:07:27,781 - client_7 - INFO - Client 7 | Epoch 33 | Batch 10/40 | Loss: 1.6004 | Images/sec: 2566.36 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 54.5312
+2025-09-02 14:07:28,209 - client_7 - INFO - Client 7 | Epoch 33 | Batch 20/40 | Loss: 1.6090 | Images/sec: 2761.05 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 54.0625
+2025-09-02 14:07:28,619 - client_7 - INFO - Client 7 | Epoch 33 | Batch 30/40 | Loss: 1.5830 | Images/sec: 2871.49 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 54.7917
+2025-09-02 14:07:29,022 - client_7 - INFO - Client 7 | Epoch 33 | Batch 40/40 | Loss: 1.5745 | Images/sec: 2873.73 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 54.7000
+2025-09-02 14:07:31,370 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2120.81s | Average Loss: 1.7703 | World Size: 8 | train_acc: 63.6400 | val_acc: 28.8000 | lr: 0.0458
+2025-09-02 14:07:31,860 - client_7 - INFO - Client 7 | Epoch 34 | Batch 10/40 | Loss: 1.5075 | Images/sec: 2695.16 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 57.5000
+2025-09-02 14:07:32,304 - client_7 - INFO - Client 7 | Epoch 34 | Batch 20/40 | Loss: 1.4905 | Images/sec: 2785.89 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 57.8125
+2025-09-02 14:07:32,698 - client_7 - INFO - Client 7 | Epoch 34 | Batch 30/40 | Loss: 1.5078 | Images/sec: 2924.77 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 57.4479
+2025-09-02 14:07:33,086 - client_7 - INFO - Client 7 | Epoch 34 | Batch 40/40 | Loss: 1.5182 | Images/sec: 2939.80 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 57.5400
+2025-09-02 14:07:36,302 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2125.75s | Average Loss: 1.7697 | World Size: 8 | train_acc: 70.1600 | val_acc: 28.9600 | lr: 0.0455
+2025-09-02 14:07:36,821 - client_7 - INFO - Client 7 | Epoch 35 | Batch 10/40 | Loss: 1.5392 | Images/sec: 2540.98 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 56.9531
+2025-09-02 14:07:37,261 - client_7 - INFO - Client 7 | Epoch 35 | Batch 20/40 | Loss: 1.5184 | Images/sec: 2712.99 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 57.4609
+2025-09-02 14:07:37,704 - client_7 - INFO - Client 7 | Epoch 35 | Batch 30/40 | Loss: 1.5133 | Images/sec: 2768.84 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 57.4740
+2025-09-02 14:07:38,063 - client_7 - INFO - Client 7 | Epoch 35 | Batch 40/40 | Loss: 1.4914 | Images/sec: 2863.80 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 57.7200
+2025-09-02 14:07:40,414 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2129.86s | Average Loss: 1.7692 | World Size: 8 | train_acc: 69.8800 | val_acc: 30.6400 | lr: 0.0452
+2025-09-02 14:07:40,928 - client_7 - INFO - Client 7 | Epoch 36 | Batch 10/40 | Loss: 1.5717 | Images/sec: 2541.56 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 55.5469
+2025-09-02 14:07:41,346 - client_7 - INFO - Client 7 | Epoch 36 | Batch 20/40 | Loss: 1.4933 | Images/sec: 2777.63 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 56.6797
+2025-09-02 14:07:41,765 - client_7 - INFO - Client 7 | Epoch 36 | Batch 30/40 | Loss: 1.4747 | Images/sec: 2863.72 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 57.6823
+2025-09-02 14:07:42,191 - client_7 - INFO - Client 7 | Epoch 36 | Batch 40/40 | Loss: 1.4716 | Images/sec: 2830.02 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 57.6800
+2025-09-02 14:07:44,555 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2134.00s | Average Loss: 1.7686 | World Size: 8 | train_acc: 74.0400 | val_acc: 32.8000 | lr: 0.0449
+2025-09-02 14:07:45,056 - client_7 - INFO - Client 7 | Epoch 37 | Batch 10/40 | Loss: 1.5482 | Images/sec: 2613.24 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 54.8438
+2025-09-02 14:07:45,477 - client_7 - INFO - Client 7 | Epoch 37 | Batch 20/40 | Loss: 1.5047 | Images/sec: 2811.25 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 56.9531
+2025-09-02 14:07:45,908 - client_7 - INFO - Client 7 | Epoch 37 | Batch 30/40 | Loss: 1.4869 | Images/sec: 2862.16 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 57.4740
+2025-09-02 14:07:46,310 - client_7 - INFO - Client 7 | Epoch 37 | Batch 40/40 | Loss: 1.4675 | Images/sec: 2868.27 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 57.5600
+2025-09-02 14:07:49,524 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2138.97s | Average Loss: 1.7679 | World Size: 8 | train_acc: 70.4800 | val_acc: 31.6800 | lr: 0.0446
+2025-09-02 14:07:50,017 - client_7 - INFO - Client 7 | Epoch 38 | Batch 10/40 | Loss: 1.3500 | Images/sec: 2651.65 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 61.2500
+2025-09-02 14:07:50,441 - client_7 - INFO - Client 7 | Epoch 38 | Batch 20/40 | Loss: 1.3552 | Images/sec: 2822.12 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 60.6250
+2025-09-02 14:07:50,886 - client_7 - INFO - Client 7 | Epoch 38 | Batch 30/40 | Loss: 1.3674 | Images/sec: 2839.01 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 60.4427
+2025-09-02 14:07:51,250 - client_7 - INFO - Client 7 | Epoch 38 | Batch 40/40 | Loss: 1.3846 | Images/sec: 2912.89 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 60.0400
+2025-09-02 14:07:53,605 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2143.05s | Average Loss: 1.7671 | World Size: 8 | train_acc: 71.9400 | val_acc: 31.6000 | lr: 0.0442
+2025-09-02 14:07:54,144 - client_7 - INFO - Client 7 | Epoch 39 | Batch 10/40 | Loss: 1.1986 | Images/sec: 2429.17 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 64.4531
+2025-09-02 14:07:54,604 - client_7 - INFO - Client 7 | Epoch 39 | Batch 20/40 | Loss: 1.2231 | Images/sec: 2593.08 | Progress: 50.0% | Time: 0.99s | lr: 0.05 | train_acc: 63.8672
+2025-09-02 14:07:54,996 - client_7 - INFO - Client 7 | Epoch 39 | Batch 30/40 | Loss: 1.2505 | Images/sec: 2784.46 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 63.6979
+2025-09-02 14:07:55,334 - client_7 - INFO - Client 7 | Epoch 39 | Batch 40/40 | Loss: 1.2597 | Images/sec: 2912.05 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 63.4800
+2025-09-02 14:07:57,624 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2147.07s | Average Loss: 1.7661 | World Size: 8 | train_acc: 75.1600 | val_acc: 31.0400 | lr: 0.0439
+2025-09-02 14:07:58,150 - client_7 - INFO - Client 7 | Epoch 40 | Batch 10/40 | Loss: 1.4763 | Images/sec: 2483.75 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 57.2656
+2025-09-02 14:07:58,555 - client_7 - INFO - Client 7 | Epoch 40 | Batch 20/40 | Loss: 1.4382 | Images/sec: 2782.84 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 57.6172
+2025-09-02 14:07:59,005 - client_7 - INFO - Client 7 | Epoch 40 | Batch 30/40 | Loss: 1.3999 | Images/sec: 2802.72 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 58.8542
+2025-09-02 14:07:59,375 - client_7 - INFO - Client 7 | Epoch 40 | Batch 40/40 | Loss: 1.3716 | Images/sec: 2873.55 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 59.6400
+2025-09-02 14:08:02,502 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2151.95s | Average Loss: 1.7653 | World Size: 8 | train_acc: 74.3400 | val_acc: 30.0800 | lr: 0.0435
+2025-09-02 14:08:03,029 - client_7 - INFO - Client 7 | Epoch 41 | Batch 10/40 | Loss: 1.2844 | Images/sec: 2496.38 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 62.9688
+2025-09-02 14:08:03,495 - client_7 - INFO - Client 7 | Epoch 41 | Batch 20/40 | Loss: 1.2531 | Images/sec: 2616.24 | Progress: 50.0% | Time: 0.98s | lr: 0.05 | train_acc: 63.6719
+2025-09-02 14:08:03,942 - client_7 - INFO - Client 7 | Epoch 41 | Batch 30/40 | Loss: 1.2905 | Images/sec: 2692.37 | Progress: 75.0% | Time: 1.43s | lr: 0.05 | train_acc: 62.3177
+2025-09-02 14:08:04,299 - client_7 - INFO - Client 7 | Epoch 41 | Batch 40/40 | Loss: 1.3011 | Images/sec: 2804.62 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 62.3000
+2025-09-02 14:08:06,582 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2156.03s | Average Loss: 1.7643 | World Size: 8 | train_acc: 78.7600 | val_acc: 32.1600 | lr: 0.0431
+2025-09-02 14:08:07,074 - client_7 - INFO - Client 7 | Epoch 42 | Batch 10/40 | Loss: 1.2728 | Images/sec: 2657.43 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 62.1875
+2025-09-02 14:08:07,515 - client_7 - INFO - Client 7 | Epoch 42 | Batch 20/40 | Loss: 1.2750 | Images/sec: 2775.55 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 61.6406
+2025-09-02 14:08:07,949 - client_7 - INFO - Client 7 | Epoch 42 | Batch 30/40 | Loss: 1.2626 | Images/sec: 2830.71 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 61.9271
+2025-09-02 14:08:08,323 - client_7 - INFO - Client 7 | Epoch 42 | Batch 40/40 | Loss: 1.2560 | Images/sec: 2888.84 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 62.2600
+2025-09-02 14:08:10,609 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2160.05s | Average Loss: 1.7633 | World Size: 8 | train_acc: 78.8600 | val_acc: 31.5200 | lr: 0.0428
+2025-09-02 14:08:11,098 - client_7 - INFO - Client 7 | Epoch 43 | Batch 10/40 | Loss: 1.3024 | Images/sec: 2676.15 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 63.1250
+2025-09-02 14:08:11,544 - client_7 - INFO - Client 7 | Epoch 43 | Batch 20/40 | Loss: 1.2671 | Images/sec: 2769.67 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 63.7891
+2025-09-02 14:08:11,933 - client_7 - INFO - Client 7 | Epoch 43 | Batch 30/40 | Loss: 1.2313 | Images/sec: 2923.46 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 64.1667
+2025-09-02 14:08:12,319 - client_7 - INFO - Client 7 | Epoch 43 | Batch 40/40 | Loss: 1.2462 | Images/sec: 2942.50 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 63.5800
+2025-09-02 14:08:15,389 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2164.83s | Average Loss: 1.7623 | World Size: 8 | train_acc: 78.0000 | val_acc: 30.0800 | lr: 0.0424
+2025-09-02 14:08:16,084 - client_7 - INFO - Client 7 | Epoch 44 | Batch 10/40 | Loss: 1.2840 | Images/sec: 1877.14 | Progress: 25.0% | Time: 0.68s | lr: 0.05 | train_acc: 63.2812
+2025-09-02 14:08:16,503 - client_7 - INFO - Client 7 | Epoch 44 | Batch 20/40 | Loss: 1.2769 | Images/sec: 2324.71 | Progress: 50.0% | Time: 1.10s | lr: 0.05 | train_acc: 62.7734
+2025-09-02 14:08:16,899 - client_7 - INFO - Client 7 | Epoch 44 | Batch 30/40 | Loss: 1.2710 | Images/sec: 2565.68 | Progress: 75.0% | Time: 1.50s | lr: 0.05 | train_acc: 62.5781
+2025-09-02 14:08:17,266 - client_7 - INFO - Client 7 | Epoch 44 | Batch 40/40 | Loss: 1.2583 | Images/sec: 2682.90 | Progress: 100.0% | Time: 1.86s | lr: 0.05 | train_acc: 63.1800
+2025-09-02 14:08:19,543 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2168.99s | Average Loss: 1.7612 | World Size: 8 | train_acc: 79.0800 | val_acc: 30.1600 | lr: 0.0420
+2025-09-02 14:08:20,052 - client_7 - INFO - Client 7 | Epoch 45 | Batch 10/40 | Loss: 1.2424 | Images/sec: 2567.13 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 64.1406
+2025-09-02 14:08:20,455 - client_7 - INFO - Client 7 | Epoch 45 | Batch 20/40 | Loss: 1.2244 | Images/sec: 2839.19 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 64.1406
+2025-09-02 14:08:20,879 - client_7 - INFO - Client 7 | Epoch 45 | Batch 30/40 | Loss: 1.2441 | Images/sec: 2897.46 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 63.5938
+2025-09-02 14:08:21,246 - client_7 - INFO - Client 7 | Epoch 45 | Batch 40/40 | Loss: 1.2463 | Images/sec: 2954.96 | Progress: 100.0% | Time: 1.69s | lr: 0.05 | train_acc: 63.1800
+2025-09-02 14:08:23,506 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2172.95s | Average Loss: 1.7602 | World Size: 8 | train_acc: 80.0800 | val_acc: 32.6400 | lr: 0.0416
+2025-09-02 14:08:24,022 - client_7 - INFO - Client 7 | Epoch 46 | Batch 10/40 | Loss: 1.1947 | Images/sec: 2529.20 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 63.9062
+2025-09-02 14:08:24,441 - client_7 - INFO - Client 7 | Epoch 46 | Batch 20/40 | Loss: 1.2005 | Images/sec: 2767.14 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 63.3594
+2025-09-02 14:08:24,830 - client_7 - INFO - Client 7 | Epoch 46 | Batch 30/40 | Loss: 1.2191 | Images/sec: 2921.14 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 63.5417
+2025-09-02 14:08:25,195 - client_7 - INFO - Client 7 | Epoch 46 | Batch 40/40 | Loss: 1.2152 | Images/sec: 2977.11 | Progress: 100.0% | Time: 1.68s | lr: 0.05 | train_acc: 64.0600
+2025-09-02 14:08:28,060 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2177.50s | Average Loss: 1.7591 | World Size: 8 | train_acc: 81.7800 | val_acc: 33.0400 | lr: 0.0412
+2025-09-02 14:08:28,842 - client_7 - INFO - Client 7 | Epoch 47 | Batch 10/40 | Loss: 1.2311 | Images/sec: 1663.82 | Progress: 25.0% | Time: 0.77s | lr: 0.05 | train_acc: 63.7500
+2025-09-02 14:08:29,331 - client_7 - INFO - Client 7 | Epoch 47 | Batch 20/40 | Loss: 1.2273 | Images/sec: 2033.45 | Progress: 50.0% | Time: 1.26s | lr: 0.05 | train_acc: 63.5156
+2025-09-02 14:08:29,727 - client_7 - INFO - Client 7 | Epoch 47 | Batch 30/40 | Loss: 1.2252 | Images/sec: 2320.56 | Progress: 75.0% | Time: 1.65s | lr: 0.05 | train_acc: 63.4896
+2025-09-02 14:08:30,090 - client_7 - INFO - Client 7 | Epoch 47 | Batch 40/40 | Loss: 1.2205 | Images/sec: 2477.49 | Progress: 100.0% | Time: 2.02s | lr: 0.05 | train_acc: 63.6200
+2025-09-02 14:08:32,384 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2181.83s | Average Loss: 1.7580 | World Size: 8 | train_acc: 77.5800 | val_acc: 29.1200 | lr: 0.0408
+2025-09-02 14:08:32,867 - client_7 - INFO - Client 7 | Epoch 48 | Batch 10/40 | Loss: 1.1925 | Images/sec: 2716.63 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 65.6250
+2025-09-02 14:08:33,308 - client_7 - INFO - Client 7 | Epoch 48 | Batch 20/40 | Loss: 1.1725 | Images/sec: 2804.73 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 65.5469
+2025-09-02 14:08:33,741 - client_7 - INFO - Client 7 | Epoch 48 | Batch 30/40 | Loss: 1.1672 | Images/sec: 2854.20 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 65.2604
+2025-09-02 14:08:34,114 - client_7 - INFO - Client 7 | Epoch 48 | Batch 40/40 | Loss: 1.1628 | Images/sec: 2908.99 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 65.5600
+2025-09-02 14:08:36,381 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2185.83s | Average Loss: 1.7568 | World Size: 8 | train_acc: 83.6800 | val_acc: 32.2400 | lr: 0.0403
+2025-09-02 14:08:36,899 - client_7 - INFO - Client 7 | Epoch 49 | Batch 10/40 | Loss: 1.0283 | Images/sec: 2532.33 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 70.1562
+2025-09-02 14:08:37,317 - client_7 - INFO - Client 7 | Epoch 49 | Batch 20/40 | Loss: 1.0506 | Images/sec: 2771.37 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 69.5703
+2025-09-02 14:08:37,774 - client_7 - INFO - Client 7 | Epoch 49 | Batch 30/40 | Loss: 1.0592 | Images/sec: 2780.80 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 69.0104
+2025-09-02 14:08:38,127 - client_7 - INFO - Client 7 | Epoch 49 | Batch 40/40 | Loss: 1.0728 | Images/sec: 2883.65 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 68.5600
+2025-09-02 14:08:41,019 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2190.46s | Average Loss: 1.7554 | World Size: 8 | train_acc: 85.1000 | val_acc: 33.1200 | lr: 0.0399
+2025-09-02 14:08:41,819 - client_7 - INFO - Client 7 | Epoch 50 | Batch 10/40 | Loss: 1.1324 | Images/sec: 1626.20 | Progress: 25.0% | Time: 0.79s | lr: 0.05 | train_acc: 67.1875
+2025-09-02 14:08:42,384 - client_7 - INFO - Client 7 | Epoch 50 | Batch 20/40 | Loss: 1.1603 | Images/sec: 1892.61 | Progress: 50.0% | Time: 1.35s | lr: 0.05 | train_acc: 66.0547
+2025-09-02 14:08:42,818 - client_7 - INFO - Client 7 | Epoch 50 | Batch 30/40 | Loss: 1.1073 | Images/sec: 2149.79 | Progress: 75.0% | Time: 1.79s | lr: 0.05 | train_acc: 67.4219
+2025-09-02 14:08:43,229 - client_7 - INFO - Client 7 | Epoch 50 | Batch 40/40 | Loss: 1.0998 | Images/sec: 2275.31 | Progress: 100.0% | Time: 2.20s | lr: 0.05 | train_acc: 67.3000
+2025-09-02 14:08:45,577 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2195.02s | Average Loss: 1.7541 | World Size: 8 | train_acc: 86.0000 | val_acc: 31.8400 | lr: 0.0395
+2025-09-02 14:08:46,103 - client_7 - INFO - Client 7 | Epoch 51 | Batch 10/40 | Loss: 1.1496 | Images/sec: 2493.35 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 66.8750
+2025-09-02 14:08:46,553 - client_7 - INFO - Client 7 | Epoch 51 | Batch 20/40 | Loss: 1.1406 | Images/sec: 2656.32 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 66.8359
+2025-09-02 14:08:47,006 - client_7 - INFO - Client 7 | Epoch 51 | Batch 30/40 | Loss: 1.1114 | Images/sec: 2710.46 | Progress: 75.0% | Time: 1.42s | lr: 0.05 | train_acc: 67.5000
+2025-09-02 14:08:47,347 - client_7 - INFO - Client 7 | Epoch 51 | Batch 40/40 | Loss: 1.1126 | Images/sec: 2845.09 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 67.4000
+2025-09-02 14:08:49,671 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2199.12s | Average Loss: 1.7528 | World Size: 8 | train_acc: 81.0000 | val_acc: 30.4000 | lr: 0.0390
+2025-09-02 14:08:50,162 - client_7 - INFO - Client 7 | Epoch 52 | Batch 10/40 | Loss: 0.9841 | Images/sec: 2661.48 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 69.7656
+2025-09-02 14:08:50,621 - client_7 - INFO - Client 7 | Epoch 52 | Batch 20/40 | Loss: 1.0089 | Images/sec: 2724.39 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 68.5938
+2025-09-02 14:08:51,014 - client_7 - INFO - Client 7 | Epoch 52 | Batch 30/40 | Loss: 1.0254 | Images/sec: 2881.36 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 68.4896
+2025-09-02 14:08:51,412 - client_7 - INFO - Client 7 | Epoch 52 | Batch 40/40 | Loss: 1.0163 | Images/sec: 2889.14 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 69.0800
+2025-09-02 14:08:54,267 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2203.71s | Average Loss: 1.7513 | World Size: 8 | train_acc: 86.7400 | val_acc: 32.4000 | lr: 0.0386
+2025-09-02 14:08:55,082 - client_7 - INFO - Client 7 | Epoch 53 | Batch 10/40 | Loss: 1.0985 | Images/sec: 1595.88 | Progress: 25.0% | Time: 0.80s | lr: 0.05 | train_acc: 67.5781
+2025-09-02 14:08:55,655 - client_7 - INFO - Client 7 | Epoch 53 | Batch 20/40 | Loss: 1.1102 | Images/sec: 1861.33 | Progress: 50.0% | Time: 1.38s | lr: 0.05 | train_acc: 66.7578
+2025-09-02 14:08:56,038 - client_7 - INFO - Client 7 | Epoch 53 | Batch 30/40 | Loss: 1.1115 | Images/sec: 2183.46 | Progress: 75.0% | Time: 1.76s | lr: 0.05 | train_acc: 66.5365
+2025-09-02 14:08:56,417 - client_7 - INFO - Client 7 | Epoch 53 | Batch 40/40 | Loss: 1.1060 | Images/sec: 2339.38 | Progress: 100.0% | Time: 2.14s | lr: 0.05 | train_acc: 66.7600
+2025-09-02 14:08:58,705 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2208.15s | Average Loss: 1.7501 | World Size: 8 | train_acc: 83.9400 | val_acc: 31.1200 | lr: 0.0381
+2025-09-02 14:08:59,189 - client_7 - INFO - Client 7 | Epoch 54 | Batch 10/40 | Loss: 0.9808 | Images/sec: 2715.57 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 70.6250
+2025-09-02 14:08:59,621 - client_7 - INFO - Client 7 | Epoch 54 | Batch 20/40 | Loss: 0.9811 | Images/sec: 2833.87 | Progress: 50.0% | Time: 0.90s | lr: 0.05 | train_acc: 70.1172
+2025-09-02 14:09:00,044 - client_7 - INFO - Client 7 | Epoch 54 | Batch 30/40 | Loss: 0.9839 | Images/sec: 2895.52 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 70.2344
+2025-09-02 14:09:00,423 - client_7 - INFO - Client 7 | Epoch 54 | Batch 40/40 | Loss: 0.9857 | Images/sec: 2932.73 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 70.5200
+2025-09-02 14:09:02,831 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2212.27s | Average Loss: 1.7485 | World Size: 8 | train_acc: 80.7400 | val_acc: 31.7600 | lr: 0.0377
+2025-09-02 14:09:03,318 - client_7 - INFO - Client 7 | Epoch 55 | Batch 10/40 | Loss: 1.0285 | Images/sec: 2709.18 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 70.1562
+2025-09-02 14:09:03,776 - client_7 - INFO - Client 7 | Epoch 55 | Batch 20/40 | Loss: 1.0785 | Images/sec: 2750.48 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 68.0859
+2025-09-02 14:09:04,226 - client_7 - INFO - Client 7 | Epoch 55 | Batch 30/40 | Loss: 1.0712 | Images/sec: 2781.36 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 68.1771
+2025-09-02 14:09:04,568 - client_7 - INFO - Client 7 | Epoch 55 | Batch 40/40 | Loss: 1.0622 | Images/sec: 2902.20 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 68.4200
+2025-09-02 14:09:07,437 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2216.88s | Average Loss: 1.7472 | World Size: 8 | train_acc: 85.7400 | val_acc: 31.8400 | lr: 0.0372
+2025-09-02 14:09:08,283 - client_7 - INFO - Client 7 | Epoch 56 | Batch 10/40 | Loss: 0.8937 | Images/sec: 1537.79 | Progress: 25.0% | Time: 0.83s | lr: 0.05 | train_acc: 73.5156
+2025-09-02 14:09:08,797 - client_7 - INFO - Client 7 | Epoch 56 | Batch 20/40 | Loss: 0.8877 | Images/sec: 1902.12 | Progress: 50.0% | Time: 1.35s | lr: 0.05 | train_acc: 73.4375
+2025-09-02 14:09:09,237 - client_7 - INFO - Client 7 | Epoch 56 | Batch 30/40 | Loss: 0.9028 | Images/sec: 2149.51 | Progress: 75.0% | Time: 1.79s | lr: 0.05 | train_acc: 73.0990
+2025-09-02 14:09:09,581 - client_7 - INFO - Client 7 | Epoch 56 | Batch 40/40 | Loss: 0.9165 | Images/sec: 2347.35 | Progress: 100.0% | Time: 2.13s | lr: 0.05 | train_acc: 72.6600
+2025-09-02 14:09:11,892 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2221.34s | Average Loss: 1.7455 | World Size: 8 | train_acc: 84.9800 | val_acc: 31.7600 | lr: 0.0367
+2025-09-02 14:09:12,430 - client_7 - INFO - Client 7 | Epoch 57 | Batch 10/40 | Loss: 0.9629 | Images/sec: 2466.40 | Progress: 25.0% | Time: 0.52s | lr: 0.05 | train_acc: 70.3125
+2025-09-02 14:09:12,865 - client_7 - INFO - Client 7 | Epoch 57 | Batch 20/40 | Loss: 0.9612 | Images/sec: 2683.70 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 70.5469
+2025-09-02 14:09:13,319 - client_7 - INFO - Client 7 | Epoch 57 | Batch 30/40 | Loss: 0.9791 | Images/sec: 2726.63 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 69.8698
+2025-09-02 14:09:13,667 - client_7 - INFO - Client 7 | Epoch 57 | Batch 40/40 | Loss: 0.9683 | Images/sec: 2848.29 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 70.3200
+2025-09-02 14:09:15,986 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2225.43s | Average Loss: 1.7440 | World Size: 8 | train_acc: 87.4400 | val_acc: 31.8400 | lr: 0.0362
+2025-09-02 14:09:16,485 - client_7 - INFO - Client 7 | Epoch 58 | Batch 10/40 | Loss: 0.9970 | Images/sec: 2619.96 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 70.4688
+2025-09-02 14:09:16,918 - client_7 - INFO - Client 7 | Epoch 58 | Batch 20/40 | Loss: 1.0160 | Images/sec: 2777.20 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 70.0781
+2025-09-02 14:09:17,350 - client_7 - INFO - Client 7 | Epoch 58 | Batch 30/40 | Loss: 1.0416 | Images/sec: 2836.47 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 69.1667
+2025-09-02 14:09:17,731 - client_7 - INFO - Client 7 | Epoch 58 | Batch 40/40 | Loss: 1.0284 | Images/sec: 2882.38 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 69.2600
+2025-09-02 14:09:20,575 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2230.02s | Average Loss: 1.7426 | World Size: 8 | train_acc: 85.8600 | val_acc: 32.9600 | lr: 0.0357
+2025-09-02 14:09:21,402 - client_7 - INFO - Client 7 | Epoch 59 | Batch 10/40 | Loss: 1.1025 | Images/sec: 1573.16 | Progress: 25.0% | Time: 0.81s | lr: 0.05 | train_acc: 68.6719
+2025-09-02 14:09:21,976 - client_7 - INFO - Client 7 | Epoch 59 | Batch 20/40 | Loss: 1.0504 | Images/sec: 1844.51 | Progress: 50.0% | Time: 1.39s | lr: 0.05 | train_acc: 69.1016
+2025-09-02 14:09:22,401 - client_7 - INFO - Client 7 | Epoch 59 | Batch 30/40 | Loss: 1.0297 | Images/sec: 2118.96 | Progress: 75.0% | Time: 1.81s | lr: 0.05 | train_acc: 69.2188
+2025-09-02 14:09:22,764 - client_7 - INFO - Client 7 | Epoch 59 | Batch 40/40 | Loss: 1.0109 | Images/sec: 2298.59 | Progress: 100.0% | Time: 2.18s | lr: 0.05 | train_acc: 69.7200
+2025-09-02 14:09:25,099 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2234.54s | Average Loss: 1.7411 | World Size: 8 | train_acc: 85.2000 | val_acc: 29.6800 | lr: 0.0353
+2025-09-02 14:09:25,575 - client_7 - INFO - Client 7 | Epoch 60 | Batch 10/40 | Loss: 1.0829 | Images/sec: 2746.15 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 68.5156
+2025-09-02 14:09:26,015 - client_7 - INFO - Client 7 | Epoch 60 | Batch 20/40 | Loss: 1.0689 | Images/sec: 2825.29 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 68.6719
+2025-09-02 14:09:26,418 - client_7 - INFO - Client 7 | Epoch 60 | Batch 30/40 | Loss: 1.0454 | Images/sec: 2933.70 | Progress: 75.0% | Time: 1.31s | lr: 0.05 | train_acc: 69.5312
+2025-09-02 14:09:26,807 - client_7 - INFO - Client 7 | Epoch 60 | Batch 40/40 | Loss: 1.0030 | Images/sec: 2944.90 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 70.6200
+2025-09-02 14:09:29,080 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2238.52s | Average Loss: 1.7397 | World Size: 8 | train_acc: 87.0800 | val_acc: 33.0400 | lr: 0.0348
+2025-09-02 14:09:29,577 - client_7 - INFO - Client 7 | Epoch 61 | Batch 10/40 | Loss: 0.9363 | Images/sec: 2640.96 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 72.1094
+2025-09-02 14:09:30,004 - client_7 - INFO - Client 7 | Epoch 61 | Batch 20/40 | Loss: 0.9079 | Images/sec: 2808.21 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 73.0859
+2025-09-02 14:09:30,479 - client_7 - INFO - Client 7 | Epoch 61 | Batch 30/40 | Loss: 0.9147 | Images/sec: 2769.62 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 72.9427
+2025-09-02 14:09:30,834 - client_7 - INFO - Client 7 | Epoch 61 | Batch 40/40 | Loss: 0.9088 | Images/sec: 2871.16 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 72.9200
+2025-09-02 14:09:33,778 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2243.22s | Average Loss: 1.7380 | World Size: 8 | train_acc: 88.7000 | val_acc: 31.9200 | lr: 0.0343
+2025-09-02 14:09:34,656 - client_7 - INFO - Client 7 | Epoch 62 | Batch 10/40 | Loss: 0.8330 | Images/sec: 1482.14 | Progress: 25.0% | Time: 0.86s | lr: 0.05 | train_acc: 74.5312
+2025-09-02 14:09:35,188 - client_7 - INFO - Client 7 | Epoch 62 | Batch 20/40 | Loss: 0.8740 | Images/sec: 1834.13 | Progress: 50.0% | Time: 1.40s | lr: 0.05 | train_acc: 73.7109
+2025-09-02 14:09:35,653 - client_7 - INFO - Client 7 | Epoch 62 | Batch 30/40 | Loss: 0.8703 | Images/sec: 2063.70 | Progress: 75.0% | Time: 1.86s | lr: 0.05 | train_acc: 73.5417
+2025-09-02 14:09:36,004 - client_7 - INFO - Client 7 | Epoch 62 | Batch 40/40 | Loss: 0.8751 | Images/sec: 2261.48 | Progress: 100.0% | Time: 2.21s | lr: 0.05 | train_acc: 73.4400
+2025-09-02 14:09:38,386 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2247.83s | Average Loss: 1.7363 | World Size: 8 | train_acc: 90.5200 | val_acc: 33.8400 | lr: 0.0337
+2025-09-02 14:09:38,925 - client_7 - INFO - Client 7 | Epoch 63 | Batch 10/40 | Loss: 0.9037 | Images/sec: 2426.62 | Progress: 25.0% | Time: 0.53s | lr: 0.05 | train_acc: 71.5625
+2025-09-02 14:09:39,338 - client_7 - INFO - Client 7 | Epoch 63 | Batch 20/40 | Loss: 0.8927 | Images/sec: 2722.81 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 73.2812
+2025-09-02 14:09:39,812 - client_7 - INFO - Client 7 | Epoch 63 | Batch 30/40 | Loss: 0.8875 | Images/sec: 2714.35 | Progress: 75.0% | Time: 1.41s | lr: 0.05 | train_acc: 73.0990
+2025-09-02 14:09:40,179 - client_7 - INFO - Client 7 | Epoch 63 | Batch 40/40 | Loss: 0.8959 | Images/sec: 2806.72 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 72.7000
+2025-09-02 14:09:42,590 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2252.03s | Average Loss: 1.7347 | World Size: 8 | train_acc: 89.2200 | val_acc: 32.1600 | lr: 0.0332
+2025-09-02 14:09:43,114 - client_7 - INFO - Client 7 | Epoch 64 | Batch 10/40 | Loss: 0.9967 | Images/sec: 2492.39 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 70.0000
+2025-09-02 14:09:43,557 - client_7 - INFO - Client 7 | Epoch 64 | Batch 20/40 | Loss: 0.9887 | Images/sec: 2675.55 | Progress: 50.0% | Time: 0.96s | lr: 0.05 | train_acc: 70.4297
+2025-09-02 14:09:43,994 - client_7 - INFO - Client 7 | Epoch 64 | Batch 30/40 | Loss: 0.9702 | Images/sec: 2756.24 | Progress: 75.0% | Time: 1.39s | lr: 0.05 | train_acc: 70.9635
+2025-09-02 14:09:44,386 - client_7 - INFO - Client 7 | Epoch 64 | Batch 40/40 | Loss: 0.9439 | Images/sec: 2800.02 | Progress: 100.0% | Time: 1.79s | lr: 0.05 | train_acc: 71.9000
+2025-09-02 14:09:47,522 - client_7 - INFO - [Client 7/8] Epoch 129 completed in 2256.97s | Average Loss: 1.7332 | World Size: 8 | train_acc: 88.4600 | val_acc: 31.7600 | lr: 0.0327
+2025-09-02 14:21:20,592 - client_7 - INFO - Resumed metrics from logs/localSGD_lenet5_seq_cifar100_w8_20250902_125438_metrics_client7.json
+2025-09-02 14:21:21,096 - client_7 - INFO - Client 7 | Epoch 1 | Batch 10/40 | Loss: 2.2704 | Images/sec: 2598.67 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 40.9375
+2025-09-02 14:21:21,544 - client_7 - INFO - Client 7 | Epoch 1 | Batch 20/40 | Loss: 2.2439 | Images/sec: 2720.00 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 41.6016
+2025-09-02 14:21:21,971 - client_7 - INFO - Client 7 | Epoch 1 | Batch 30/40 | Loss: 2.2546 | Images/sec: 2806.15 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 41.4844
+2025-09-02 14:21:22,331 - client_7 - INFO - Client 7 | Epoch 1 | Batch 40/40 | Loss: 2.2640 | Images/sec: 2894.07 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 41.3200
+2025-09-02 14:21:22,370 - client_7 - INFO - [Client 7] Completed local epoch 1/22 | Final Loss: 2.2640 | Final Train Acc: 41.32%
+2025-09-02 14:21:24,699 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 696.02s | Average Loss: 1.8047 | World Size: 8 | train_acc: 47.2000 | val_acc: 40.4800 | lr: 0.0100
+2025-09-02 14:21:25,212 - client_7 - INFO - Client 7 | Epoch 2 | Batch 10/40 | Loss: 2.1659 | Images/sec: 2557.08 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 41.8750
+2025-09-02 14:21:25,755 - client_7 - INFO - Client 7 | Epoch 2 | Batch 20/40 | Loss: 2.1888 | Images/sec: 2452.46 | Progress: 50.0% | Time: 1.04s | lr: 0.05 | train_acc: 42.5000
+2025-09-02 14:21:26,392 - client_7 - INFO - Client 7 | Epoch 2 | Batch 30/40 | Loss: 2.1990 | Images/sec: 2285.42 | Progress: 75.0% | Time: 1.68s | lr: 0.05 | train_acc: 42.1094
+2025-09-02 14:21:26,991 - client_7 - INFO - Client 7 | Epoch 2 | Batch 40/40 | Loss: 2.1785 | Images/sec: 2193.43 | Progress: 100.0% | Time: 2.28s | lr: 0.05 | train_acc: 42.6200
+2025-09-02 14:21:27,044 - client_7 - INFO - [Client 7] Completed local epoch 2/22 | Final Loss: 2.1785 | Final Train Acc: 42.62%
+2025-09-02 14:21:29,898 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 701.22s | Average Loss: 1.8071 | World Size: 8 | train_acc: 50.3600 | val_acc: 40.7200 | lr: 0.0200
+2025-09-02 14:21:30,425 - client_7 - INFO - Client 7 | Epoch 3 | Batch 10/40 | Loss: 2.0964 | Images/sec: 2490.98 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 46.8750
+2025-09-02 14:21:30,861 - client_7 - INFO - Client 7 | Epoch 3 | Batch 20/40 | Loss: 2.1378 | Images/sec: 2696.62 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 44.2188
+2025-09-02 14:21:31,293 - client_7 - INFO - Client 7 | Epoch 3 | Batch 30/40 | Loss: 2.1456 | Images/sec: 2779.09 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 43.0469
+2025-09-02 14:21:31,686 - client_7 - INFO - Client 7 | Epoch 3 | Batch 40/40 | Loss: 2.1346 | Images/sec: 2817.35 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 43.2600
+2025-09-02 14:21:31,724 - client_7 - INFO - [Client 7] Completed local epoch 3/22 | Final Loss: 2.1346 | Final Train Acc: 43.26%
+2025-09-02 14:21:33,983 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 705.31s | Average Loss: 1.8092 | World Size: 8 | train_acc: 52.0200 | val_acc: 39.8400 | lr: 0.0300
+2025-09-02 14:21:34,549 - client_7 - INFO - Client 7 | Epoch 4 | Batch 10/40 | Loss: 2.1297 | Images/sec: 2303.09 | Progress: 25.0% | Time: 0.56s | lr: 0.05 | train_acc: 41.7188
+2025-09-02 14:21:34,960 - client_7 - INFO - Client 7 | Epoch 4 | Batch 20/40 | Loss: 2.1139 | Images/sec: 2648.00 | Progress: 50.0% | Time: 0.97s | lr: 0.05 | train_acc: 43.2422
+2025-09-02 14:21:35,359 - client_7 - INFO - Client 7 | Epoch 4 | Batch 30/40 | Loss: 2.0783 | Images/sec: 2811.62 | Progress: 75.0% | Time: 1.37s | lr: 0.05 | train_acc: 43.6979
+2025-09-02 14:21:35,767 - client_7 - INFO - Client 7 | Epoch 4 | Batch 40/40 | Loss: 2.0891 | Images/sec: 2818.22 | Progress: 100.0% | Time: 1.77s | lr: 0.05 | train_acc: 43.2200
+2025-09-02 14:21:35,817 - client_7 - INFO - [Client 7] Completed local epoch 4/22 | Final Loss: 2.0891 | Final Train Acc: 43.22%
+2025-09-02 14:21:38,104 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 709.43s | Average Loss: 1.8110 | World Size: 8 | train_acc: 49.6400 | val_acc: 35.2000 | lr: 0.0400
+2025-09-02 14:21:38,588 - client_7 - INFO - Client 7 | Epoch 5 | Batch 10/40 | Loss: 2.0858 | Images/sec: 2709.16 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 42.4219
+2025-09-02 14:21:39,156 - client_7 - INFO - Client 7 | Epoch 5 | Batch 20/40 | Loss: 2.0964 | Images/sec: 2460.37 | Progress: 50.0% | Time: 1.04s | lr: 0.05 | train_acc: 43.2031
+2025-09-02 14:21:39,795 - client_7 - INFO - Client 7 | Epoch 5 | Batch 30/40 | Loss: 2.1116 | Images/sec: 2285.17 | Progress: 75.0% | Time: 1.68s | lr: 0.05 | train_acc: 43.0990
+2025-09-02 14:21:40,332 - client_7 - INFO - Client 7 | Epoch 5 | Batch 40/40 | Loss: 2.1065 | Images/sec: 2255.68 | Progress: 100.0% | Time: 2.22s | lr: 0.05 | train_acc: 42.7600
+2025-09-02 14:21:40,387 - client_7 - INFO - [Client 7] Completed local epoch 5/22 | Final Loss: 2.1065 | Final Train Acc: 42.76%
+2025-09-02 14:21:43,302 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 714.63s | Average Loss: 1.8128 | World Size: 8 | train_acc: 50.7800 | val_acc: 34.1600 | lr: 0.0500
+2025-09-02 14:21:43,803 - client_7 - INFO - Client 7 | Epoch 6 | Batch 10/40 | Loss: 2.1664 | Images/sec: 2607.00 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 42.9688
+2025-09-02 14:21:44,235 - client_7 - INFO - Client 7 | Epoch 6 | Batch 20/40 | Loss: 2.1747 | Images/sec: 2773.74 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 42.0703
+2025-09-02 14:21:44,645 - client_7 - INFO - Client 7 | Epoch 6 | Batch 30/40 | Loss: 2.1489 | Images/sec: 2880.84 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 42.2656
+2025-09-02 14:21:45,041 - client_7 - INFO - Client 7 | Epoch 6 | Batch 40/40 | Loss: 2.1322 | Images/sec: 2892.14 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 42.3800
+2025-09-02 14:21:45,090 - client_7 - INFO - [Client 7] Completed local epoch 6/22 | Final Loss: 2.1322 | Final Train Acc: 42.38%
+2025-09-02 14:21:47,358 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 718.68s | Average Loss: 1.8148 | World Size: 8 | train_acc: 51.8200 | val_acc: 34.6400 | lr: 0.0500
+2025-09-02 14:21:47,836 - client_7 - INFO - Client 7 | Epoch 7 | Batch 10/40 | Loss: 2.0387 | Images/sec: 2739.16 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 45.4688
+2025-09-02 14:21:48,300 - client_7 - INFO - Client 7 | Epoch 7 | Batch 20/40 | Loss: 2.0447 | Images/sec: 2748.14 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 44.4531
+2025-09-02 14:21:48,712 - client_7 - INFO - Client 7 | Epoch 7 | Batch 30/40 | Loss: 2.0347 | Images/sec: 2859.47 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 44.9219
+2025-09-02 14:21:49,090 - client_7 - INFO - Client 7 | Epoch 7 | Batch 40/40 | Loss: 2.0370 | Images/sec: 2904.55 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 44.6200
+2025-09-02 14:21:49,127 - client_7 - INFO - [Client 7] Completed local epoch 7/22 | Final Loss: 2.0370 | Final Train Acc: 44.62%
+2025-09-02 14:21:51,495 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 722.82s | Average Loss: 1.8162 | World Size: 8 | train_acc: 46.8800 | val_acc: 29.9200 | lr: 0.0500
+2025-09-02 14:21:52,001 - client_7 - INFO - Client 7 | Epoch 8 | Batch 10/40 | Loss: 1.9618 | Images/sec: 2589.93 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 47.8125
+2025-09-02 14:21:52,557 - client_7 - INFO - Client 7 | Epoch 8 | Batch 20/40 | Loss: 1.9919 | Images/sec: 2437.08 | Progress: 50.0% | Time: 1.05s | lr: 0.05 | train_acc: 46.1719
+2025-09-02 14:21:53,240 - client_7 - INFO - Client 7 | Epoch 8 | Batch 30/40 | Loss: 1.9811 | Images/sec: 2215.99 | Progress: 75.0% | Time: 1.73s | lr: 0.05 | train_acc: 45.4167
+2025-09-02 14:21:53,786 - client_7 - INFO - Client 7 | Epoch 8 | Batch 40/40 | Loss: 1.9782 | Images/sec: 2194.30 | Progress: 100.0% | Time: 2.28s | lr: 0.05 | train_acc: 45.3200
+2025-09-02 14:21:53,834 - client_7 - INFO - [Client 7] Completed local epoch 8/22 | Final Loss: 1.9782 | Final Train Acc: 45.32%
+2025-09-02 14:21:56,764 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 728.09s | Average Loss: 1.8172 | World Size: 8 | train_acc: 51.2400 | val_acc: 31.2800 | lr: 0.0500
+2025-09-02 14:21:57,254 - client_7 - INFO - Client 7 | Epoch 9 | Batch 10/40 | Loss: 1.8462 | Images/sec: 2673.02 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 50.7812
+2025-09-02 14:21:57,728 - client_7 - INFO - Client 7 | Epoch 9 | Batch 20/40 | Loss: 1.8852 | Images/sec: 2686.74 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 48.9453
+2025-09-02 14:21:58,129 - client_7 - INFO - Client 7 | Epoch 9 | Batch 30/40 | Loss: 1.8829 | Images/sec: 2837.50 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 48.5417
+2025-09-02 14:21:58,514 - client_7 - INFO - Client 7 | Epoch 9 | Batch 40/40 | Loss: 1.8887 | Images/sec: 2874.79 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 48.2400
+2025-09-02 14:21:58,555 - client_7 - INFO - [Client 7] Completed local epoch 9/22 | Final Loss: 1.8887 | Final Train Acc: 48.24%
+2025-09-02 14:22:00,894 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 732.22s | Average Loss: 1.8176 | World Size: 8 | train_acc: 60.0000 | val_acc: 32.8000 | lr: 0.0499
+2025-09-02 14:22:01,389 - client_7 - INFO - Client 7 | Epoch 10 | Batch 10/40 | Loss: 1.8258 | Images/sec: 2717.63 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 48.8281
+2025-09-02 14:22:01,845 - client_7 - INFO - Client 7 | Epoch 10 | Batch 20/40 | Loss: 1.8973 | Images/sec: 2759.86 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 48.0078
+2025-09-02 14:22:02,273 - client_7 - INFO - Client 7 | Epoch 10 | Batch 30/40 | Loss: 1.8853 | Images/sec: 2833.65 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 48.3854
+2025-09-02 14:22:02,646 - client_7 - INFO - Client 7 | Epoch 10 | Batch 40/40 | Loss: 1.8730 | Images/sec: 2892.77 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 48.6600
+2025-09-02 14:22:02,684 - client_7 - INFO - [Client 7] Completed local epoch 10/22 | Final Loss: 1.8730 | Final Train Acc: 48.66%
+2025-09-02 14:22:05,021 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 736.34s | Average Loss: 1.8180 | World Size: 8 | train_acc: 58.6600 | val_acc: 32.1600 | lr: 0.0499
+2025-09-02 14:22:05,526 - client_7 - INFO - Client 7 | Epoch 11 | Batch 10/40 | Loss: 1.9543 | Images/sec: 2590.38 | Progress: 25.0% | Time: 0.49s | lr: 0.05 | train_acc: 45.7812
+2025-09-02 14:22:06,089 - client_7 - INFO - Client 7 | Epoch 11 | Batch 20/40 | Loss: 1.9270 | Images/sec: 2420.27 | Progress: 50.0% | Time: 1.06s | lr: 0.05 | train_acc: 46.3672
+2025-09-02 14:22:06,728 - client_7 - INFO - Client 7 | Epoch 11 | Batch 30/40 | Loss: 1.9059 | Images/sec: 2262.95 | Progress: 75.0% | Time: 1.70s | lr: 0.05 | train_acc: 47.0833
+2025-09-02 14:22:07,354 - client_7 - INFO - Client 7 | Epoch 11 | Batch 40/40 | Loss: 1.8701 | Images/sec: 2152.30 | Progress: 100.0% | Time: 2.32s | lr: 0.05 | train_acc: 47.6600
+2025-09-02 14:22:07,407 - client_7 - INFO - [Client 7] Completed local epoch 11/22 | Final Loss: 1.8701 | Final Train Acc: 47.66%
+2025-09-02 14:22:10,230 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 741.55s | Average Loss: 1.8183 | World Size: 8 | train_acc: 60.5000 | val_acc: 33.0400 | lr: 0.0499
+2025-09-02 14:22:10,746 - client_7 - INFO - Client 7 | Epoch 12 | Batch 10/40 | Loss: 1.6459 | Images/sec: 2530.21 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 51.9531
+2025-09-02 14:22:11,188 - client_7 - INFO - Client 7 | Epoch 12 | Batch 20/40 | Loss: 1.6857 | Images/sec: 2702.38 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 52.3438
+2025-09-02 14:22:11,589 - client_7 - INFO - Client 7 | Epoch 12 | Batch 30/40 | Loss: 1.7255 | Images/sec: 2848.31 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 51.1979
+2025-09-02 14:22:11,951 - client_7 - INFO - Client 7 | Epoch 12 | Batch 40/40 | Loss: 1.7194 | Images/sec: 2923.49 | Progress: 100.0% | Time: 1.71s | lr: 0.05 | train_acc: 51.1600
+2025-09-02 14:22:12,000 - client_7 - INFO - [Client 7] Completed local epoch 12/22 | Final Loss: 1.7194 | Final Train Acc: 51.16%
+2025-09-02 14:22:14,305 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 745.63s | Average Loss: 1.8177 | World Size: 8 | train_acc: 66.3800 | val_acc: 33.6000 | lr: 0.0498
+2025-09-02 14:22:14,819 - client_7 - INFO - Client 7 | Epoch 13 | Batch 10/40 | Loss: 1.6326 | Images/sec: 2544.91 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 54.3750
+2025-09-02 14:22:15,245 - client_7 - INFO - Client 7 | Epoch 13 | Batch 20/40 | Loss: 1.6624 | Images/sec: 2756.76 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 53.6328
+2025-09-02 14:22:15,677 - client_7 - INFO - Client 7 | Epoch 13 | Batch 30/40 | Loss: 1.6607 | Images/sec: 2822.54 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 54.0885
+2025-09-02 14:22:16,049 - client_7 - INFO - Client 7 | Epoch 13 | Batch 40/40 | Loss: 1.6712 | Images/sec: 2884.85 | Progress: 100.0% | Time: 1.73s | lr: 0.05 | train_acc: 53.6600
+2025-09-02 14:22:16,087 - client_7 - INFO - [Client 7] Completed local epoch 13/22 | Final Loss: 1.6712 | Final Train Acc: 53.66%
+2025-09-02 14:22:18,357 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 749.68s | Average Loss: 1.8168 | World Size: 8 | train_acc: 65.0800 | val_acc: 31.6800 | lr: 0.0497
+2025-09-02 14:22:18,868 - client_7 - INFO - Client 7 | Epoch 14 | Batch 10/40 | Loss: 1.7783 | Images/sec: 2556.06 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 51.5625
+2025-09-02 14:22:19,394 - client_7 - INFO - Client 7 | Epoch 14 | Batch 20/40 | Loss: 1.7155 | Images/sec: 2492.84 | Progress: 50.0% | Time: 1.03s | lr: 0.05 | train_acc: 52.2266
+2025-09-02 14:22:20,129 - client_7 - INFO - Client 7 | Epoch 14 | Batch 30/40 | Loss: 1.6884 | Images/sec: 2179.60 | Progress: 75.0% | Time: 1.76s | lr: 0.05 | train_acc: 52.3958
+2025-09-02 14:22:20,638 - client_7 - INFO - Client 7 | Epoch 14 | Batch 40/40 | Loss: 1.6726 | Images/sec: 2202.26 | Progress: 100.0% | Time: 2.27s | lr: 0.05 | train_acc: 52.8800
+2025-09-02 14:22:20,701 - client_7 - INFO - [Client 7] Completed local epoch 14/22 | Final Loss: 1.6726 | Final Train Acc: 52.88%
+2025-09-02 14:22:23,626 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 754.95s | Average Loss: 1.8160 | World Size: 8 | train_acc: 61.8000 | val_acc: 32.8000 | lr: 0.0496
+2025-09-02 14:22:24,121 - client_7 - INFO - Client 7 | Epoch 15 | Batch 10/40 | Loss: 1.5059 | Images/sec: 2650.35 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 57.5000
+2025-09-02 14:22:24,545 - client_7 - INFO - Client 7 | Epoch 15 | Batch 20/40 | Loss: 1.5640 | Images/sec: 2824.08 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 55.5469
+2025-09-02 14:22:24,992 - client_7 - INFO - Client 7 | Epoch 15 | Batch 30/40 | Loss: 1.5817 | Images/sec: 2836.93 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 54.9740
+2025-09-02 14:22:25,342 - client_7 - INFO - Client 7 | Epoch 15 | Batch 40/40 | Loss: 1.5811 | Images/sec: 2935.39 | Progress: 100.0% | Time: 1.70s | lr: 0.05 | train_acc: 54.9000
+2025-09-02 14:22:25,378 - client_7 - INFO - [Client 7] Completed local epoch 15/22 | Final Loss: 1.5811 | Final Train Acc: 54.90%
+2025-09-02 14:22:27,662 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 758.99s | Average Loss: 1.8146 | World Size: 8 | train_acc: 66.9600 | val_acc: 32.9600 | lr: 0.0495
+2025-09-02 14:22:28,178 - client_7 - INFO - Client 7 | Epoch 16 | Batch 10/40 | Loss: 1.5182 | Images/sec: 2534.05 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 55.8594
+2025-09-02 14:22:28,612 - client_7 - INFO - Client 7 | Epoch 16 | Batch 20/40 | Loss: 1.5062 | Images/sec: 2726.50 | Progress: 50.0% | Time: 0.94s | lr: 0.05 | train_acc: 56.5625
+2025-09-02 14:22:29,038 - client_7 - INFO - Client 7 | Epoch 16 | Batch 30/40 | Loss: 1.5246 | Images/sec: 2813.46 | Progress: 75.0% | Time: 1.36s | lr: 0.05 | train_acc: 56.0938
+2025-09-02 14:22:29,436 - client_7 - INFO - Client 7 | Epoch 16 | Batch 40/40 | Loss: 1.5213 | Images/sec: 2836.57 | Progress: 100.0% | Time: 1.76s | lr: 0.05 | train_acc: 56.1800
+2025-09-02 14:22:29,472 - client_7 - INFO - [Client 7] Completed local epoch 16/22 | Final Loss: 1.5213 | Final Train Acc: 56.18%
+2025-09-02 14:22:31,763 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 763.09s | Average Loss: 1.8129 | World Size: 8 | train_acc: 65.4400 | val_acc: 33.6000 | lr: 0.0494
+2025-09-02 14:22:32,310 - client_7 - INFO - Client 7 | Epoch 17 | Batch 10/40 | Loss: 1.5491 | Images/sec: 2389.42 | Progress: 25.0% | Time: 0.54s | lr: 0.05 | train_acc: 55.5469
+2025-09-02 14:22:32,727 - client_7 - INFO - Client 7 | Epoch 17 | Batch 20/40 | Loss: 1.5432 | Images/sec: 2688.25 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 55.5078
+2025-09-02 14:22:33,327 - client_7 - INFO - Client 7 | Epoch 17 | Batch 30/40 | Loss: 1.5554 | Images/sec: 2473.36 | Progress: 75.0% | Time: 1.55s | lr: 0.05 | train_acc: 54.8958
+2025-09-02 14:22:33,842 - client_7 - INFO - Client 7 | Epoch 17 | Batch 40/40 | Loss: 1.5340 | Images/sec: 2418.66 | Progress: 100.0% | Time: 2.07s | lr: 0.05 | train_acc: 55.4600
+2025-09-02 14:22:33,897 - client_7 - INFO - [Client 7] Completed local epoch 17/22 | Final Loss: 1.5340 | Final Train Acc: 55.46%
+2025-09-02 14:22:36,907 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 768.23s | Average Loss: 1.8112 | World Size: 8 | train_acc: 67.8200 | val_acc: 30.6400 | lr: 0.0493
+2025-09-02 14:22:37,397 - client_7 - INFO - Client 7 | Epoch 18 | Batch 10/40 | Loss: 1.5386 | Images/sec: 2671.96 | Progress: 25.0% | Time: 0.48s | lr: 0.05 | train_acc: 55.0000
+2025-09-02 14:22:37,843 - client_7 - INFO - Client 7 | Epoch 18 | Batch 20/40 | Loss: 1.5431 | Images/sec: 2767.35 | Progress: 50.0% | Time: 0.93s | lr: 0.05 | train_acc: 55.9766
+2025-09-02 14:22:38,263 - client_7 - INFO - Client 7 | Epoch 18 | Batch 30/40 | Loss: 1.5320 | Images/sec: 2855.60 | Progress: 75.0% | Time: 1.34s | lr: 0.05 | train_acc: 56.4844
+2025-09-02 14:22:38,662 - client_7 - INFO - Client 7 | Epoch 18 | Batch 40/40 | Loss: 1.5388 | Images/sec: 2867.43 | Progress: 100.0% | Time: 1.74s | lr: 0.05 | train_acc: 56.3400
+2025-09-02 14:22:38,702 - client_7 - INFO - [Client 7] Completed local epoch 18/22 | Final Loss: 1.5388 | Final Train Acc: 56.34%
+2025-09-02 14:22:41,019 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 772.34s | Average Loss: 1.8096 | World Size: 8 | train_acc: 67.3600 | val_acc: 31.1200 | lr: 0.0492
+2025-09-02 14:22:41,501 - client_7 - INFO - Client 7 | Epoch 19 | Batch 10/40 | Loss: 1.5985 | Images/sec: 2722.95 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 53.2812
+2025-09-02 14:22:41,948 - client_7 - INFO - Client 7 | Epoch 19 | Batch 20/40 | Loss: 1.5674 | Images/sec: 2789.58 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 54.8438
+2025-09-02 14:22:42,362 - client_7 - INFO - Client 7 | Epoch 19 | Batch 30/40 | Loss: 1.5482 | Images/sec: 2883.54 | Progress: 75.0% | Time: 1.33s | lr: 0.05 | train_acc: 55.6510
+2025-09-02 14:22:42,751 - client_7 - INFO - Client 7 | Epoch 19 | Batch 40/40 | Loss: 1.5361 | Images/sec: 2905.91 | Progress: 100.0% | Time: 1.72s | lr: 0.05 | train_acc: 55.7600
+2025-09-02 14:22:42,800 - client_7 - INFO - [Client 7] Completed local epoch 19/22 | Final Loss: 1.5361 | Final Train Acc: 55.76%
+2025-09-02 14:22:45,047 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 776.37s | Average Loss: 1.8081 | World Size: 8 | train_acc: 67.1400 | val_acc: 33.3600 | lr: 0.0490
+2025-09-02 14:22:45,528 - client_7 - INFO - Client 7 | Epoch 20 | Batch 10/40 | Loss: 1.5210 | Images/sec: 2722.25 | Progress: 25.0% | Time: 0.47s | lr: 0.05 | train_acc: 57.1875
+2025-09-02 14:22:45,963 - client_7 - INFO - Client 7 | Epoch 20 | Batch 20/40 | Loss: 1.5328 | Images/sec: 2827.98 | Progress: 50.0% | Time: 0.91s | lr: 0.05 | train_acc: 57.5781
+2025-09-02 14:22:46,489 - client_7 - INFO - Client 7 | Epoch 20 | Batch 30/40 | Loss: 1.5181 | Images/sec: 2683.08 | Progress: 75.0% | Time: 1.43s | lr: 0.05 | train_acc: 57.6562
+2025-09-02 14:22:47,021 - client_7 - INFO - Client 7 | Epoch 20 | Batch 40/40 | Loss: 1.5140 | Images/sec: 2546.57 | Progress: 100.0% | Time: 1.96s | lr: 0.05 | train_acc: 57.3800
+2025-09-02 14:22:47,085 - client_7 - INFO - [Client 7] Completed local epoch 20/22 | Final Loss: 1.5140 | Final Train Acc: 57.38%
+2025-09-02 14:22:50,210 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 781.53s | Average Loss: 1.8064 | World Size: 8 | train_acc: 71.4400 | val_acc: 31.0400 | lr: 0.0489
+2025-09-02 14:22:50,739 - client_7 - INFO - Client 7 | Epoch 21 | Batch 10/40 | Loss: 1.4077 | Images/sec: 2499.07 | Progress: 25.0% | Time: 0.51s | lr: 0.05 | train_acc: 60.0000
+2025-09-02 14:22:51,178 - client_7 - INFO - Client 7 | Epoch 21 | Batch 20/40 | Loss: 1.4060 | Images/sec: 2690.69 | Progress: 50.0% | Time: 0.95s | lr: 0.05 | train_acc: 59.9219
+2025-09-02 14:22:51,612 - client_7 - INFO - Client 7 | Epoch 21 | Batch 30/40 | Loss: 1.3799 | Images/sec: 2773.17 | Progress: 75.0% | Time: 1.38s | lr: 0.05 | train_acc: 60.3385
+2025-09-02 14:22:51,973 - client_7 - INFO - Client 7 | Epoch 21 | Batch 40/40 | Loss: 1.3884 | Images/sec: 2863.07 | Progress: 100.0% | Time: 1.75s | lr: 0.05 | train_acc: 59.6400
+2025-09-02 14:22:52,010 - client_7 - INFO - [Client 7] Completed local epoch 21/22 | Final Loss: 1.3884 | Final Train Acc: 59.64%
+2025-09-02 14:22:54,270 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 785.59s | Average Loss: 1.8040 | World Size: 8 | train_acc: 74.0600 | val_acc: 33.8400 | lr: 0.0487
+2025-09-02 14:22:54,779 - client_7 - INFO - Client 7 | Epoch 22 | Batch 10/40 | Loss: 1.4350 | Images/sec: 2582.21 | Progress: 25.0% | Time: 0.50s | lr: 0.05 | train_acc: 58.1250
+2025-09-02 14:22:55,202 - client_7 - INFO - Client 7 | Epoch 22 | Batch 20/40 | Loss: 1.4573 | Images/sec: 2784.70 | Progress: 50.0% | Time: 0.92s | lr: 0.05 | train_acc: 58.2422
+2025-09-02 14:22:55,638 - client_7 - INFO - Client 7 | Epoch 22 | Batch 30/40 | Loss: 1.4399 | Images/sec: 2834.12 | Progress: 75.0% | Time: 1.35s | lr: 0.05 | train_acc: 58.8281
+2025-09-02 14:22:56,058 - client_7 - INFO - Client 7 | Epoch 22 | Batch 40/40 | Loss: 1.4208 | Images/sec: 2816.17 | Progress: 100.0% | Time: 1.78s | lr: 0.05 | train_acc: 59.3600
+2025-09-02 14:22:56,095 - client_7 - INFO - [Client 7] Completed local epoch 22/22 | Final Loss: 1.4208 | Final Train Acc: 59.36%
+2025-09-02 14:22:58,382 - client_7 - INFO - [Client 7/8] Epoch 151 completed in 789.71s | Average Loss: 1.8018 | World Size: 8 | train_acc: 73.7200 | val_acc: 34.0800 | lr: 0.0485
