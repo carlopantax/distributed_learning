@@ -4,6 +4,21 @@ from torch.optim.optimizer import Optimizer
 
 class LARS(Optimizer):
 
+    """
+    LARS (Layer-wise Adaptive Rate Scaling) optimizer.
+
+    Essentials:
+    - Scales each parameter/tensor by a local learning rate:
+        local_lr = eta * ||w|| / (||g|| + weight_decay * ||w|| + eps)
+    - Uses classic momentum on the (decayed) gradient:
+        v <- m * v + (g + weight_decay * w)
+        w <- w - base_lr * local_lr * v
+    - Weight decay here is *coupled* (L2) via (g + wd * w).
+    - `eta` is the trust coefficient; `eps` avoids division by zero.
+    - Maintains a per-parameter `momentum_buffer`. No closure support.
+    - Call `.step()` after `.backward()`; grads must be precomputed.
+    """
+
     def __init__(self, params, lr, momentum=0.9, weight_decay=0.0, eta=0.001, eps=1e-8):
         defaults = dict(lr=lr, momentum=momentum, weight_decay=weight_decay, eta=eta, eps=eps)
         super().__init__(params, defaults)
@@ -29,7 +44,6 @@ class LARS(Optimizer):
                 else:
                     local_lr = 1.0
 
-                # apply weight decay directly to the gradient
                 if weight_decay != 0:
                     grad = grad + weight_decay * p
 

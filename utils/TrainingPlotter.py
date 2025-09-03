@@ -11,27 +11,38 @@ import re
 
 class TrainingPlotter:
     """
-    Class to generate and save plots from training metrics.
-    Optimized for visualizing longer training runs with many epochs.
+    Utilities to visualize and save figures from training metrics.
+
+    Output layout (under `<log_dir>/plots`):
+      - {train_name}_client{rank}_epoch_loss.png
+      - {train_name}_client{rank}_accuracy.png
+      - {train_name}_epoch_times.png
+      - {train_name}_epoch_throughput.png
+      - {train_name}_accuracy.png
+      - {train_name}_learning_rate.png
+      - {train_name}_metrics_comparison.png
+      - {train_name}_summary.png
+      - Per-rank variants for comparison/summary where applicable
     """
 
     def __init__(self, log_dir='logs', train_name=None, metrics_files=None, world_size=1):
         """
-        Initialize the plotter.
+        Prepare the plotter and resolve the experiment name and metrics files.
 
         Args:
-            log_dir (str): Directory where logs are saved
-            train_name (str): Training experiment name
+            log_dir: Directory containing logs and metrics.
+            train_name: Run identifier.
+            metrics_files: Explicit list of metrics files to use.
+            world_size: Number of clients/workers expected.
         """
 
         self.log_dir = log_dir
         os.makedirs(os.path.join(log_dir, 'plots'), exist_ok=True)
         self.plots_dir = os.path.join(log_dir, 'plots')
 
-        # Set experiment name
         if train_name is None:
             metrics_files = [f for f in os.listdir(log_dir) if f.endswith('_metrics.json') or f.endswith('_metrics_combined.json')]
-            metrics_files.sort()  # ensure consistent order
+            metrics_files.sort() 
             if metrics_files:
                 train_name = metrics_files[-1].replace('_metrics.json', '').replace('_metrics_combined.json', '')
             else:
@@ -86,8 +97,13 @@ class TrainingPlotter:
 
     def _group_metrics_by_rank(self, all_metrics):
         """
-        Group and merge metrics by client ID across all rounds.
-        Returns: dict[rank] = merged_metrics_dict
+        Merge metrics across rounds for each client.
+
+        Args:
+            all_metrics: Output of `_load_all_metrics()`.
+
+        Returns:
+            Dict mapping client_id -> merged metrics dict (lists concatenated).
         """
         rank_metrics = defaultdict(lambda: defaultdict(list))
 
@@ -107,7 +123,13 @@ class TrainingPlotter:
 
     def _convert_metrics_list_to_dict(self, metrics_list):
         """
-        Converts a list of dicts (e.g., metrics for one client) into a single dict of lists.
+        Convert a list of metrics dicts into a single dict of lists.
+
+        Args:
+            metrics_list: Iterable of per-epoch/round dicts.
+
+        Returns:
+            Merged dict where each key maps to a list of values.
         """
         if not isinstance(metrics_list, list) or not metrics_list:
             return {}
@@ -124,7 +146,13 @@ class TrainingPlotter:
 
     def _get_epoch_range(self, num_epochs):
         """
-        Determines a suitable range of x-axis ticks based on number of epochs.
+        Choose readable tick spacing for the x-axis given the epoch count.
+
+        Args:
+            num_epochs: Number of epochs available.
+
+        Returns:
+            A list of epoch indices to use as ticks.
         """
         if num_epochs <= 20:
             return list(range(1, num_epochs + 1))
@@ -136,6 +164,9 @@ class TrainingPlotter:
             return list(range(1, num_epochs + 1, 10))
 
     def plot_epoch_loss(self):
+        """
+        Plot loss per epoch for each client (with min-loss marker and optional smoothing).
+        """
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
@@ -182,7 +213,9 @@ class TrainingPlotter:
 
 
     def plot_epoch_time(self):
-        """Plot the average epoch time across clients (aggregated over all their metrics files)."""
+        """
+        Plot the average epoch time across clients (aligned, padded if needed).
+        """
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
@@ -227,7 +260,9 @@ class TrainingPlotter:
 
 
     def plot_epoch_throughput(self):
-        """Plot the throughput for each epoch (aggregated from epoch time per client)."""
+        """
+        Plot a simple relative throughput proxy per epoch (1 / avg epoch time).
+        """
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
@@ -425,7 +460,13 @@ class TrainingPlotter:
 
 
     def plot_metric_comparison(self):
-        """Plot multiple metrics on the same graph for comparison."""
+        """
+        Overlay multiple epoch-level metrics for the run on a shared figure.
+
+        Produces a dual-axis plot:
+          - Left Y: losses
+          - Right Y: other metrics (e.g., accuracy, LR)
+        """
 
         all_metrics = self._load_all_metrics()
 
@@ -466,7 +507,6 @@ class TrainingPlotter:
 
         ax1.tick_params(axis='y', labelcolor='blue')
 
-    # Second axis for other metrics
         has_second_axis = False
         for key in available:
             if key not in ['epoch_loss', 'epoch_val_loss']:
@@ -500,7 +540,9 @@ class TrainingPlotter:
 
 
     def plot_summary(self):
-        """Generate a summary plot with multiple subplots for key metrics."""
+        """
+        Create a compact dashboard-style figure with key metrics subplots.
+        """
 
         all_metrics = self._load_all_metrics()
         if not all_metrics:
@@ -769,7 +811,6 @@ class TrainingPlotter:
             fig.tight_layout()
             ax1.set_xticks(self._get_epoch_range(len(epochs)))
 
-            # Combined legend
             lines1, labels1 = ax1.get_legend_handles_labels()
             if has_second_axis:
                 lines2, labels2 = ax2.get_legend_handles_labels()

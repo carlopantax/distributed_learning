@@ -11,16 +11,26 @@ from models.lenet import LeNet5
 import time
 from utils.outer_optimizer_bmuf import initialize_global_momentum, global_momentum_update
 from utils.slowmo import initialize_slowmo_state, slowmo_update
-from config import learning_rate, batch_size, epochs
 import os
 import json
 import math
 from collections import defaultdict
-from utils.distributed import setup_distributed, cleanup_distributed, is_main_process, setup_logger, get_rank, get_world_size
+
 os.environ["OMP_NUM_THREADS"] = "4"
 os.environ["MKL_NUM_THREADS"] = "4"
 
 def compute_accuracy(model, dataloader, device):
+    """
+    Compute top-1 accuracy on a given dataloader.
+
+    Args:
+        model: Torch model to evaluate.
+        dataloader: Iterable of (inputs, labels).
+        device: Device where tensors/model live.
+
+    Returns:
+        Accuracy percentage.
+    """
     model.eval()
     correct = total = 0
     with torch.no_grad():
@@ -33,7 +43,15 @@ def compute_accuracy(model, dataloader, device):
     return 100.0 * correct / total
 
 def average_models(models):
-    """Average weights of multiple models."""
+    """
+    Distributed Avg-style parameter averaging across client models.
+
+    Args:
+        models: List of torch.nn.Module with identical structure.
+
+    Returns:
+        A state_dict containing the elementwise mean of parameters.
+    """
     avg_state_dict = copy.deepcopy(models[0].state_dict())
     for key in avg_state_dict:
         for i in range(1, len(models)):
@@ -42,6 +60,18 @@ def average_models(models):
     return avg_state_dict
 
 def get_cosine_schedule_with_warmup(optimizer, warmup_epochs, total_epochs, base_lr):
+    """
+    Cosine LR schedule wrapped by LambdaLR with a linear warm-up phase.
+
+    Args:
+        optimizer: Wrapped optimizer.
+        warmup_epochs: Number of warm-up epochs.
+        total_epochs: Total epochs for cosine horizon.
+        base_lr: Unused here (kept for signature symmetry).
+
+    Returns:
+        torch.optim.lr_scheduler.LambdaLR instance.
+    """
     def lr_lambda(current_epoch):
         if current_epoch < warmup_epochs:
             return float(current_epoch + 1) / float(warmup_epochs)
@@ -52,26 +82,24 @@ def get_cosine_schedule_with_warmup(optimizer, warmup_epochs, total_epochs, base
 
 def train_distributed(args, epochs_override=None):
     """
-    Environment Variables (set automatically by torchrun):
-    - LOCAL_RANK: local GPU/process index on the current machine
-    - RANK: unique global process ID
-    - WORLD_SIZE: total number of processes (usually = number of GPUs)
+    Simulate LocalSGD with sequential clients and periodic model averaging.
 
-    This script is designed for single-machine multi-process training with torchrun.
+    Workflow:
+      - Split CIFAR-100 into `world_size` client loaders.
+      - For each round: each client trains `tau` local epochs starting from the
+        current global weights; per-batch/epoch metrics are logged.
+      - After all clients finish a round, average their weights.
+      - Optionally apply a global outer optimizer:
+          * BMUF-style momentum via `global_momentum_update`
+          * SlowMo-style update via `slowmo_update`
+      - Save global checkpoints and, at the end, plot metrics per client.
 
-    Examples:
-        !torchrun --nproc_per_node=2 train_distributed.py --tau 4 --batch_size 128 --lr 0.05 --weight_decay 5e-4      # for 2-CPU parallel training on one machine
+    Args:
+        args: Namespace containing training hyperparameters
+              (tau, batch_size, lr, weight_decay, world_size, epochs, etc.).
+        epochs_override: args.epochs.
 
-    In order to excute centalized training, you can run the script as follows:
-        !python train_centralized.py --resume --optimizer sgdm --lr 0.01 --weight_decay 1e-4
-        for SGDM: learning rate = [0.01, 0.05, 0.1], weight decay = [1e-4, 5e-4, 1e-3]
-        for AdamW: learning rate = [1e-4, 3e-4, 1e-3], weight decay = [0.01, 0.05, 0.1]
-)
-
-    To compare the results of centralized and distributed training, you can run the following command:
-        !python compare_runs.py
     """
-    
     num_clients = args.world_size
     tau = args.tau
 
@@ -89,7 +117,6 @@ def train_distributed(args, epochs_override=None):
     general_logger.log(f"Device: {device}")
     general_logger.log(f"Config: batch_size={args.batch_size}, lr={args.lr}, epochs={args.epochs}, tau={tau}")
 
-    # Dataset split
     client_loaders, client_val_loaders, testloader = load_cifar100(
         batch_size=args.batch_size,
         num_clients=num_clients
@@ -219,8 +246,6 @@ def train_distributed(args, epochs_override=None):
         
         torch.save(global_model.state_dict(), f'checkpoints/global_model_epoch{current_epoch}.pth')
 
-
-    # Last Round (if any remaining epochs)
     if remainder > 0:
         epoch_loss_total = 0.0
         total_seen_all_clients = 0

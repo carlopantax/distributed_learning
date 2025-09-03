@@ -18,6 +18,17 @@ os.environ["MKL_NUM_THREADS"] = "4"
 
 
 def compute_accuracy(model, dataloader, device):
+    """
+    Compute top-1 accuracy for a model on a given dataloader.
+
+    Args:
+        model: Torch model in eval or train mode.
+        dataloader: Iterable yielding (inputs, labels).
+        device: Target torch.device.
+
+    Returns:
+        float: Accuracy percentage.
+    """
     model.eval()
     correct = total = 0
     with torch.no_grad():
@@ -31,7 +42,16 @@ def compute_accuracy(model, dataloader, device):
 
 
 def compute_gradient_norm(model):
-    """Compute the L2 norm of gradients"""
+    """
+    Compute the global L2 norm of parameter gradients.
+
+    Aggregates the squared L2 norms over all parameters that currently have a
+    gradient and returns the square root. Parameters with `grad is None` are
+    ignored.
+
+    Returns:
+        float: ||g||_2 over all trainable parameters with gradients.
+    """
     total_norm = 0.0
     for p in model.parameters():
         if p.grad is not None:
@@ -41,7 +61,18 @@ def compute_gradient_norm(model):
 
 
 def average_models(models):
-    """Average weights of multiple models."""
+    """
+    Distributed Avg-style parameter averaging across client models.
+
+    Assumes all models share identical architecture and parameter keys. Produces
+    a new state_dict where each tensor is the elementwise arithmetic mean.
+
+    Args:
+        models: List[torch.nn.Module].
+
+    Returns:
+        dict: Averaged state_dict.
+    """
     avg_state_dict = copy.deepcopy(models[0].state_dict())
     for key in avg_state_dict:
         for i in range(1, len(models)):
@@ -51,6 +82,15 @@ def average_models(models):
 
 
 def get_cosine_schedule_with_warmup(optimizer, warmup_epochs, total_epochs, base_lr):
+    """
+    Build a LambdaLR with linear warm-up followed by cosine decay.W
+
+    Args:
+        optimizer: torch.optim.Optimizer to wrap.
+        warmup_epochs: int, number of warm-up epochs.
+        total_epochs: int, total training epochs.
+
+    """
     def lr_lambda(current_epoch):
         if current_epoch < warmup_epochs:
             return float(current_epoch + 1) / float(warmup_epochs)
@@ -62,7 +102,31 @@ def get_cosine_schedule_with_warmup(optimizer, warmup_epochs, total_epochs, base
 
 def train_distributed_dynamic_tau(args, epochs_override=None):
     """
-    Enhanced training with dynamic tau adjustment per client
+    LocalSGD with per-client dynamic τ (local epochs between syncs).
+
+    Flow:
+      1) Split CIFAR-100 across `world_size` clients (train/val per client).
+      2) Each active client trains locally up to its current τ, logging per-batch
+         and per-epoch metrics (loss, acc, grad-norm, etc.).
+      3) After each local epoch, the DynamicTauController evaluates signals
+         (val accuracy improvement, loss trend, gradient norm, relative model
+         divergence) to decide early synchronization and propose a new τ.
+      4) When a client syncs (early or at τ), its model is added to the
+         aggregation set; models are averaged (FedAvg).
+      5) Optionally apply a global outer optimizer (BMUF momentum or SlowMo)
+         on top of the averaged weights.
+      6) Save checkpoints, continue with the next sync round until all clients
+         complete `epochs_override or args.epochs` total local epochs.
+      7) At the end, evaluate on the test set and generate dynamic-τ plots.
+
+    Args:
+        args: Namespace with hyperparameters (tau, min/max_tau, patience,
+              improvement_threshold, lr, weight_decay, world_size, epochs, etc.).
+        epochs_override: Optional int to replace `args.epochs` for step parity.
+
+    Side effects:
+        - Writes logs/metrics JSON per client and checkpoints under ./logs, ./checkpoints
+        - Produces plots (timeline, perf vs τ, convergence) via DynamicTauPlotter.
     """
     num_clients = args.world_size
     initial_tau = args.tau
@@ -70,7 +134,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
     train_name = f"dynamic_tau_localSGD_lenet5_seq_cifar100_w{num_clients}_{time.strftime('%Y%m%d_%H%M%S')}"
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # Initialize dynamic tau controller
     tau_controller = DynamicTauController(
         initial_tau=initial_tau,
         patience=args.patience,
@@ -80,7 +143,7 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
     general_logger = TrainingLogger(
         log_dir='logs',
         train_name=train_name,
-        client_id=100,  # Special ID for general logger
+        client_id=100, 
         num_clients=num_clients
     )
 
@@ -88,7 +151,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
     general_logger.log(f"Device: {device}")
     general_logger.log(f"Config: batch_size={args.batch_size}, lr={args.lr}, epochs={args.epochs}")
 
-    # Dataset split
     client_loaders, client_val_loaders, testloader = load_cifar100(
         batch_size=args.batch_size,
         num_clients=num_clients
@@ -100,23 +162,18 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
     num_epochs = epochs_override if epochs_override is not None else args.epochs
     global_model = LeNet5(num_classes=100).to(device)
 
-    # Ensure directories exist
     os.makedirs('checkpoints', exist_ok=True)
     os.makedirs('logs', exist_ok=True)
-
-    # Initialize buffers for different optimizers
     momentum_buffer = None
     slowmo_buffer = None
 
     if args.use_global_momentum:
         momentum_buffer = initialize_global_momentum(global_model)
     elif args.use_slowmo:
-        slowmo_buffer = initialize_slowmo_state(global_model)  # Fixed: proper function call
-
-    # Initialize sync control variables (moved outside of conditional blocks)
+        slowmo_buffer = initialize_slowmo_state(global_model)
     clients_to_sync = set(range(num_clients))
     total_syncs = 0
-    max_syncs = num_epochs  # Maximum number of sync rounds
+    max_syncs = num_epochs
 
     while total_syncs < max_syncs and len(clients_to_sync) > 0:
         sync_start_time = time.time()
@@ -127,7 +184,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
         next_round_clients = set()
 
         for client_idx in clients_to_sync:
-            # Initialize client model
             model = LeNet5(num_classes=100).to(device)
             model.load_state_dict(global_model.state_dict())
             model.train()
@@ -146,13 +202,9 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
 
             current_tau = tau_controller.get_client_tau(client_idx)
             general_logger.log(f"Client {client_idx}: Starting with tau={current_tau}")
-
-            # Initialize variables for early sync detection
             should_sync = False
             new_tau = current_tau
             grad_norm = 0.0
-
-            # Train until tau or early stopping
             for local_epoch in range(current_tau):
                 model.train()
                 batch_start_time = time.time()
@@ -160,7 +212,7 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                 total_seen = 0
                 running_loss = 0.0
                 total_batches = len(client_loaders[client_idx])
-                log_freq = 10  # Log every 10 batches
+                log_freq = 10
 
                 for batch_idx, (inputs, labels) in enumerate(client_loaders[client_idx], start=1):
                     inputs, labels = inputs.to(device), labels.to(device)
@@ -168,8 +220,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                     outputs = model(inputs)
                     loss = criterion(outputs, labels)
                     loss.backward()
-
-                    # Compute gradient norm before optimizer step
                     grad_norm = compute_gradient_norm(model)
 
                     optimizer.step()
@@ -189,7 +239,7 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
 
                         logger.log_metrics(
                             epoch=tau_controller.client_states[client_idx]['total_epochs'],
-                            batch_idx=batch_idx - 1,  # 0-indexed for logger
+                            batch_idx=batch_idx - 1,
                             loss=avg_loss,
                             batch_size=inputs.size(0),
                             train_size=len(client_loaders[client_idx].dataset),
@@ -201,8 +251,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                                 'local_epoch': local_epoch + 1
                             }
                         )
-
-                # Epoch-level metrics
                 epoch_loss = running_loss / total_seen
                 train_acc = 100.0 * running_correct / total_seen
                 val_acc = compute_accuracy(model, client_val_loaders[client_idx], device)
@@ -210,7 +258,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
 
                 tau_controller.step_epoch(client_idx)
 
-                # Check if should sync early
                 should_sync, new_tau = tau_controller.should_sync_early(
                     client_id=client_idx,
                     current_val_acc=val_acc,
@@ -228,8 +275,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                     f"Should Sync: {should_sync} | New Tau: {new_tau}"
                 )
 
-
-                # Log epoch using your logger
                 current_global_epoch = tau_controller.client_states[client_idx]['total_epochs']
                 epoch_time = time.time() - sync_start_time
                 logger.log_epoch(
@@ -250,7 +295,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                 )
 
                 if should_sync:
-                    # Log tau change if different
                     if new_tau != current_tau:
                         reason = tau_controller.get_tau_change_reason(client_idx)
                         general_logger.log(
@@ -262,16 +306,10 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                     break
 
                 scheduler.step()
-
-            # Add model for averaging and prepare for next round
             models_to_average.append(model)
             tau_controller.on_sync(client_idx, new_tau)
-
-            # Check if client should continue training
             if tau_controller.client_states[client_idx]['total_epochs'] < num_epochs:
                 next_round_clients.add(client_idx)
-
-        # Average models and update global model
         if models_to_average:
             averaged_weights = average_models(models_to_average)
 
@@ -284,8 +322,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                 global_model.load_state_dict(updated_weights)
             else:
                 global_model.load_state_dict(averaged_weights)
-
-            # Ensure checkpoint directory exists before saving
             os.makedirs('checkpoints', exist_ok=True)
             checkpoint_path = f'checkpoints/global_model_sync{total_syncs + 1}.pth'
             torch.save(global_model.state_dict(), checkpoint_path)
@@ -295,12 +331,8 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
         total_syncs += 1
 
         general_logger.log(f"Sync round {total_syncs} completed in {time.time() - sync_start_time:.2f}s")
-
-    # Final evaluation
     final_test_acc = compute_accuracy(global_model, testloader, device)
     general_logger.log(f"Final test accuracy: {final_test_acc:.2f}%")
-
-    # Log tau statistics
     for client_id in range(num_clients):
         if client_id in tau_controller.client_states:
             stats = tau_controller.get_client_stats(client_id)
@@ -313,10 +345,9 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
                 f"Last reason: {stats['last_reason']}"
             )
 
-    # Generate plots using enhanced dynamic tau plotter
+    
     general_logger.log("Generating training plots...")
 
-    # Find all metrics files for this training run
     metrics_files = []
     for client_id in range(num_clients):
         path = os.path.join('logs', f"{train_name}_metrics_client{client_id}.json")
@@ -324,8 +355,6 @@ def train_distributed_dynamic_tau(args, epochs_override=None):
             metrics_files.append(path)
         else:
             general_logger.log(f"[WARNING] Metrics file not found for client {client_id}: {path}")
-
-    # Also include general logger metrics
     general_metrics_path = os.path.join('logs', f"{train_name}_metrics_client100.json")
     if os.path.exists(general_metrics_path):
         metrics_files.append(general_metrics_path)

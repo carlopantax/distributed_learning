@@ -5,6 +5,18 @@ import math
 
 class LAMB(Optimizer):
 
+    """
+    LAMB (Layer-wise Adaptive Moments) optimizer.
+
+    Essentials:
+    - Adam-style first/second moments with bias correction.
+    - Layer-wise trust ratio r = ||w|| / ||update|| scales the step: p <- p - lr * r * update.
+    - `update` = m_hat / (sqrt(v_hat) + eps), where m_hat and v_hat are bias-corrected.
+    - Weight decay here is *coupled* (L2): update += wd * w.
+    - Norms use L2, both ||w|| and ||update|| are clamped by `eps` to avoid division-by-zero.
+    - Call `.step()` after `.backward()`.
+    """
+
     def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-6, weight_decay=0.0):
         defaults = dict(lr=lr, betas=betas, eps=eps, weight_decay=weight_decay)
         super().__init__(params, defaults)
@@ -34,9 +46,6 @@ class LAMB(Optimizer):
 
                 exp_avg.mul_(beta1).add_(grad, alpha=1 - beta1)
                 exp_avg_sq.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
-
-                #nuova versione, prima non c'era nulla
-                # Bias correction
                 bias_correction1 = 1 - beta1 ** state['step']
                 bias_correction2 = 1 - beta2 ** state['step']
 
@@ -59,7 +68,6 @@ class LAMB(Optimizer):
                 r2 = update.norm()
                 trust_ratio = r1 / r2 if r1 != 0 and r2 != 0 else 1.0
                 """
-                # Trust ratio calculation with additional stability
                 w_norm = p.data.norm(2).clamp(min=eps)
                 g_norm = update.norm(2).clamp(min=eps)
                 trust_ratio = torch.where(

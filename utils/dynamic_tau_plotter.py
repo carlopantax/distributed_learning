@@ -5,11 +5,26 @@ from utils.TrainingPlotter import TrainingPlotter
 
 class DynamicTauPlotter(TrainingPlotter):
     """
-    Extension of TrainingPlotter that adds dynamic tau specific visualizations
+    Extends TrainingPlotter with visualizations specific to dynamic-τ LocalSGD.
+
+    Expected metric keys per client (produced during training):
+      - 'epoch_current_tau' : τ used at each (global) epoch on the client
+      - 'epoch_sync_round'  : sync round index (>0 when a sync happened at that epoch)
+      - 'epoch_val_acc'     : validation accuracy (%) per epoch
+      - 'epoch_loss'        : training loss per epoch
+      - 'epoch_grad_norm'   : gradient L2 norm per epoch (optional)
+      - 'epoch_lr'          : learning rate per epoch (used by base plots)
+
     """
 
     def plot_dynamic_tau_timeline(self):
-        """Plot the evolution of tau values over time for each client"""
+        """
+        Plot τ evolution per client across training.
+
+        - Uses a step plot to show how τ changes over (global) epochs.
+        - Marks epochs where a synchronization occurred with square markers.
+        - Requires 'epoch_current_tau' (and optionally 'epoch_sync_round') in metrics.
+        """
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
@@ -69,7 +84,21 @@ class DynamicTauPlotter(TrainingPlotter):
         print(f"Dynamic tau timeline plot saved to {save_path}")
 
     def plot_performance_vs_tau(self):
-        """Plot performance metrics vs tau values to analyze effectiveness"""
+        """
+        Scatter plots of key metrics vs τ, per client.
+
+        Subplots:
+          - Validation Accuracy (%) vs τ
+          - Loss vs τ
+          - Gradient Norm vs τ (if logged)
+
+        Also renders a textual summary with min/avg/max τ and sample count per client.
+
+        Assumptions:
+          - 'epoch_current_tau' is logged once per global epoch.
+          - 'epoch_val_acc' is in percentage (0–100).
+          - Missing series are skipped client-by-client.
+        """
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
@@ -177,7 +206,14 @@ class DynamicTauPlotter(TrainingPlotter):
         print(f"Performance vs tau plot saved to {save_path}")
 
     def plot_convergence_comparison(self):
-        """Compare convergence patterns across clients with different tau strategies"""
+        """
+        Compare convergence trajectories across clients.
+
+        - Left: validation accuracy (%) vs epoch, with the best epoch highlighted.
+        - Right: training loss vs epoch.
+        - Helps visualize whether certain τ schedules correlate with faster
+          or smoother convergence across clients.
+        """
         all_metrics = self._load_all_metrics()
         if not all_metrics:
             print("No metrics found.")
