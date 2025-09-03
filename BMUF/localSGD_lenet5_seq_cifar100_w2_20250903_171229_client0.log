@@ -1,0 +1,26 @@
+2025-09-03 17:12:52,792 - client_0 - INFO - Started training for Client 0
+2025-09-03 17:12:52,798 - client_0 - INFO - Log file: logs/localSGD_lenet5_seq_cifar100_w2_20250903_171229_client0.log
+2025-09-03 17:13:02,321 - client_0 - INFO - Client 0 | Epoch 1 | Batch 10/157 | Loss: 4.6137 | Images/sec: 134.42 | Progress: 6.4% | Time: 9.52s | lr: 0.05 | train_acc: 1.6406
+2025-09-03 17:13:07,937 - client_0 - INFO - Client 0 | Epoch 1 | Batch 20/157 | Loss: 4.6012 | Images/sec: 169.11 | Progress: 12.7% | Time: 15.14s | lr: 0.05 | train_acc: 1.5234
+2025-09-03 17:13:14,379 - client_0 - INFO - Client 0 | Epoch 1 | Batch 30/157 | Loss: 4.5924 | Images/sec: 177.95 | Progress: 19.1% | Time: 21.58s | lr: 0.05 | train_acc: 1.5885
+2025-09-03 17:13:20,608 - client_0 - INFO - Client 0 | Epoch 1 | Batch 40/157 | Loss: 4.5760 | Images/sec: 184.11 | Progress: 25.5% | Time: 27.81s | lr: 0.05 | train_acc: 1.9141
+2025-09-03 17:13:25,354 - client_0 - INFO - Client 0 | Epoch 1 | Batch 50/157 | Loss: 4.5518 | Images/sec: 196.59 | Progress: 31.8% | Time: 32.56s | lr: 0.05 | train_acc: 2.6094
+2025-09-03 17:13:30,728 - client_0 - INFO - Client 0 | Epoch 1 | Batch 60/157 | Loss: 4.5248 | Images/sec: 202.48 | Progress: 38.2% | Time: 37.93s | lr: 0.05 | train_acc: 2.9818
+2025-09-03 17:13:36,252 - client_0 - INFO - Client 0 | Epoch 1 | Batch 70/157 | Loss: 4.4911 | Images/sec: 206.20 | Progress: 44.6% | Time: 43.45s | lr: 0.05 | train_acc: 3.2812
+2025-09-03 17:13:41,477 - client_0 - INFO - Client 0 | Epoch 1 | Batch 80/157 | Loss: 4.4623 | Images/sec: 210.36 | Progress: 51.0% | Time: 48.68s | lr: 0.05 | train_acc: 3.6133
+2025-09-03 17:13:47,617 - client_0 - INFO - Client 0 | Epoch 1 | Batch 90/157 | Loss: 4.4351 | Images/sec: 210.15 | Progress: 57.3% | Time: 54.82s | lr: 0.05 | train_acc: 3.8628
+2025-09-03 17:13:52,162 - client_0 - INFO - Client 0 | Epoch 1 | Batch 100/157 | Loss: 4.4074 | Images/sec: 215.62 | Progress: 63.7% | Time: 59.36s | lr: 0.05 | train_acc: 4.1797
+2025-09-03 17:13:56,262 - client_0 - INFO - Client 0 | Epoch 1 | Batch 110/157 | Loss: 4.3820 | Images/sec: 221.86 | Progress: 70.1% | Time: 63.46s | lr: 0.05 | train_acc: 4.3679
+2025-09-03 17:14:01,752 - client_0 - INFO - Client 0 | Epoch 1 | Batch 120/157 | Loss: 4.3578 | Images/sec: 222.76 | Progress: 76.4% | Time: 68.95s | lr: 0.05 | train_acc: 4.6745
+2025-09-03 17:14:06,540 - client_0 - INFO - Client 0 | Epoch 1 | Batch 130/157 | Loss: 4.3314 | Images/sec: 225.65 | Progress: 82.8% | Time: 73.74s | lr: 0.05 | train_acc: 4.9219
+2025-09-03 17:14:10,778 - client_0 - INFO - Client 0 | Epoch 1 | Batch 140/157 | Loss: 4.3071 | Images/sec: 229.80 | Progress: 89.2% | Time: 77.98s | lr: 0.05 | train_acc: 5.1618
+2025-09-03 17:14:15,768 - client_0 - INFO - Client 0 | Epoch 1 | Batch 150/157 | Loss: 4.2859 | Images/sec: 231.41 | Progress: 95.5% | Time: 82.97s | lr: 0.05 | train_acc: 5.3385
+2025-09-03 17:14:19,111 - client_0 - INFO - Client 0 | Epoch 1 | Batch 157/157 | Loss: 4.2713 | Images/sec: 231.72 | Progress: 100.0% | Time: 86.31s | lr: 0.05 | train_acc: 5.5400
+2025-09-03 17:15:07,053 - client_0 - INFO - [Client 0] Epoch 5 completed in 134.28s | Average Loss: 4.2713 | World Size: 2 | train_acc: 11.1900 | val_acc: 10.7000 | lr: 0.0100
+2025-09-03 17:15:12,019 - client_0 - INFO - Client 0 | Epoch 2 | Batch 10/157 | Loss: 3.9790 | Images/sec: 258.69 | Progress: 6.4% | Time: 4.95s | lr: 0.05 | train_acc: 7.6562
+2025-09-03 17:15:17,272 - client_0 - INFO - Client 0 | Epoch 2 | Batch 20/157 | Loss: 3.9511 | Images/sec: 250.95 | Progress: 12.7% | Time: 10.20s | lr: 0.05 | train_acc: 8.0859
+2025-09-03 17:15:21,483 - client_0 - INFO - Client 0 | Epoch 2 | Batch 30/157 | Loss: 3.9433 | Images/sec: 266.44 | Progress: 19.1% | Time: 14.41s | lr: 0.05 | train_acc: 8.5938
+2025-09-03 17:15:25,520 - client_0 - INFO - Client 0 | Epoch 2 | Batch 40/157 | Loss: 3.9302 | Images/sec: 277.51 | Progress: 25.5% | Time: 18.45s | lr: 0.05 | train_acc: 8.9844
+2025-09-03 17:15:30,097 - client_0 - INFO - Client 0 | Epoch 2 | Batch 50/157 | Loss: 3.9149 | Images/sec: 277.95 | Progress: 31.8% | Time: 23.03s | lr: 0.05 | train_acc: 9.1250
+2025-09-03 17:15:34,790 - client_0 - INFO - Client 0 | Epoch 2 | Batch 60/157 | Loss: 3.9074 | Images/sec: 277.06 | Progress: 38.2% | Time: 27.72s | lr: 0.05 | train_acc: 9.2708
+2025-09-03 17:15:38,697 - client_0 - INFO - Client 0 | Epoch 2 | Batch 70/157 | Loss: 3.8908 | Images/sec: 283.31 | Progress: 44.6% | Time: 31.63s | lr: 0.05 | train_acc: 9.3638
