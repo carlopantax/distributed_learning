@@ -1,0 +1,340 @@
+2025-09-03 18:57:23,383 - client_100 - INFO - Started training for Client 100
+2025-09-03 18:57:23,385 - client_100 - INFO - Log file: logs/localSGD_lenet5_seq_cifar100_w2_20250903_185723_client100.log
+2025-09-03 18:57:23,385 - client_100 - INFO - Simulating LocalSGD training with 2 clients (sequential execution)
+2025-09-03 18:57:23,386 - client_100 - INFO - Device: cuda
+2025-09-03 18:57:23,386 - client_100 - INFO - Config: batch_size=128, lr=0.05, epochs=150, tau=4
+2025-09-03 18:57:36,923 - client_100 - INFO - [INFO] Total train set size: 40000
+2025-09-03 18:57:37,141 - client_100 - INFO - --- Round 1/37 (tau = 4) ---
+2025-09-03 18:57:46,628 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 4.2434 | Final Train Acc: 5.71%
+2025-09-03 18:58:03,509 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 3.7945 | Final Train Acc: 10.90%
+2025-09-03 18:58:19,874 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 3.5847 | Final Train Acc: 14.60%
+2025-09-03 18:58:36,541 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 3.4358 | Final Train Acc: 16.70%
+2025-09-03 18:58:54,429 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 4.2478 | Final Train Acc: 5.67%
+2025-09-03 18:59:11,488 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 3.7925 | Final Train Acc: 11.48%
+2025-09-03 18:59:27,752 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 3.5854 | Final Train Acc: 14.40%
+2025-09-03 18:59:44,173 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 3.4633 | Final Train Acc: 16.73%
+2025-09-03 18:59:54,272 - client_100 - INFO - --- Round 2/37 (tau = 4) ---
+2025-09-03 19:00:02,416 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 3.1234 | Final Train Acc: 22.50%
+2025-09-03 19:00:19,461 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 3.0594 | Final Train Acc: 23.41%
+2025-09-03 19:00:35,749 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 3.0360 | Final Train Acc: 24.14%
+2025-09-03 19:00:52,296 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 2.9915 | Final Train Acc: 24.69%
+2025-09-03 19:01:10,481 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 3.1184 | Final Train Acc: 22.82%
+2025-09-03 19:01:27,503 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 3.0427 | Final Train Acc: 23.60%
+2025-09-03 19:01:44,211 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 3.0096 | Final Train Acc: 24.00%
+2025-09-03 19:02:00,696 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 2.9849 | Final Train Acc: 25.17%
+2025-09-03 19:02:10,677 - client_100 - INFO - --- Round 3/37 (tau = 4) ---
+2025-09-03 19:02:18,928 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 2.7323 | Final Train Acc: 30.45%
+2025-09-03 19:02:35,960 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 2.6706 | Final Train Acc: 31.43%
+2025-09-03 19:02:52,557 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 2.6374 | Final Train Acc: 31.75%
+2025-09-03 19:03:08,954 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 2.6175 | Final Train Acc: 31.97%
+2025-09-03 19:03:27,173 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 2.7306 | Final Train Acc: 30.22%
+2025-09-03 19:03:44,223 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 2.6586 | Final Train Acc: 31.42%
+2025-09-03 19:04:00,643 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 2.6098 | Final Train Acc: 32.31%
+2025-09-03 19:04:17,021 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 2.6140 | Final Train Acc: 32.35%
+2025-09-03 19:04:27,109 - client_100 - INFO - --- Round 4/37 (tau = 4) ---
+2025-09-03 19:04:35,284 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 2.5591 | Final Train Acc: 34.27%
+2025-09-03 19:04:52,300 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 2.4468 | Final Train Acc: 36.36%
+2025-09-03 19:05:08,778 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 2.4155 | Final Train Acc: 36.37%
+2025-09-03 19:05:25,188 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 2.4003 | Final Train Acc: 36.87%
+2025-09-03 19:05:43,470 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 2.5330 | Final Train Acc: 34.77%
+2025-09-03 19:06:00,134 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 2.4320 | Final Train Acc: 36.61%
+2025-09-03 19:06:16,387 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 2.4014 | Final Train Acc: 36.98%
+2025-09-03 19:06:32,619 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 2.3940 | Final Train Acc: 37.48%
+2025-09-03 19:06:42,420 - client_100 - INFO - --- Round 5/37 (tau = 4) ---
+2025-09-03 19:06:50,283 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 2.4267 | Final Train Acc: 37.27%
+2025-09-03 19:07:07,397 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 2.2689 | Final Train Acc: 39.95%
+2025-09-03 19:07:23,883 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 2.2543 | Final Train Acc: 40.68%
+2025-09-03 19:07:40,028 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 2.2454 | Final Train Acc: 40.91%
+2025-09-03 19:07:56,927 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 2.4094 | Final Train Acc: 37.58%
+2025-09-03 19:08:14,576 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 2.2566 | Final Train Acc: 40.34%
+2025-09-03 19:08:31,374 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 2.2263 | Final Train Acc: 40.93%
+2025-09-03 19:08:47,514 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 2.2540 | Final Train Acc: 40.61%
+2025-09-03 19:08:57,279 - client_100 - INFO - --- Round 6/37 (tau = 4) ---
+2025-09-03 19:09:04,310 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 2.1634 | Final Train Acc: 42.38%
+2025-09-03 19:09:22,103 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 2.1151 | Final Train Acc: 43.33%
+2025-09-03 19:09:38,865 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 2.1136 | Final Train Acc: 43.55%
+2025-09-03 19:09:55,092 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 2.1239 | Final Train Acc: 43.05%
+2025-09-03 19:10:11,306 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 2.1731 | Final Train Acc: 41.98%
+2025-09-03 19:10:29,303 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 2.1155 | Final Train Acc: 43.34%
+2025-09-03 19:10:45,999 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 2.1111 | Final Train Acc: 43.33%
+2025-09-03 19:11:02,449 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 2.1236 | Final Train Acc: 42.97%
+2025-09-03 19:11:12,084 - client_100 - INFO - --- Round 7/37 (tau = 4) ---
+2025-09-03 19:11:18,703 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 2.1172 | Final Train Acc: 43.55%
+2025-09-03 19:11:36,056 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 2.0315 | Final Train Acc: 44.95%
+2025-09-03 19:11:53,697 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 2.0164 | Final Train Acc: 45.58%
+2025-09-03 19:12:10,551 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 2.0326 | Final Train Acc: 44.90%
+2025-09-03 19:12:27,052 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 2.1009 | Final Train Acc: 43.54%
+2025-09-03 19:12:44,120 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 2.0173 | Final Train Acc: 46.12%
+2025-09-03 19:13:01,879 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 2.0032 | Final Train Acc: 45.73%
+2025-09-03 19:13:18,528 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 2.0127 | Final Train Acc: 45.89%
+2025-09-03 19:13:28,358 - client_100 - INFO - --- Round 8/37 (tau = 4) ---
+2025-09-03 19:13:34,988 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 2.0478 | Final Train Acc: 44.81%
+2025-09-03 19:13:51,711 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.9329 | Final Train Acc: 47.38%
+2025-09-03 19:14:09,706 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.9284 | Final Train Acc: 47.02%
+2025-09-03 19:14:26,720 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.9381 | Final Train Acc: 47.41%
+2025-09-03 19:14:43,092 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 2.0224 | Final Train Acc: 44.77%
+2025-09-03 19:14:59,408 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.9218 | Final Train Acc: 47.84%
+2025-09-03 19:15:17,435 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.9142 | Final Train Acc: 47.83%
+2025-09-03 19:15:34,302 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.9231 | Final Train Acc: 47.78%
+2025-09-03 19:15:43,938 - client_100 - INFO - --- Round 9/37 (tau = 4) ---
+2025-09-03 19:15:50,866 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.9241 | Final Train Acc: 47.61%
+2025-09-03 19:16:07,409 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.8677 | Final Train Acc: 48.26%
+2025-09-03 19:16:25,418 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.8563 | Final Train Acc: 49.07%
+2025-09-03 19:16:42,479 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.8803 | Final Train Acc: 48.41%
+2025-09-03 19:16:59,056 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.9039 | Final Train Acc: 47.53%
+2025-09-03 19:17:15,436 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.8398 | Final Train Acc: 49.01%
+2025-09-03 19:17:32,583 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.8515 | Final Train Acc: 48.97%
+2025-09-03 19:17:49,962 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.8693 | Final Train Acc: 48.84%
+2025-09-03 19:17:59,001 - client_100 - INFO - --- Round 10/37 (tau = 4) ---
+2025-09-03 19:18:06,649 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.9243 | Final Train Acc: 47.18%
+2025-09-03 19:18:23,018 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.8280 | Final Train Acc: 49.68%
+2025-09-03 19:18:39,881 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.8203 | Final Train Acc: 49.74%
+2025-09-03 19:18:57,502 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.8495 | Final Train Acc: 48.46%
+2025-09-03 19:19:14,110 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.9119 | Final Train Acc: 47.59%
+2025-09-03 19:19:30,393 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.8205 | Final Train Acc: 50.01%
+2025-09-03 19:19:46,527 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.8081 | Final Train Acc: 49.95%
+2025-09-03 19:20:04,452 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.8525 | Final Train Acc: 49.17%
+2025-09-03 19:20:13,253 - client_100 - INFO - --- Round 11/37 (tau = 4) ---
+2025-09-03 19:20:21,233 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.9604 | Final Train Acc: 46.56%
+2025-09-03 19:20:37,561 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.8439 | Final Train Acc: 49.07%
+2025-09-03 19:20:53,622 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.8286 | Final Train Acc: 49.28%
+2025-09-03 19:21:11,591 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.8515 | Final Train Acc: 49.17%
+2025-09-03 19:21:28,201 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.9542 | Final Train Acc: 46.78%
+2025-09-03 19:21:44,617 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.8157 | Final Train Acc: 50.11%
+2025-09-03 19:22:00,915 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.8103 | Final Train Acc: 50.09%
+2025-09-03 19:22:17,862 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.8388 | Final Train Acc: 49.33%
+2025-09-03 19:22:27,388 - client_100 - INFO - --- Round 12/37 (tau = 4) ---
+2025-09-03 19:22:35,595 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.9755 | Final Train Acc: 46.10%
+2025-09-03 19:22:52,183 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.8808 | Final Train Acc: 48.19%
+2025-09-03 19:23:08,333 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.8786 | Final Train Acc: 49.17%
+2025-09-03 19:23:24,922 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.9057 | Final Train Acc: 48.06%
+2025-09-03 19:23:42,709 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.9583 | Final Train Acc: 46.68%
+2025-09-03 19:23:59,204 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.8456 | Final Train Acc: 48.97%
+2025-09-03 19:24:15,261 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.8623 | Final Train Acc: 48.70%
+2025-09-03 19:24:31,954 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.8609 | Final Train Acc: 48.97%
+2025-09-03 19:24:41,458 - client_100 - INFO - --- Round 13/37 (tau = 4) ---
+2025-09-03 19:24:49,395 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 2.0408 | Final Train Acc: 45.31%
+2025-09-03 19:25:06,112 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.9174 | Final Train Acc: 47.59%
+2025-09-03 19:25:22,236 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.9074 | Final Train Acc: 47.92%
+2025-09-03 19:25:39,351 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.9364 | Final Train Acc: 47.22%
+2025-09-03 19:25:56,638 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 2.0201 | Final Train Acc: 45.70%
+2025-09-03 19:26:13,155 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.8935 | Final Train Acc: 48.27%
+2025-09-03 19:26:29,353 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.8806 | Final Train Acc: 48.76%
+2025-09-03 19:26:46,262 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.9143 | Final Train Acc: 47.62%
+2025-09-03 19:26:55,700 - client_100 - INFO - --- Round 14/37 (tau = 4) ---
+2025-09-03 19:27:03,792 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 2.0475 | Final Train Acc: 44.67%
+2025-09-03 19:27:20,515 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.9367 | Final Train Acc: 47.38%
+2025-09-03 19:27:37,048 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.9305 | Final Train Acc: 47.59%
+2025-09-03 19:27:54,884 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.9358 | Final Train Acc: 47.15%
+2025-09-03 19:28:11,810 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 2.0321 | Final Train Acc: 45.09%
+2025-09-03 19:28:28,212 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.9114 | Final Train Acc: 48.12%
+2025-09-03 19:28:44,493 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.9183 | Final Train Acc: 47.78%
+2025-09-03 19:29:02,225 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.9160 | Final Train Acc: 47.88%
+2025-09-03 19:29:11,086 - client_100 - INFO - --- Round 15/37 (tau = 4) ---
+2025-09-03 19:29:19,235 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 2.0087 | Final Train Acc: 46.12%
+2025-09-03 19:29:35,917 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.8982 | Final Train Acc: 48.19%
+2025-09-03 19:29:52,675 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.8921 | Final Train Acc: 48.52%
+2025-09-03 19:30:11,091 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.9217 | Final Train Acc: 47.48%
+2025-09-03 19:30:28,053 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.9902 | Final Train Acc: 46.05%
+2025-09-03 19:30:44,343 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.8880 | Final Train Acc: 48.62%
+2025-09-03 19:31:00,623 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.8866 | Final Train Acc: 48.45%
+2025-09-03 19:31:18,651 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.8903 | Final Train Acc: 48.55%
+2025-09-03 19:31:27,345 - client_100 - INFO - --- Round 16/37 (tau = 4) ---
+2025-09-03 19:31:35,399 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.9609 | Final Train Acc: 46.72%
+2025-09-03 19:31:51,633 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.8380 | Final Train Acc: 50.25%
+2025-09-03 19:32:08,159 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.8416 | Final Train Acc: 49.45%
+2025-09-03 19:32:26,253 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.8486 | Final Train Acc: 49.66%
+2025-09-03 19:32:43,368 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.9425 | Final Train Acc: 47.03%
+2025-09-03 19:32:59,708 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.8211 | Final Train Acc: 49.81%
+2025-09-03 19:33:16,215 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.8097 | Final Train Acc: 50.49%
+2025-09-03 19:33:34,292 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.8507 | Final Train Acc: 49.49%
+2025-09-03 19:33:43,481 - client_100 - INFO - --- Round 17/37 (tau = 4) ---
+2025-09-03 19:33:51,537 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.8981 | Final Train Acc: 48.59%
+2025-09-03 19:34:08,394 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.7809 | Final Train Acc: 50.42%
+2025-09-03 19:34:26,661 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.7832 | Final Train Acc: 51.20%
+2025-09-03 19:34:44,130 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.7998 | Final Train Acc: 50.18%
+2025-09-03 19:35:00,934 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.8659 | Final Train Acc: 49.44%
+2025-09-03 19:35:17,414 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.7817 | Final Train Acc: 50.90%
+2025-09-03 19:35:35,399 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.7656 | Final Train Acc: 51.20%
+2025-09-03 19:35:52,231 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.7911 | Final Train Acc: 50.70%
+2025-09-03 19:36:01,756 - client_100 - INFO - --- Round 18/37 (tau = 4) ---
+2025-09-03 19:36:08,508 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.8080 | Final Train Acc: 50.24%
+2025-09-03 19:36:24,804 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.7426 | Final Train Acc: 51.73%
+2025-09-03 19:36:42,784 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.7254 | Final Train Acc: 52.03%
+2025-09-03 19:36:59,360 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.7467 | Final Train Acc: 51.98%
+2025-09-03 19:37:15,583 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.8017 | Final Train Acc: 50.44%
+2025-09-03 19:37:31,789 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.7109 | Final Train Acc: 53.16%
+2025-09-03 19:37:49,747 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.7198 | Final Train Acc: 52.53%
+2025-09-03 19:38:06,643 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.7097 | Final Train Acc: 52.62%
+2025-09-03 19:38:16,233 - client_100 - INFO - --- Round 19/37 (tau = 4) ---
+2025-09-03 19:38:22,817 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7816 | Final Train Acc: 50.84%
+2025-09-03 19:38:39,102 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6670 | Final Train Acc: 53.55%
+2025-09-03 19:38:57,280 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6826 | Final Train Acc: 53.05%
+2025-09-03 19:39:14,645 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6983 | Final Train Acc: 52.62%
+2025-09-03 19:39:31,331 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7611 | Final Train Acc: 51.12%
+2025-09-03 19:39:48,780 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6568 | Final Train Acc: 53.84%
+2025-09-03 19:40:06,767 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6504 | Final Train Acc: 53.94%
+2025-09-03 19:40:24,024 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6828 | Final Train Acc: 52.87%
+2025-09-03 19:40:34,241 - client_100 - INFO - --- Round 20/37 (tau = 4) ---
+2025-09-03 19:40:41,365 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7321 | Final Train Acc: 52.23%
+2025-09-03 19:41:00,163 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6468 | Final Train Acc: 53.99%
+2025-09-03 19:41:17,647 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6329 | Final Train Acc: 54.88%
+2025-09-03 19:41:34,715 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6754 | Final Train Acc: 53.48%
+2025-09-03 19:41:53,702 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7258 | Final Train Acc: 52.05%
+2025-09-03 19:42:11,449 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6365 | Final Train Acc: 54.41%
+2025-09-03 19:42:28,732 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6254 | Final Train Acc: 54.47%
+2025-09-03 19:42:46,837 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6529 | Final Train Acc: 53.90%
+2025-09-03 19:42:56,766 - client_100 - INFO - --- Round 21/37 (tau = 4) ---
+2025-09-03 19:43:05,326 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7183 | Final Train Acc: 52.32%
+2025-09-03 19:43:22,430 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6342 | Final Train Acc: 54.72%
+2025-09-03 19:43:39,410 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6408 | Final Train Acc: 54.15%
+2025-09-03 19:43:58,456 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6622 | Final Train Acc: 53.49%
+2025-09-03 19:44:15,826 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7042 | Final Train Acc: 52.74%
+2025-09-03 19:44:32,775 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6218 | Final Train Acc: 54.18%
+2025-09-03 19:44:51,292 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6058 | Final Train Acc: 54.52%
+2025-09-03 19:45:08,657 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6523 | Final Train Acc: 53.94%
+2025-09-03 19:45:18,519 - client_100 - INFO - --- Round 22/37 (tau = 4) ---
+2025-09-03 19:45:25,560 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7318 | Final Train Acc: 52.04%
+2025-09-03 19:45:42,773 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6306 | Final Train Acc: 54.03%
+2025-09-03 19:46:01,477 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6399 | Final Train Acc: 53.84%
+2025-09-03 19:46:18,688 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6481 | Final Train Acc: 54.22%
+2025-09-03 19:46:35,628 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.6914 | Final Train Acc: 53.30%
+2025-09-03 19:46:54,080 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6066 | Final Train Acc: 54.49%
+2025-09-03 19:47:11,382 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6309 | Final Train Acc: 54.11%
+2025-09-03 19:47:28,383 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6498 | Final Train Acc: 53.94%
+2025-09-03 19:47:38,292 - client_100 - INFO - --- Round 23/37 (tau = 4) ---
+2025-09-03 19:47:45,847 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7432 | Final Train Acc: 51.42%
+2025-09-03 19:48:03,710 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6254 | Final Train Acc: 54.26%
+2025-09-03 19:48:20,340 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6345 | Final Train Acc: 54.30%
+2025-09-03 19:48:36,571 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6560 | Final Train Acc: 54.09%
+2025-09-03 19:48:53,971 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7211 | Final Train Acc: 51.88%
+2025-09-03 19:49:11,030 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6078 | Final Train Acc: 54.63%
+2025-09-03 19:49:27,664 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6173 | Final Train Acc: 54.63%
+2025-09-03 19:49:44,079 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6382 | Final Train Acc: 53.98%
+2025-09-03 19:49:53,772 - client_100 - INFO - --- Round 24/37 (tau = 4) ---
+2025-09-03 19:50:01,858 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7520 | Final Train Acc: 51.77%
+2025-09-03 19:50:18,898 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6498 | Final Train Acc: 53.81%
+2025-09-03 19:50:35,549 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6634 | Final Train Acc: 53.67%
+2025-09-03 19:50:51,960 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6770 | Final Train Acc: 53.05%
+2025-09-03 19:51:10,087 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7472 | Final Train Acc: 51.47%
+2025-09-03 19:51:27,166 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6401 | Final Train Acc: 54.12%
+2025-09-03 19:51:43,613 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6450 | Final Train Acc: 54.48%
+2025-09-03 19:52:00,111 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6597 | Final Train Acc: 53.16%
+2025-09-03 19:52:09,884 - client_100 - INFO - --- Round 25/37 (tau = 4) ---
+2025-09-03 19:52:18,022 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7697 | Final Train Acc: 50.98%
+2025-09-03 19:52:35,002 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6480 | Final Train Acc: 53.89%
+2025-09-03 19:52:51,203 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6608 | Final Train Acc: 53.32%
+2025-09-03 19:53:07,812 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.7038 | Final Train Acc: 53.17%
+2025-09-03 19:53:25,748 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7610 | Final Train Acc: 50.99%
+2025-09-03 19:53:42,562 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6533 | Final Train Acc: 53.60%
+2025-09-03 19:53:58,835 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6426 | Final Train Acc: 53.86%
+2025-09-03 19:54:15,258 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6871 | Final Train Acc: 53.04%
+2025-09-03 19:54:24,969 - client_100 - INFO - --- Round 26/37 (tau = 4) ---
+2025-09-03 19:54:33,146 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7758 | Final Train Acc: 51.13%
+2025-09-03 19:54:50,002 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6668 | Final Train Acc: 52.98%
+2025-09-03 19:55:06,186 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6722 | Final Train Acc: 53.42%
+2025-09-03 19:55:22,391 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.7056 | Final Train Acc: 52.42%
+2025-09-03 19:55:40,475 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7664 | Final Train Acc: 51.25%
+2025-09-03 19:55:57,299 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6430 | Final Train Acc: 54.05%
+2025-09-03 19:56:13,669 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6573 | Final Train Acc: 53.46%
+2025-09-03 19:56:30,039 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6808 | Final Train Acc: 53.22%
+2025-09-03 19:56:40,111 - client_100 - INFO - --- Round 27/37 (tau = 4) ---
+2025-09-03 19:56:48,312 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7881 | Final Train Acc: 50.67%
+2025-09-03 19:57:05,290 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6880 | Final Train Acc: 53.16%
+2025-09-03 19:57:21,470 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6479 | Final Train Acc: 54.02%
+2025-09-03 19:57:37,732 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.7053 | Final Train Acc: 52.45%
+2025-09-03 19:57:55,840 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7797 | Final Train Acc: 50.72%
+2025-09-03 19:58:12,544 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6692 | Final Train Acc: 53.45%
+2025-09-03 19:58:28,959 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6600 | Final Train Acc: 53.55%
+2025-09-03 19:58:45,280 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6858 | Final Train Acc: 53.32%
+2025-09-03 19:58:55,006 - client_100 - INFO - --- Round 28/37 (tau = 4) ---
+2025-09-03 19:59:03,207 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7804 | Final Train Acc: 50.83%
+2025-09-03 19:59:20,060 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6645 | Final Train Acc: 53.55%
+2025-09-03 19:59:36,523 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6714 | Final Train Acc: 53.87%
+2025-09-03 19:59:52,669 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6887 | Final Train Acc: 52.91%
+2025-09-03 20:00:09,847 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7745 | Final Train Acc: 51.01%
+2025-09-03 20:00:27,026 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6488 | Final Train Acc: 54.06%
+2025-09-03 20:00:43,554 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6669 | Final Train Acc: 53.48%
+2025-09-03 20:00:59,739 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6889 | Final Train Acc: 52.74%
+2025-09-03 20:01:09,256 - client_100 - INFO - --- Round 29/37 (tau = 4) ---
+2025-09-03 20:01:16,427 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7682 | Final Train Acc: 51.41%
+2025-09-03 20:01:34,044 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6595 | Final Train Acc: 53.34%
+2025-09-03 20:01:50,865 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6528 | Final Train Acc: 54.07%
+2025-09-03 20:02:07,150 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6809 | Final Train Acc: 52.88%
+2025-09-03 20:02:23,534 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7354 | Final Train Acc: 51.90%
+2025-09-03 20:02:41,348 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6408 | Final Train Acc: 54.38%
+2025-09-03 20:02:58,124 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6346 | Final Train Acc: 54.28%
+2025-09-03 20:03:14,374 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6676 | Final Train Acc: 53.23%
+2025-09-03 20:03:23,871 - client_100 - INFO - --- Round 30/37 (tau = 4) ---
+2025-09-03 20:03:30,576 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7524 | Final Train Acc: 51.62%
+2025-09-03 20:03:48,356 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6317 | Final Train Acc: 54.15%
+2025-09-03 20:04:05,006 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6522 | Final Train Acc: 53.93%
+2025-09-03 20:04:21,321 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6691 | Final Train Acc: 53.63%
+2025-09-03 20:04:37,579 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7232 | Final Train Acc: 51.97%
+2025-09-03 20:04:54,444 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6156 | Final Train Acc: 55.28%
+2025-09-03 20:05:11,788 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6285 | Final Train Acc: 54.26%
+2025-09-03 20:05:28,312 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6457 | Final Train Acc: 53.84%
+2025-09-03 20:05:37,861 - client_100 - INFO - --- Round 31/37 (tau = 4) ---
+2025-09-03 20:05:44,825 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.7237 | Final Train Acc: 52.05%
+2025-09-03 20:06:01,713 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.6213 | Final Train Acc: 54.84%
+2025-09-03 20:06:19,350 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6150 | Final Train Acc: 55.12%
+2025-09-03 20:06:35,933 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6444 | Final Train Acc: 54.10%
+2025-09-03 20:06:52,350 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7101 | Final Train Acc: 52.30%
+2025-09-03 20:07:09,438 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6040 | Final Train Acc: 55.07%
+2025-09-03 20:07:26,566 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6190 | Final Train Acc: 55.05%
+2025-09-03 20:07:43,043 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6273 | Final Train Acc: 54.52%
+2025-09-03 20:07:52,482 - client_100 - INFO - --- Round 32/37 (tau = 4) ---
+2025-09-03 20:07:59,200 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.6987 | Final Train Acc: 52.69%
+2025-09-03 20:08:16,788 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.5924 | Final Train Acc: 55.37%
+2025-09-03 20:08:33,600 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6073 | Final Train Acc: 54.96%
+2025-09-03 20:08:50,338 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6417 | Final Train Acc: 54.10%
+2025-09-03 20:09:06,814 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.7024 | Final Train Acc: 52.46%
+2025-09-03 20:09:24,539 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.6019 | Final Train Acc: 55.13%
+2025-09-03 20:09:41,090 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.6075 | Final Train Acc: 54.98%
+2025-09-03 20:09:57,425 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6273 | Final Train Acc: 54.43%
+2025-09-03 20:10:06,882 - client_100 - INFO - --- Round 33/37 (tau = 4) ---
+2025-09-03 20:10:13,652 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.6942 | Final Train Acc: 52.41%
+2025-09-03 20:10:31,141 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.5928 | Final Train Acc: 55.34%
+2025-09-03 20:10:47,919 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6004 | Final Train Acc: 54.72%
+2025-09-03 20:11:04,303 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6094 | Final Train Acc: 54.74%
+2025-09-03 20:11:20,532 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.6800 | Final Train Acc: 53.38%
+2025-09-03 20:11:37,788 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.5810 | Final Train Acc: 55.75%
+2025-09-03 20:11:54,913 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.5942 | Final Train Acc: 55.16%
+2025-09-03 20:12:11,313 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6113 | Final Train Acc: 54.82%
+2025-09-03 20:12:20,901 - client_100 - INFO - --- Round 34/37 (tau = 4) ---
+2025-09-03 20:12:27,670 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.6953 | Final Train Acc: 52.75%
+2025-09-03 20:12:45,289 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.5877 | Final Train Acc: 55.03%
+2025-09-03 20:13:02,322 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6152 | Final Train Acc: 54.44%
+2025-09-03 20:13:18,806 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6125 | Final Train Acc: 54.74%
+2025-09-03 20:13:35,003 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.6827 | Final Train Acc: 52.83%
+2025-09-03 20:13:52,668 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.5696 | Final Train Acc: 55.64%
+2025-09-03 20:14:09,733 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.5749 | Final Train Acc: 55.66%
+2025-09-03 20:14:26,213 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6047 | Final Train Acc: 55.10%
+2025-09-03 20:14:35,611 - client_100 - INFO - --- Round 35/37 (tau = 4) ---
+2025-09-03 20:14:42,432 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.6948 | Final Train Acc: 52.69%
+2025-09-03 20:14:59,886 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.5855 | Final Train Acc: 55.22%
+2025-09-03 20:15:16,861 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.6017 | Final Train Acc: 55.16%
+2025-09-03 20:15:33,168 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6269 | Final Train Acc: 54.28%
+2025-09-03 20:15:49,470 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.6694 | Final Train Acc: 53.37%
+2025-09-03 20:16:06,747 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.5756 | Final Train Acc: 55.83%
+2025-09-03 20:16:23,662 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.5672 | Final Train Acc: 56.52%
+2025-09-03 20:16:40,033 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6123 | Final Train Acc: 55.02%
+2025-09-03 20:16:49,523 - client_100 - INFO - --- Round 36/37 (tau = 4) ---
+2025-09-03 20:16:56,256 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.6930 | Final Train Acc: 52.88%
+2025-09-03 20:17:13,315 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.5753 | Final Train Acc: 55.95%
+2025-09-03 20:17:30,307 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.5905 | Final Train Acc: 55.02%
+2025-09-03 20:17:46,868 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6147 | Final Train Acc: 55.03%
+2025-09-03 20:18:03,038 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.6977 | Final Train Acc: 52.92%
+2025-09-03 20:18:19,723 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.5847 | Final Train Acc: 55.58%
+2025-09-03 20:18:37,136 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.5851 | Final Train Acc: 55.66%
+2025-09-03 20:18:53,861 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6164 | Final Train Acc: 54.66%
+2025-09-03 20:19:03,268 - client_100 - INFO - --- Round 37/37 (tau = 4) ---
+2025-09-03 20:19:10,146 - client_100 - INFO - [Client 0] Completed local epoch 1/4 | Final Loss: 1.6933 | Final Train Acc: 53.06%
+2025-09-03 20:19:26,864 - client_100 - INFO - [Client 0] Completed local epoch 2/4 | Final Loss: 1.5903 | Final Train Acc: 55.54%
+2025-09-03 20:19:44,502 - client_100 - INFO - [Client 0] Completed local epoch 3/4 | Final Loss: 1.5967 | Final Train Acc: 55.39%
+2025-09-03 20:20:01,172 - client_100 - INFO - [Client 0] Completed local epoch 4/4 | Final Loss: 1.6164 | Final Train Acc: 54.59%
+2025-09-03 20:20:17,323 - client_100 - INFO - [Client 1] Completed local epoch 1/4 | Final Loss: 1.6838 | Final Train Acc: 52.77%
+2025-09-03 20:20:33,630 - client_100 - INFO - [Client 1] Completed local epoch 2/4 | Final Loss: 1.5789 | Final Train Acc: 55.62%
+2025-09-03 20:20:51,425 - client_100 - INFO - [Client 1] Completed local epoch 3/4 | Final Loss: 1.5985 | Final Train Acc: 55.14%
+2025-09-03 20:21:08,295 - client_100 - INFO - [Client 1] Completed local epoch 4/4 | Final Loss: 1.6219 | Final Train Acc: 54.48%
+2025-09-03 20:21:17,737 - client_100 - INFO - --- Final round (tau = 2) ---
