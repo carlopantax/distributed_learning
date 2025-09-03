@@ -6,6 +6,16 @@ from torchvision import datasets, transforms
 from models.lenet import LeNet5
 
 def evaluate(model_path, device='cpu'):
+    """
+    Evaluate a saved LeNet-5 checkpoint on the CIFAR-100 test set.
+
+    What this script does (essentials):
+    - Builds the standard CIFAR-100 test transform (same normalization as training).
+    - Loads the 10k-image CIFAR-100 test split and iterates in batches.
+    - Restores a LeNet5(num_classes=100) from a .pth state_dict and moves it to the chosen device.
+    - Runs a no-grad forward pass in eval mode and reports final Top-1 accuracy.
+
+    """
     print(f"Evaluating model from: {model_path}")
     transform_test = transforms.Compose([
         transforms.ToTensor(),

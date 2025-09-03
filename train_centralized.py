@@ -14,10 +14,17 @@ from models.lenet import LeNet5
 from utils.TrainingLogger import TrainingLogger
 from utils.TrainingPlotter import TrainingPlotter
 from utils.data_utils import load_cifar100
-from config import batch_size, epochs
-
 
 def setup_logger(log_path='logs_centralized/training_centralized.log'):
+    """
+    Create a process-wide logger that writes to both a file and stdout.
+
+    Args:
+        log_path: Destination path for the log file. Parent dirs are created.
+
+    Returns:
+        A configured `logging.Logger` named 'centralized'.
+    """
     logger = logging.getLogger('centralized')
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -36,6 +43,17 @@ def setup_logger(log_path='logs_centralized/training_centralized.log'):
 
 
 def compute_accuracy(model, dataloader, device):
+    """
+    Compute top-1 accuracy of a model over a dataloader.
+
+    Args:
+        model: Torch module in eval or train mode.
+        dataloader: Iterable of (inputs, labels).
+        device: 'cpu' or 'cuda' device where tensors will be moved.
+
+    Returns:
+        Accuracy percentage.
+    """
     model.eval()
     correct = total = 0
     with torch.no_grad():
@@ -48,25 +66,68 @@ def compute_accuracy(model, dataloader, device):
     return 100.0 * correct / total
 
 def scale_lr(base_lr, base_batch_size, actual_batch_size, mode='sqrt'):
+    """
+    Scale a base learning rate when changing the mini-batch size.
+
+    Args:
+        base_lr: Reference LR tuned at `base_batch_size`.
+        base_batch_size: Batch size used to tune `base_lr`.
+        actual_batch_size: Current batch size.
+        mode: 'linear' (kx) or 'sqrt' (√kx) scaling; √k is capped to avoid extremes.
+
+    Returns:
+        Scaled learning rate.
+    """
     scale = actual_batch_size / base_batch_size
     if mode == 'linear':
         return base_lr * scale
     elif mode == 'sqrt':
-        # cap max scaling factor
         max_scale=50
         return base_lr * min(scale**0.5, max_scale)
     else:
         raise ValueError("Unsupported scaling mode.")
 
 def warmup_cosine_schedule(epoch, warmup_epochs=40, total_epochs=150):
+    """
+    Piecewise LR multiplier: linear warm-up then cosine decay to 0.
+
+    Args:
+        epoch: Current epoch index (0-based).
+        warmup_epochs: Number of warm-up epochs.
+        total_epochs: Total planned epochs (defines cosine horizon).
+
+    Returns:
+        A scalar multiplier in [0, 1] applied by LambdaLR.
+    """
     if epoch < warmup_epochs:
-        return float(epoch) / float(max(1, warmup_epochs))  # linear warm-up
-    # cosine after warmup
+        return float(epoch) / float(max(1, warmup_epochs))
     progress = (epoch - warmup_epochs) / (total_epochs - warmup_epochs)
     return 0.5 * (1. + math.cos(math.pi * progress))
 
 
-def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth', batch_size=128):
+def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1e-4, resume=True, checkpoint_path='./checkpoint.pth', batch_size=128, epochs=150):
+    """
+    Train LeNet-5 on CIFAR-100 in a single process with rich logging.
+
+    What it does:
+      - Builds CIFAR-100 loaders with standard normalization/augmentation.
+      - Instantiates LeNet-5 and a chosen optimizer: SGDM, AdamW, LARS, or LAMB.
+      - Optionally rescales LR for large batches (√k for LARS/LAMB).
+      - Uses warmup+cosine scheduling via `LambdaLR`.
+      - Resumes training state from `checkpoint_path` if requested and present.
+      - Logs per-batch and per-epoch metrics to `TrainingLogger` JSON files.
+      - Saves rolling checkpoints each epoch and the final model at the end.
+      - Generates plots via `TrainingPlotter`.
+
+    Args:
+        optimizer_type: 'sgdm' | 'adamw' | 'lars' | 'lamb'.
+        learning_rate: Base LR (may be scaled for LARS/LAMB).
+        weight_decay: L2 weight decay (coupled for SGDM/AdamW; see optimizers).
+        resume: If True, try to load model/optimizer/scheduler state.
+        checkpoint_path: Path to read/write checkpoint dict.
+        batch_size: Training batch size.
+        epochs: Total number of training epochs.
+    """
     base_name = f"centralized_{optimizer_type}_lr{learning_rate}_wd{weight_decay}_batch_size{batch_size}"
     if resume and os.path.exists(checkpoint_path):
         DIR = f"{base_name}"
@@ -87,7 +148,7 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     logger.log(f"Training centralized on device: {device}")
     logger.log(f"Optimizer: {optimizer_type.upper()}, Epochs: {epochs}, LR: {learning_rate}")
 
-    trainloader, valloader, _, _ = load_cifar100(batch_size=batch_size, distributed=False)
+    trainloader, valloader, _, _ = load_cifar100(batch_size=batch_size)
     logger.log(f"[DEBUG] Train dataset size: {len(trainloader.dataset)} | Expected batches: {len(trainloader)}")
     model = LeNet5(num_classes=100).to(device)
     criterion = nn.CrossEntropyLoss().to(device)
@@ -114,7 +175,6 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
     best_val_acc = 0.0
 
     logger.log(f"Checking if there is any checkpoint. Resuming {resume}, Checkpoint path: {checkpoint_path}")
-    # check if file exists
     if resume and os.path.exists(checkpoint_path):
         logger.log(f"Resuming from checkpoint: {checkpoint_path}")
         checkpoint = torch.load(checkpoint_path, map_location=device)
@@ -155,7 +215,6 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
 
-            #  Batch metrics logs
             if i % log_interval == log_interval - 1:
                 avg_loss = running_loss / log_interval
                 current_lr = optimizer.param_groups[0]['lr']
@@ -199,8 +258,6 @@ def train_centralized(optimizer_type='sgdm', learning_rate=0.001, weight_decay=1
                 'lr': optimizer.param_groups[0]['lr']
             }
         )
-
-        # Save checkpoint
         state = {
             'epoch': epoch,
             'model_state': model.state_dict(),
@@ -244,6 +301,7 @@ if __name__ == '__main__':
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--checkpoint', type=str, default='checkpoint.pth')
     parser.add_argument('--batch_size', type = int, default=128)
+    parser.add_argument('--epochs', type=int, default=150)
     args = parser.parse_args()
 
     train_centralized(
@@ -252,6 +310,7 @@ if __name__ == '__main__':
       resume=args.resume,
       weight_decay=args.weight_decay,
       checkpoint_path=args.checkpoint,
-      batch_size=args.batch_size
+      batch_size=args.batch_size,
+      epochs=args.epochs
 )
 

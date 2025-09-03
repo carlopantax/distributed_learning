@@ -5,15 +5,24 @@ import torch
 
 class DynamicTauController:
     """
-    Controls dynamic tau adjustment for each worker based on multiple criteria
-    Tau values are restricted to powers of 2: [4, 8, 16, 32, 64]
+    Controller for dynamic adjustment of tau values in local training.
+    Tau represents the number of local epochs between synchronizations.
+    Tau values are restricted to powers of 2: [4, 8, 16, 32, 64].
     """
 
     def __init__(self, initial_tau=16, patience=3, improvement_threshold=0.01, stability_window=5):
-        # Valid tau values (powers of 2)
+        """
+        Initialize the tau controller.
+
+        Args:
+            initial_tau: Starting tau value.
+            patience: Number of epochs without improvement before reducing tau.
+            improvement_threshold: Minimum improvement in validation accuracy to consider as progress.
+            stability_window: Number of recent epochs to track for stability checks.
+        """
         self.valid_tau_values = [4, 8, 16, 32, 64]
 
-        # Ensure initial_tau is valid
+        
         self.initial_tau = self._get_closest_valid_tau(initial_tau)
         self.min_tau = min(self.valid_tau_values)
         self.max_tau = max(self.valid_tau_values)
@@ -22,37 +31,62 @@ class DynamicTauController:
         self.improvement_threshold = improvement_threshold
         self.stability_window = stability_window
 
-        # Per-client state
         self.client_states = {}
 
-        # Add some randomization to break synchronization
         self.tau_randomization = True
 
     def _get_closest_valid_tau(self, tau_value):
-        """Get the closest valid tau value (power of 2)"""
+        """
+        Get the closest valid tau value to the given input.
+
+        Args:
+            tau_value: Input tau.
+
+        Returns:
+            - Closest valid tau (power of 2).
+        """
         return min(self.valid_tau_values, key=lambda x: abs(x - tau_value))
 
     def _get_next_tau_up(self, current_tau):
-        """Get the next higher valid tau value"""
+        """
+        Get the next higher tau value.
+
+        Args:
+            current_tau: Current tau.
+
+        Returns:
+            - Next higher tau if available, otherwise the same tau.
+        """
         current_idx = self.valid_tau_values.index(current_tau)
         if current_idx < len(self.valid_tau_values) - 1:
             return self.valid_tau_values[current_idx + 1]
-        return current_tau  # Already at maximum
+        return current_tau  
 
     def _get_next_tau_down(self, current_tau):
-        """Get the next lower valid tau value"""
+        """
+        Get the next lower tau value.
+
+        Args:
+            current_tau: Current tau.
+
+        Returns:
+            - Next lower tau if available, otherwise the same tau.
+        """
         current_idx = self.valid_tau_values.index(current_tau)
         if current_idx > 0:
             return self.valid_tau_values[current_idx - 1]
-        return current_tau  # Already at minimum
+        return current_tau 
 
     def initialize_client(self, client_id):
-        """Initialize tracking state for a client"""
-        # Add slight randomization to initial tau to break synchronization
+        """
+        Initialize state tracking for a client.
+
+        Args:
+            client_id: Unique identifier of the client.
+        """
         base_tau = self.initial_tau
 
         if self.tau_randomization and len(self.valid_tau_values) > 1:
-            # Randomly choose from initial tau or one step up/down
             current_idx = self.valid_tau_values.index(base_tau)
             possible_indices = [current_idx]
 
@@ -81,20 +115,20 @@ class DynamicTauController:
             'consecutive_good_epochs': 0,
             'consecutive_bad_epochs': 0,
             'last_sync_performance': 0.0,
-            'tau_increase_streak': 0,  # Track consecutive increases
+            'tau_increase_streak': 0,
             'overfitting_detected': False
         }
 
     def compute_model_divergence(self,local_model, global_model):
         """
-        Computes the L2 divergence between local and global model parameters.
+        Compute the L2 norm divergence between local and global model parameters.
 
         Args:
-            local_model (torch.nn.Module): current client model.
-            global_model (torch.nn.Module): last synchronized model.
+            local_model: Client's local model.
+            global_model: Global reference model.
 
         Returns:
-            float: L2 norm between parameters.
+            - Divergence value as float.
         """
         divergence = 0.0
         with torch.no_grad():
@@ -103,10 +137,22 @@ class DynamicTauController:
                     divergence += torch.norm(local_param.data - global_param.data, p=2).item() ** 2
 
         return divergence ** 0.5 
+ 
 
     def should_sync_early(self, client_id, current_val_acc, current_loss, gradient_norm=None, model_divergence=None):
         """
-        Determine if client should sync before reaching current tau
+        Decide whether the client should synchronize earlier than its current tau.
+
+        Args:
+            client_id: Unique identifier of the client.
+            current_val_acc: Current validation accuracy.
+            current_loss: Current loss value.
+            gradient_norm: Optional gradient norm.
+            model_divergence: Optional model divergence.
+
+        Returns:
+            - should_sync: Boolean indicating if early synchronization is required.
+            - new_tau: Suggested tau value.
         """
         if client_id not in self.client_states:
             self.initialize_client(client_id)
@@ -114,17 +160,14 @@ class DynamicTauController:
         state = self.client_states[client_id]
         current_local_epoch = state['epochs_since_sync']
 
-        # Add current metrics to history
         state['val_acc_history'].append(current_val_acc)
         state['loss_history'].append(current_loss)
         if gradient_norm is not None:
             state['gradient_norm_history'].append(gradient_norm)
 
-        # Always complete at least min_tau epochs
         if current_local_epoch < self.min_tau:
             return False, state['current_tau']
 
-        # Check for improvement
         improved = current_val_acc > state['best_val_acc'] + self.improvement_threshold
 
         if improved:
@@ -138,13 +181,12 @@ class DynamicTauController:
             state['consecutive_bad_epochs'] += 1
             state['consecutive_good_epochs'] = 0
 
-        # Detect various conditions
         reached_max_tau = current_local_epoch >= state['current_tau']
         stagnating = state['epochs_without_improvement'] >= self.patience
         diverging = self._detect_divergence(state)
         overfitting = self._detect_overfitting(state)
 
-        # Update overfitting detection
+
         state['overfitting_detected'] = overfitting
 
         should_sync = reached_max_tau or stagnating or diverging or overfitting
@@ -161,11 +203,23 @@ class DynamicTauController:
     def _calculate_new_tau(self, state, current_epoch, reached_max_tau, stagnating,
                        diverging, overfitting, current_val_acc, model_divergence):
         """
-        Calculate a new tau value based on validation accuracy,
-        model divergence, stagnation, and overfitting.
+        Calculate the new tau value based on training dynamics.
+
+        Args:
+            state: Client state dictionary.
+            current_epoch: Epoch since last sync.
+            reached_max_tau: Whether max tau was reached.
+            stagnating: Whether training is stagnating.
+            diverging: Whether training is diverging.
+            overfitting: Whether overfitting is detected.
+            current_val_acc: Current validation accuracy.
+            model_divergence: Divergence between local and global models.
+
+        Returns:
+            - new_tau: Adjusted tau value.
         """
         current_tau = state['current_tau']
-        divergence_threshold = 1.0  
+        divergence_threshold = 1.0
 
         if reached_max_tau and not stagnating and not diverging and not overfitting:
             performance_improvement = current_val_acc - state['last_sync_performance']
@@ -240,7 +294,15 @@ class DynamicTauController:
 
 
     def _detect_divergence(self, state):
-        """Detect if training is diverging (loss increasing consistently)"""
+        """
+        Detect whether training is diverging.
+
+        Args:
+            state: Client state.
+
+        Returns:
+            - Boolean indicating divergence.
+        """
         if len(state['loss_history']) < 3:
             return False
 
@@ -248,7 +310,6 @@ class DynamicTauController:
         # Check if loss is consistently increasing
         increasing_trend = all(recent_losses[i] <= recent_losses[i + 1] for i in range(len(recent_losses) - 1))
 
-        # Also check for sudden large increase
         if len(recent_losses) >= 2:
             sudden_increase = recent_losses[-1] > recent_losses[-2] * 1.2
             return increasing_trend or sudden_increase
@@ -256,7 +317,15 @@ class DynamicTauController:
         return increasing_trend
 
     def _detect_overfitting(self, state):
-        """Detect potential overfitting patterns"""
+        """
+        Detect potential overfitting patterns.
+
+        Args:
+            state: Client state.
+
+        Returns:
+            - Boolean indicating overfitting.
+        """
         if len(state['val_acc_history']) < 3:
             return False
 
@@ -279,13 +348,18 @@ class DynamicTauController:
         return recent_decline
 
     def on_sync(self, client_id, new_tau=None):
-        """Called when client synchronizes with global model"""
+        """
+        Update client state after synchronization with the global model.
+
+        Args:
+            client_id: Unique identifier of the client.
+            new_tau: Optional new tau value.
+        """
         if client_id not in self.client_states:
             self.initialize_client(client_id)
 
         state = self.client_states[client_id]
 
-        # Store performance for next comparison
         if len(state['val_acc_history']) > 0:
             state['last_sync_performance'] = state['val_acc_history'][-1]
 
@@ -294,12 +368,9 @@ class DynamicTauController:
 
         if new_tau is not None and new_tau != state['current_tau']:
             old_tau = state['current_tau']
-            # Ensure new_tau is valid
             new_tau = self._get_closest_valid_tau(new_tau)
             state['current_tau'] = new_tau
             print(f"Client {client_id}: Tau changed from {old_tau} to {new_tau} ({state['tau_change_reason']})")
-
-        # Reset tracking state but keep some momentum
         state['best_val_acc'] = -float('inf')
         state['best_epoch'] = 0
         state['epochs_without_improvement'] = 0
@@ -308,19 +379,40 @@ class DynamicTauController:
         state['overfitting_detected'] = False
 
     def get_client_tau(self, client_id):
-        """Get current tau for a client"""
+        """
+        Get the current tau value for a client.
+
+        Args:
+            client_id: Unique identifier of the client.
+
+        Returns:
+            - Current tau value.
+        """
         if client_id not in self.client_states:
             self.initialize_client(client_id)
         return self.client_states[client_id]['current_tau']
 
     def get_tau_change_reason(self, client_id):
-        """Get the reason for the last tau change"""
+        """
+        Get the reason for the last tau adjustment of a client.
+
+        Args:
+            client_id: Unique identifier of the client.
+
+        Returns:
+            - Reason string.
+        """
         if client_id not in self.client_states:
             return "client_not_initialized"
         return self.client_states[client_id].get('tau_change_reason', 'unknown')
 
     def step_epoch(self, client_id):
-        """Increment epoch counters for a client"""
+        """
+        Increment the epoch counters for a client.
+
+        Args:
+            client_id: Unique identifier of the client.
+        """
         if client_id not in self.client_states:
             self.initialize_client(client_id)
 
@@ -329,7 +421,15 @@ class DynamicTauController:
         state['total_epochs'] += 1
 
     def get_client_stats(self, client_id):
-        """Get comprehensive stats for a client"""
+        """
+        Get a summary of the training statistics for a client.
+
+        Args:
+            client_id: Unique identifier of the client.
+
+        Returns:
+            - Dictionary with current stats.
+        """
         if client_id not in self.client_states:
             return {}
 
@@ -346,5 +446,10 @@ class DynamicTauController:
         }
 
     def get_valid_tau_values(self):
-        """Get list of valid tau values"""
+        """
+        Get the list of valid tau values.
+
+        Returns:
+            - Copy of valid tau values.
+        """
         return self.valid_tau_values.copy()

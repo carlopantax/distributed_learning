@@ -7,7 +7,32 @@ from collections import defaultdict
 
 
 class TrainingLogger:
+    """
+    Lightweight experiment logger for (distributed) training runs.
+
+    Responsibilities:
+      - Emit human-readable logs to stdout and a per-client log file.
+      - Accumulate scalar metrics in memory and persist them as a JSON file
+        (one file per client).
+      - Resume metric accumulation if a prior metrics JSON exists for this
+        (train_name, client_id) pair.
+
+    File layout (under `log_dir`):
+      - {train_name}_client{client_id}.log          
+      - {train_name}_metrics_client{client_id}.json
+    """
     def __init__(self, log_dir='logs', train_name=None, client_id=0, num_clients=1):
+        """
+        Initialize a TrainingLogger for a single logical client/worker.
+
+        Args:
+            log_dir: Root directory where logs/metrics are stored.
+            train_name: Run identifier. If None, a timestamped
+                name is generated.
+            client_id: Logical ID of this client/worker (used in filenames
+                and log prefixes).
+            num_clients: Total number of clients in the experiment.
+        """
         self.client_id = client_id
         self.num_clients = num_clients
         self.metrics = defaultdict(list)
@@ -55,7 +80,13 @@ class TrainingLogger:
 
 
     def log(self, message, level='info'):
-        """Logs a message with the specified level."""
+        """
+        Emit a one-line message at the requested severity level.
+
+        Args:
+            message: Message to log.
+            level: One of {'info','warning','error','debug'}.
+        """
         if level.lower() == 'info':
             self.logger.info(message)
         elif level.lower() == 'warning':
@@ -67,6 +98,19 @@ class TrainingLogger:
 
 
     def log_metrics(self, epoch, batch_idx, loss, batch_size, train_size, extras=None):
+        """
+        Record per-batch metrics and persist the rolling JSON snapshot.
+
+        Args:
+            epoch: Zero-based epoch index (local/global depending on caller).
+            batch_idx: Zero-based batch index within the current epoch.
+            loss: Current (averaged) loss value to log.
+            batch_size: Effective batch size used for this step.
+            train_size: Number of samples in the client's training split.
+            extras: Optional additional scalars to record. Keys are
+                stored as-is;
+                Example: {'train_acc': 83.2, 'lr': 0.01}
+        """
         elapsed = time.time() - self.start_time
         imgs_per_sec = batch_idx * batch_size / elapsed if elapsed > 0 else 0
 
@@ -107,6 +151,18 @@ class TrainingLogger:
 
 
     def log_epoch(self, epoch, epoch_loss, epoch_time, world_size=None, extras=None):
+        """
+        Record per-epoch aggregates and persist the rolling JSON snapshot.
+
+        Args:
+            epoch: Zero-based epoch index .
+            epoch_loss: Average loss over the epoch.
+            epoch_time: Wall-clock seconds spent in this epoch.
+            world_size: Number of clients/workers.
+            extras: Optional extra scalars to store at the epoch
+                granularity.
+                Example: {'train_acc': 84.1, 'val_acc': 57.3, 'lr': 0.01}
+        """
         self.metrics.setdefault('epoch_loss', []).append(epoch_loss)
         self.metrics.setdefault('epoch_time', []).append(epoch_time)
 
@@ -141,6 +197,17 @@ class TrainingLogger:
 
 
     def log_training_complete(self, total_time, total_images, num_clients=None):
+        """
+        Finalize the run: compute and store global throughput, persist metrics.
+
+        Args:
+            total_time (float): Total wall-clock seconds for the run.
+            total_images (int): Total number of training images processed by this
+                client across the entire run.
+            num_clients (int | None): If provided, overrides the stored
+                `self.num_clients` before writing. Useful when the logger did not
+                know the final world size at construction time.
+        """
         throughput = total_images / total_time
 
         self.metrics['total_time'] = total_time
